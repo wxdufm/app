@@ -5,20 +5,12 @@ import groq from 'groq'
 import client from '@/client'
 import RootLayout from '@/app/layout'
 
-const home = {
-    height: "100%",
-    width: "100%",
-    display: "flex",
-    flexDirection: "row"
-
-}
-
 
 
 const BlogIndex = ({posts}) => {
     return (
       <RootLayout>
-        <div style={home}>
+        <div className="home">
             <div>
                 <h1>WXYC</h1>
                 {/* TODO Blog Carousel */}
