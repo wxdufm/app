@@ -9,35 +9,6 @@ import RootLayout from "@/app/layout";
 import Link from "next/link";
 import { flattenDiagnosticMessageText } from "typescript";
 
-const page = {
-  width: "100%",
-  padding: "50px 0px 50px 0px",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-};
-
-const titleStyle = {
-  fontSize: "36px",
-  textAlign: "center",
-};
-
-const center = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  margin: "15px",
-  gap: "10px"
-};
-
-const tag = {
-  width: "200px",
-  padding: "10px",
-  backgroundColor: "rgba(255, 0, 102, 0.55)",
-  textAlign: "center"
-}
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -56,18 +27,18 @@ const Post = ({ post }) => {
   } = post;
   return (
     <RootLayout>
-      <div style={page}>
+      <div className="page">
         <article>
           
-          <div style={center}>
+          <div className="center">
           <Link
             href={`/blog/category/${encodeURIComponent(categorySlug)}`}
           >
-            <p style={tag}>{categoryTitle}</p>
+            <p className="tag">{categoryTitle}</p>
           </Link>
 
-          <h1 style={titleStyle}>{title}</h1>
-          <span style={center}>By {name}</span>
+          <h1 className="titleStyle">{title}</h1>
+          <span className="center">By {name}</span>
           
 
           {/* {categories && (
@@ -96,7 +67,7 @@ const Post = ({ post }) => {
             </div>
           )}
           {mainImage && (
-            <div style={center}>
+            <div className="center">
               <img src={urlFor(mainImage).width(400).url()} alt="Main Image" />
             </div>
           )}

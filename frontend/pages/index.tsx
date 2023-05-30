@@ -6,39 +6,6 @@ import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import RootLayout from "@/app/layout";
 
-const home = {
-  height: "100%",
-  width: "100%",
-  display: "flex",
-  flexDirection: "row",
-  marginBottom: "70px",
-};
-
-const left = {
-  width: "70%",
-  padding: "50px 0px 0px 5%",
-};
-
-const right = {
-  width: "30%",
-  padding: "50px 5% 0px 0px",
-};
-
-const blogPost = {
-  width: "300px",
-  height: "350px",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "flex-start",
-  justifyContent: "flex-start",
-};
-
-const blogCarousel = {
-  display: "flex",
-  flexDirection: "row",
-  listStyleType: "none",
-  gap: "20px",
-};
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -47,10 +14,10 @@ function urlFor(source) {
 const Index = ({ posts, events }) => {
   return (
     <RootLayout>
-      <div style={home}>
-        <div style={left}>
+      <div className="home">
+        <div className="left">
           <h1>WXYC This Week</h1>
-          <div style={blogCarousel}>
+          <div className="blogCarousel">
             {events.length > 0 &&
               events.map(
                 ({
@@ -61,7 +28,7 @@ const Index = ({ posts, events }) => {
                   mainImage = "",
                 }) =>
                   slug && (
-                    <div style={blogPost}>
+                    <div className="blogPost">
                       <li key={_id}>
                         <Link
                           href={`/archive/event/${encodeURIComponent(
@@ -92,7 +59,7 @@ const Index = ({ posts, events }) => {
           <br />
           <br />
           <h1>Blog Posts</h1>
-          <div style={blogCarousel}>
+          <div className="blogCarousel">
             {posts.length > 0 &&
               posts.map(
                 ({
@@ -104,7 +71,7 @@ const Index = ({ posts, events }) => {
                   name = "",
                 }) =>
                   slug && (
-                    <div style={blogPost}>
+                    <div className="blogPost">
                       <li key={_id}>
                         <Link
                           href={`/blog/post/${encodeURIComponent(
@@ -131,7 +98,7 @@ const Index = ({ posts, events }) => {
               )}
           </div>
         </div>
-        <div style={right}>
+        <div className="right">
           <h1>SIMULCAST EMBED</h1>
           <iframe
             style={{ borderRadius: "12px" }}
