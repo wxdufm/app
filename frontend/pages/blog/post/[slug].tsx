@@ -58,14 +58,6 @@ const Post = ({ post }) => {
           </ul>
         )} */}
 
-          {authorImage && (
-            <div>
-              <img
-                src={urlFor(authorImage).width(50).url()}
-                alt={`${name}'s picture`}
-              />
-            </div>
-          )}
           {mainImage && (
             <div className="center">
               <img src={urlFor(mainImage).width(400).url()} alt="Main Image" />
@@ -87,7 +79,6 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   "name": author->name,
   "categoryTitle": category->title,
   "categorySlug": category->categorySlug,
-  "authorImage": author->image,
   mainImage,
   body
 }`;

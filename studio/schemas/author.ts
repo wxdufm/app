@@ -20,14 +20,6 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
       name: 'bio',
       title: 'Bio',
       type: 'array',
