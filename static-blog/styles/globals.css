@@ -1,0 +1,150 @@
+.app {
+  background-color: black;
+  
+  color: white;
+  font-size: 14px;
+  width: 92%;
+  height: 100%; 
+  margin:0px;
+  margin-top: 0px;
+  padding-left: 4%; 
+  padding-right: 4%;
+}
+  
+.nav {
+  color: black;
+  font-size: 16px;
+  /* need to install poppins */
+  font-family: "Poppins";
+  text-decoration: none;
+}
+  
+.header {
+  /* width: 100%; */
+  text-decoration: none;
+}
+  
+.title {
+  color: white;
+  font-family: "Poppins";
+  font-size: 50px;
+  /* padding: "50px"; */
+  font-weight: "bolder";
+  text-decoration: none;
+  margin: 0px;
+}
+  
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  background-color: white;
+  padding: 15px 0px 15px 0px;
+  width: 100%;
+}
+  
+.post-prev-dis {
+  display: flex;
+  flex-direction: row;
+  gap: 15px
+}
+  
+.post-preview {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.blog-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.blog-post {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+img {
+  object-fit: cover;
+}
+
+h3 {
+  margin: 0px;
+}
+
+h1 {
+  margin: 0px;
+}
+
+.archive-event {
+  width: 300px;
+}
+
+.events-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.navb {
+  color: black;
+  text-decoration: none;
+  margin: 0px;
+  font-family: "Poppins";
+}
+
+/* BlogPostCarousel.module.css */
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  /* width: 60%; */
+}
+
+.slide {
+  flex: 0 0 31%;
+  scroll-snap-align: start;
+  /* Add any desired styling for the blog post slide */
+}
+
+.h2 {
+  margin: 0px;
+}
+
+.home {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 0%;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  align-items: center;
+  /* justify-content: center; */
+  margin-top: 40px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}

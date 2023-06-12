@@ -10,14 +10,18 @@ export default function PostList(props) {
     variables: props.variables,
     data: props.data,
   });
-  const postsList = data.postConnection.edges;
+
+
+  const postsList = data.blogConnection.edges;
+
   return (
     <Layout>
-      <h1>Posts</h1>
-      <div>
+      <h1>WXYC PRESS (?)</h1>
+      <div className="blog-grid">
         {postsList.map((post) => (
-          <div key={post.node.id}>
-            <Link href={`/posts/${post.node._sys.filename}`}>
+          <div key={post.node.id} className="blog-post">
+            <img src={post.node.cover} width="300px" height="300px" alt=""/>
+            <Link href={`/blog/${post.node._sys.filename}`}>
               <a>{post.node._sys.filename}</a>
             </Link>
           </div>
@@ -28,9 +32,9 @@ export default function PostList(props) {
 }
 
 export const getStaticProps = async () => {
-  const { data, query, variables } = await client.queries.postConnection();
+  const { data, query, variables } = await client.queries.blogConnection();
 
-  return {
+  return { 
     props: {
       data,
       query,

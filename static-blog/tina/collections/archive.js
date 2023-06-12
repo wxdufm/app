@@ -1,7 +1,7 @@
 export default {
-    label: "Blog Posts",
-    name: "post",
-    path: "content/post",
+    label: "Archive",
+    name: "archive",
+    path: "content/archive",
     format: 'md',
     fields: [
       {
@@ -11,8 +11,14 @@ export default {
       },
       {
         type: "string",
-        label: "Author",
-        name: "author",
+        label: "Cover",
+        name: "cover",
+      },
+      {
+        type: 'string',
+        label: 'Tags',
+        name: 'tags',
+        list: true,
       },
       {
         type: "datetime",
@@ -21,8 +27,8 @@ export default {
       },
       {
         type: "string",
-        label: "Blog Post Body",
-        name: "body",
+        label: "Post Description",
+        name: "description",
         isBody: true,
         ui: {
           component: "textarea",
@@ -31,7 +37,7 @@ export default {
     ],
     ui: {
       router: ({ document }) => {
-        return `/posts/${document._sys.filename}`;
+        return `/archive/${document._sys.filename}`;
       },
     },
   };

@@ -1,6 +1,7 @@
 import { Layout } from "../../components/Layout";
 import { useTina } from "tinacms/dist/react";
 import { client } from "../../tina/__generated__/client";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 
 const PostPage = (props) => {
@@ -20,9 +21,25 @@ const PostPage = (props) => {
             backgroundColor: "lightgray",
           }}
         >
-          <h1>{data.post.title}</h1>
-          {JSON.stringify(data.post, null, 2)}
+          <h1>{data.blog.title}</h1>
+          <h3>{data.blog.author}</h3>
+          <p>{data.blog.body}</p>
+          <img src={data.blog.cover} alt=""/>
+          
+          {/* <TinaMarkdown content={data.post.body}/> */}
+          {/* {JSON.stringify(data.post,   null, 2)} */}
         </pre>
+        <body>
+          <p>{data.blog.title}</p>
+          {data.blog.tags &&
+            <div>
+              {data.blog.tags.map((tag) => (
+                <div key={tag.id}>
+                <p>{tag}</p>
+                </div>
+              ))}
+            </div>}
+        </body>
       </code>
     </Layout>
   );
@@ -32,8 +49,8 @@ export default PostPage;
 
 
 export const getStaticPaths = async () => {
-  const { data } = await client.queries.postConnection();
-  const paths = data.postConnection.edges.map((x) => {
+  const { data } = await client.queries.blogConnection();
+  const paths = data.blogConnection.edges.map((x) => {
     return { params: { slug: x.node._sys.filename } };
   });
 
@@ -44,15 +61,16 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (ctx) => {
-  const { data, query, variables } = await client.queries.post({
+  const { data, query, variables } = await client.queries.blog({
     relativePath: ctx.params.slug + ".md",
   });
 
-  return {
+  return { 
+
     props: {
       data,
       query,
       variables,
-    },
-  };
+    }
 };
+}
