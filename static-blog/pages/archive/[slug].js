@@ -30,14 +30,13 @@ const EventPage = (props) => {
           {/* <TinaMarkdown content={data.post.body}/> */}
           {/* {JSON.stringify(data.post,   null, 2)} */}
    
-          {data.archive.tags &&
+          {data.archive.categories &&
             <div>
-              {data.archive.tags.map((tag) => (
-                <div key={tag.id}>
-                  {/* every category needs a slug */}
-                  <Link href={`/archive/category/${tag}`}>
-                    <p>{tag}</p>
-                  </Link>
+              {data.archive.categories.map((category) => (
+                <div key={category.category.id}>
+                <Link href={`/archive/category/${category.category.slug}`}>
+                  <p>{category.category.title}</p>
+                </Link>
                 </div>
               ))}
             </div>}
@@ -63,6 +62,7 @@ export const getStaticPaths = async () => {
     fallback: "blocking",
   };
 };
+
 
 export const getStaticProps = async (ctx) => {
   const { data, query, variables } = await client.queries.archive({

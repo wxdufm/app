@@ -8,7 +8,10 @@ published: 2022-07-01T04:00:00.000Z
 description: >-
   July 2022 By KP While at Pitchfork, I had the joy of talking to Ray Angry, a
   keyboardist, producer, and all-around talented musician...
+categories:
+  - category: content/category/artist-interview.md
 ---
+
 
 
 

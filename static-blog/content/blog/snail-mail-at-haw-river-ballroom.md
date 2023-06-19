@@ -6,7 +6,10 @@ cover: 'http://localhost:3000/uploads/img_7515.webp'
 tags:
   - Show Review
 published: 2022-08-20T04:00:00.000Z
+categories:
+  - category: content/category/show-review.md
 ---
+
 
 
 Openers

@@ -3,12 +3,14 @@ import { defineConfig, defineSchema } from "tinacms";
 import collectionPage from './collections/page.js';
 import collectionBlog from './collections/blog.js';
 import collectionArchive from './collections/archive.js';
+import collectionCategory from './collections/category.js'
 
 const schema = defineSchema({
   collections: [
     collectionPage,
     collectionBlog,
-    collectionArchive
+    collectionArchive, 
+    collectionCategory
   ]
 });
 

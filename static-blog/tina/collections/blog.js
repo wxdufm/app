@@ -1,34 +1,54 @@
+import { wrapFieldsWithMeta } from "tinacms";
+
 export default {
     label: "Blog Posts",
     name: "blog",
     path: "content/blog",
     format: 'md',
+    ui: {
+      filename: {
+        // if disabled, the editor can not edit the filename
+        readonly: true,
+        // Example of using a custom slugify function
+        slugify: values => {
+          // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
+          // 
+          return `${values?.title?.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, '-')}`
+        },
+      },
+    },
     fields: [
       {
         type: "string",
         label: "Title",
         name: "title",
+        placeholder: "post title"
       },
       {
         type: "string",
         label: "Author",
         name: "author",
+        placeholder: "post author"
       },
       {
-        type: "string",
-        label: "Cover",
-        name: "cover",
-      },
-      {
-        name: 'hero',
+        name: 'cover',
         type: 'image',
-        label: 'Hero Image',
+        label: 'Cover Image',
       },
       {
-        type: 'string',
-        label: 'Tags',
-        name: 'tags',
+        type: "object",
         list: true,
+        name: "categories",
+        label: "Categories",
+       
+        fields: [
+          {
+            type: "reference",
+            label: "Category",
+            name: "category",
+            collections: ["category"]
+          },
+        ],
       },
       {
         type: "datetime",
@@ -39,20 +59,22 @@ export default {
         type: "string",
         label: "Post Description",
         name: "description",
+        placeholder: "post description"
       },
       {
         type: "string",
         label: "Blog Post Body",
         name: "body",
+        placeholder: "post body",
         isBody: true,
         ui: {
           component: "textarea",
         },
       },
     ],
-    ui: {
-      router: ({ document }) => {
-        return `/blog/${document._sys.filename}`;
-      },
-    },
+    // ui: {
+    //   router: ({ document }) => {
+    //     return `/blog/${document._sys.filename}`;
+    //   },
+    // },
   };

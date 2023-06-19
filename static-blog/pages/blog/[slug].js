@@ -2,6 +2,7 @@ import { Layout } from "../../components/Layout";
 import { useTina } from "tinacms/dist/react";
 import { client } from "../../tina/__generated__/client";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
+import Link from "next/link";
 
 
 const PostPage = (props) => {
@@ -15,32 +16,28 @@ const PostPage = (props) => {
 
   return (
     <Layout>
-      <code>
-        <pre
-          style={{
-            backgroundColor: "lightgray",
-          }}
-        >
-          <h1>{data.blog.title}</h1>
-          <h3>{data.blog.author}</h3>
-          <p>{data.blog.body}</p>
-          <img src={data.blog.cover} alt=""/>
-          
-          {/* <TinaMarkdown content={data.post.body}/> */}
-          {/* {JSON.stringify(data.post,   null, 2)} */}
-        </pre>
-        <body>
-          <p>{data.blog.title}</p>
-          {data.blog.tags &&
+          <Link href="/blog">
+            <p>← Back</p>
+          </Link>
+          {data.blog.categories &&
             <div>
-              {data.blog.tags.map((tag) => (
-                <div key={tag.id}>
-                <p>{tag}</p>
+              {data.blog.categories.map((category) => (
+                <div key={category.category.id}>
+                <Link href={`/blog/category/${category.category.slug}`}>
+                  <p>{category.category.title}</p>
+                </Link>
                 </div>
               ))}
             </div>}
-        </body>
-      </code>
+          <h1>{data.blog.title}</h1>
+          <h3>{data.blog.author}</h3>
+          {/* <p>{data.blog.body}</p> */}
+          <img src={data.blog.cover} alt="" width="300px" height="300px"/>
+          
+          {/* <TinaMarkdown content={data.post.body}/> */}
+          {/* {JSON.stringify(data.post,   null, 2)} */}
+        
+        
     </Layout>
   );
 }
@@ -68,8 +65,8 @@ export const getStaticProps = async (ctx) => {
   return { 
 
     props: {
-      data,
-      query,
+      data, 
+      query, 
       variables,
     }
 };

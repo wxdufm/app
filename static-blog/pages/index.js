@@ -3,6 +3,9 @@ import { Layout } from "../components/Layout";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
 import Link from "next/link";
+import { useGraphQL } from "tinacms"
+import PostPreview from "../components/PostPreview";
+
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -11,17 +14,9 @@ export default function Home(props) {
   //   variables: props.variables,
   //   data: props.data,
   // });
-  const startDate = new Date();
-  const endDate = new Date();
-  endDate.setDate(startDate.getDate() + 7);
 
   const posts = props.data.blogConnection.edges;
   const events = props.data.archiveConnection.edges;
-  const filteredEvents = events.filter((event) => {
-    const eventDate = new Date(event.node.published);
-    return eventDate >= startDate && eventDate <= endDate;
-  });
-  const eventDate = new Date(events[0].node.published);
 
   // const content = data.page.body;
   return (
@@ -32,74 +27,57 @@ export default function Home(props) {
           {events && (
             <div className="carousel">
               {events.map((event) => (
-                <div key={event.node.id} className="slide">
-                  <Link href={`/archive/${event.node._sys.filename}`}>
-                    <div>
-                      <img
-                        src={event.node.cover}
-                        alt=""
-                        height="250"
-                        width="250"
-                      />
-                      <h3>{event.node.title}</h3>
-                      <p>{event.node.description.substring(0, 100)}...</p>
-                    </div>
-                  </Link>
-                  <p>{event.node.published}</p>
-                </div>
+                <EventPreview
+                id={event.event.id}
+                title={event.event.title}
+                cover={event.event.cover}
+                subtitle={event.event.description?.substring(0, 150)}
+                published={event.event.published}
+                slug={event.event._sys.filename}
+              />
               ))}
             </div>
           )}
+          <Link href="/archive">
+              <h2>archive {'>'}</h2>
+          </Link>
 
           {/* blog preview */}
           <h1>Blog Posts</h1>
           {posts && (
             <div className="carousel">
               {posts.map((post) => (
-                <div key={post.node.id} className="slide">
-                  <Link href={`/blog/${post.node._sys.filename}`}>
-                    <div>
-                      <img
-                        src={post.node.cover}
-                        alt=""
-                        width="250"
-                        height="250"
-                      />
-                      <h3>
-                        <b>{post.node.title}</b>
-                      </h3>
-                      {post.node.description && <p>{post.node.description}</p>}
-                      {!post.node.description && (
-                        <p>{post.node.body.substring(0, 100)}...</p>
-                      )}
-                    </div>
-                  </Link>
-                </div>
+                <PostPreview 
+                id={post.node.id} 
+                title={post.node.title} 
+                slug={post.node._sys.filename} 
+                cover={post.node.cover} 
+                subtitle={ post.node.description ? post.node.description : post.node.body?.substring(0,150) + "..." }
+              />
               ))}
             </div>
           )}
+          <Link href="/blog">
+              <h2>blog {'>'}</h2>
+          </Link>
         </div>
 
         <div className="right">
+        <iframe src={`https://dj.wxyc.org/#/NowPlaying`} style={{border: '0px', width: '300px', height: '400px', overflow: 'hidden', marginBottom: "50px" }} />
           <iframe
             style={{ borderRadius: "12px" }}
             src="https://open.spotify.com/embed/playlist/2GaqYQWzfs0BiRvesw5oYk?utm_source=generator&theme=0"
             width="80%"
             height="352"
             frameBorder="0"
-            allowfullscreen=""
+            allowFullScreen=""
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
-        </div>
-        {/* <p>{filteredEvents.length}</p>
-      <p>{startDate.toString()}</p>
-      <p>{endDate.toString()}</p>
-        <p>{eventDate.toString()}</p> */}
+          {/* <iframe src={`https://dj.wxyc.org/#/NowPlaying`} style={{border: '0px', width: '320px', height: '400px', overflow: 'hidden', marginBottom: "50px" }} /> */}
 
-        {/* <div data-tina-field={tinaField(data.page, "body")}>
-        <TinaMarkdown content={content} />
-      </div> */}
+        </div>
+        
       </div>
     </Layout>
   );
@@ -111,41 +89,55 @@ export const getStaticProps = async () => {
   // });
   // const query = `SELECT * FROM events WHERE event_date BETWEEN '${formattedCurrentDate}' AND '${formattedWeekFromNow}'`;
 
+
+  const currentDateTime = new Date();
+  const startOfWeek = new Date(currentDateTime.getFullYear(), currentDateTime.getMonth(), currentDateTime.getDate() - currentDateTime.getDay());
+  const endOfWeek = new Date(currentDateTime.getFullYear(), currentDateTime.getMonth(), currentDateTime.getDate() + (6 - currentDateTime.getDay()));
+
   const { data } = await client.request({
-    query: `{
-      blogConnection {
+    
+    query: `
+    query getContent($startOfWeek: String, $endOfWeek: String)
+    {    
+        blogConnection(sort: "published", last:30, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u"){
+          edges {
+            node {
+              id
+              title
+              cover
+              published
+              description
+              
+              body
+              _sys {
+                filename
+              }
+            }
+          }
+        },
+       
+      archiveConnection(filter: {published: {after: $startOfWeek, before: $endOfWeek}}, sort: "published", last:30, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u") {
         edges {
           node {
             id
             title
-            cover
-            author
-            tags
-            published
             description
-            body
+            cover
+            published
             _sys {
               filename
             }
           }
         }
-      },
-      archiveConnection {
-        edges {
-          node {
-            id
-            title
-            description
-            cover
-            published
-            _sys {
-              filename
-            }
-          }
-        }
-      }
+      } 
     }
     `,
+    variables:
+    {
+      "endOfWeek": endOfWeek.toDateString(),
+      "startOfWeek": startOfWeek.toDateString()
+    }
+
   });
 
   return { props: { data } };

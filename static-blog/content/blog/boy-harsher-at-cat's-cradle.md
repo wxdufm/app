@@ -3,9 +3,14 @@ title: Boy Harsher at Cat’s Cradle
 author: Emilio Taiveaho Peláez
 cover: 'http://localhost:3000/uploads/boy-harsher.png'
 tags:
-  - Show Review
+  - title: Show Review
+    slug: show-review
 published: 2022-05-02T04:00:00.000Z
+categories:
+  - category: content/category/show-review.md
 ---
+
+
 
 April in North Carolina is cruel. The coming heat brings weight and density to the atmosphere as buds burst forth from vibrating red clay in frenzied growth. The same plants given hope by the sun tremble in the cold night air, threatened by the possibility of frost. Clouds of pollen creep through crevices and nostrils, penetrating the surround to perpetuate life. Life proliferates by choking life. The incessant clatter of construction closes streets and gives way to a steady drone of traffic. Rather than sing, birds cry.
 
