@@ -6,6 +6,7 @@ import { groupEventsByWeek, generateStructuredData} from "../../components/Organ
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { useRouter } from 'next/router';
+import { ParentDropdown } from "../../components/ParentDropdown";
 
 
 export default function EventList(props) {
@@ -27,11 +28,6 @@ export default function EventList(props) {
     specialtyShows.push({ label: category.node.title, value: category.node.slug});
   });
 
-  specialtyShows.forEach((show) => {
-    console.log(show.label);
-    console.log(show.value);
-  })
-
   const options = [
     { label: 'Events', value: 'events' },
     { label: 'Specialty Shows', 
@@ -45,11 +41,12 @@ export default function EventList(props) {
       <div className="flex row">
         <h1>Archive</h1>
         <Dropdown options={options} onChange={(values) => router.push(`/archive/category/${values.value}`)} value={defaultOption} placeholder="Select an option" />
+        {/* <ParentDropdown/> */}
       </div>
       <div className="archive-grid">
         {structuredData.map((event) => (
             <div key={event.id}>
-                {(event.type === 'heading') && <h3>week of {event.weekStartDate}</h3>}
+                {(event.type === 'heading') && <h2>week of {event.weekStartDate}</h2>}
                 {(event.type === 'events' &&
                 <div>
                 {event.weekEvents && 
@@ -59,7 +56,8 @@ export default function EventList(props) {
                           id={event.event.id}
                           title={event.event.title}
                           cover={event.event.cover}
-                          subtitle={event.event.description?.substring(0, 150)}
+                          //FIX
+                          subtitle={"event.event.description?.substring(0, 150)"}
                           published={event.event.published}
                           slug={event.event._sys.filename}
                         />

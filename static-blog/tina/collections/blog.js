@@ -62,14 +62,14 @@ export default {
         placeholder: "post description"
       },
       {
-        type: "string",
+        type: "rich-text",
         label: "Blog Post Body",
         name: "body",
         placeholder: "post body",
         isBody: true,
-        ui: {
-          component: "textarea",
-        },
+        // ui: {
+        //   component: "textarea",
+        // },
       },
     ],
     // ui: {

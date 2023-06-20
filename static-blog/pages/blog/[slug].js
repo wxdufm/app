@@ -17,7 +17,7 @@ const PostPage = (props) => {
   return (
     <Layout>
           <Link href="/blog">
-            <p>← Back</p>
+            <h3>{'<'} Blog</h3>
           </Link>
           {data.blog.categories &&
             <div>
@@ -30,14 +30,13 @@ const PostPage = (props) => {
               ))}
             </div>}
           <h1>{data.blog.title}</h1>
-          <h3>{data.blog.author}</h3>
-          {/* <p>{data.blog.body}</p> */}
+          <p>{data.blog.published}</p>
+          <h3>By {data.blog.author}</h3>
           <img src={data.blog.cover} alt="" width="300px" height="300px"/>
-          
-          {/* <TinaMarkdown content={data.post.body}/> */}
-          {/* {JSON.stringify(data.post,   null, 2)} */}
-        
-        
+          <TinaMarkdown content={data.blog.body} />
+          <article class="prose prose-slate">
+            {/* {data.blog.body} */}
+          </article>
     </Layout>
   );
 }
@@ -62,12 +61,59 @@ export const getStaticProps = async (ctx) => {
     relativePath: ctx.params.slug + ".md",
   });
 
+  // const { data } = await client.request({
+  //   query: `query blog($relativePath: String!) {
+  //     blog(relativePath: $relativePath) {
+  //       ... on Document {
+  //         _sys {
+  //           filename
+  //           basename
+  //           breadcrumbs
+  //           path
+  //           relativePath
+  //           extension
+  //         }
+  //         id
+  //       }
+  //       title
+  //       author
+  //       cover
+  //       categories {
+  //       __typename
+  //         category {
+  //           ... on Category {
+  //             title
+  //             slug
+  //             specialtyShow
+  //             _sys {
+  //               filename
+  //             }
+  //         }
+  //           ... on Document {
+  //             id
+  //           }
+  //         }
+  //       }
+  //       published
+  //       description
+  //       body
+  //     }
+  //   }`,
+  //   variables: 
+  //   {
+  //     relativePath: ctx.params.slug + ".md"
+  //   }
+  // })
+
+  // console.log({data});
+
   return { 
 
     props: {
       data, 
-      query, 
+      query,
       variables,
+      
     }
 };
 }

@@ -2,10 +2,14 @@ import { Layout } from "../../components/Layout";
 import Link from "next/link";
 import { useTina } from "tinacms/dist/react";
 import { client } from "../../tina/__generated__/client";
-import blog from "../../tina/collections/blog";
-import PostPreview from "../../components/PostPreview.tsx"
+import PostPreview from "../../components/PostPreview.tsx";
+import LazyLoad from 'react-lazyload';
+import { useCMS } from 'tinacms';
+
 
 export default function PostList(props) {
+  // const cms = useCMS();
+
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
     query: props.query,
@@ -14,12 +18,30 @@ export default function PostList(props) {
   });
 
 
+
   const postsList = data.blogConnection.edges;
   // console.log(postsList);
 
   return (
     <Layout>
       <h1>WXYC PRESS (?)</h1>
+
+        <LazyLoad height={200} once >
+        <div className="blog-grid">
+          {postsList.map((post) => (
+            <PostPreview 
+              id={post.node.id} 
+              title={post.node.title} 
+              slug={post.node._sys.filename} 
+              cover={post.node.cover} 
+              // TODO get description from post body somehow
+              subtitle={ post.node.description ? post.node.description : "..." }
+            />
+          ))}
+        </div>
+        </LazyLoad>
+      
+      {/* <LazyLoad height={200} once >
       <div className="blog-grid">
         {postsList.map((post) => (
           <PostPreview 
@@ -31,6 +53,7 @@ export default function PostList(props) {
           />
         ))}
       </div>
+      </LazyLoad> */}
     </Layout>
   );
 }

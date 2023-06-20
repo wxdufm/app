@@ -3,8 +3,8 @@ import { Layout } from "../components/Layout";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
 import Link from "next/link";
-import { useGraphQL } from "tinacms"
 import PostPreview from "../components/PostPreview";
+import EventPreview from "../components/EventPreview";
 
 
 export default function Home(props) {
@@ -17,6 +17,7 @@ export default function Home(props) {
 
   const posts = props.data.blogConnection.edges;
   const events = props.data.archiveConnection.edges;
+  console.log({events});
 
   // const content = data.page.body;
   return (
@@ -28,12 +29,13 @@ export default function Home(props) {
             <div className="carousel">
               {events.map((event) => (
                 <EventPreview
-                id={event.event.id}
-                title={event.event.title}
-                cover={event.event.cover}
-                subtitle={event.event.description?.substring(0, 150)}
-                published={event.event.published}
-                slug={event.event._sys.filename}
+                id={event.node.id}
+                title={event.node.title}
+                cover={event.node.cover}
+                // TODO get description from post body somehow
+                subtitle={event.node.description.toString().substring(0, 150)}
+                published={event.node.published}
+                slug={event.node._sys.filename}
               />
               ))}
             </div>
@@ -52,7 +54,8 @@ export default function Home(props) {
                 title={post.node.title} 
                 slug={post.node._sys.filename} 
                 cover={post.node.cover} 
-                subtitle={ post.node.description ? post.node.description : post.node.body?.substring(0,150) + "..." }
+                // TODO get description from post body somehow
+                subtitle={ post.node.description ? post.node.description : "..." }
               />
               ))}
             </div>
@@ -87,7 +90,6 @@ export const getStaticProps = async () => {
   // const { data, query, variables } = await client.queries.page({
   //   relativePath: "home.mdx",
   // });
-  // const query = `SELECT * FROM events WHERE event_date BETWEEN '${formattedCurrentDate}' AND '${formattedWeekFromNow}'`;
 
 
   const currentDateTime = new Date();
@@ -99,7 +101,7 @@ export const getStaticProps = async () => {
     query: `
     query getContent($startOfWeek: String, $endOfWeek: String)
     {    
-        blogConnection(sort: "published", last:30, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u"){
+        blogConnection(sort: "published", last:10, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u"){
           edges {
             node {
               id

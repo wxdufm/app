@@ -47,13 +47,10 @@ export default {
         name: "published",
       },
       {
-        type: "string",
+        type: "rich-text",
         label: "Post Description",
         name: "description",
         isBody: true,
-        ui: {
-          component: "textarea",
-        },
       },
     ],
   };

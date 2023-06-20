@@ -1,4 +1,5 @@
 import { defineConfig, defineSchema } from "tinacms";
+import * as dotenv from "dotenv";
 
 import collectionPage from './collections/page.js';
 import collectionBlog from './collections/blog.js';

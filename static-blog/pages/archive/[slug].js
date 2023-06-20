@@ -18,7 +18,7 @@ const EventPage = (props) => {
     <Layout>
  
         <Link href="/archive">
-        <p>← Back</p>
+        <h3>{'<'} Archive</h3>
         </Link>
         <div className="row">
           <img src={data.archive.cover} alt="" width="600" height="600"/>
