@@ -1,5 +1,5 @@
 import Contact  from "../components/nav/Contact"
-import { Layout } from "/Users/hayleyowens/Desktop/website/static-blog/components/Layout.js"
+import { Layout } from "../components/Layout.js"
 
 export default function ContactPage() {
     return (
