@@ -8,11 +8,19 @@ import Link from "next/link";
 const PostPage = (props) => {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
  
-  const { data } = useTina({
+  const { data, query, variables } = useTina({
     query: props.query,
     variables: props.variables,
     data: props.data,
   });
+
+  // const categories = props.categories
+  // console.log(props.categories)
+  const date = new Date(data.blog.published)
+  const dateString = date.toDateString();
+  const arr = dateString.split(' ');
+  const displayDate = `${arr[1]} ${arr[2]}, ${arr[3]}`
+
 
   return (
     <Layout>
@@ -24,17 +32,18 @@ const PostPage = (props) => {
               {data.blog.categories.map((category) => (
                 <div key={category.category.id}>
                 <Link href={`/blog/category/${category.category.slug}`}>
-                  <p>{category.category.title}</p>
+                  {/* <p>{category.category.title}</p> */}
+                  <p>{category.category._sys.filename}</p>
                 </Link>
                 </div>
               ))}
             </div>}
           <h1>{data.blog.title}</h1>
-          <p>{data.blog.published}</p>
+          <p>{displayDate}</p>
           <h3>By {data.blog.author}</h3>
           <img src={data.blog.cover} alt="" width="300px" height="300px"/>
           <TinaMarkdown content={data.blog.body} />
-          <article class="prose prose-slate">
+          <article className="prose prose-slate">
             {/* {data.blog.body} */}
           </article>
     </Layout>
@@ -60,52 +69,6 @@ export const getStaticProps = async (ctx) => {
   const { data, query, variables } = await client.queries.blog({
     relativePath: ctx.params.slug + ".md",
   });
-
-  // const { data } = await client.request({
-  //   query: `query blog($relativePath: String!) {
-  //     blog(relativePath: $relativePath) {
-  //       ... on Document {
-  //         _sys {
-  //           filename
-  //           basename
-  //           breadcrumbs
-  //           path
-  //           relativePath
-  //           extension
-  //         }
-  //         id
-  //       }
-  //       title
-  //       author
-  //       cover
-  //       categories {
-  //       __typename
-  //         category {
-  //           ... on Category {
-  //             title
-  //             slug
-  //             specialtyShow
-  //             _sys {
-  //               filename
-  //             }
-  //         }
-  //           ... on Document {
-  //             id
-  //           }
-  //         }
-  //       }
-  //       published
-  //       description
-  //       body
-  //     }
-  //   }`,
-  //   variables: 
-  //   {
-  //     relativePath: ctx.params.slug + ".md"
-  //   }
-  // })
-
-  // console.log({data});
 
   return { 
 

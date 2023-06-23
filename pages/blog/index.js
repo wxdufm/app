@@ -4,12 +4,9 @@ import { useTina } from "tinacms/dist/react";
 import { client } from "../../tina/__generated__/client";
 import PostPreview from "../../components/PostPreview.tsx";
 import LazyLoad from 'react-lazyload';
-import { useCMS } from 'tinacms';
 
 
 export default function PostList(props) {
-  // const cms = useCMS();
-
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
     query: props.query,
@@ -17,18 +14,15 @@ export default function PostList(props) {
     data: props.data,
   });
 
-
-
   const postsList = data.blogConnection.edges;
   // console.log(postsList);
 
   return (
     <Layout>
       <h1>WXYC PRESS (?)</h1>
-
-        <LazyLoad height={200} once >
         <div className="blog-grid">
           {postsList.map((post) => (
+          <LazyLoad height={200} once={true}>
             <PostPreview 
               id={post.node.id} 
               title={post.node.title} 
@@ -37,33 +31,28 @@ export default function PostList(props) {
               // TODO get description from post body somehow
               subtitle={ post.node.description ? post.node.description : "..." }
             />
+            </LazyLoad>
           ))}
         </div>
-        </LazyLoad>
-      
-      {/* <LazyLoad height={200} once >
-      <div className="blog-grid">
-        {postsList.map((post) => (
-          <PostPreview 
-            id={post.node.id} 
-            title={post.node.title} 
-            slug={post.node._sys.filename} 
-            cover={post.node.cover} 
-            subtitle={ post.node.description ? post.node.description : post.node.body?.substring(0,150) + "..." }
-          />
-        ))}
-      </div>
-      </LazyLoad> */}
     </Layout>
   );
 }
 
 export const getStaticProps = async () => {
   // const { data, query, variables } = await client.queries.blogConnection();
+  const length = await client.request({
+    query: `{
+      blogConnection {
+        totalCount
+      }
+    }`
+  })
+
   const { data } = await client.request({
     query: `
+    query getContent($postCount: Float)
     {
-      blogConnection(sort: "published", last:30, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u"){
+      blogConnection(sort: "published", last: $postCount, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u"){
         edges {
           node {
             id
@@ -79,7 +68,11 @@ export const getStaticProps = async () => {
         }
       }
     }
-    `
+    `,
+    variables: 
+    {
+      postCount: length.data.blogConnection.totalCount
+    }
   })
 
   return { 

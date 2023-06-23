@@ -10,11 +10,6 @@ export default {
         name: "title",
       },
       {
-        type: "string",
-        label: "slug",
-        name: "slug"
-      },
-      {
         type: "boolean",
         label: "Specialty Show",
         name: "specialtyShow"

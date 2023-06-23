@@ -66,6 +66,7 @@ export default function Home(props) {
         </div>
 
         <div className="right">
+
         <iframe src={`https://dj.wxyc.org/#/NowPlaying`} style={{border: '0px', width: '300px', height: '400px', overflow: 'hidden', marginBottom: "50px" }} />
           <iframe
             style={{ borderRadius: "12px" }}

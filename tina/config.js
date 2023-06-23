@@ -1,12 +1,14 @@
 import { defineConfig, defineSchema } from "tinacms";
 import * as dotenv from "dotenv";
 
+// dotenv.config();
+
 import collectionPage from './collections/page.js';
 import collectionBlog from './collections/blog.js';
 import collectionArchive from './collections/archive.js';
 import collectionCategory from './collections/category.js'
 
-dotenv.config();
+// dotenv.config();
 
 const schema = defineSchema({
   collections: [

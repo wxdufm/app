@@ -25,7 +25,7 @@ const EventPage = (props) => {
 
           <div className="column">
           <h1>{data.archive.title}</h1>
-          <h3>{data.archive.description}</h3>
+          {/* <h3>{data.archive.description}</h3> */}
        
           {/* <TinaMarkdown content={data.post.body}/> */}
           {/* {JSON.stringify(data.post,   null, 2)} */}
@@ -69,12 +69,38 @@ export const getStaticProps = async (ctx) => {
     relativePath: ctx.params.slug + ".md",
   });
 
+  // const {categories} = await client.request({
+  //   query: `
+  //   query getCategories ($relativePath: String) {
+  //     archive(relativePath: $relativePath) {
+  //       title
+  //        categories {
+  //         category {
+  //           ... on Category {
+  //             title
+                //  _sys {
+                //   filename
+                //  }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  //   `,
+  //   variables: 
+  //   {
+  //     relativePath: ctx.params.slug + ".md"
+  //   }
+  // })
+
+
+
   return { 
 
     props: {
       data,
       query,
-      variables,
+      variables
     }
 };
 }

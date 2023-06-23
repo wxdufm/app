@@ -6,6 +6,7 @@ import { groupEventsByWeek, generateStructuredData} from "../../components/Organ
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { useRouter } from 'next/router';
+import LazyLoad from 'react-lazyload';
 import { ParentDropdown } from "../../components/ParentDropdown";
 
 
@@ -52,6 +53,7 @@ export default function EventList(props) {
                 {event.weekEvents && 
                   <div className="events-row">
                     {event.weekEvents.map((event) => (
+                      <LazyLoad height={200} once={true}>
                         <EventPreview
                           id={event.event.id}
                           title={event.event.title}
@@ -61,6 +63,7 @@ export default function EventList(props) {
                           published={event.event.published}
                           slug={event.event._sys.filename}
                         />
+                      </LazyLoad>
                     ))}
                     </div>}
                 </div>)}
@@ -73,10 +76,19 @@ export default function EventList(props) {
 }
 
 export const getStaticProps = async () => {
+  const length = await client.request({
+    query: `{
+      blogConnection {
+        totalCount
+      }
+    }`
+  })
+
   const { data } = await client.request({
     query: `
+    query getContent($eventCount: Float)
     {
-      archiveConnection(sort: "published", last:30, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u"){
+      archiveConnection(sort: "published", last: $eventCount, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u"){
         edges {
           node {
             id
@@ -100,7 +112,10 @@ export const getStaticProps = async () => {
         }
       }
     }
-    `
+    `,
+    variables: {
+      eventCount: length.data.blogConnection.totalCount
+    }
   });
 
   return { 
@@ -108,5 +123,6 @@ export const getStaticProps = async () => {
       data,
       //myOtherProp: 'some-other-data',
     },
+    // revalidate: 10,
   };
 };

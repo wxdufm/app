@@ -3,7 +3,7 @@ import { EventPreviewData } from "./PostPreviewData"
 
 const EventPreview = (props: EventPreviewData) => {
     return (
-        <div className="archive-event" key={props.id}>
+        <div key={props.id} className="archive-event">
             <Link href={`/archive/${props.slug}`}>
                 <div>
                     <img src={props.cover} alt="" width="250" height="250"/>
