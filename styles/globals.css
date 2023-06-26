@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* .app {
+  background-color: black;
+  font-family: "Helvetica";
+  color: white;
+  font-size: 14px;
+  width: 92%;
+  height: 100%; 
+  margin:0px;
+  padding-left: 4%; 
+  padding-right: 4%;
+}
+  
+body {
+  margin: 0;
+}
+
+.nav {
+  color: black;
+  font-size: 16px;
+  text-decoration: none;
+}
+  
+.header {
+  text-decoration: none;
+  margin-bottom: 50px;
+}
+  
+.title {
+  color: white;
+  font-size: 50px;
+  font-weight: "bolder";
+  text-decoration: none;
+  margin: 0px;
+}
+  
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  background-color: white;
+  padding: 15px 0px 15px 0px;
+  width: 100%;
+}
+  
+.post-prev-dis {
+  display: flex;
+  flex-direction: row;
+  gap: 15px
+}
+  
+.post-preview {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.blog-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.blog-post {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 300px;
+}
+
+img {
+  object-fit: cover;
+}
+
+h3 {
+  margin: 0px;
+}
+
+h1 {
+  margin: 0px;
+}
+
+.archive-event {
+  width: 300px;
+}
+
+.events-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.navb {
+  color: black;
+  text-decoration: none;
+  margin: 0px;
+}
+
+.h2 {
+  margin: 0px;
+}
+
+.home {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 0%;
+  justify-content: center;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+} */
