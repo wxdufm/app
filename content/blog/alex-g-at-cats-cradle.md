@@ -10,16 +10,11 @@ categories:
   - category: content/category/show-review.md
 ---
 
-
-
-
-
-
 In September 2019, indie-rock darling Alex G released House of Sugar, his latest LP and ninth studio alb­­um. A mix of the familiar and the disorientating, where every listen revealed new intricacies in his layered arrangements, gorgeous melodies, and denser productions, the album was heralded by many as his best work to date. The 2020 tour for House of Sugar never came to pass, so upon hearing that Alex had announced an Autumn/Winter 2021 tour, I jumped at the chance to go.
 
 Reductively, Alex G’s music is quirky, idiosyncratic indie rock. Although described as “dreamy’ or “lo-fi,” it often ventures into other territories: country, industrial, electronic. Performed by any other artist, his music could’ve easily turned into a staid indie show, but the efforts of the opening act, his three-piece backing band, the lighting and sound technicians, and, of course, Alex Giannascoli himself, ensured an electrifying performance.
 
-The concert opened with EXUM: a former NFL player, who was an unexpected presence on stage but nevertheless exceeded expectations. He introduced the crowd to his work with several songs off his debut album Xardinal Coffee, an everything-but-the-kitchen-sink blend of pop-rap, experimental hip hop, and alternative R&B. Using flashing lights to render himself into a live stop-motion animation while performing songs like “Strawberry Sweet”, a catchy, saccharine piece of island pop, and “Arrest the Dancer,” a bouncy, Prince-esque funk number, EXUM’s energy and stage presence captured the attention of the crowd.
+The concert opened with EXUM: a former NFL player, who was an unexpected presence on stage but nevertheless exceeded expectations. He introduced the crowd to his work with several songs off his debut album Xardinal Coffee, an everything-but-the-kitchen-sink blend of pop-rap, experimental hip hop, and alternative R\&B. Using flashing lights to render himself into a live stop-motion animation while performing songs like “Strawberry Sweet”, a catchy, saccharine piece of island pop, and “Arrest the Dancer,” a bouncy, Prince-esque funk number, EXUM’s energy and stage presence captured the attention of the crowd.
 
 EXUM’s vulnerability bled through his writing, a far cry from the hypermasculine world of professional football he left behind. His writing was, in part, shaped by a near-death experience on the operating table that left him wholly convinced of his dedication to music. “You can’t really be scared of anything else after something like that happens,” he said. “It solidified where I was going at the time and what I was doing. I knew 100 percent that I was doing the right thing…and that I need to follow this with everything that I have.”
 

@@ -3,6 +3,7 @@ import { EventPreviewData } from "./PostPreviewData"
 
 const EventPreview = (props: EventPreviewData) => {
 
+    // rendered on the archive tabs
     if (!props.published) {
         return (
             <div key={props.id} className="flex flex-col gap-5 w-80">
@@ -23,6 +24,7 @@ const EventPreview = (props: EventPreviewData) => {
     const arrTime = arr[2].split("T");
     const displayDate = `${arr[1]}/${arrTime[0]}`
 
+    // rendered on home page with "xx/xx"
     return (
         <div key={props.id} className="archive-event">
             <Link href={`/archive/${props.slug}`}>
