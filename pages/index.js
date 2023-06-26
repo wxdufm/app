@@ -45,14 +45,15 @@ export default function Home(props) {
           {posts && (
             <div className="carousel">
               {posts.map((post) => (
+                <div key={post.node.id}>
                 <PostPreview 
                 id={post.node.id} 
                 title={post.node.title} 
                 slug={post.node._sys.filename} 
                 cover={post.node.cover} 
-                // TODO get description from post body somehow
                 subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 150) + "..." }
               />
+              </div>
               ))}
             </div>
           )}

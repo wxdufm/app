@@ -3,6 +3,7 @@ import { client } from "../../../tina/__generated__/client";
 import EventPreview from "../../../components/EventPreview";
 import {groupEventsByWeek, generateStructuredData} from '../../../components/OrganizingArchive';
 import Link from "next/link";
+import ArchiveHeader from "../../../components/ArchiveHeader";
 
 const EventsCategoryPage = (props) => {
 
@@ -17,8 +18,14 @@ const EventsCategoryPage = (props) => {
     structuredData = generateStructuredData(groupedEvents);
   }
 
+  let specialtyShows = [];
+  props.data.categoryConnection.edges.forEach((category) => {
+    specialtyShows.push({ label: category.node.title, value: category.node._sys.filename});
+  });
+
   return (
     <Layout>
+      <ArchiveHeader specialtyShows={specialtyShows}/>
       <Link href="/archive">
         <p>← Back</p>
       </Link>
@@ -73,7 +80,18 @@ export const getStaticProps = async () => {
           }
         }
       }
-    }
+    },
+    categoryConnection(filter: {specialtyShow: { eq:true}}) {
+        edges {
+          node {
+            id
+            title
+            _sys {
+              filename
+            }
+          }
+        }
+      }
   }`
   })
 

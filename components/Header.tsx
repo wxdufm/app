@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link"
+import DropdownMenu from "./DropdownMenu";
 
 const Header = () => {
     return (
@@ -16,7 +17,6 @@ const Header = () => {
                 <Link href="/about">
                     <p className="text-black text-base no-underline">About</p>
                 </Link>
-                {/* <Link href="/schedule" className="nav">DJ Schedule</Link> */}
                 <Link href="/programming" className="nav">
                     <p className="text-black text-base no-underline">Programming</p>
                 </Link>
@@ -29,11 +29,9 @@ const Header = () => {
                 <Link href="/contact">
                     <p className="text-black text-base no-underline">Contact</p>
                 </Link>
- 
-                <Link href="/playlist">
-                    <p className="text-black text-base no-underline">Listen</p>
-                </Link>
 
+                <DropdownMenu/>
+ 
                 <Link href="https://wxyc.bigcartel.com/" legacyBehavior>
                     <a target="_blank" rel="noopener noreferrer" className="text-black text-base no-underline">Merch</a>
                 </Link>

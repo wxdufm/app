@@ -29,6 +29,7 @@ export default function EventList(props) {
                 {event.weekEvents && 
                   <div className="flex flex-row justify-start gap-4">
                     {event.weekEvents.map((event) => (
+                    <div key={event.event.id}>
                       <LazyLoad height={200} once={true}>
                         <EventPreview
                           id={event.event.id}
@@ -38,6 +39,7 @@ export default function EventList(props) {
                           slug={event.event._sys.filename}
                         />
                       </LazyLoad>
+                    </div>
                     ))}
                     </div>}
                 </div>)}
