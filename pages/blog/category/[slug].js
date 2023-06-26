@@ -2,6 +2,7 @@ import { Layout } from "../../../components/Layout";
 import { client } from "../../../tina/__generated__/client";
 import Link from "next/link";
 import PostPreview from "../../../components/PostPreview";
+import BlogHeader from "../../../components/BlogHeader";
 
 const BlogCategoryPage = (props) => {
   let sortedEvents = [];
@@ -15,6 +16,7 @@ const BlogCategoryPage = (props) => {
 
   return (
     <Layout>
+      <BlogHeader/>
       <Link href="/blog">
         <p>← Back</p>
       </Link>

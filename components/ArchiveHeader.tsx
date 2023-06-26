@@ -1,4 +1,3 @@
-import Dropdown from "react-dropdown"
 import * as React from "react"
 import Link from "next/link";
 import { Menu } from "@headlessui/react"
@@ -26,7 +25,7 @@ const ArchiveHeader = (props) => {
                       </Menu.Button>
                       <Menu.Items>
                         {props.specialtyShows.map((option) => (
-                          <div className="py-1">
+                          <div key={option.value} className="py-1">
                             <Menu.Item>
                               <Link legacyBehavior={false} href={`/archive/category/${option.value}`}>
                                 <p className="group-flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 hover:text-white">{option.label}</p>

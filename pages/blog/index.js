@@ -2,16 +2,14 @@ import { Layout } from "../../components/Layout";
 import { client } from "../../tina/__generated__/client";
 import PostPreview from "../../components/PostPreview.tsx";
 import LazyLoad from 'react-lazyload';
-import { Menu } from '@headlessui/react'
-import DropdownMenu from "../../components/DropdownMenu"
+import BlogHeader from "../../components/BlogHeader"
 
 export default function PostList(props) {
   const postsList = props.data.blogConnection.edges;
 
   return (
     <Layout>
-      <DropdownMenu/>
-      <h1>WXYC PRESS (?)</h1>
+      <BlogHeader/>
         <div className="flex flex-row flex-wrap gap-4">
           {postsList.map((post) => (
           <LazyLoad height={200} once={true}>

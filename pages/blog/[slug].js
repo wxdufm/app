@@ -3,6 +3,7 @@ import { useTina } from "tinacms/dist/react";
 import { client } from "../../tina/__generated__/client";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import Link from "next/link";
+import BlogHeader from "../../components/BlogHeader"
 
 
 const PostPage = (props) => {
@@ -20,6 +21,7 @@ const PostPage = (props) => {
 
   return (
     <Layout>
+      <BlogHeader/>
           <Link href="/blog">
             <h3>{'<'} Blog</h3>
           </Link>
