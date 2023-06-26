@@ -1,26 +1,16 @@
 import { Layout } from "../../components/Layout";
-import Link from "next/link";
-import { useTina } from "tinacms/dist/react";
 import { client } from "../../tina/__generated__/client";
 import PostPreview from "../../components/PostPreview.tsx";
 import LazyLoad from 'react-lazyload';
 
 
 export default function PostList(props) {
-  // data passes though in production mode and data is updated to the sidebar data in edit-mode
-  const { data } = useTina({
-    query: props.query,
-    variables: props.variables,
-    data: props.data,
-  });
-
-  const postsList = data.blogConnection.edges;
-  // console.log(postsList);
+  const postsList = props.data.blogConnection.edges;
 
   return (
     <Layout>
       <h1>WXYC PRESS (?)</h1>
-        <div className="blog-grid">
+        <div className="flex flex-row flex-wrap gap-4">
           {postsList.map((post) => (
           <LazyLoad height={200} once={true}>
             <PostPreview 
@@ -28,8 +18,7 @@ export default function PostList(props) {
               title={post.node.title} 
               slug={post.node._sys.filename} 
               cover={post.node.cover} 
-              // TODO get description from post body somehow
-              subtitle={ post.node.description ? post.node.description : "..." }
+              subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 150) }
             />
             </LazyLoad>
           ))}
@@ -39,7 +28,6 @@ export default function PostList(props) {
 }
 
 export const getStaticProps = async () => {
-  // const { data, query, variables } = await client.queries.blogConnection();
   const length = await client.request({
     query: `{
       blogConnection {
@@ -78,9 +66,6 @@ export const getStaticProps = async () => {
   return { 
     props: {
       data,
-      // query,
-      // variables,
-      //myOtherProp: 'some-other-data',
     },
   };
 };

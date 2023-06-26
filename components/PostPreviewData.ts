@@ -11,7 +11,11 @@ export interface EventPreviewData {
     id: string;
     title: string;
     cover: string;
-    published: string;
+    published?: string;
     slug: string;
     subtitle: string;
+}
+
+export interface ArchiveHeaderData {
+    categories: [{}]
 }

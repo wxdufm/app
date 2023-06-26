@@ -4,11 +4,10 @@ import EventPreview from "../../../components/EventPreview";
 import {groupEventsByWeek, generateStructuredData} from '../../../components/OrganizingArchive';
 import Link from "next/link";
 
-const ArchiveCategoryPage = (props) => {
+const EventsCategoryPage = (props) => {
 
   let structuredData = [];
   let sortedEvents = [];
-
 
   if (props.data.archiveConnection.edges.length > 0) {
     props.data.archiveConnection.edges.forEach((event) => {
@@ -18,14 +17,12 @@ const ArchiveCategoryPage = (props) => {
     structuredData = generateStructuredData(groupedEvents);
   }
 
-  const category = props.title.data.category.title;
-
   return (
     <Layout>
       <Link href="/archive">
         <p>← Back</p>
       </Link>
-      <h1>{category}s</h1>
+      <h1>Events</h1>
 
       {(structuredData.length > 0) && 
       <div>
@@ -51,48 +48,19 @@ const ArchiveCategoryPage = (props) => {
 
         ))}
       </div>
-    
-      </div>}
-
-
+    </div>}
     </Layout>
   );
 }
 
-export default ArchiveCategoryPage;
+export default EventsCategoryPage;
 
 
-export const getStaticPaths = async () => {
-  const { data } = await client.queries.blogConnection();
-  const paths = data.blogConnection.edges.map((x) => {
-    return { params: { slug: x.node._sys.filename } };
-  });
- 
-  return {
-    paths,
-    fallback: "blocking",
-  };
-};
-
-export const getStaticProps = async (ctx) => {
-  const title = await client.request({
-    query: `
-      query getTitle($relativePath: String) {
-        category(relativePath: $relativePath) {
-          title
-        }
-      }
-    `,
-    variables: 
-    {
-      "relativePath": ctx.params.slug + ".md"
-    }
-  })
-
+export const getStaticProps = async () => {
   const { data } = await client.request({
     query: `
-      query getContent($title: String) {
-      archiveConnection(filter: {categories: {category: {category: {title: {eq: $title}}}}}, sort: "published", last:30, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u") {
+      {
+      archiveConnection(filter: {categories: {category: {category: {title: {eq: "Event"}}}}}, sort: "published", last:30, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u") {
       edges {
         node {
           id
@@ -106,16 +74,12 @@ export const getStaticProps = async (ctx) => {
         }
       }
     }
-  }`,
-      variables: {
-        "title": title.data.category.title,
-      }
+  }`
   })
 
   return { 
     props: {
-      data,
-      title
+      data
     },
   };
 }

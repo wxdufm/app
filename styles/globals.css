@@ -1,8 +1,9 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
 
-.app {
+
+/* .app {
   background-color: black;
   font-family: "Helvetica";
   color: white;
@@ -25,7 +26,6 @@ body {
 }
   
 .header {
-  /* width: 100%; */
   text-decoration: none;
   margin-bottom: 50px;
 }
@@ -33,7 +33,6 @@ body {
 .title {
   color: white;
   font-size: 50px;
-  /* padding: "50px"; */
   font-weight: "bolder";
   text-decoration: none;
   margin: 0px;
@@ -102,21 +101,6 @@ h1 {
   margin: 0px;
 }
 
-/* BlogPostCarousel.module.css */
-.carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 30px;
-  scroll-snap-type: x mandatory;
-  /* width: 60%; */
-}
-
-.slide {
-  flex: 0 0 30%;
-  scroll-snap-align: start;
-  /* Add any desired styling for the blog post slide */
-}
-
 .h2 {
   margin: 0px;
 }
@@ -133,7 +117,6 @@ h1 {
   flex-direction: column;
   width: 70%;
   padding: 0%;
-  /* align-items: center; */
   justify-content: center;
 }
 
@@ -142,7 +125,6 @@ h1 {
   flex-direction: column;
   width: 30%;
   align-items: center;
-  /* justify-content: center; */
   margin-top: 40px;
 }
 
@@ -154,4 +136,4 @@ h1 {
 .row {
   display: flex;
   flex-direction: row;
-}
+} */

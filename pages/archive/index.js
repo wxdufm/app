@@ -3,47 +3,23 @@ import EventPreview from "../../components/EventPreview";
 import { useTina } from "tinacms/dist/react";
 import { client } from "../../tina/__generated__/client";
 import { groupEventsByWeek, generateStructuredData} from "../../components/OrganizingArchive";
-import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
-import { useRouter } from 'next/router';
 import LazyLoad from 'react-lazyload';
-import { ParentDropdown } from "../../components/ParentDropdown";
-
+import ArchiveHeader from "../../components/ArchiveHeader"
 
 export default function EventList(props) {
-  const router = useRouter();
 
-  // data passes though in production mode and data is updated to the sidebar data in edit-mode
-  const { data } = useTina({
-    query: props.query,
-    variables: props.variables,
-    data: props.data,
-  });
-
-  const eventsList = data.archiveConnection.edges;
+  const eventsList = props.data.archiveConnection.edges;
   const groupedEvents = groupEventsByWeek(eventsList);
   const structuredData = generateStructuredData(groupedEvents);
 
   let specialtyShows = [];
-  data.categoryConnection.edges.forEach((category) => {
-    specialtyShows.push({ label: category.node.title, value: category.node.slug});
+  props.data.categoryConnection.edges.forEach((category) => {
+    specialtyShows.push({ label: category.node.title, value: category.node._sys.filename});
   });
-
-  const options = [
-    { label: 'Events', value: 'events' },
-    { label: 'Specialty Shows', 
-      type: 'group', name: 'Specialty Shows', items: specialtyShows,
-   },
-  ];
-  const defaultOption = { label: 'Filter v', value: '' };
 
   return (
     <Layout>
-      <div className="flex row">
-        <h1>Archive</h1>
-        <Dropdown options={options} onChange={(values) => router.push(`/archive/category/${values.value}`)} value={defaultOption} placeholder="Select an option" />
-        {/* <ParentDropdown/> */}
-      </div>
+      <ArchiveHeader specialtyShows={specialtyShows}/>
       <div className="archive-grid">
         {structuredData.map((event) => (
             <div key={event.id}>
@@ -51,16 +27,14 @@ export default function EventList(props) {
                 {(event.type === 'events' &&
                 <div>
                 {event.weekEvents && 
-                  <div className="events-row">
+                  <div className="flex flex-row justify-start gap-4">
                     {event.weekEvents.map((event) => (
                       <LazyLoad height={200} once={true}>
                         <EventPreview
                           id={event.event.id}
                           title={event.event.title}
                           cover={event.event.cover}
-                          //FIX
-                          subtitle={"event.event.description?.substring(0, 150)"}
-                          published={event.event.published}
+                          subtitle={event.event.description.children[0].children[0].text.substring(0, 150)}
                           slug={event.event._sys.filename}
                         />
                       </LazyLoad>
@@ -78,11 +52,12 @@ export default function EventList(props) {
 export const getStaticProps = async () => {
   const length = await client.request({
     query: `{
-      blogConnection {
+      archiveConnection {
         totalCount
       }
-    }`
-  })
+    }
+    `
+  });
 
   const { data } = await client.request({
     query: `
@@ -107,22 +82,23 @@ export const getStaticProps = async () => {
           node {
             id
             title
-            slug
+            _sys {
+              filename
+            }
           }
         }
       }
     }
     `,
     variables: {
-      eventCount: length.data.blogConnection.totalCount
+      eventCount: length.data.archiveConnection.totalCount
     }
   });
 
   return { 
     props: {
-      data,
-      //myOtherProp: 'some-other-data',
+      data
     },
-    // revalidate: 10,
+    revalidate: 10,
   };
 };

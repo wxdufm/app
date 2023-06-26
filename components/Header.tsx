@@ -2,41 +2,42 @@ import React from "react";
 import Link from "next/link"
 
 const Header = () => {
-
     return (
         <div>
             <Link href="/">
             <div>
-                <h1 className="title">WXYC 89.3FM</h1>
+                <h1 className="text-4xl text-white font-bold no-underline m-0">WXYC 89.3FM</h1>
                 <h3>UNC-Chapel Hill's student-run, freeform radio station</h3>
             </div>
             
             </Link>
     
-            <div className="navbar">
+            <div className="flex flex-row justify-around items-start bg-white py-3 w-full">
                 <Link href="/about">
-                    <p className="navb">About</p>
+                    <p className="text-black text-base no-underline">About</p>
                 </Link>
                 {/* <Link href="/schedule" className="nav">DJ Schedule</Link> */}
                 <Link href="/programming" className="nav">
-                    <p className="navb">Programming</p>
+                    <p className="text-black text-base no-underline">Programming</p>
                 </Link>
                 <Link href="/archive">
-                    <p className="navb">Archive</p>
+                    <p className="text-black text-base no-underline">Archive</p>
                 </Link>
                 <Link href="/blog">
-                    <p className="navb">Blog</p>
+                    <p className="text-black text-base no-underline">Blog</p>
                 </Link>
                 <Link href="/contact">
-                    <p className="navb">Contact</p>
+                    <p className="text-black text-base no-underline">Contact</p>
                 </Link>
-                <Link href="/listen">
-                    <p className="navb">Listen</p>
+ 
+                <Link href="/playlist">
+                    <p className="text-black text-base no-underline">Listen</p>
                 </Link>
+
                 <Link href="https://wxyc.bigcartel.com/" legacyBehavior>
-                    <a target="_blank" rel="noopener noreferrer" className="navb">Merch</a>
+                    <a target="_blank" rel="noopener noreferrer" className="text-black text-base no-underline">Merch</a>
                 </Link>
-            </div>
+            </div>      
         </div>
     )
 }

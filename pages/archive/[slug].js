@@ -6,7 +6,6 @@ import  Link  from "next/link";
 
 
 const EventPage = (props) => {
-  // data passes though in production mode and data is updated to the sidebar data in edit-mode
  
   const { data } = useTina({
     query: props.query,
@@ -25,16 +24,16 @@ const EventPage = (props) => {
 
           <div className="column">
           <h1>{data.archive.title}</h1>
-          {/* <h3>{data.archive.description}</h3> */}
-       
-          {/* <TinaMarkdown content={data.post.body}/> */}
-          {/* {JSON.stringify(data.post,   null, 2)} */}
-   
+
+          <article className="prose text-white">
+            <TinaMarkdown content={data.archive.description} />
+          </article>
+
           {data.archive.categories &&
             <div>
               {data.archive.categories.map((category) => (
                 <div key={category.category.id}>
-                <Link href={`/archive/category/${category.category.slug}`}>
+                <Link href={`/archive/category/${category.category._sys.filename}`}>
                   <p>{category.category.title}</p>
                 </Link>
                 </div>
@@ -69,29 +68,6 @@ export const getStaticProps = async (ctx) => {
     relativePath: ctx.params.slug + ".md",
   });
 
-  // const {categories} = await client.request({
-  //   query: `
-  //   query getCategories ($relativePath: String) {
-  //     archive(relativePath: $relativePath) {
-  //       title
-  //        categories {
-  //         category {
-  //           ... on Category {
-  //             title
-                //  _sys {
-                //   filename
-                //  }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  //   `,
-  //   variables: 
-  //   {
-  //     relativePath: ctx.params.slug + ".md"
-  //   }
-  // })
 
 
 

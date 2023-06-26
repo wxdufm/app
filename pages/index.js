@@ -1,42 +1,38 @@
-import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Layout } from "../components/Layout";
-import { tinaField, useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
 import Link from "next/link";
 import PostPreview from "../components/PostPreview";
 import EventPreview from "../components/EventPreview";
+import ImageGallery from 'react-image-gallery';
 
 
 export default function Home(props) {
-  // data passes though in production mode and data is updated to the sidebar data in edit-mode
-  // const { data } = useTina({
-  //   query: props.query,
-  //   variables: props.variables,
-  //   data: props.data,
-  // });
-
   const posts = props.data.blogConnection.edges;
   const events = props.data.archiveConnection.edges;
-  console.log({events});
+  let images = [];
 
-  // const content = data.page.body;
+  props.data.gallery.galleryImage.forEach((image) => {
+    images.push({original: image})
+  })
+
   return (
     <Layout>
-      <div className="home">
-        <div className="left">
+      <div className="w-full flex flex-row gap-4">
+        <div className="flex flex-col w-4/6 justify-center">
           <h1>This Week on WXYC</h1>
           {events && (
-            <div className="carousel">
+            <div className="flex gap-1 overflow-x-auto snap-mandatory">
               {events.map((event) => (
+                <div key={event.node.id}>
                 <EventPreview
                 id={event.node.id}
                 title={event.node.title}
                 cover={event.node.cover}
-                // TODO get description from post body somehow
-                subtitle={event.node.description.toString().substring(0, 150)}
+                subtitle={event.node.description.children[0].children[0].text.substring(0, 150) + "..."}
                 published={event.node.published}
                 slug={event.node._sys.filename}
               />
+              </div>
               ))}
             </div>
           )}
@@ -44,7 +40,7 @@ export default function Home(props) {
               <h2>archive {'>'}</h2>
           </Link>
 
-          {/* blog preview */}
+
           <h1>Blog Posts</h1>
           {posts && (
             <div className="carousel">
@@ -55,7 +51,7 @@ export default function Home(props) {
                 slug={post.node._sys.filename} 
                 cover={post.node.cover} 
                 // TODO get description from post body somehow
-                subtitle={ post.node.description ? post.node.description : "..." }
+                subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 150) + "..." }
               />
               ))}
             </div>
@@ -63,10 +59,11 @@ export default function Home(props) {
           <Link href="/blog">
               <h2>blog {'>'}</h2>
           </Link>
+          
+          {/* <ImageGallery items={images} /> */}
         </div>
 
         <div className="right">
-
         <iframe src={`https://dj.wxyc.org/#/NowPlaying`} style={{border: '0px', width: '300px', height: '400px', overflow: 'hidden', marginBottom: "50px" }} />
           <iframe
             style={{ borderRadius: "12px" }}
@@ -78,8 +75,6 @@ export default function Home(props) {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
-          {/* <iframe src={`https://dj.wxyc.org/#/NowPlaying`} style={{border: '0px', width: '320px', height: '400px', overflow: 'hidden', marginBottom: "50px" }} /> */}
-
         </div>
         
       </div>
@@ -88,11 +83,6 @@ export default function Home(props) {
 }
 
 export const getStaticProps = async () => {
-  // const { data, query, variables } = await client.queries.page({
-  //   relativePath: "home.mdx",
-  // });
-
-
   const currentDateTime = new Date();
   const startOfWeek = new Date(currentDateTime.getFullYear(), currentDateTime.getMonth(), currentDateTime.getDate() - currentDateTime.getDay());
   const endOfWeek = new Date(currentDateTime.getFullYear(), currentDateTime.getMonth(), currentDateTime.getDate() + (6 - currentDateTime.getDay()));
@@ -132,8 +122,12 @@ export const getStaticProps = async () => {
             }
           }
         }
-      } 
+      },
+      gallery(relativePath: "photo-gallery.mdx") {
+        galleryImage
     }
+  }
+    
     `,
     variables:
     {

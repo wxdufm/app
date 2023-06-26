@@ -4,7 +4,7 @@ export function groupEventsByWeek(events) {
     events.forEach(event => {
       const eventDate = new Date(event.node.published);
       const weekStartDate = new Date(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate() - eventDate.getDay());
-        
+      //check to see if this already exists  
       const formattedWeekStartDate = weekStartDate.toISOString().split('T')[0];
   
       if (!groupedEvents[formattedWeekStartDate]) {
