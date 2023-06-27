@@ -15,24 +15,24 @@ const EventPage = (props) => {
 
   return (
     <Layout>
- 
-        <Link href="/archive">
-        <h3>{'<'} Archive</h3>
+    <div className="w-5/6 mx-auto">
+      <Link href="/archive">
+        <p className="mb-5">{'<'} Archive</p>
         </Link>
         <div className="row">
           <img src={data.archive.cover} alt="" width="600" height="600"/>
 
           <div className="column">
-          <h1>{data.archive.title}</h1>
+          <p className="text-xl mb-5">{data.archive.title}</p>
 
-          <article className="prose text-white">
+          <article className="prose mb-5 text-white">
             <TinaMarkdown content={data.archive.description} />
           </article>
 
           {data.archive.categories &&
             <div>
               {data.archive.categories.map((category) => (
-                <div key={category.category.id}>
+                <div className="border rounded-xl border-white w-24 flex justify-center" key={category.category.id}>
                 <Link href={`/archive/category/${category.category._sys.filename}`}>
                   <p>{category.category.title}</p>
                 </Link>
@@ -42,7 +42,8 @@ const EventPage = (props) => {
           </div>
           
           </div>
-
+</div>
+        
     </Layout>
   );
 }

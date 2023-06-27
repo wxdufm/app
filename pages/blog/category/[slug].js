@@ -17,12 +17,15 @@ const BlogCategoryPage = (props) => {
   return (
     <Layout>
       <BlogHeader/>
+      <div className=" w-5/6 mx-auto">
       <Link href="/blog">
-        <p>← Back</p>
+        <p className="mb-5">← Back</p>
       </Link>
       <h1>{category}s</h1>
+      </div>
+      
       {(sortedEvents.length > 0) && 
-      <div className="blog-grid">
+      <div className="blog-grid grid grid-cols-3 justify-around gap-4 w-5/6 mx-auto">
         {sortedEvents.map((post) => (
           <PostPreview 
             id={post.node.id} 

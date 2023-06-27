@@ -4,19 +4,30 @@ import DropdownMenu from "./DropdownMenu";
 
 const Header = () => {
     return (
+    //Entire flex container
+    <div className="flex w-5/6 flex-col items-start justify-center mx-auto mb-10">
+            
+    <Link href="/">
+    {/* Header text parent container */}
+    <div className="flex mb-5">
+        {/* Actual header text */}
         <div>
-            <Link href="/">
-            <div>
-                <h1 className="text-4xl text-white font-bold no-underline m-0">WXYC 89.3FM</h1>
+                <h1 className=" text-6xl text-white font-bold no-underline m-0">WXYC 89.3FM</h1>
                 <h3>UNC-Chapel Hill's student-run, freeform radio station</h3>
-            </div>
+        </div>
+    </div>
+
+            
             
             </Link>
-    
-            <div className="flex flex-row justify-around items-start bg-white py-3 w-full">
-                <Link href="/about">
+    {/* Parent container of navbar */}
+    <div className="w-full justify-center ">
+    {/* Actual navbar */}
+        <div className="w-full flex flex-row justify-around items-center bg-white py-3">
+            <Link href="/about">
                     <p className="text-black text-base no-underline">About</p>
                 </Link>
+                
                 <Link href="/programming" className="nav">
                     <p className="text-black text-base no-underline">Programming</p>
                 </Link>
@@ -35,8 +46,12 @@ const Header = () => {
                 <Link href="https://wxyc.bigcartel.com/" legacyBehavior>
                     <a target="_blank" rel="noopener noreferrer" className="text-black text-base no-underline">Merch</a>
                 </Link>
-            </div>      
-        </div>
+            </div>  
+    </div>
+    
+    </div>
+                
+        
     )
 }
 

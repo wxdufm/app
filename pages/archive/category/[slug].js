@@ -29,17 +29,21 @@ const ArchiveCategoryPage = (props) => {
   return (
     <Layout>
       <ArchiveHeader specialtyShows={specialtyShows}/>
+      
+      <div className="w-5/6 mx-auto">
       <Link href="/archive">
         <p>← Back</p>
       </Link>
-      <h1>{category}s</h1>
+      <p className="text-4xl mb-5">{category}s</p>
+      </div>
+      
 
       {(structuredData.length > 0) && 
       <div>
-        <div className="archive-grid">
+        <div className="archive-grid w-5/6 mx-auto">
         {structuredData.map((event) => (
-            <div key={event.id}>
-                {(event.type === 'heading') && <h3>week of {event.weekStartDate}</h3>}
+            <div className="mb-7" key={event.id}>
+                {(event.type === 'heading') && <p className="text-2xl">Week of {event.weekStartDate}</p>}
                 {(event.type === 'events' &&
                 <div>
                 {event.weekEvents && <div className="events-row">
