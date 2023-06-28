@@ -17,12 +17,11 @@ export default function Home(props) {
   return (
     <Layout>
       <div data-tina-field={tinaField(data.page, "body")}>
-  <div className="w-5/6 mx-auto">
-  <article className="prose text-white">
-        <TinaMarkdown content={content} />
-      </article>
-  </div>
-      
+        <div className="flex flex-row justify-center w-5/6 mx-auto">
+          <article className="prose prose-lg prose-h1:text-red-300 prose-a:text-fuchsia-950 prose-h3:text-gray-400 text-white">
+            <TinaMarkdown content={content} />
+          </article>
+        </div>
       </div>
     </Layout>
   );

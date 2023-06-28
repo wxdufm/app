@@ -1,7 +1,7 @@
 ---
 title: 'Sweet Pea Music Festival in Bozeman, MT'
 author: Hunter Spitzer
-cover: 'http://localhost:3000/uploads/sweetpea.jpeg'
+cover: /uploads/sweetpea.jpeg
 hero: /uploads/sweetpea.jpeg
 tags:
   - title: Show Review
@@ -10,8 +10,6 @@ published: 2022-08-06T04:00:00.000Z
 categories:
   - category: content/category/show-review.md
 ---
-
-
 
 Lindley Park is verdant; rolling down from the old town cemetery and ending in a hollow, it is bordered by the public library and bathed in shade. It’s the site of the weekly farmers market, and the site of a small-town music festival. The park is divided by Buttonwood Ave, the road which leads to the cemetery. Walking up Buttonwood from Main St. you’ll find the festival arts fair to you left, food vendors on the right, and the main stage on the hill behind them.
 
@@ -32,7 +30,6 @@ Besides, I haven’t the disposable income to support my taste in art anyway, so
 But the show must go on as Kiltro was still intending to begin on schedule. Music is the unquestionable heart of this festival, but it may be that flowers are the soul. The present iteration of the festival claims to middle aged, starting officially in 1987. Happy 45th birthday.
 
 But in an understated and unadvertised tent in the fair there is a flower competition, along with a small exhibit from the Gallatin County Historical Society. It features photos of the 1911 Sweet Pea Carnival. One is a portrait of young boy, unquestionably of a family with aristocratic tendency, wreathed by a robe of delicate, orchid like flowers (Sweet Peas).
-
 
 There are women holding bouquets of them, and a wagon ensconced with them. The present exhibit disappoints the imagination when considering the boundless excess of flowers that must have been grown and present in the turn of the century fairs.
 
