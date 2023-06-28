@@ -43,6 +43,9 @@ const PostPage = (props) => {
           <article className="prose text-white">
             <TinaMarkdown content={data.blog.body} />
           </article>
+          <article className="prose text-white">
+            
+          </article>
 
     </Layout>
   );

@@ -18,9 +18,7 @@ const BlogCategoryPage = (props) => {
     <Layout>
       <BlogHeader/>
       <div className=" w-5/6 mx-auto">
-      <Link href="/blog">
-        <p className="mb-5">← Back</p>
-      </Link>
+   
       <h1>{category}s</h1>
       </div>
       
@@ -32,7 +30,7 @@ const BlogCategoryPage = (props) => {
             title={post.node.title} 
             slug={post.node._sys.filename} 
             cover={post.node.cover} 
-            subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 150) }
+            subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 75)}
           /> 
         ))}
       </div>}

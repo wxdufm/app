@@ -25,15 +25,15 @@ export default function Home(props) {
           <p className="text-white text-2xl">This Week on WXYC</p>
           {events && (
             //This Week on WXYC
-            <div className="mb-10 flex gap-1 overflow-x-scroll snap-mandatory">
+            <div className="mb-10 flex gap-4 overflow-x-scroll snap-mandatory">
               {events.map((event) => (
                 //Event previews
-                <div className="w-1/3 flex-shrink-0 mr-4" key={event.node.id}>
+                <div key={event.node.id}>
                 <EventPreview
                 id={event.node.id}
                 title={event.node.title}
                 cover={event.node.cover}
-                subtitle={event.node.description.children[0].children[0].text.substring(0, 150) + "..."}
+                subtitle={event.node.description.children[0].children[0].text.substring(0, 75)}
                 published={event.node.published}
                 slug={event.node._sys.filename}
               />
@@ -59,17 +59,16 @@ export default function Home(props) {
           <p className="text-white text-2xl">Blog Posts</p>
           {posts && (
             // Blog posts parent container
-            <div className="mb-10 flex gap-1 overflow-x-scroll snap-mandatory">
-              
+            <div className="mb-10 flex gap-4 overflow-x-scroll snap-mandatory">
               {posts.map((post) => (
                 // Blog post previews
-                <div className="w-1/3 flex-shrink-0 mr-4" key={post.node.id}>
+                <div key={post.node.id}>
                 <PostPreview 
                 id={post.node.id} 
                 title={post.node.title} 
                 slug={post.node._sys.filename} 
                 cover={post.node.cover} 
-                subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 150) + "..." }
+                subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 75)}
               />
               </div>
               ))}
@@ -91,6 +90,7 @@ export default function Home(props) {
 
         <div className="right">
         <iframe src={`https://dj.wxyc.org/#/NowPlaying`} style={{border: '0px', width: '300px', height: '400px', overflow: 'hidden', marginBottom: "50px" }} />
+
           <iframe
             style={{ borderRadius: "12px" }}
             src="https://open.spotify.com/embed/playlist/2GaqYQWzfs0BiRvesw5oYk?utm_source=generator&theme=0"
