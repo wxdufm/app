@@ -26,10 +26,8 @@ const EventsCategoryPage = (props) => {
   return (
     <Layout>
       <ArchiveHeader specialtyShows={specialtyShows}/>
-      <Link href="/archive">
-        <p>← Back</p>
-      </Link>
-      <h1>Events</h1>
+   
+      <h1>All Events</h1>
 
       {(structuredData.length > 0) && 
       <div>
@@ -45,7 +43,7 @@ const EventsCategoryPage = (props) => {
                         id={event.event.id}
                         title={event.event.title}
                         cover={event.event.cover}
-                        subtitle={event.event.description.children[0].children[0].text.substring(0, 150)}
+                        subtitle={event.event.description.children[0].children[0].text.substring(0, 75)}
                         slug={event.event._sys.filename}
                       />
                     ))}

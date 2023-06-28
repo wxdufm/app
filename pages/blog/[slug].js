@@ -5,7 +5,7 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import Link from "next/link";
 import BlogHeader from "../../components/BlogHeader"
 
-
+// individual blog post page
 const PostPage = (props) => {
  
   const { data, query, variables } = useTina({
@@ -42,6 +42,9 @@ const PostPage = (props) => {
           
           <article className="prose text-white">
             <TinaMarkdown content={data.blog.body} />
+          </article>
+          <article className="prose text-white">
+            
           </article>
 
     </Layout>

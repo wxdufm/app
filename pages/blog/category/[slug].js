@@ -17,19 +17,20 @@ const BlogCategoryPage = (props) => {
   return (
     <Layout>
       <BlogHeader/>
-      <Link href="/blog">
-        <p>← Back</p>
-      </Link>
+      <div className=" w-5/6 mx-auto">
+   
       <h1>{category}s</h1>
+      </div>
+      
       {(sortedEvents.length > 0) && 
-      <div className="blog-grid">
+      <div className="blog-grid grid grid-cols-3 justify-around gap-4 w-5/6 mx-auto">
         {sortedEvents.map((post) => (
           <PostPreview 
             id={post.node.id} 
             title={post.node.title} 
             slug={post.node._sys.filename} 
             cover={post.node.cover} 
-            subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 150) }
+            subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 75)}
           /> 
         ))}
       </div>}

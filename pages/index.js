@@ -5,7 +5,7 @@ import PostPreview from "../components/PostPreview";
 import EventPreview from "../components/EventPreview";
 import ImageGallery from 'react-image-gallery';
 
-
+//home page
 export default function Home(props) {
   const posts = props.data.blogConnection.edges;
   const events = props.data.archiveConnection.edges;
@@ -17,55 +17,80 @@ export default function Home(props) {
 
   return (
     <Layout>
-      <div className="w-full flex flex-row gap-4">
-        <div className="flex flex-col w-4/6 justify-center">
-          <h1>This Week on WXYC</h1>
+      <div className="w-5/6 mx-auto flex flex-row gap-4 ">
+        
+        {/* Left side of the screen container */}
+        
+        <div className="flex flex-col w-4/6 justify-center mr-10">
+          <p className="text-white text-2xl">This Week on WXYC</p>
           {events && (
-            <div className="flex gap-1 overflow-x-auto snap-mandatory">
+            //This Week on WXYC
+            <div className="mb-10 flex gap-4 overflow-x-scroll snap-mandatory">
               {events.map((event) => (
+                //Event previews
                 <div key={event.node.id}>
                 <EventPreview
                 id={event.node.id}
                 title={event.node.title}
                 cover={event.node.cover}
-                subtitle={event.node.description.children[0].children[0].text.substring(0, 150) + "..."}
+                subtitle={event.node.description.children[0].children[0].text.substring(0, 75)}
                 published={event.node.published}
                 slug={event.node._sys.filename}
               />
+              
+              
               </div>
               ))}
+             
             </div>
+            
           )}
-          <Link href="/archive">
-              <h2>archive {'>'}</h2>
-          </Link>
+
+      <div className=" ml-auto w-1/8">
+              <Link href="/archive">
+                <p>Archive {'>'}</p>
+              </Link>
+                </div>
 
 
-          <h1>Blog Posts</h1>
+          
+
+          
+          <p className="text-white text-2xl">Blog Posts</p>
           {posts && (
-            <div className="carousel">
+            // Blog posts parent container
+            <div className="mb-10 flex gap-4 overflow-x-scroll snap-mandatory">
               {posts.map((post) => (
+                // Blog post previews
                 <div key={post.node.id}>
                 <PostPreview 
                 id={post.node.id} 
                 title={post.node.title} 
                 slug={post.node._sys.filename} 
                 cover={post.node.cover} 
-                subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 150) + "..." }
+                subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 75)}
               />
               </div>
               ))}
             </div>
           )}
-          <Link href="/blog">
-              <h2>blog {'>'}</h2>
-          </Link>
           
+          <div className=" ml-auto w-1/8 mb-20">
+          <Link href="/blog">
+              <h2>Blog {'>'}</h2>
+          </Link>
+                </div>
+
           {/* <ImageGallery items={images} /> */}
         </div>
 
+       
+
+         
+
         <div className="right">
         <iframe src={`https://dj.wxyc.org/#/NowPlaying`} style={{border: '0px', width: '300px', height: '400px', overflow: 'hidden', marginBottom: "50px" }} />
+
           <iframe
             style={{ borderRadius: "12px" }}
             src="https://open.spotify.com/embed/playlist/2GaqYQWzfs0BiRvesw5oYk?utm_source=generator&theme=0"

@@ -4,13 +4,14 @@ import PostPreview from "../../components/PostPreview.tsx";
 import LazyLoad from 'react-lazyload';
 import BlogHeader from "../../components/BlogHeader"
 
+//blog home page
 export default function PostList(props) {
   const postsList = props.data.blogConnection.edges;
 
   return (
     <Layout>
       <BlogHeader/>
-        <div className="flex flex-row flex-wrap gap-4">
+        <div className="grid grid-cols-3 justify-around gap-4 w-5/6 mx-auto">
           {postsList.map((post) => (
           <LazyLoad height={200} once={true}>
             <PostPreview 
@@ -18,7 +19,7 @@ export default function PostList(props) {
               title={post.node.title} 
               slug={post.node._sys.filename} 
               cover={post.node.cover} 
-              subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 150) }
+              subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 75)}
             />
             </LazyLoad>
           ))}
