@@ -18,7 +18,7 @@ const PostPage = (props) => {
   const dateString = date.toDateString();
   const arr = dateString.split(' ');
   const displayDate = `${arr[1]} ${arr[2]}, ${arr[3]}`
-
+  // console.log(data.blog.body);
   return (
     <Layout>
       <BlogHeader/>
@@ -40,10 +40,10 @@ const PostPage = (props) => {
           <h3>By {data.blog.author}</h3>
           <img src={data.blog.cover} alt="" width="300px" height="300px"/>
           
-          <article className="prose text-white">
+          <article className="prose prose-lg prose-h1:text-red-300 text-white">
             <TinaMarkdown content={data.blog.body} />
           </article>
-
+       
     </Layout>
   );
 }

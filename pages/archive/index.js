@@ -27,7 +27,7 @@ export default function EventList(props) {
             <div key={event.id}>
                 {(event.type === 'heading') && <p className="text-xl mt-10 mb-1">Week of {event.weekStartDate}</p>}
                 {(event.type === 'events' &&
-                <div>
+                <div key={event.id}>
                 {event.weekEvents && 
                   <div className="flex flex-row justify-start gap-4 overflow-x-scroll">
                     {event.weekEvents.map((event) => (
@@ -37,7 +37,7 @@ export default function EventList(props) {
                           id={event.event.id}
                           title={event.event.title}
                           cover={event.event.cover}
-                          subtitle={event.event.description.children[0].children[0].text.substring(0, 150)}
+                          subtitle={event.event.description.children[0].children[0].text.substring(0, 75)}
                           slug={event.event._sys.filename}
                         />
                       </LazyLoad>

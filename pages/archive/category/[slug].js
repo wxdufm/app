@@ -4,6 +4,7 @@ import EventPreview from "../../../components/EventPreview";
 import {groupEventsByWeek, generateStructuredData} from '../../../components/OrganizingArchive';
 import Link from "next/link";
 import ArchiveHeader from "../../../components/ArchiveHeader";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 const ArchiveCategoryPage = (props) => {
 
@@ -20,6 +21,7 @@ const ArchiveCategoryPage = (props) => {
   }
 
   const category = props.title.data.category.title;
+  const description = props.title.data.category.description;
 
   let specialtyShows = [];
   props.data.categoryConnection.edges.forEach((category) => {
@@ -31,10 +33,9 @@ const ArchiveCategoryPage = (props) => {
       <ArchiveHeader specialtyShows={specialtyShows}/>
       
       <div className="w-5/6 mx-auto">
-      <Link href="/archive">
-        <p>← Back</p>
-      </Link>
+     
       <p className="text-4xl mb-5">{category}s</p>
+      {description && <p>{description}</p>} 
       </div>
       
 
@@ -52,7 +53,7 @@ const ArchiveCategoryPage = (props) => {
                         id={event.event.id}
                         title={event.event.title}
                         cover={event.event.cover}
-                        subtitle={event.event.description.children[0].children[0].text.substring(0, 150)}
+                        subtitle={event.event.description.children[0].children[0].text.substring(0, 75)}
                         slug={event.event._sys.filename}
                       />
                     ))}
@@ -91,6 +92,7 @@ export const getStaticProps = async (ctx) => {
       query getTitle($relativePath: String) {
         category(relativePath: $relativePath) {
           title
+          description
         }
       }
     `,

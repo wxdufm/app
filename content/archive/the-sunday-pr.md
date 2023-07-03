@@ -3,7 +3,7 @@ title: The Sunday PR
 cover: 'http://localhost:3000/uploads/Screenshot 2023-06-11 at 8.43.08 p.m..png'
 tags:
   - Sunday PR
-published: 2023-06-27T04:00:00.000Z
+published: 2023-06-04T04:00:00.000Z
 categories:
   - category: content/category/the-sunday-pr.md
 ---

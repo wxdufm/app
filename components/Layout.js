@@ -14,6 +14,7 @@ export const Layout = (props) => {
         <Header/>
       </header>
       <main >{props.children}</main>
+      {/* <iframe src={`https://dj.wxyc.org/#/NowPlaying`} style={{border: '0px', width: '300px', height: '400px', overflow: 'hidden', marginBottom: "50px", position: "fixed", top: "0" }} /> */}
     </div>
   )
 }
