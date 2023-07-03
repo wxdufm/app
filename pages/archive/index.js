@@ -27,7 +27,7 @@ export default function EventList(props) {
             <div key={event.id}>
                 {(event.type === 'heading') && <p className="text-xl mt-10 mb-1">Week of {event.weekStartDate}</p>}
                 {(event.type === 'events' &&
-                <div>
+                <div key={event.id}>
                 {event.weekEvents && 
                   <div className="flex flex-row justify-start gap-4 overflow-x-scroll">
                     {event.weekEvents.map((event) => (

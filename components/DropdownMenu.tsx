@@ -22,9 +22,12 @@ const DropdownMenu = () =>  {
                     </div>
                     <div className="flex justify-center items-center text-medium hover:bg-gray-200 rounded-md text-gray-700 w-full px-4 py-2">
                         <Menu.Item>
-                            <Link legacyBehavior={false} href="/playlist">
+                            <a href="http://www.wxyc.info/playlists/recent.html" target="_blank">
+                                Live playlist
+                            </a>
+                            {/* <Link legacyBehavior={false} href="/playlist">
                                 <p>Live playlist</p>
-                            </Link>
+                            </Link> */}
                         </Menu.Item>
                     </div>
                 </Menu.Items>

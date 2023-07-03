@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link"
 import DropdownMenu from "./DropdownMenu";
+import photo from "../images/logo.png"
+import Image from 'next/image'
 
 const Header = () => {
     return (
@@ -12,7 +14,7 @@ const Header = () => {
     <div className="flex flex-row items-end mb-5">
         {/* Actual header text */}
             <div className="w-2/5">
-                <img src="http://localhost:3000/uploads/logo.png" className="w-full"/>
+                <Image src={photo} alt="Picture of the author" />
                 <h1 className=" text-6xl text-white font-bold no-underline m-0">89.3FM</h1>
             </div>
                 <h3 className="w-full">UNC-Chapel Hill's student-run, freeform radio station</h3>

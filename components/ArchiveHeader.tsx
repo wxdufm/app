@@ -1,7 +1,7 @@
 import * as React from "react"
 import Link from "next/link";
 import { Menu } from "@headlessui/react"
-import { IoIosArrowForward, IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowForward, IoIosArrowDown, IoMdClose } from "react-icons/io";
 
 
 const ArchiveHeader = (props) => {
@@ -48,7 +48,7 @@ const ArchiveHeader = (props) => {
 
         
           <Link href="/archive">
-            clear
+            <p className="flex hover:cursor-pointer"><IoMdClose size={22} className="mt-0.5"/> clear</p>
           </Link>
         </div>
     </div>

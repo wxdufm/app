@@ -3,29 +3,35 @@ import { client } from "../tina/__generated__/client";
 import Link from "next/link";
 import PostPreview from "../components/PostPreview";
 import EventPreview from "../components/EventPreview";
-import ImageGallery from 'react-image-gallery';
+import PhotoGallery from "../components/PhotoGallery";
+import InstagramEmbed from "../components/InstagramEmbed";
+
 
 //home page
 export default function Home(props) {
   const posts = props.data.blogConnection.edges;
   const events = props.data.archiveConnection.edges;
-  let images = [];
 
-  props.data.gallery.galleryImage.forEach((image) => {
-    images.push({original: image})
-  })
+  // console.log(props.data.page.body)
+  const images = [
+    'http://localhost:3000/uploads/IMG_8649-700x500.jpeg',
+    'http://localhost:3000/uploads/kickball-700x500.jpeg',
+    'http://localhost:3000/uploads/R1-02256-004A-768x519-700x500.jpeg',
+    'http://localhost:3000/uploads/R1-03649-030A-700x500.png',
+    'http://localhost:3000/uploads/R1-02408-024A-700x500.jpeg'
+  ];
 
   return (
     <Layout>
-      <div className="w-5/6 mx-auto flex flex-row gap-4 ">
+      <div className="w-5/6 mx-auto flex flex-row gap-4">
         
         {/* Left side of the screen container */}
         
-        <div className="flex flex-col w-4/6 justify-center mr-10">
+        <div className="flex flex-col w-4/6 justify-center mr-10 mt-10">
           <p className="text-white text-2xl">This Week on WXYC</p>
           {events && (
             //This Week on WXYC
-            <div className="mb-10 flex gap-4 overflow-x-scroll snap-mandatory">
+            <div className="mb-10 flex flex-row gap-4 overflow-x-scroll snap-mandatory">
               {events.map((event) => (
                 //Event previews
                 <div key={event.node.id}>
@@ -79,16 +85,18 @@ export default function Home(props) {
           <Link href="/blog">
               <h2>Blog {'>'}</h2>
           </Link>
-                </div>
+          </div>
 
-          {/* <ImageGallery items={images} /> */}
+          <div className="w-full">
+              <PhotoGallery images={images} />
+            </div>
         </div>
 
        
 
          
 
-        <div className="right">
+        <div className="">
         <iframe src={`https://dj.wxyc.org/#/NowPlaying`} style={{border: '0px', width: '300px', height: '400px', overflow: 'hidden', marginBottom: "50px" }} />
 
           <iframe
@@ -101,8 +109,10 @@ export default function Home(props) {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
+
+          <InstagramEmbed/>
         </div>
-        
+          
       </div>
     </Layout>
   );
@@ -110,9 +120,8 @@ export default function Home(props) {
 
 export const getStaticProps = async () => {
   const currentDateTime = new Date();
-  const startOfWeek = new Date(currentDateTime.getFullYear(), currentDateTime.getMonth(), currentDateTime.getDate() - currentDateTime.getDay());
+  const startOfWeek = new Date(currentDateTime.getFullYear(), currentDateTime.getMonth(), currentDateTime.getDate() - currentDateTime.getDay() - 1);
   const endOfWeek = new Date(currentDateTime.getFullYear(), currentDateTime.getMonth(), currentDateTime.getDate() + (6 - currentDateTime.getDay()));
-
   const { data } = await client.request({
     
     query: `
@@ -149,9 +158,6 @@ export const getStaticProps = async () => {
           }
         }
       },
-      gallery(relativePath: "photo-gallery.mdx") {
-        galleryImage
-    }
   }
     
     `,
