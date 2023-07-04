@@ -2,6 +2,7 @@
 title: Radio Supernova - Paratiisi
 cover: /uploads/Screenshot 2023-06-28 at 12.13.55 p.m..png
 categories:
+  - category: content/category/specialty-show.md
   - category: content/category/inside-track.md
 published: 2023-05-19T04:00:00.000Z
 ---

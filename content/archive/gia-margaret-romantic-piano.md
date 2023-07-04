@@ -2,6 +2,7 @@
 title: 'Gia Margaret: Romantic Piano'
 cover: /uploads/Screenshot 2023-06-28 at 11.55.02 a.m..png
 categories:
+  - category: content/category/specialty-show.md
   - category: content/category/inside-track.md
 published: 2023-06-02T04:00:00.000Z
 ---

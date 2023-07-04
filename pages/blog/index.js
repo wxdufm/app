@@ -1,19 +1,17 @@
-import { Layout } from "../../components/Layout";
 import { client } from "../../tina/__generated__/client";
 import PostPreview from "../../components/PostPreview.tsx";
 import LazyLoad from 'react-lazyload';
-import BlogHeader from "../../components/BlogHeader"
+import BlogLayout from "../../components/BlogLayout"
 
 //blog home page
 export default function PostList(props) {
   const postsList = props.data.blogConnection.edges;
 
   return (
-    <Layout>
-      <BlogHeader/>
+    <BlogLayout>
         <div className="grid grid-cols-3 justify-around gap-4 w-5/6 mx-auto">
           {postsList.map((post) => (
-          <LazyLoad height={200} once={true}>
+          <LazyLoad height={200} once={true} key={post.node.id}>
             <PostPreview 
               id={post.node.id} 
               title={post.node.title} 
@@ -24,7 +22,7 @@ export default function PostList(props) {
             </LazyLoad>
           ))}
         </div>
-    </Layout>
+    </BlogLayout>
   );
 }
 

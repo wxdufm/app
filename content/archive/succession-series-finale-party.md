@@ -2,6 +2,7 @@
 title: Succession Series Finale Party
 cover: /uploads/Screenshot 2023-06-28 at 11.58.54 a.m..png
 categories:
+  - category: content/category/specialty-show.md
   - category: content/category/sunset-soundtrack.md
 published: 2023-05-28T04:00:00.000Z
 ---

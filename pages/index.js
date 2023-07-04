@@ -1,10 +1,8 @@
-import { Layout } from "../components/Layout";
 import { client } from "../tina/__generated__/client";
 import Link from "next/link";
 import PostPreview from "../components/PostPreview";
 import EventPreview from "../components/EventPreview";
 import PhotoGallery from "../components/PhotoGallery";
-import InstagramEmbed from "../components/InstagramEmbed";
 
 
 //home page
@@ -22,7 +20,7 @@ export default function Home(props) {
   ];
 
   return (
-    <Layout>
+    <div>
       <div className="w-5/6 mx-auto flex flex-row gap-4">
         
         {/* Left side of the screen container */}
@@ -57,10 +55,6 @@ export default function Home(props) {
                 <p>Archive {'>'}</p>
               </Link>
                 </div>
-
-
-          
-
           
           <p className="text-white text-2xl">Blog Posts</p>
           {posts && (
@@ -110,11 +104,10 @@ export default function Home(props) {
             loading="lazy"
           ></iframe>
 
-          <InstagramEmbed/>
         </div>
           
       </div>
-    </Layout>
+    </div>
   );
 }
 

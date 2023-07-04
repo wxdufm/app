@@ -2,6 +2,7 @@
 title: Theo Katzman 11 Good Songs
 cover: /uploads/Screenshot 2023-06-28 at 12.01.19 p.m..png
 categories:
+  - category: content/category/specialty-show.md
   - category: content/category/inside-track.md
 published: 2023-05-26T04:00:00.000Z
 ---

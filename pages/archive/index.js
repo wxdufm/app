@@ -1,10 +1,11 @@
-import { Layout } from "../../components/Layout";
 import EventPreview from "../../components/EventPreview";
-import { useTina } from "tinacms/dist/react";
 import { client } from "../../tina/__generated__/client";
 import { groupEventsByWeek, generateStructuredData} from "../../components/OrganizingArchive";
 import LazyLoad from 'react-lazyload';
-import ArchiveHeader from "../../components/ArchiveHeader"
+import ArchiveDropdown from "../../components/ArchiveDropdown"
+import ArchiveLayout from "../../components/ArchiveLayout"
+
+
 
 export default function EventList(props) {
 
@@ -19,15 +20,15 @@ export default function EventList(props) {
 
   return (
     
-    <Layout>
-      
-      <ArchiveHeader specialtyShows={specialtyShows}/>
-      <div className="archive-grid w-5/6 mx-auto">
+    <ArchiveLayout>
+      <ArchiveDropdown specialtyShows={specialtyShows}/>
+      <div className="archive-grid w-full mx-auto">
         {structuredData.map((event) => (
             <div key={event.id}>
                 {(event.type === 'heading') && <p className="text-xl mt-10 mb-1">Week of {event.weekStartDate}</p>}
                 {(event.type === 'events' &&
-                <div key={event.id}>
+                // needs unique key somehow
+                <div>
                 {event.weekEvents && 
                   <div className="flex flex-row justify-start gap-4 overflow-x-scroll">
                     {event.weekEvents.map((event) => (
@@ -49,9 +50,10 @@ export default function EventList(props) {
 
         ))}
       </div>
-    </Layout>
+    </ArchiveLayout>
   );
 }
+
 
 export const getStaticProps = async () => {
   const length = await client.request({

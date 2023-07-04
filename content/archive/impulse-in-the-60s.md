@@ -2,6 +2,7 @@
 title: Impulse! In the 60s
 cover: /uploads/Screenshot 2023-06-28 at 11.36.43 a.m..png
 categories:
+  - category: content/category/specialty-show.md
   - category: content/category/thursday-night-feature.md
 published: 2023-06-22T04:00:00.000Z
 ---

@@ -2,6 +2,7 @@
 title: Suspiria Sunset Soundtrack
 cover: /uploads/Screenshot 2023-06-28 at 11.32.46 a.m..png
 categories:
+  - category: content/category/specialty-show.md
   - category: content/category/sunset-soundtrack.md
 published: 2023-06-25T04:00:00.000Z
 ---

@@ -31,7 +31,7 @@ const MyTable = () => {
 
 
   return (
-    <Layout>
+    <div>
         <p> last updated: </p>
       <table>
         <thead>
@@ -65,7 +65,7 @@ const MyTable = () => {
           ))}
         </tbody>
       </table>
-    </Layout>
+    </div>
   );
 };
 

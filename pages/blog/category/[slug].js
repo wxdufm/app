@@ -1,8 +1,7 @@
-import { Layout } from "../../../components/Layout";
 import { client } from "../../../tina/__generated__/client";
 import Link from "next/link";
 import PostPreview from "../../../components/PostPreview";
-import BlogHeader from "../../../components/BlogHeader";
+import BlogLayout from "../../../components/BlogLayout";
 
 const BlogCategoryPage = (props) => {
   let sortedEvents = [];
@@ -15,8 +14,7 @@ const BlogCategoryPage = (props) => {
   const category = props.title.data.category.title;
 
   return (
-    <Layout>
-      <BlogHeader/>
+    <BlogLayout>
       <div className=" w-5/6 mx-auto">
    
       <h1>{category}s</h1>
@@ -34,7 +32,7 @@ const BlogCategoryPage = (props) => {
           /> 
         ))}
       </div>}
-    </Layout>
+    </BlogLayout>
   );
 }
 

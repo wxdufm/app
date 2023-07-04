@@ -6,9 +6,8 @@ tags:
     slug: inside-track
 published: 2023-06-09T04:00:00.000Z
 categories:
+  - category: content/category/specialty-show.md
   - category: content/category/inside-track.md
 ---
-
-
 
 Tune into WXYC's Inside Track this Friday from 9-10 pm to join DJ Moonstruck on a deep dive into the noisy, fuzzed-out Southern rock of Wednesday's critically acclaimed new album "Rat Saw God." 🐀

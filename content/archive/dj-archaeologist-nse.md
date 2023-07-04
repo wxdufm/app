@@ -6,10 +6,9 @@ tags:
     slug: new-science-experiment
 published: 2023-06-16T04:00:00.000Z
 categories:
+  - category: content/category/specialty-show.md
   - category: content/category/new-science-experiment.md
 ---
-
-
 
 THIS FRIDAY 6/16 10-MIDNIGHT
 

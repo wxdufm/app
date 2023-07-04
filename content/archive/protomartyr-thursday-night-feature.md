@@ -2,6 +2,7 @@
 title: Protomartyr Thursday Night Feature
 cover: /uploads/Screenshot 2023-06-28 at 11.57.01 a.m..png
 categories:
+  - category: content/category/specialty-show.md
   - category: content/category/thursday-night-feature.md
 published: 2023-06-01T04:00:00.000Z
 ---

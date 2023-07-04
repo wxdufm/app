@@ -5,6 +5,7 @@ tags:
   - Sunday PR
 published: 2023-06-04T04:00:00.000Z
 categories:
+  - category: content/category/specialty-show.md
   - category: content/category/the-sunday-pr.md
 ---
 

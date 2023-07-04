@@ -1,9 +1,11 @@
-import { Layout } from "../../../components/Layout";
-import { client } from "../../../tina/__generated__/client";
-import EventPreview from "../../../components/EventPreview";
-import {groupEventsByWeek, generateStructuredData} from '../../../components/OrganizingArchive';
+import { client } from "../../tina/__generated__/client";
+import EventPreview from "../../components/EventPreview";
+import {groupEventsByWeek, generateStructuredData} from '../../components/OrganizingArchive';
 import Link from "next/link";
-import ArchiveHeader from "../../../components/ArchiveHeader";
+import ArchiveHeader from "../../components/ArchiveDropdown";
+import ArchiveLayout from "../../components/ArchiveLayout"
+
+
 
 const EventsCategoryPage = (props) => {
 
@@ -24,7 +26,8 @@ const EventsCategoryPage = (props) => {
   });
 
   return (
-    <Layout>
+    <ArchiveLayout>
+        
       <ArchiveHeader specialtyShows={specialtyShows}/>
    
       <h1>All Events</h1>
@@ -36,7 +39,7 @@ const EventsCategoryPage = (props) => {
             <div key={event.id}>
                 {(event.type === 'heading') && <h3>week of {event.weekStartDate}</h3>}
                 {(event.type === 'events' &&
-                <div>
+                <div key={event.id}>
                 {event.weekEvents && <div className="events-row">
                     {event.weekEvents.map((event) => (
                         <EventPreview
@@ -54,7 +57,7 @@ const EventsCategoryPage = (props) => {
         ))}
       </div>
     </div>}
-    </Layout>
+    </ArchiveLayout>
   );
 }
 

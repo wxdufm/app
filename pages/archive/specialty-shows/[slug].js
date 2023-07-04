@@ -1,13 +1,13 @@
-import { Layout } from "../../../components/Layout";
 import { client } from "../../../tina/__generated__/client";
 import EventPreview from "../../../components/EventPreview";
 import {groupEventsByWeek, generateStructuredData} from '../../../components/OrganizingArchive';
 import Link from "next/link";
-import ArchiveHeader from "../../../components/ArchiveHeader";
+import ArchiveDropdown from "../../../components/ArchiveDropdown";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
+import ArchiveLayout from "../../../components/ArchiveLayout"
 
 const ArchiveCategoryPage = (props) => {
-
+  
   let structuredData = [];
   let sortedEvents = [];
 
@@ -29,10 +29,10 @@ const ArchiveCategoryPage = (props) => {
   });
 
   return (
-    <Layout>
-      <ArchiveHeader specialtyShows={specialtyShows}/>
+    <ArchiveLayout>
+      <ArchiveDropdown specialtyShows={specialtyShows}/>
       
-      <div className="w-5/6 mx-auto">
+      <div className="w-full mx-auto">
      
       <p className="text-4xl mb-5">{category}s</p>
       {description && <p>{description}</p>} 
@@ -41,7 +41,7 @@ const ArchiveCategoryPage = (props) => {
 
       {(structuredData.length > 0) && 
       <div>
-        <div className="archive-grid w-5/6 mx-auto">
+        <div className="archive-grid w-full mx-auto">
         {structuredData.map((event) => (
             <div className="mb-7" key={event.id}>
                 {(event.type === 'heading') && <p className="text-2xl">Week of {event.weekStartDate}</p>}
@@ -67,7 +67,7 @@ const ArchiveCategoryPage = (props) => {
       </div>}
 
 
-    </Layout>
+    </ArchiveLayout>
   );
 }
 
