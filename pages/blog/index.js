@@ -4,18 +4,13 @@ import PostPreview from "../../components/PostPreview.tsx";
 import LazyLoad from 'react-lazyload';
 import BlogHeader from "../../components/BlogHeader"
 
-//blog home page
 export default function PostList(props) {
   const postsList = props.data.blogConnection.edges;
 
   return (
     <Layout>
       <BlogHeader/>
-<<<<<<< Updated upstream
         <div className="flex flex-row flex-wrap gap-4">
-=======
-        <div className="pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-4 w-5/6 mx-auto">
->>>>>>> Stashed changes
           {postsList.map((post) => (
           <LazyLoad height={200} once={true}>
             <PostPreview 

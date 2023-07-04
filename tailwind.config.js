@@ -6,15 +6,8 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-<<<<<<< Updated upstream
     extend: {},
-=======
-    
->>>>>>> Stashed changes
   },
-
- 
-
   plugins: [
     require('@tailwindcss/typography'),
   ],
