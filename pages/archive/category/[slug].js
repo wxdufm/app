@@ -38,8 +38,13 @@ const ArchiveCategoryPage = (props) => {
       <div>
         <div className="archive-grid">
         {structuredData.map((event) => (
+<<<<<<< Updated upstream
             <div key={event.id}>
                 {(event.type === 'heading') && <h3>week of {event.weekStartDate}</h3>}
+=======
+            <div className="pb-7" key={event.id}>
+                {(event.type === 'heading') && <p className="text-2xl">Week of {event.weekStartDate}</p>}
+>>>>>>> Stashed changes
                 {(event.type === 'events' &&
                 <div>
                 {event.weekEvents && <div className="events-row">

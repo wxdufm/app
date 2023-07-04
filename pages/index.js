@@ -17,9 +17,18 @@ export default function Home(props) {
 
   return (
     <Layout>
+<<<<<<< Updated upstream
       <div className="w-full flex flex-row gap-4">
         <div className="flex flex-col w-4/6 justify-center">
           <h1>This Week on WXYC</h1>
+=======
+      <div className="w-5/6 mx-auto flex flex-row gap-4">
+        
+        {/* Left side of the screen container */}
+        
+        <div className="flex flex-col w-4/6 justify-center mr-10 mt-10">
+          <p className="text-white font-hack text-2xl">This Week on WXYC</p>
+>>>>>>> Stashed changes
           {events && (
             <div className="flex gap-1 overflow-x-auto snap-mandatory">
               {events.map((event) => (
