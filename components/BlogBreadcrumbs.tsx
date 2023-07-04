@@ -22,7 +22,10 @@ export default function BlogBreadcrumbs() {
         const href = "/blog/" + asPathNestedRoutes.slice(0, idx + 1).join("/");
         const words = subpath.split('-');
         const transformedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
-        const title = transformedWords.join(' ');
+        let title = transformedWords.join(' ');
+        if (idx===1) {
+            title = title + 's'
+        }
         
         return { href: href, text: title }; 
         

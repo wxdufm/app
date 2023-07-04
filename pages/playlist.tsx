@@ -32,7 +32,7 @@ const MyTable = () => {
 
   return (
     
-    <Layout>
+    <div>
       <div className="sm:mx-auto sm:w-5/6 overflow-auto"> 
       <p className="text-4xl mb-2">Live Playlist</p>
 
@@ -44,12 +44,12 @@ const MyTable = () => {
       <table className="w-full">
         <thead  className="bg-gradient-to-b from-neutral-600 to-black h-12 sm:text-base text-xs">
           <tr>
-            <th class="font-normal">WXYC Playlist</th>
-            <th class="font-normal">Artist</th>
-            <th class="font-normal">Song</th>
-            <th class="font-normal">Release</th>
-            <th class="font-normal">Label</th>
-            <th class="font-normal">Request?</th>
+            <th className="font-normal">WXYC Playlist</th>
+            <th className="font-normal">Artist</th>
+            <th className="font-normal">Song</th>
+            <th className="font-normal">Release</th>
+            <th className="font-normal">Label</th>
+            <th className="font-normal">Request?</th>
             {/* Add more table headers as needed */}
           </tr>
         </thead>
@@ -74,7 +74,7 @@ const MyTable = () => {
         </tbody>
       </table></div>
        
-    </Layout>
+    </div>
   );
 };
 
