@@ -1,8 +1,8 @@
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { Layout } from "../components/Layout";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
 
+//editable static pages (about, programming, etc.)
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
@@ -14,13 +14,15 @@ export default function Home(props) {
   const content = data.page.body;
 
   return (
-    <Layout>
+    <div>
       <div data-tina-field={tinaField(data.page, "body")}>
-      <article className="prose text-white">
-        <TinaMarkdown content={content} />
-      </article>
+        <div className="flex flex-row justify-center w-5/6 mx-auto">
+          <article className="prose prose-lg prose-h1:text-red-300 prose-a:text-fuchsia-950 prose-h3:text-gray-400 text-white">
+            <TinaMarkdown content={content} />
+          </article>
+        </div>
       </div>
-    </Layout>
+    </div>
   );
 }
 

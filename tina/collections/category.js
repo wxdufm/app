@@ -14,6 +14,12 @@ export default {
         label: "Specialty Show",
         name: "specialtyShow"
       },
+      {
+        type: "string",
+        label: "Category Description",
+        name: "description",
+        placeholder: "Optional description"
+      }
     ],
     ui: {
       filename: {

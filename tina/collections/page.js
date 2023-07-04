@@ -9,7 +9,21 @@ export default {
         label: "Main Content",
         type: "rich-text",
         isBody: true,
-        },
+        templates: [
+            {
+                name: "photoGallery",
+                label: "Photo Gallery",
+                fields: [
+                    {
+                    name: "photos",
+                    label: "Photos",
+                    type: "image",
+                    list: true
+                    },
+                ],
+            },
+        ],
+    },
     ],
     ui: {
         router: ({ document }) => {

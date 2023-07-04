@@ -1,8 +1,7 @@
-import { Layout } from "../../../components/Layout";
 import { client } from "../../../tina/__generated__/client";
 import Link from "next/link";
 import PostPreview from "../../../components/PostPreview";
-import BlogHeader from "../../../components/BlogHeader";
+import BlogLayout from "../../../components/BlogLayout";
 
 const BlogCategoryPage = (props) => {
   let sortedEvents = [];
@@ -15,25 +14,25 @@ const BlogCategoryPage = (props) => {
   const category = props.title.data.category.title;
 
   return (
-    <Layout>
-      <BlogHeader/>
-      <Link href="/blog">
-        <p>← Back</p>
-      </Link>
+    <BlogLayout>
+      <div className=" w-5/6 mx-auto">
+   
       <h1>{category}s</h1>
+      </div>
+      
       {(sortedEvents.length > 0) && 
-      <div className="blog-grid">
+      <div className="blog-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-4 w-5/6 mx-auto">
         {sortedEvents.map((post) => (
           <PostPreview 
             id={post.node.id} 
             title={post.node.title} 
             slug={post.node._sys.filename} 
             cover={post.node.cover} 
-            subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 150) }
+            subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 75)}
           /> 
         ))}
       </div>}
-    </Layout>
+    </BlogLayout>
   );
 }
 

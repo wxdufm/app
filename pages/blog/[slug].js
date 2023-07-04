@@ -1,11 +1,10 @@
-import { Layout } from "../../components/Layout";
 import { useTina } from "tinacms/dist/react";
 import { client } from "../../tina/__generated__/client";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import Link from "next/link";
-import BlogHeader from "../../components/BlogHeader"
+import BlogLayout from "../../components/BlogLayout"
 
-
+// individual blog post page
 const PostPage = (props) => {
  
   const { data, query, variables } = useTina({
@@ -14,17 +13,12 @@ const PostPage = (props) => {
     data: props.data,
   });
 
-  const date = new Date(data.blog.published)
-  const dateString = date.toDateString();
-  const arr = dateString.split(' ');
-  const displayDate = `${arr[1]} ${arr[2]}, ${arr[3]}`
-
+  const date = new Date(data.blog.published);
+  const options = { month: 'long', day: 'numeric', year: 'numeric' };
+  const displayDate = date.toLocaleString('en-US', options);
+ 
   return (
-    <Layout>
-      <BlogHeader/>
-          <Link href="/blog">
-            <h3>{'<'} Blog</h3>
-          </Link>
+    <BlogLayout>
           {data.blog.categories &&
             <div>
               {data.blog.categories.map((category) => (
@@ -40,11 +34,11 @@ const PostPage = (props) => {
           <h3>By {data.blog.author}</h3>
           <img src={data.blog.cover} alt="" width="300px" height="300px"/>
           
-          <article className="prose text-white">
+          <article className="prose prose-lg prose-h1:text-red-300 text-white">
             <TinaMarkdown content={data.blog.body} />
           </article>
-
-    </Layout>
+       
+    </BlogLayout>
   );
 }
 

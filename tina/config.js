@@ -7,7 +7,6 @@ import collectionPage from './collections/page.js';
 import collectionBlog from './collections/blog.js';
 import collectionArchive from './collections/archive.js';
 import collectionCategory from './collections/category.js'
-import collectionGallery from './collections/gallery.js'
 
 // dotenv.config();
 
@@ -17,7 +16,6 @@ const schema = defineSchema({
     collectionBlog,
     collectionArchive, 
     collectionCategory,
-    collectionGallery
   ]
 });
 
