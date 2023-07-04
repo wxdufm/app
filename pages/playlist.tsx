@@ -31,41 +31,50 @@ const MyTable = () => {
 
 
   return (
-    <div>
-        <p> last updated: </p>
-      <table>
-        <thead>
+    
+    <Layout>
+      <div className="sm:mx-auto sm:w-5/6 overflow-auto"> 
+      <p className="text-4xl mb-2">Live Playlist</p>
+
+      <div className="flex flex-row justify-between">
+      <p className="mb-5"> Last updated: </p>
+      <a href="http://wxyc.info/playlists/radioWeek" className="underline">Archive</a>
+      </div>
+      
+      <table className="w-full">
+        <thead  className="bg-gradient-to-b from-neutral-600 to-black h-12 sm:text-base text-xs">
           <tr>
-            <th>WXYC Playlist</th>
-            <th>Artist</th>
-            <th>Song</th>
-            <th>Release</th>
-            <th>Label</th>
-            <th>Request</th>
+            <th class="font-normal">WXYC Playlist</th>
+            <th class="font-normal">Artist</th>
+            <th class="font-normal">Song</th>
+            <th class="font-normal">Release</th>
+            <th class="font-normal">Label</th>
+            <th class="font-normal">Request?</th>
             {/* Add more table headers as needed */}
           </tr>
         </thead>
         <tbody>
           {data.map((item) => (
-            <tr key= {item.id}>
-                {(item.entryType === "playcut") && <td>{item.playcut.rotation && <p>*</p>}</td>}
-                {(item.entryType === "playcut") && <td>{item.playcut.artistName}</td>}
-                {(item.entryType === "playcut") && <td>{item.playcut.songTitle}</td>}
-                {(item.entryType === "playcut") && <td>{item.playcut.releaseTitle}</td>}
-                {(item.entryType === "playcut") && <td>{item.playcut.labelName}</td>}
-                {(item.entryType === "playcut") && <td>{item.playcut.request && <p>*</p>}</td>}
+            <tr key= {item.id} className="mb-5">
+                {(item.entryType === "playcut") && <td className="text-center">{item.playcut.rotation && <p className="mb-2 sm:text-base text-xs">*</p>}</td>}
+                {(item.entryType === "playcut") && <td className="sm:text-base text-xs">{item.playcut.artistName}</td>}
+                {(item.entryType === "playcut") && <td className="sm:text-base text-xs">{item.playcut.songTitle}</td>}
+                {(item.entryType === "playcut") && <td className="sm:text-base text-xs">{item.playcut.releaseTitle}</td>}
+                {(item.entryType === "playcut") && <td className="sm:text-base text-xs">{item.playcut.labelName}</td>}
+                {(item.entryType === "playcut") && <td className="text-center sm:text-base text-xs">{item.playcut.request && <p>*</p>}</td>}
           
-            
-                {(item.entryType === "talkset") && <td colSpan={6} align="center">talkset</td>}
+                
+                {(item.entryType === "talkset") && <td className="bg-gradient-to-b from-neutral-700 to-black" colSpan={6} align="center"><p className=" h-5">Talkset</p></td>}
 
                
-                {(item.entryType === "breakpoint") && <td colSpan={6} align="center">{ new Date(item.hour).toLocaleString('en-US', { hour: 'numeric', timeZone: 'America/New_York' })} breakpoint</td>}
+                {(item.entryType === "breakpoint") && <td colSpan={6} align="center"> <p className="font-bold my-4">{ new Date(item.hour).toLocaleString('en-US', { hour: 'numeric', timeZone: 'America/New_York' })} Breakpoint</p></td>}
 
             </tr>
           ))}
         </tbody>
-      </table>
-    </div>
+      </table></div>
+       
+    </Layout>
   );
 };
 

@@ -21,7 +21,7 @@ const BlogCategoryPage = (props) => {
       </div>
       
       {(sortedEvents.length > 0) && 
-      <div className="blog-grid grid grid-cols-3 justify-around gap-4 w-5/6 mx-auto">
+      <div className="blog-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-4 w-5/6 mx-auto">
         {sortedEvents.map((post) => (
           <PostPreview 
             id={post.node.id} 
