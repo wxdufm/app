@@ -2,7 +2,6 @@ import { client } from "../../tina/__generated__/client";
 import EventPreview from "../../components/EventPreview";
 import {groupEventsByWeek, generateStructuredData} from '../../components/OrganizingArchive';
 import Link from "next/link";
-import ArchiveHeader from "../../components/ArchiveDropdown";
 import ArchiveLayout from "../../components/ArchiveLayout"
 
 
@@ -26,10 +25,8 @@ const EventsCategoryPage = (props) => {
   });
 
   return (
-    <ArchiveLayout>
-        
-      <ArchiveHeader specialtyShows={specialtyShows}/>
-   
+    <ArchiveLayout specialtyShows={specialtyShows}>
+       
       <h1>All Events</h1>
 
       {(structuredData.length > 0) && 

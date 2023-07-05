@@ -1,9 +1,6 @@
 import { client } from "../../../tina/__generated__/client";
 import EventPreview from "../../../components/EventPreview";
 import {groupEventsByWeek, generateStructuredData} from '../../../components/OrganizingArchive';
-import Link from "next/link";
-import ArchiveDropdown from "../../../components/ArchiveDropdown";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
 import ArchiveLayout from "../../../components/ArchiveLayout"
 
 const ArchiveCategoryPage = (props) => {
@@ -29,8 +26,7 @@ const ArchiveCategoryPage = (props) => {
   });
 
   return (
-    <ArchiveLayout>
-      <ArchiveDropdown specialtyShows={specialtyShows}/>
+    <ArchiveLayout specialtyShows={specialtyShows}>
       
       <div className="w-full mx-auto">
      

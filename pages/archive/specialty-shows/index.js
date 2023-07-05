@@ -25,10 +25,8 @@ const SpecialtyShowsPage = (props) => {
   });
 
   return (
-    <ArchiveLayout>
-        
-      <ArchiveDropdown specialtyShows={specialtyShows}/>
-   
+    <ArchiveLayout specialtyShows={specialtyShows}>
+           
       <h1>All Specialty Shows</h1>
       <p>Click <Link href="/programming"><u>here</u></Link> for a list of all specialty shows and their descriptions</p>
 
