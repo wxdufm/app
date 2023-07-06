@@ -1,14 +1,16 @@
+import { useSlotProps } from "@mui/base";
 import React from "react";
 import ArchiveBreadcrumbs from "./ArchiveBreadcrumbs";
+import ArchiveDropdown from "./ArchiveDropdown";
 
 
-const ArchiveLayout = ({children}) => {
+const ArchiveLayout = (props) => {
  
   return (
     <div className="w-5/6 mx-auto text-white">
-      {/* Add any additional layout elements specific to the archive pages */}
       <ArchiveBreadcrumbs/>
-      {children}
+      <ArchiveDropdown specialtyShows={props.specialtyShows}/>
+      {props.children}
     </div>
   );
 };
