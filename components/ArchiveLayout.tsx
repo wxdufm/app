@@ -9,7 +9,7 @@ const ArchiveLayout = (props) => {
   return (
     <div className="w-5/6 mx-auto text-white">
       <ArchiveBreadcrumbs/>
-      <ArchiveDropdown specialtyShows={props.specialtyShows}/>
+      {props.specialtyShows && <ArchiveDropdown specialtyShows={props.specialtyShows}/>}
       {props.children}
     </div>
   );

@@ -19,7 +19,7 @@ const EventPage = (props) => {
   const displayDate = date.toLocaleString('en-US', options);
 
   return (
-    <ArchiveLayout specialtyShows={specialtyShows}>
+    <ArchiveLayout>
     <div className="w-full mx-auto">
         <div className="row">
           <img src={data.archive.cover} alt="" width="600" height="600"/>
