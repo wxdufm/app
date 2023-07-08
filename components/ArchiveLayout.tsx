@@ -6,7 +6,7 @@ import ArchiveDropdown from "./ArchiveDropdown";
 const ArchiveLayout = (props) => {
  
   return (
-    <div className="w-5/6 mx-auto text-white">
+    <div className="w-5/6 mx-auto text-white pb-10">
       <ArchiveBreadcrumbs/>
       {/* {props.specialtyShows && <ArchiveDropdown specialtyShows={props.specialtyShows}/>} */}
       {props.children}

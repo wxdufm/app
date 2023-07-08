@@ -25,7 +25,7 @@ export default function EventList(props) {
       <div className="archive-grid w-full mx-auto">
         {structuredData.map((event) => (
             <div key={event.id}>
-                {(event.type === 'heading') && <p className="text-xl mt-10 mb-1">Week of {event.weekStartDate}</p>}
+                {(event.type === 'heading') && <p className="text-3xl mt-10 mb-2">Week of {event.weekStartDate}</p>}
                 {(event.type === 'events' &&
                 // needs unique key somehow
                 <div>

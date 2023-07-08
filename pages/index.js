@@ -26,7 +26,7 @@ export default function Home(props) {
         {/* Left side of the screen container */}
         
         <div className="flex flex-col w-4/6 justify-center mr-10 mt-10">
-          <p className="text-white text-2xl">This Week on WXYC</p>
+          <p className="text-white text-5xl mb-2">This Week on WXYC</p>
           {events && (
             //This Week on WXYC
             <div className="mb-10 flex flex-row gap-4 overflow-x-scroll snap-mandatory">
@@ -56,7 +56,7 @@ export default function Home(props) {
               </Link>
                 </div>
           
-          <p className="text-white text-2xl">Blog Posts</p>
+          <p className="text-white text-5xl mb-2">Blog Posts</p>
           {posts && (
             // Blog posts parent container
             <div className="mb-10 flex gap-4 overflow-x-scroll snap-mandatory">

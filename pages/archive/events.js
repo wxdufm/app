@@ -27,14 +27,14 @@ const EventsCategoryPage = (props) => {
   return (
     <ArchiveLayout specialtyShows={specialtyShows}>
        
-      <h1>All Events</h1>
+      <h1 className="text-5xl mb-3 mt-5">All Events</h1>
 
       {(structuredData.length > 0) && 
       <div>
         <div className="archive-grid">
         {structuredData.map((event) => (
             <div key={event.id}>
-                {(event.type === 'heading') && <h3>week of {event.weekStartDate}</h3>}
+                {(event.type === 'heading') && <h3 className="text-2xl mt-10 mb-2">Week of {event.weekStartDate}</h3>}
                 {(event.type === 'events' &&
                 <div key={event.id}>
                 {event.weekEvents && <div className="events-row">
