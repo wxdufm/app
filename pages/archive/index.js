@@ -20,7 +20,8 @@ export default function EventList(props) {
 
   return (
     
-    <ArchiveLayout specialtyShows={specialtyShows}>
+    <ArchiveLayout>
+      <ArchiveDropdown specialtyShows={specialtyShows}/>
       <div className="archive-grid w-full mx-auto">
         {structuredData.map((event) => (
             <div key={event.id}>
