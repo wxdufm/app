@@ -18,7 +18,9 @@ const PostPage = (props) => {
   const displayDate = date.toLocaleString('en-US', options);
  
   return (
+    
     <BlogLayout>
+      <div className="mx-auto w-5/6 pb-10">
           {data.blog.categories &&
             <div>
               {data.blog.categories.map((category) => (
@@ -29,16 +31,17 @@ const PostPage = (props) => {
                 </div>
               ))}
             </div>}
-          <h1>{data.blog.title}</h1>
+          <h1 className="text-5xl mb-2">{data.blog.title}</h1>
           <p>{displayDate}</p>
-          <h3>By {data.blog.author}</h3>
+          <h3 className="mb-2"> By {data.blog.author}</h3>
           <img src={data.blog.cover} alt="" width="300px" height="300px"/>
           
-          <article className="prose prose-lg prose-h1:text-red-300 text-white">
+          <article className="prose prose-lg prose-h1:text-red-300 prose-h3:text-white text-white">
             <TinaMarkdown content={data.blog.body} />
           </article>
-       
+      </div> 
     </BlogLayout>
+   
   );
 }
 
