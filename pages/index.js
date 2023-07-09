@@ -90,7 +90,7 @@ export default function Home(props) {
 
          
 
-        <div className="">
+        <div className="hidden lg:block">
         <iframe src={`https://dj.wxyc.org/#/NowPlaying`} style={{border: '0px', width: '300px', height: '400px', overflow: 'hidden', marginBottom: "50px" }} />
 
           <iframe

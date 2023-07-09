@@ -7,15 +7,15 @@ import Image from 'next/image'
 const Header = () => {
     return (
     //Entire flex container
-    <div className="flex w-5/6 flex-col items-start justify-center mx-auto mb-10">
+    <div className="flex w-5/6 flex-col items-start justify-center mx-auto mb-10 pt-2 ">
             
     <Link href="/">
     {/* Header text parent container */}
-    <div className="flex flex-row items-end mb-5">
+    <div className="flex flex-row items-end mb-5 ">
         {/* Actual header text */}
-            <div className="w-2/5">
-                <Image src={photo} alt="Picture of the author" />
-                <h1 className=" text-6xl text-white font-bold no-underline m-0">89.3FM</h1>
+            <div className="w-2/5  flex flex-col">
+                <Image src={photo} alt="Picture of the author"/>
+                <h1 className=" text-6xl text-white font-bold no-underline m-0 mx-auto">89.3FM</h1>
             </div>
                 <h3 className="w-full">UNC-Chapel Hill's student-run, freeform radio station</h3>
     </div>
