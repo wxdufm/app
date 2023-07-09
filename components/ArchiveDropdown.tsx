@@ -12,12 +12,21 @@ const ArchiveDropdown = (props) => {
     <div className="w-full mx-auto">
       {/* dropdown in archive pages */}
       <div className="flex flex-row gap-16">
+
         <div className="w-1/5">
+          <div className="w-1/2">
           <Menu as="div" className="relative">
-            <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+            <Menu.Button className="w-full ">
+              {({ open }) => (
+                <p 
+                  className={`${
+                    open ? "w-full inline-flex justify-center rounded-b-none rounded-2xl border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" : "inline-flex w-full justify-center rounded-2xl border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+                  }`}>
               Filter <IoIosArrowDown size={18} className="ml-1 mt-0.5" />
+              </p>)}
+
             </Menu.Button>
-            <Menu.Items className="origin-top absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+            <Menu.Items className="origin-top absolute rounded-b-2xl left-1/2 transform -translate-x-1/2 mt-0 w-full shadow-lg bg-white ring-1 ring-black ring-opacity-5">
               <Menu.Item>
                 <Link
                   legacyBehavior={false}
@@ -26,7 +35,7 @@ const ArchiveDropdown = (props) => {
                   scroll={false}
                 >
                   <p
-                    className="inline-flex justify-center items-center w-full rounded-md px-4 py-2 text-sm text-gray-700"
+                    className="inline-flex justify-center items-center w-full px-4 py-2 text-sm text-gray-700"
                   >
                     Events
                   </p>
@@ -35,7 +44,7 @@ const ArchiveDropdown = (props) => {
 
               <Menu.Item>
                 <Menu as="div" className="relative">
-                  <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                  <Menu.Button className="inline-flex rounded-b-2xl justify-center w-full  shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
                     Specialty Shows{" "}
                     <IoIosArrowForward size={18} className="ml-1 mt-0.5" />
                   </Menu.Button>
@@ -71,6 +80,8 @@ const ArchiveDropdown = (props) => {
               </Menu.Item>
             </Menu.Items>
           </Menu>
+          </div>
+          
         </div>
 
         {/* {currentRoute !== "/archive" && (
