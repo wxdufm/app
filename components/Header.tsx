@@ -26,29 +26,50 @@ const Header = () => {
     {/* Parent container of navbar */}
     <div className="w-full justify-center ">
     {/* Actual navbar */}
-        <div className="w-full flex flex-row justify-around items-center bg-white py-3">
+        <div className="w-full flex flex-row justify-around items-center bg-gradient-to-b from-neutral-100 to-neutral-300 h-12 py-3">
+            <div className="hover:bg-neutral-300 h-12 flex items-center justify-center grow ">
             <Link href="/about">
                     <p className="text-black text-base no-underline cursor-pointer">About</p>
                 </Link>
-                
-                <Link href="/programming" className="nav">
+            </div>
+
+            <div className="hover:bg-neutral-300 h-12 flex items-center justify-center grow ">
+            <Link href="/programming" className="nav">
                     <p className="text-black text-base no-underline cursor-pointer">Programming</p>
                 </Link>
-                <Link href="/archive">
+            </div>
+
+            <div className="hover:bg-neutral-300 h-12 flex justify-center items-center grow ">
+            <Link href="/archive">
                     <p className="text-black text-base no-underline cursor-pointer">Archive</p>
                 </Link>
-                <Link href="/blog">
+            </div>
+
+            <div className="hover:bg-neutral-300 h-12 flex justify-center items-center grow ">
+            <Link href="/blog">
                     <p className="text-black text-base no-underline cursor-pointer">Blog</p>
                 </Link>
-                <Link href="/contact">
+            </div>
+            
+            <div className="hover:bg-neutral-300 h-12 flex justify-center items-center grow ">
+            <Link href="/contact">
                     <p className="text-black text-base no-underline cursor-pointer">Contact</p>
                 </Link>
-
+            </div>   
+               
+            <div className="hover:bg-neutral-300 h-12 flex justify-center items-center grow ">
                 <DropdownMenu/>
- 
-                <Link href="https://wxyc.bigcartel.com/" legacyBehavior>
+            </div>   
+                
+            <div className="hover:bg-neutral-300 h-12 flex justify-center items-center grow ">
+            <Link href="https://wxyc.bigcartel.com/" legacyBehavior>
                     <a target="_blank" rel="noopener noreferrer" className="text-black text-base no-underline">Merch</a>
                 </Link>
+                </div>    
+
+                
+ 
+                
             </div>  
     </div>
     
