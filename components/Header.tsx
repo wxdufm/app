@@ -1,30 +1,39 @@
-import React from "react";
+import React, { useState } from 'react';
 import Link from "next/link"
 import DropdownMenu from "./DropdownMenu";
 import photo from "../images/logo.png"
 import Image from 'next/image'
 
+
+
+
 const Header = () => {
+    
     return (
     
     //Parent Container
      <div> 
     
     {/* Mobile header */}
-    <div className="bg-gradient-to-b from-neutral-800 to-neutral-900 drop-shadow-sm fixed z-50 top-0 w-full h-12 px-0 md:hidden"></div>
+    <div className="bg-gradient-to-b from-neutral-800 to-neutral-900 drop-shadow-sm fixed z-50 top-0 w-full h-12 px-0 md:hidden">
+    
+    </div>
 
     {/* Parent container of entire desktop header  */}
-    <div className="flex w-5/6 flex-col items-start justify-center mx-auto mb-10 pt-2 ">
+    <div className="flex w-5/6 flex-col items-start justify-center mx-auto md:mb-10 md:pt-2 pt-20">
     
     <Link href="/">
     {/* Header text parent container */}
-    <div className="flex flex-row items-end mb-5 ">
+    <div className="flex w-full flex-col justify-center items-center md:flex-row md:items-end mb-5 ">
         {/* Actual header text */}
-            <div className="w-2/5  flex flex-col">
+            <div className="md:w-2/5  flex flex-col items-center justify-center w-full">
                 <Image src={photo} alt="Picture of the author"/>
                 <h1 className=" text-6xl text-white font-bold no-underline m-0 mx-auto">89.3FM</h1>
+                <div className="mt-2">
+                <h3 className="w-full md:text-base text-sm md:mx-0 mx-auto">UNC-Chapel Hill's student-run, freeform radio station</h3>
+                </div>
             </div>
-                <h3 className="w-full">UNC-Chapel Hill's student-run, freeform radio station</h3>
+            
     </div>
 
             

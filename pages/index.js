@@ -25,7 +25,7 @@ export default function Home(props) {
         
         {/* Left side of the screen container */}
         
-        <div className="flex flex-col w-4/6 justify-center mr-10 mt-10">
+        <div className="flex flex-col md:w-4/6 w-full justify-center mr-10 mt-10">
           <p className="text-white text-5xl mb-2">This Week on WXYC</p>
           {events && (
             //This Week on WXYC
@@ -52,17 +52,21 @@ export default function Home(props) {
 
       <div className=" ml-auto w-1/8">
               <Link href="/archive">
-                <p>Archive {'>'}</p>
+                <p className="hover:underline">Archive {'>'}</p>
               </Link>
                 </div>
           
           <p className="text-white text-5xl mb-2">Blog Posts</p>
           {posts && (
             // Blog posts parent container
-            <div className="mb-10 flex gap-4 overflow-x-scroll snap-mandatory">
+            
+            <div className="md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-scroll snap-mandatory">
+              
               {posts.map((post) => (
                 // Blog post previews
+                
                 <div key={post.node.id}>
+
                 <PostPreview 
                 id={post.node.id} 
                 title={post.node.title} 
@@ -71,13 +75,15 @@ export default function Home(props) {
                 subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 75)}
               />
               </div>
+              
               ))}
-            </div>
+              </div>
+            
           )}
           
           <div className=" ml-auto w-1/8 mb-20">
           <Link href="/blog">
-              <h2>Blog {'>'}</h2>
+              <h2 class="hover:underline">Older blog posts {'>'}</h2>
           </Link>
           </div>
 
@@ -90,7 +96,7 @@ export default function Home(props) {
 
          
 
-        <div className="hidden lg:block">
+        <div className="hidden md:block">
         <iframe src={`https://dj.wxyc.org/#/NowPlaying`} style={{border: '0px', width: '300px', height: '400px', overflow: 'hidden', marginBottom: "50px" }} />
 
           <iframe
@@ -120,7 +126,7 @@ export const getStaticProps = async () => {
     query: `
     query getContent($startOfWeek: String, $endOfWeek: String)
     {    
-        blogConnection(sort: "published", last:10, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u"){
+        blogConnection(sort: "published", last:3, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u"){
           edges {
             node {
               id
