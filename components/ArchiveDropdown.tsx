@@ -14,7 +14,7 @@ const ArchiveDropdown = (props) => {
       <div className="flex flex-row gap-16">
         <div className="w-1/5">
           <Menu as="div" className="relative">
-            <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+            <Menu.Button className="ui-open:bg-green-300">
               Filter <IoIosArrowDown size={18} className="ml-1 mt-0.5" />
             </Menu.Button>
             <Menu.Items className="origin-top absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
