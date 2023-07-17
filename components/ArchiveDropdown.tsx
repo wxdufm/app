@@ -13,8 +13,8 @@ const ArchiveDropdown = (props) => {
       {/* dropdown in archive pages */}
       <div className="flex flex-row gap-16">
 
-        <div className="w-1/5">
-          <div className="w-1/3">
+        <div className="md:w-1/5 w-5/6">
+          <div className="w-1/2">
           <Menu as="div" className="relative">
             <Menu.Button className="w-full ">
               {({ open }) => (
@@ -45,7 +45,7 @@ const ArchiveDropdown = (props) => {
 
               <Menu.Item>
                 <Menu as="div" className="relative">
-                  <Menu.Button className="inline-flex rounded-b-2xl justify-center w-full  shadow-sm px-4 py-2 bg-neutral-700 text-sm font-medium text-white hover:bg-neutral-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                  <Menu.Button className="inline-flex rounded-b-2xl justify-center w-full  shadow-sm px-4 py-2 bg-neutral-700 text-sm font-medium text-white hover:bg-neutral-600 focus:outline-none">
                     Specialty Shows{" "}
                     <IoIosArrowForward size={18} className="ml-1 mt-0.5" />
                   </Menu.Button>

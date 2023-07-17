@@ -6,7 +6,7 @@ const PostPreview = (props: PostPreviewData) => {
     <div key={props.id} className="flex flex-col gap-5 w-80">
         <img src={props.cover} className="w-80 h-80 object-cover" alt=""/>
         <Link href={`/blog/${props.slug}`}>
-          <a className="text-xl text-center h-12">{props.title}</a>
+          <a className="text-xl text-center h-12 font-bold">{props.title}</a>
         </Link>
         <p>{props.subtitle}...</p>
       </div>

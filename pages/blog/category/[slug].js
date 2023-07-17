@@ -17,7 +17,7 @@ const BlogCategoryPage = (props) => {
     <BlogLayout>
       <div className=" w-5/6 mx-auto">
    
-      <h1 className="text-5xl mb-2">{category}s</h1>
+      <h1 className="text-5xl mb-2 kallisto">{category}s</h1>
       </div>
       
       {(sortedEvents.length > 0) && 

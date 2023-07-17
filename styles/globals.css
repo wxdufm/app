@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://use.typekit.net/gjm2mim.css");
+
+
+.kallistobold {
+  font-family: "kallisto", sans-serif;
+  font-weight: 800;
+  }
+
+.kallisto {
+font-family: "kallisto", sans-serif;
+font-weight: 500;
+font-style: normal;
+};
+
+
+
+
+
+
 
 /* .app {
   background-color: black;

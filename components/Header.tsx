@@ -28,9 +28,9 @@ const Header = () => {
         {/* Actual header text */}
             <div className="md:w-2/5  flex flex-col items-center justify-center w-full">
                 <Image src={photo} alt="Picture of the author"/>
-                <h1 className=" text-6xl text-white font-bold no-underline m-0 mx-auto">89.3FM</h1>
+                <h1 className=" text-6xl text-white font-bold no-underline m-0 mx-auto kallistobold">89.3FM</h1>
                 <div className="mt-2">
-                <h3 className="w-full md:text-base text-sm md:mx-0 mx-auto">UNC-Chapel Hill's student-run, freeform radio station</h3>
+                <h3 className="w-full poppins md:text-base text-sm md:mx-0 mx-auto">UNC-Chapel Hill's student-run, freeform radio station</h3>
                 </div>
             </div>
             

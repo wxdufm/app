@@ -10,7 +10,7 @@ const EventPreview = (props: EventPreviewData) => {
             <Link href={`/archive/${props.slug}`}>
                 <div>
                     <img src={props.cover} alt="" className="h-80 w-80 object-cover "/>
-                    <p className="text-xl text-center h-12">{props.title}</p>
+                    <p className="text-xl text-center h-12 font-bold">{props.title}</p>
                     <p>{props.subtitle}...</p>
                 </div>
             </Link>
@@ -30,7 +30,7 @@ const EventPreview = (props: EventPreviewData) => {
             <Link href={`/archive/${props.slug}`}>
                 <div>
                     <img src={props.cover} alt="" className="h-80 w-80 object-cover "/>
-                    <p className="text-xl text-center h-12">{displayDate}: {props.title}</p>
+                    <p className="text-xl text-center h-12 font-bold">{displayDate}: {props.title}</p>
                     <p>{props.subtitle}...</p>
                 </div>
             </Link>

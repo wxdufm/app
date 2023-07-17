@@ -34,7 +34,7 @@ const MyTable = () => {
     
     <div>
       <div className="sm:mx-auto sm:w-5/6 overflow-auto pb-10"> 
-      <p className="text-5xl mb-2">Live Playlist</p>
+      <p className="text-5xl mb-2 kallisto">Live Playlist</p>
 
       <div className="flex flex-row justify-between">
       <p className="mb-5"> Last updated: </p>

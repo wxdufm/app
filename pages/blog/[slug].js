@@ -31,7 +31,7 @@ const PostPage = (props) => {
                 </div>
               ))}
             </div>}
-          <h1 className="text-5xl mb-2">{data.blog.title}</h1>
+          <h1 className="text-5xl mb-2 kallisto">{data.blog.title}</h1>
           <p>{displayDate}</p>
           <h3 className="mb-2"> By {data.blog.author}</h3>
           <img src={data.blog.cover} alt="" width="300px" height="300px"/>
