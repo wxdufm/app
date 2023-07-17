@@ -26,10 +26,10 @@ export default function Home(props) {
         {/* Left side of the screen container */}
         
         <div className="flex flex-col md:w-4/6 w-full justify-center mr-10 mt-10">
-          <p className="text-white text-5xl mb-2">This Week on WXYC</p>
+          <p className="text-white md:text-5xl mb-2 whitespace-nowrap text-4xl">This Week on WXYC</p>
           {events && (
             //This Week on WXYC
-            <div className="mb-10 flex flex-row gap-4 overflow-x-scroll snap-mandatory">
+            <div className="md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-scroll snap-mandatory">
               {events.map((event) => (
                 //Event previews
                 <div key={event.node.id}>
@@ -50,13 +50,13 @@ export default function Home(props) {
             
           )}
 
-      <div className=" ml-auto w-1/8">
+      <div className="mx-auto w-1/8 mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
               <Link href="/archive">
                 <p className="hover:underline">Archive {'>'}</p>
               </Link>
                 </div>
           
-          <p className="text-white text-5xl mb-2">Blog Posts</p>
+          <p className="text-white md:text-5xl text-4xl mb-2 whitespace-nowrap">Blog Posts</p>
           {posts && (
             // Blog posts parent container
             
@@ -81,13 +81,13 @@ export default function Home(props) {
             
           )}
           
-          <div className=" ml-auto w-1/8 mb-20">
+          <div className="mx-auto w-1/8 mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
           <Link href="/blog">
               <h2 class="hover:underline">Older blog posts {'>'}</h2>
           </Link>
           </div>
 
-          <div className="w-full">
+          <div className="w-full invisible md:visible">
               <PhotoGallery images={images} />
             </div>
         </div>

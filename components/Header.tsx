@@ -15,7 +15,7 @@ const Header = () => {
      <div> 
     
     {/* Mobile header */}
-    <div className="bg-gradient-to-b from-neutral-800 to-neutral-900 drop-shadow-sm fixed z-50 top-0 w-full h-12 px-0 md:hidden">
+    <div className="bg-gradient-to-b from-neutral-700 to-neutral-900 drop-shadow-sm fixed z-50 top-0 w-full h-12 px-0 md:hidden">
     
     </div>
 
