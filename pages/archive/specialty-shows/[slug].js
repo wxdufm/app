@@ -30,7 +30,7 @@ const ArchiveCategoryPage = (props) => {
       
       <div className="w-full mx-auto">
      
-      <p className="text-5xl mb-10 kallisto">{category}s</p>
+      <p className="text-5xl mb-10 mt-2 kallisto">{category}s</p>
       {description && <p>{description}</p>} 
       </div>
       

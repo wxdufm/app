@@ -28,7 +28,7 @@ const SpecialtyShowsPage = (props) => {
     <ArchiveLayout specialtyShows={specialtyShows}>
            
       <h1 className="kallisto text-5xl my-2">All Specialty Shows</h1>
-      <p className="text-xl mb-10">Click <Link href="/programming"><u>here</u></Link> for a list of all specialty shows and their descriptions.</p>
+      <p className="text-lg mb-10">Click <Link href="/programming"><u>here</u></Link> for a list of all specialty shows and their descriptions.</p>
 
       {(structuredData.length > 0) && 
       <div>
