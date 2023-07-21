@@ -30,7 +30,7 @@ const Header = () => {
                 <Image src={photo} alt="Picture of the author"/>
                 <h1 className=" text-6xl text-white font-bold no-underline m-0 mx-auto kallistobold">89.3FM</h1>
                 <div className="mt-2">
-                <h3 className="w-full poppins md:text-base text-sm md:mx-0 mx-auto">UNC-Chapel Hill's student-run, freeform radio station</h3>
+                <h3 className="w-full poppins md:text-base text-sm md:mx-0 mx-auto whitespace-nowrap">UNC-Chapel Hill's student-run, freeform radio station</h3>
                 </div>
             </div>
             

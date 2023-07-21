@@ -6,7 +6,7 @@ export default function Crumb({ text, href, last=false }) {
   
     // Blog header on blog home page
     if (last && text === "WXYC PRESS") {
-      return <Typography className="text-5xl kallisto text-white">{text}</Typography>
+      return (null);
     }
     //Blog header when you're not on blog home page (links back to blog home page)
     if (!last && text === "WXYC PRESS") {
