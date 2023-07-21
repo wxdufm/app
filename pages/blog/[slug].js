@@ -33,10 +33,10 @@ const PostPage = (props) => {
             </div>}
           <h1 className="text-5xl mb-2 kallisto">{data.blog.title}</h1>
           <p>{displayDate}</p>
-          <h3 className="mb-2"> By {data.blog.author}</h3>
-          <img src={data.blog.cover} alt="" width="300px" height="300px"/>
+          <h3 className="mb-3"> By {data.blog.author}</h3>
+          <img src={data.blog.cover} alt="" width="300px" height="300px" className="mb-3"/>
           
-          <article className="prose prose-lg prose-h1:text-red-300 prose-h3:text-white text-white">
+          <article className="prose prose-lg prose-h3:text-white text-white">
             <TinaMarkdown content={data.blog.body} />
           </article>
       </div> 

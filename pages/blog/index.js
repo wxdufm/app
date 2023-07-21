@@ -9,9 +9,11 @@ export default function PostList(props) {
 
   return (
     <BlogLayout>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-4 w-5/6 mx-auto pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-4 w-5/6 mx-auto  pb-10">
+          
           {postsList.map((post) => (
           <LazyLoad height={200} once={true} key={post.node.id}>
+            <div className="flex justify-center">
             <PostPreview 
               id={post.node.id} 
               title={post.node.title} 
@@ -19,8 +21,10 @@ export default function PostList(props) {
               cover={post.node.cover} 
               subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 75)}
             />
+            </div>
             </LazyLoad>
           ))}
+          
         </div>
     </BlogLayout>
   );
