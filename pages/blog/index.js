@@ -11,20 +11,20 @@ export default function PostList(props) {
     <BlogLayout>
       <div className="pt-3 md:pt-0 mx-auto h-32 md:h-24 items-center justify-between w-5/6 flex flex-col md:flex-row">
       <div className="kallisto text-5xl">WXYC PRESS</div>
-      <div className=" flex flex-row h-1/3 md:h-1/2 justify-center md:justify-end  items-center w-full md:w-1/2 text-sm">
-                    <div className="bg-gradient-to-b  from-neutral-700 border-0 rounded-3xl to-neutral-900 mx-2 md:mr-0 whitespace-nowrap px-2 h-full flex flex-col justify-center" >
+      <div className="  flex flex-row  h-1/2 md:h-1/2 justify-center md:justify-end  items-center w-full md:w-1/2 text-lg text-center">
+                    <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap   px-2 h-full flex flex-col justify-center " >
                         <a href="/blog/category/show-review">
                             Show Reviews
                         </a>
                     </div>
             
-                    <div className="bg-gradient-to-b from-neutral-700 border-0 rounded-3xl to-neutral-900 mx-2 md:mr-0 whitespace-nowrap px-2 h-full flex flex-col justify-center" >
+                    <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap  px-2 h-full flex flex-col justify-center" >
                         <a href="/blog/category/album-review">
                             Album Reviews
                         </a>
                     </div>
             
-                    <div className="bg-gradient-to-b from-neutral-700 border-0 rounded-3xl to-neutral-900 mx-2 md:mr-0 whitespace-nowrap px-2  h-full flex flex-col justify-center" >
+                    <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap px-2 h-full flex flex-col justify-center" >
                         <a href="/blog/category/artist-interview">
                             Artist Interviews
                         </a>
