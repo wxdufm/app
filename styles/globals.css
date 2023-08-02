@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://use.typekit.net/gjm2mim.css");
+
+
+
+@font-face {
+  font-family: "kallisto";
+  src: url("..//fonts/kallisto.otf");
+}
 
 
 .kallistobold {

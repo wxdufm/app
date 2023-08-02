@@ -4,6 +4,8 @@ import {groupEventsByWeek, generateStructuredData} from '../../../components/Org
 import Link from "next/link";
 import ArchiveDropdown from "../../../components/ArchiveDropdown";
 import ArchiveLayout from "../../../components/ArchiveLayout"
+import Image from 'next/image'
+
 
 
 const SpecialtyShowsPage = (props) => {

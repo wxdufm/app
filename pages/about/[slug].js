@@ -18,7 +18,7 @@ export default function AboutPage(props) {
     <AboutLayout>
       <div data-tina-field={tinaField(data.page, "body")}>
         <div className="flex flex-row justify-center w-5/6 mx-auto">
-          <article className="prose prose-lg prose-h1:text-white prose-h1:text-5xl prose-h1:font-normal prose-a:text-blue-500 prose-h3:text-white prose-h3:font-normal text-white">
+          <article className="prose prose-lg prose-h1:text-white prose-h1:font-kallisto prose-h1:text-5xl prose-h1:font-normal prose-a:text-blue-500 prose-h3:text-white prose-h3:font-normal text-white">
             <TinaMarkdown content={content} />
           </article>
         </div>

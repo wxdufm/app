@@ -10,6 +10,7 @@ export const Layout = (props) => {
         <title>WXYC</title>
         <meta name="description" content="WXYC's website" />
         <link rel="icon" href="../images/10144964.png" />
+        
       </Head>
       <header className='header'>
         <Header/>
