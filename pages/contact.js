@@ -41,18 +41,18 @@ export default function ContactPage() {
 
 
     return (
-      <div className="flex flex-col h-full justify-center items-center text-black">
+      <div className="flex flex-col h-full justify-center items-center text-black pb-10 ">
         <form 
-            className="bg-white p-6 rounded-lg w-2/5"
+            className="bg-neutral-500 bg-opacity-25 p-6 rounded-2xl w-2/5"
             id="contactForm"
             // action="/api/submit-form"
             // method="POST"
         >
-          <h1 style={{margin: "0 0 1.5rem", color: "black"}}>React Out To Us</h1>
-          <div>
-            <label style={{display: "block", textTransform: "uppercase", fontSize: "0.9rem", marginBorrom: "0.5rem", color: "#334155"}} htmlFor="name">Name</label>
+          <h1 className="kallisto text-2xl text-center text-white">Reach Out To Us!</h1>
+          <div className="flex flex-col mb-5">
+            <div className="mb-2"><label className="text-white">Your Name</label></div>
             <input
-              style={{width: "100%", border: "none", background: "#f4f4f5", padding: "0.75rem 0.5rem", fontSize: "1rem", marginBottom: "1.25rem", borderRadius: "4px"}}
+              className="border-0 rounded-md px-2 py-2 bg-white bg-opacity-75"
               type="text"
               id="name"
               name="name"
@@ -60,29 +60,28 @@ export default function ContactPage() {
               required
             />
           </div>
-          <div className="flex-1">
-            <label style={{display: "block", textTransform: "uppercase", fontSize: "0.9rem", marginBorrom: "0.5rem", color: "#334155"}} htmlFor="organization">Organization</label>
+          <div className="flex flex-col mb-5">
+          <div className="mb-2"><label className="text-white" htmlFor="organization">Organization</label></div>
             <textarea
-              style={{width: "100%", border: "none", background: "#f4f4f5", padding: "0.75rem 0.5rem", fontSize: "1rem", marginBottom: "1.25rem", borderRadius: "4px"}}
-              name="organization"
+              className="border-0 rounded-md px-2 py-2 bg-white bg-opacity-75"
               id="organization"
               rows="5"
-              placeholder="Tell us about your organization!"
-              required
+              placeholder="Tell us about your organization! (optional)"
+              
             ></textarea>
           </div>
-          <div className="flex-1">
-            <label style={{display: "block", textTransform: "uppercase", fontSize: "0.9rem", marginBorrom: "0.5rem", color: "#334155"}} htmlFor="message">Message</label>
+          <div className="flex flex-col mb-5">
+          <div className="mb-2"><label className="text-white"  htmlFor="message">Message</label></div>
             <textarea
-              style={{width: "100%", border: "none", background: "#f4f4f5", padding: "0.75rem 0.5rem", fontSize: "1rem", marginBottom: "1.25rem", borderRadius: "4px"}}
+              className="border-0 rounded-md px-2 py-2 bg-white bg-opacity-75"
               name="message"
               id="message"
               rows="5"
-              placeholder="PSA Message"
+              placeholder="Submit a PSA, question, or comment."
               required
             ></textarea>
           </div>
-          <button className="bg-pink-800" style={{padding: "0.5rem 1rem", border: "none", color: "white", fontSize: "1rem", fontWeight: "bold", borderRadius: "4px", boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.1)", cursor: "pointer"}} type="submit">
+          <button className="bg-neutral-700" style={{padding: "0.5rem 1rem", border: "none", color: "white", fontSize: "1rem", fontWeight: "bold", borderRadius: "4px", boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.1)", cursor: "pointer"}} type="submit">
             Submit
           </button>
         </form>
