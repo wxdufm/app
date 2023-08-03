@@ -52,7 +52,7 @@ export default function Home(props) {
 
       <div className="mx-auto w-1/8 mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
               <Link href="/archive">
-                <p className="hover:underline">Archive {'>'}</p>
+                <p className="hover:underline mt-3">Archive {'>'}</p>
               </Link>
                 </div>
           
@@ -83,20 +83,18 @@ export default function Home(props) {
           
           <div className="mx-auto w-1/8 mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
           <Link href="/blog">
-              <h2 class="hover:underline">Older blog posts {'>'}</h2>
+              <h2 class="hover:underline mt-3">Older blog posts {'>'}</h2>
           </Link>
           </div>
 
-          <div className="w-full invisible md:visible">
-              <PhotoGallery images={images} />
-            </div>
+          
         </div>
 
        
 
          
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex md:flex-col md:items-center">
         <iframe src={`https://dj.wxyc.org/#/NowPlaying`} style={{border: '0px', width: '300px', height: '400px', overflow: 'hidden', marginBottom: "50px" }} />
 
           <iframe
@@ -109,12 +107,22 @@ export default function Home(props) {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
-
+        <div className="bg-gradient-to-b from-neutral-200 to-neutral-400 hover:text-neutral-700 text-black  w-5/6 flex flex-col justify-center items-center h-16 border-0 rounded-3xl mt-10 text-xl ">
+          <div>
         <Link href="/contact" scroll={false} >Submit a PSA!</Link>
+          </div>
+        </div>
 
         </div>
+
+      
           
       </div>
+
+      <div className=" invisible md:visible flex justify-center items-center mx-auto w-2/3 mt-20">
+    
+    <PhotoGallery images={images} />
+  </div>
     </div>
   );
 }
