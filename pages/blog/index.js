@@ -34,8 +34,8 @@ export default function PostList(props) {
                 
               </div>
 
-        <div className="w-5/6 mx-auto">
-         <p>blahsd blasdh </p>
+        <div className="w-5/6 mx-auto mb-10">
+         <p>Read reviews and interviews by WXYC DJs.</p>
          </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-4 w-5/6 mx-auto  pb-10">
