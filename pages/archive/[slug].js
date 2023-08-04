@@ -2,7 +2,8 @@ import { useTina } from "tinacms/dist/react";
 import { client } from "../../tina/__generated__/client";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import  Link  from "next/link";
-import ArchiveLayout from "../../components/ArchiveLayout"
+import ArchiveLayout from "../../components/ArchiveLayout";
+import {AiFillTag} from "react-icons/ai" ;
 
 
 
@@ -22,29 +23,38 @@ const EventPage = (props) => {
     <ArchiveLayout>
     <div className="w-full mx-auto">
         <div className="row">
-          <img src={data.archive.cover} alt="" width="600" height="600"/>
+          
 
           <div className="column">
-          <p className="text-xl mb-5">{data.archive.title}</p>
+          <p className="text-5xl mt-5 mb-3 kallisto">{data.archive.title}</p>
           <p className="text-xl mb-5">{displayDate}</p>
+
+          <img className="my-2" src={data.archive.cover} alt="" width="400" height="400"/>
 
           <article className="prose mb-5 text-white">
             <TinaMarkdown content={data.archive.description} />
           </article>
 
+         
+
           {data.archive.categories &&
-            <div>
+            <div className="flex">
               {data.archive.categories.map((category) => (
-                <div className="border rounded-xl border-white w-24 flex justify-center" key={category.category.id}>
+                <div className="border rounded-2xl  whitespace-nowrap border-white flex justify-around mr-3 px-3 py-1 " key={category.category.id}>
+                  <AiFillTag size={18} className="mr-1"/>
                  {(category.category._sys.filename === "event" || category.category._sys.filename === "specialty-show") 
+                 
                   ? <Link href={`/archive/${category.category._sys.filename}s`}>
-                      <p>{category.category.title}</p>
+                       
+                      <div className=" text-sm">{category.category.title}</div>
                     </Link>
                   : 
                   <Link href={`/archive/specialty-shows/${category.category._sys.filename}`}>
-                    <p>{category.category.title}</p>
+                    <div className="  text-sm">{category.category.title}</div>
                   </Link>
                   } 
+
+
                 </div>
               ))}
             </div>}

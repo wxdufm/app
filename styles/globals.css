@@ -3,6 +3,31 @@
 @tailwind utilities;
 
 
+
+
+@font-face {
+  font-family: "kallisto";
+  src: url("..//fonts/kallisto.otf");
+}
+
+
+.kallistobold {
+  font-family: "kallisto", sans-serif;
+  font-weight: 800;
+  }
+
+.kallisto {
+font-family: "kallisto", sans-serif;
+font-weight: 500;
+font-style: normal;
+};
+
+
+
+
+
+
+
 /* .app {
   background-color: black;
   font-family: "Helvetica";

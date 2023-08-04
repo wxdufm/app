@@ -4,6 +4,8 @@ import {groupEventsByWeek, generateStructuredData} from '../../../components/Org
 import Link from "next/link";
 import ArchiveDropdown from "../../../components/ArchiveDropdown";
 import ArchiveLayout from "../../../components/ArchiveLayout"
+import Image from 'next/image'
+
 
 
 const SpecialtyShowsPage = (props) => {
@@ -27,15 +29,15 @@ const SpecialtyShowsPage = (props) => {
   return (
     <ArchiveLayout specialtyShows={specialtyShows}>
            
-      <h1>All Specialty Shows</h1>
-      <p>Click <Link href="/programming"><u>here</u></Link> for a list of all specialty shows and their descriptions</p>
+      <h1 className="kallisto text-5xl my-2">All Specialty Shows</h1>
+      <p className="text-lg mb-10">Click <Link href="/programming"><u>here</u></Link> for a list of all specialty shows and their descriptions.</p>
 
       {(structuredData.length > 0) && 
       <div>
         <div className="archive-grid w-full mx-auto">
         {structuredData.map((event) => (
             <div key={event.id}>
-                {(event.type === 'heading') && <h3>week of {event.weekStartDate}</h3>}
+                {(event.type === 'heading') && <h3 className="text-3xl mb-2 font-bold">Week of {event.weekStartDate}</h3>}
                 {(event.type === 'events' &&
                 <div key={event.id}>
                 {event.weekEvents && <div className="flex flex-row justify-start gap-4 overflow-x-scroll">

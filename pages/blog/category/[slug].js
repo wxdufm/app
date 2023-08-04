@@ -17,11 +17,11 @@ const BlogCategoryPage = (props) => {
     <BlogLayout>
       <div className=" w-5/6 mx-auto">
    
-      <h1>{category}s</h1>
+      <h1 className="text-5xl mb-2 kallisto">{category}s</h1>
       </div>
       
       {(sortedEvents.length > 0) && 
-      <div className="blog-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-4 w-5/6 mx-auto">
+      <div className="blog-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-4 w-5/6 mx-auto pb-10">
         {sortedEvents.map((post) => (
           <PostPreview 
             id={post.node.id} 

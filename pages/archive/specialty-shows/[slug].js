@@ -30,7 +30,7 @@ const ArchiveCategoryPage = (props) => {
       
       <div className="w-full mx-auto">
      
-      <p className="text-4xl mb-5">{category}s</p>
+      <p className="text-5xl mb-10 mt-2 kallisto">{category}s</p>
       {description && <p>{description}</p>} 
       </div>
       
@@ -40,7 +40,7 @@ const ArchiveCategoryPage = (props) => {
         <div className="archive-grid w-full mx-auto">
         {structuredData.map((event) => (
             <div className="mb-7" key={event.id}>
-                {(event.type === 'heading') && <p className="text-2xl">Week of {event.weekStartDate}</p>}
+                {(event.type === 'heading') && <p className="text-3xl font-bold">Week of {event.weekStartDate}</p>}
                 {(event.type === 'events' &&
                 <div>
                 {event.weekEvents && <div className="events-row">
