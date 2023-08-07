@@ -10,19 +10,6 @@ export default function Home(props) {
   const posts = props.data.blogConnection.edges;
   const events = props.data.archiveConnection.edges;
 
-  // console.log(props.data.page.body)
-  const images = [
-    'http://localhost:3000/uploads/IMG_8649-700x500.jpeg',
-    'http://localhost:3000/uploads/kickball-700x500.jpeg',
-    'http://localhost:3000/uploads/R1-02256-004A-768x519-700x500.jpeg',
-    'http://localhost:3000/uploads/R1-03649-030A-700x500.png',
-    'http://localhost:3000/uploads/R1-02408-024A-700x500.jpeg',
-    'http://localhost:3000/uploads/462308599_b4f8d7a706_o.jpg',
-    'http://localhost:3000/uploads/R1-03328-0032.JPG',
-    'http://localhost:3000/uploads/R1-06442-000A.JPG',
-    'http://localhost:3000/uploads/127593766_c848d15b6f_o.jpg'
-  ];
-
   return (
     <div >
       <div className="w-5/6 mx-auto flex flex-row gap-4">
@@ -127,7 +114,7 @@ export default function Home(props) {
 
       <div className=" invisible md:visible flex justify-center items-center mx-auto w-2/3 mt-20">
     
-    <PhotoGallery images={images} />
+    <PhotoGallery/>
   </div>
     </div>
   );

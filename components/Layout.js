@@ -12,6 +12,7 @@ export const Layout = (props) => {
         <link rel="icon" href="../images/10144964.png" />
         
       </Head>
+
       <header className='header'>
         <Header/>
       </header>

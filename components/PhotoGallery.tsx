@@ -1,7 +1,25 @@
 import React, { useState } from 'react';
 import {IoIosArrowDropright, IoIosArrowDropleft} from "react-icons/io"
+import greta from "../images/greta.jpeg"
+import controlRoom from "../images/controlroom.png"
+import cradleEvent from "../images/cradleevent.jpeg"
+import guyInStation from "../images/guyinstation.jpeg"
+import flourescent from "../images/flourescent.jpeg"
+import crowdSunglasses from "../images/crowdsunglasses.jpeg"
+import kickballBench from "../images/kickballbench.jpeg"
+import Image from 'next/image';
 
-export const PhotoGallery = ({ images }) => {
+const images = [
+  greta,
+  guyInStation,
+  flourescent,
+  crowdSunglasses,
+  kickballBench,
+  controlRoom,
+  cradleEvent
+]
+
+export const PhotoGallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
@@ -14,8 +32,10 @@ export const PhotoGallery = ({ images }) => {
 
   return (
     <div className="w-full relative flex items-center mb-10">
- 
-      <img src={images[currentIndex]} alt="Gallery" className='w-full object-cover'/>
+
+      <div className='w-full h-full object-cover'>
+        <Image src={images[currentIndex]} alt="Gallery" sizes={"100vw"} />
+      </div>
 
       <div className="arrows">
         <button onClick={goToPrevious} className="absolute left-2 top-1/2 transform -translate-y-1/2 text-2xl cursor-pointer z-10">
