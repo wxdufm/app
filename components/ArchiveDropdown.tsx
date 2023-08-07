@@ -9,7 +9,7 @@ const ArchiveDropdown = (props) => {
   // const currentRoute = useRouter().asPath;
 
   return (
-    <div className=" border-blue-500">
+    <div className="">
       {/* dropdown in archive pages */}
       <div className="">
 
