@@ -26,7 +26,7 @@ const EventPreview = (props: EventPreviewData) => {
 
     // rendered on home page with "xx/xx"
     return (
-        <div key={props.id} className="flex flex-col gap-5 w-80 ">
+        <div key={props.id} className="flexflex-col gap-5 w-80 ">
             <Link href={`/archive/${props.slug}`}>
                 <div>
                     <img src={props.cover} alt="" className="h-80 w-80 object-cover "/>

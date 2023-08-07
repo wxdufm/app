@@ -11,11 +11,12 @@ export const Layout = (props) => {
         <meta name="description" content="WXYC's website" />
         <link rel="icon" href="/10144964.png" />
       </Head>
+
       <header className='header'>
         <Header/>
       </header>
      
-      <main >{props.children}</main>
+      <main className >{props.children}</main>
     </div>
   )
 }

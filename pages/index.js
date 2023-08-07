@@ -9,18 +9,18 @@ export default function Home(props) {
   const posts = props.data.blogConnection.edges;
   const events = props.data.archiveConnection.edges;
 
-
   return (
-    <div>
+    <div >
       <div className="w-5/6 mx-auto flex flex-row gap-4">
         
         {/* Left side of the screen container */}
         
-        <div className="flex flex-col md:w-4/6 w-full justify-center mr-10 mt-10">
+        <div className="flex flex-col md:w-4/6 w-full justify-center  mr-10 mt-10">
           <p className="text-white md:text-5xl mb-2 whitespace-nowrap text-4xl kallisto mx-auto md:mx-0">This Week on WXYC</p>
           {events && (
             //This Week on WXYC
-            <div className="md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-scroll snap-mandatory mx-auto">
+            <div className="">
+            <div className=" md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-scroll snap-mandatory mx-auto">
               {events.map((event) => (
                 //Event previews
                 <div key={event.node.id}>
@@ -37,6 +37,7 @@ export default function Home(props) {
               </div>
               ))}
              
+            </div>
             </div>
             
           )}

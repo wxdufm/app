@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import {IoIosArrowDropright, IoIosArrowDropleft} from "react-icons/io"
-import crowd from "../images/crowd.jpeg";
-import stationControl from "../images/R1-03649-030A-700x500.png"
-import greta from "../images/IMG_8649-700x500.jpeg"
-import kickball from "../images/kickball-700x500.jpeg"
+import greta from "../images/greta.jpeg"
+import controlRoom from "../images/controlroom.png"
+import cradleEvent from "../images/cradleevent.jpeg"
+import guyInStation from "../images/guyinstation.jpeg"
+import flourescent from "../images/flourescent.jpeg"
+import crowdSunglasses from "../images/crowdsunglasses.jpeg"
+import kickballBench from "../images/kickballbench.jpeg"
 import Image from 'next/image';
 
 const images = [
-  crowd,
-  stationControl,
   greta,
-  kickball
+  guyInStation,
+  flourescent,
+  crowdSunglasses,
+  kickballBench,
+  controlRoom,
+  cradleEvent
 ]
 
 export const PhotoGallery = () => {
@@ -26,7 +32,6 @@ export const PhotoGallery = () => {
 
   return (
     <div className="w-full relative flex items-center mb-10">
-      
       <div className='w-full h-full object-cover'>
         <Image src={images[currentIndex]} alt="Gallery" sizes={"100vw"} />
       </div>
