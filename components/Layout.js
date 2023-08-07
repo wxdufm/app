@@ -16,7 +16,7 @@ export const Layout = (props) => {
         <Header/>
       </header>
      
-      <main >{props.children}</main>
+      <main className >{props.children}</main>
     </div>
   )
 }

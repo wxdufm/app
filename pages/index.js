@@ -16,11 +16,15 @@ export default function Home(props) {
     'http://localhost:3000/uploads/kickball-700x500.jpeg',
     'http://localhost:3000/uploads/R1-02256-004A-768x519-700x500.jpeg',
     'http://localhost:3000/uploads/R1-03649-030A-700x500.png',
-    'http://localhost:3000/uploads/R1-02408-024A-700x500.jpeg'
+    'http://localhost:3000/uploads/R1-02408-024A-700x500.jpeg',
+    'http://localhost:3000/uploads/462308599_b4f8d7a706_o.jpg',
+    'http://localhost:3000/uploads/R1-03328-0032.JPG',
+    'http://localhost:3000/uploads/R1-06442-000A.JPG',
+    'http://localhost:3000/uploads/127593766_c848d15b6f_o.jpg'
   ];
 
   return (
-    <div>
+    <div >
       <div className="w-5/6 mx-auto flex flex-row gap-4">
         
         {/* Left side of the screen container */}
