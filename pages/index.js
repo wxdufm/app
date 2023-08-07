@@ -33,7 +33,7 @@ export default function Home(props) {
           <p className="text-white md:text-5xl mb-2 whitespace-nowrap text-4xl kallisto mx-auto md:mx-0">This Week on WXYC</p>
           {events && (
             //This Week on WXYC
-            <div className="border-red-500 border-2">
+            <div className="">
             <div className=" md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-scroll snap-mandatory mx-auto">
               {events.map((event) => (
                 //Event previews
