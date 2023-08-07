@@ -4,20 +4,11 @@ import PostPreview from "../components/PostPreview";
 import EventPreview from "../components/EventPreview";
 import PhotoGallery from "../components/PhotoGallery";
 
-
 //home page
 export default function Home(props) {
   const posts = props.data.blogConnection.edges;
   const events = props.data.archiveConnection.edges;
 
-  // console.log(props.data.page.body)
-  const images = [
-    'http://localhost:3000/uploads/IMG_8649-700x500.jpeg',
-    'http://localhost:3000/uploads/kickball-700x500.jpeg',
-    'http://localhost:3000/uploads/R1-02256-004A-768x519-700x500.jpeg',
-    'http://localhost:3000/uploads/R1-03649-030A-700x500.png',
-    'http://localhost:3000/uploads/R1-02408-024A-700x500.jpeg'
-  ];
 
   return (
     <div>
@@ -83,7 +74,7 @@ export default function Home(props) {
           
           <div className="mx-auto w-1/8 mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
           <Link href="/blog">
-              <h2 class="hover:underline mt-3">Older blog posts {'>'}</h2>
+              <h2 className="hover:underline mt-3">Older blog posts {'>'}</h2>
           </Link>
           </div>
 
@@ -121,7 +112,7 @@ export default function Home(props) {
 
       <div className=" invisible md:visible flex justify-center items-center mx-auto w-2/3 mt-20">
     
-    <PhotoGallery images={images} />
+    <PhotoGallery/>
   </div>
     </div>
   );
