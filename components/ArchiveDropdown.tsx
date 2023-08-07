@@ -9,25 +9,21 @@ const ArchiveDropdown = (props) => {
   // const currentRoute = useRouter().asPath;
 
   return (
-    <div className="w-full mx-auto">
+    <div className=" border-blue-500">
       {/* dropdown in archive pages */}
-      <div className="flex flex-row gap-16">
+      <div className="">
 
-        <div className="md:w-1/5 w-5/6">
-          <div className="w-1/2">
+        <div className="w-32 mx-auto md:mx-0">
+          <div className="">
           <Menu as="div" className="relative">
-            <Menu.Button className="w-full ">
+            <Menu.Button className="w-full">
               {({ open }) => (
-                <p 
-                  //Makes the "filter" button have rounded bottom corners when not open, and hard corners when open to blend in with the rest of the menu
-                  className={`${
-                    open ? "w-full inline-flex justify-center rounded-b-none rounded-2xl  shadow-sm px-4 py-2 bg-neutral-700 text-sm font-medium texfocust-white hover:bg-neutral-600" : "inline-flex w-full justify-center rounded-2xl  shadow-sm px-4 py-2 bg-neutral-700 text-sm font-medium text-white hover:bg-neutral-600  :outline-none"
-                  }`}>
+                <p className="inline-flex w-full justify-center text-white kallisto py-2 ">
               Filter <IoIosArrowDown size={18} className="ml-1 mt-0.5" />
               </p>)}
 
             </Menu.Button>
-            <Menu.Items className="origin-top absolute rounded-b-2xl left-1/2 transform -translate-x-1/2 mt-0 w-full shadow-lg bg-neutral-700 ring-1 ring-black ring-opacity-5">
+            <Menu.Items className="origin-top absolute bg-black bg-opacity-50  my-4  left-1/2 transform -translate-x-1/2 mt-0 w-full">
               <Menu.Item>
                 <Link
                   legacyBehavior={false}
@@ -36,7 +32,7 @@ const ArchiveDropdown = (props) => {
                   scroll={false}
                 >
                   <p
-                    className="inline-flex justify-center items-center w-full px-4 py-2 text-sm text-white hover:bg-neutral-600"
+                    className="inline-flex justify-center hover:bg-neutral-600 hover:bg-opacity-50 items-center w-full py-2    text-white kallisto"
                   >
                     Events
                   </p>
@@ -45,18 +41,18 @@ const ArchiveDropdown = (props) => {
 
               <Menu.Item>
                 <Menu as="div" className="relative">
-                  <Menu.Button className="inline-flex rounded-b-2xl justify-center w-full  shadow-sm px-4 py-2 bg-neutral-700 text-sm font-medium text-white hover:bg-neutral-600 focus:outline-none">
+                  <Menu.Button className="inline-flex pt-2  pb-1 hover:bg-neutral-600 hover:bg-opacity-50 justify-center w-full  shadow-sm  text-white kallisto">
                     Specialty Shows{" "}
-                    <IoIosArrowForward size={18} className="ml-1 mt-0.5" />
+                    <IoIosArrowForward size={20} className="my-auto" />
                   </Menu.Button>
-                  <Menu.Items className="origin-right absolute left-full top-0 mt-0 ml-2 w-48 rounded-md shadow-lg bg-neutral-700 ring-1 ring-black ring-opacity-5">
+                  <Menu.Items className="origin-right absolute left-full ml-1  bg-black bg-opacity-50  top-0 mt-0 w-32 kallisto">
                     <Menu.Item>
                       <Link
                         legacyBehavior={false}
                         href="/archive/specialty-shows/"
                         scroll={false}
                       >
-                        <p className="group-flex items-center px-4 py-2 text-sm text-white hover:bg-neutral-600 hover:rounded-sm hover:text-white">
+                        <p className="group-flex items-center px-4 py-2 hover:bg-neutral-600 hover:bg-opacity-50  text-sm text-white ">
                           All
                         </p>
                       </Link>
@@ -69,7 +65,7 @@ const ArchiveDropdown = (props) => {
                             href={`/archive/specialty-shows/${option.value}`}
                             scroll={false}
                           >
-                            <p className="group-flex items-center px-4 py-2 text-sm text-white hover:bg-neutral-600 hover:text-white">
+                            <p className="group-flex items-center px-4 py-2 ml text-sm text-white hover:bg-neutral-600 hover:bg-opacity-50 hover:text-white">
                               {option.label}
                             </p>
                           </Link>
