@@ -4,7 +4,7 @@ import { groupEventsByWeek, generateStructuredData} from "../../components/Organ
 import LazyLoad from 'react-lazyload';
 import ArchiveDropdown from "../../components/ArchiveDropdown"
 import ArchiveLayout from "../../components/ArchiveLayout"
-import photo from "/images/crowd.jpeg"
+import photo from "/images/crowd.jpg"
 import Image from 'next/image'
 
 
@@ -22,12 +22,19 @@ export default function EventList(props) {
   return (
     
     <ArchiveLayout>
-      <div className="border-2 border-white flex justify-center h-32">
-        <Image  src={photo} alt="A crowded dancefloor at a WXYC event."/>
+
+      <div className="relative z-20">An archive of WXYC's weekly specialty shows and events. <a href="../programming" className="underline">Learn more about WXYC's specialty programming.</a></div>
+      
+
+      <div className="relative z-10 -mt-10">
+       <Image  src={photo} alt="A crowded dancefloor at a WXYC event."/>
       </div>
       
-      <div className="mt-3 mb-5">An archive of WXYC's weekly specialty shows and events. <a href="../programming" className="underline">Learn more about WXYC's specialty programming.</a></div>
-
+     
+      
+      
+      
+      
       <ArchiveDropdown specialtyShows={specialtyShows}/>
       <div className="archive-grid w-full mx-auto">
         {structuredData.map((event) => (
