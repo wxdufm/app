@@ -32,7 +32,6 @@ export const PhotoGallery = () => {
 
   return (
     <div className="w-full relative flex items-center mb-10">
-
       <div className='w-full h-full object-cover'>
         <Image src={images[currentIndex]} alt="Gallery" sizes={"100vw"} />
       </div>

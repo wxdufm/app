@@ -10,7 +10,10 @@ module.exports = {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
         kallisto: ["kallisto", 'serif']
-      }
+      },
+      objectFit: {
+        'cover': 'cover',
+      },
     },
     
   },

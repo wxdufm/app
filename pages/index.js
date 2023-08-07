@@ -4,7 +4,6 @@ import PostPreview from "../components/PostPreview";
 import EventPreview from "../components/EventPreview";
 import PhotoGallery from "../components/PhotoGallery";
 
-
 //home page
 export default function Home(props) {
   const posts = props.data.blogConnection.edges;
@@ -76,7 +75,7 @@ export default function Home(props) {
           
           <div className="mx-auto w-1/8 mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
           <Link href="/blog">
-              <h2 class="hover:underline mt-3">Older blog posts {'>'}</h2>
+              <h2 className="hover:underline mt-3">Older blog posts {'>'}</h2>
           </Link>
           </div>
 
