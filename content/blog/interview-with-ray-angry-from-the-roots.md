@@ -1,7 +1,7 @@
 ---
 title: Interview with Ray Angry from The Roots
 author: KP
-cover: 'http://localhost:3000/uploads/rayangry.jpeg'
+cover: /uploads/rayangry.jpeg
 tags:
   - Interview
 published: 2022-07-01T04:00:00.000Z
