@@ -1,6 +1,6 @@
 ---
 title: DJ Archaeologist NSE
-cover: 'http://localhost:3000/uploads/Screenshot 2023-06-17 at 1.33.32 p.m..png'
+cover: /uploads/Screenshot%202023-06-17%20at%201.33.32%20p.m..png
 tags:
   - title: New Science Experiment
     slug: new-science-experiment
