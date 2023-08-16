@@ -1,6 +1,6 @@
 ---
 title: 'Yaeji: "With a Hammer"'
-cover: 'http://localhost:3000/uploads/Screenshot 2023-06-17 at 12.48.20 p.m..png'
+cover: /uploads/Screenshot 2023-06-17 at 12.48.20 p.m..png
 tags:
   - title: Inside Track
     slug: inside-track
