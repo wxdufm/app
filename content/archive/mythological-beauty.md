@@ -1,6 +1,6 @@
 ---
 title: Mythological Beauty
-cover: 'http://localhost:3000/uploads/i tried my best.png'
+cover: /uploads/i tried my best.png
 tags:
   - title: Thursday Night Feature
     slug: thursday-night-feature
