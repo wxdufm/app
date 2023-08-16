@@ -1,5 +1,5 @@
 ---
-title: 'Thursday Night Feature: Exploring History and Literature Through Iron Maiden'
+title: Exploring History and Literature Through Iron Maiden
 cover: /uploads/Screenshot 2023-08-16 at 12.22.06 p.m..png
 categories:
   - category: content/category/thursday-night-feature.md
