@@ -7,7 +7,7 @@ const App = ({ Component, pageProps }) => {
 
   return (
    
-      <div className='bg-black font-poppins text-white text-base w-92 h-full m-0 max-w-100 overflow-auto'>
+      <div className='flex flex-col bg-black font-poppins text-white text-base w-92 h-full m-0 max-w-100 overflow-hidden'>
           <Layout>
             <Component {...pageProps} />
           </Layout>

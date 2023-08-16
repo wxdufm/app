@@ -9,7 +9,8 @@ export const Layout = (props) => {
       <Head>
         <title>WXYC</title>
         <meta name="description" content="WXYC's website" />
-        <link rel="icon" href="/10144964.png" />
+        <link rel="icon" type="image/png" href="../public/10144964.png"/>
+        {/* <link rel="icon" href="../public/favicon.ico"/> */}
       </Head>
 
       <header className='header'>

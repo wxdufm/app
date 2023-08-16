@@ -1,6 +1,4 @@
-import Link from "next/link";
 import BlogBreadcrumbs from "./BlogBreadcrumbs";
-import BlogHeader from "./BlogHeader";
 
 
 const BlogLayout = ({children}) => {
