@@ -4,7 +4,11 @@
 
 
 
-
+@layer base {
+  body {
+    @apply bg-black;
+  }
+}
 @font-face {
   font-family: "kallisto";
   src: url("..//fonts/kallisto.otf");
