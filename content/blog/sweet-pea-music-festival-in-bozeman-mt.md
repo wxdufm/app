@@ -1,7 +1,7 @@
 ---
 title: 'Sweet Pea Music Festival in Bozeman, MT'
 author: Hunter Spitzer
-cover: /uploads/sweetpea.jpeg
+cover: /uploads/Screenshot 2023-08-16 at 12.29.54 a.m..png
 hero: /uploads/sweetpea.jpeg
 tags:
   - title: Show Review
