@@ -1,7 +1,7 @@
 ---
 title: Alex G at Cat's Cradle
 author: Sheena Meng
-cover: /uploads/courtney-barnett-1-3.webp
+cover: /uploads/alex-g-4.webp
 hero: /uploads/alex-g-4.webp
 tags:
   - {}
