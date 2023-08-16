@@ -1,5 +1,4 @@
 import React from "react";
-import ArchiveBreadcrumbs from "./ArchiveBreadcrumbs";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -8,7 +7,7 @@ const AboutLayout = ({children}) => {
 const currentRoute = useRouter().asPath;
  
   return (
-    <div className="md:w-5/6 w-full mx-auto text-white flex md:flex-row flex-col">
+    <div className="md:w-5/6 w-full mx-auto text-white flex md:flex-row flex-col pb-10">
 
       {currentRoute === "/about" &&
         <div className="kallisto flex md:flex-col flex-row md:w-1/5 w-5/6 h-14 md:h-full justify-between mx-auto md:mx-0 mb-10 md:mb-0 text-xl bg-gradient-to-b from-neutral-900 to-black">
