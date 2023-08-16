@@ -1,12 +1,17 @@
 import { client } from "../../tina/__generated__/client";
 import EventPreview from "../../components/EventPreview";
 import {groupEventsByWeek, generateStructuredData} from '../../components/OrganizingArchive';
-import Link from "next/link";
 import ArchiveLayout from "../../components/ArchiveLayout"
-
+import React, {useState} from "react"
+import SeeMoreButton from "../../components/SeeMoreButton";
 
 
 const EventsCategoryPage = (props) => {
+  const [eventsToShow, setEventsToShow] = useState(20);
+
+  const loadMoreEvents = () => {
+    setEventsToShow(eventsToShow + 20);
+  };
 
   let structuredData = [];
   let sortedEvents = [];
@@ -32,7 +37,7 @@ const EventsCategoryPage = (props) => {
       {(structuredData.length > 0) && 
       <div>
         <div className="archive-grid">
-        {structuredData.map((event) => (
+        {structuredData.slice(0, eventsToShow).map((event) => (
             <div key={event.id}>
                 {(event.type === 'heading') && <h3 className="text-3xl mt-10 mb-2">Week of {event.weekStartDate}</h3>}
                 {(event.type === 'events' &&
@@ -54,6 +59,11 @@ const EventsCategoryPage = (props) => {
         ))}
       </div>
     </div>}
+
+    {eventsToShow < structuredData.length && (
+      <SeeMoreButton onClick={loadMoreEvents} />
+      )}
+
     </ArchiveLayout>
   );
 }

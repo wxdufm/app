@@ -3,6 +3,8 @@ import Link from "next/link";
 import PostPreview from "../components/PostPreview";
 import EventPreview from "../components/EventPreview";
 import PhotoGallery from "../components/PhotoGallery";
+import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
+import { FiMail } from "react-icons/fi"
 
 //home page
 export default function Home(props) {
@@ -15,11 +17,13 @@ export default function Home(props) {
         
         {/* Left side of the screen container */}
         
-        <div className="flex flex-col md:w-4/6 w-full justify-center  mr-10 mt-10">
-          <p className="text-white md:text-5xl mb-2 whitespace-nowrap text-4xl kallisto mx-auto md:mx-0">This Week on WXYC</p>
+        <div className="flex flex-col md:w-4/6 w-full justify-center  mr-10 md:mt-10 mt-0">
+          <p className="text-white md:text-5xl mb-2 md:mb-4 whitespace-nowrap text-4xl kallisto mx-auto md:mx-0">This Week on WXYC</p>
           {events && (
             //This Week on WXYC
-            <div className="">
+
+            <div className="mx-auto md:mx-0 ">
+
             <div className=" md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-scroll snap-mandatory mx-auto">
               {events.map((event) => (
                 //Event previews
@@ -42,13 +46,13 @@ export default function Home(props) {
             
           )}
 
-      <div className="mx-auto w-1/8 mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
+      <div className="mx-auto  w-1/8 mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
               <Link href="/archive">
-                <p className="hover:underline mt-3">Archive {'>'}</p>
+                <p className="hover:underline my-1">Archive {'>'}</p>
               </Link>
                 </div>
           
-          <p className="text-white md:text-5xl text-4xl mb-2 whitespace-nowrap kallisto mx-auto md:mx-0">Blog Posts</p>
+          <p className="text-white md:text-5xl text-4xl mb-2 md:mb-4 whitespace-nowrap kallisto mx-auto md:mx-0">Blog Posts</p>
           {posts && (
             // Blog posts parent container
             
@@ -73,9 +77,9 @@ export default function Home(props) {
             
           )}
           
-          <div className="mx-auto w-1/8 mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
+          <div className="mx-auto w-1/8 md:mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
           <Link href="/blog">
-              <h2 className="hover:underline mt-3">Older blog posts {'>'}</h2>
+              <h2 className="hover:underline my-1">Older blog posts {'>'}</h2>
           </Link>
           </div>
 
@@ -101,20 +105,26 @@ export default function Home(props) {
           ></iframe>
         <div className="bg-gradient-to-b from-neutral-200 to-neutral-400 hover:text-neutral-700 text-black  w-5/6 flex flex-col justify-center items-center h-16 border-0 rounded-3xl mt-10 text-xl ">
           <div>
-        <Link href="/contact" scroll={false} >Submit a PSA!</Link>
+
+        <Link href="mailto:psa@wxyc.org" scroll={false} >Submit a PSA!</Link>
+
           </div>
         </div>
 
         </div>
-
-      
-          
       </div>
 
-      <div className=" invisible md:visible flex justify-center items-center mx-auto w-2/3 mt-20">
+      <div className=" hidden md:visible md:flex justify-center items-center mx-auto w-2/3 mt-20">
     
     <PhotoGallery/>
   </div>
+
+  <div className="w-full flex justify-center items-center gap-10 md:gap-24 mt-12 pb-10">
+    <a href="https://www.instagram.com/wxyc893/?hl=en"><AiFillInstagram size={48} className="ml-1 mt-0.5" /></a>
+   <a href="https://twitter.com/wxyc?lang=en"><AiFillTwitterCircle size={48} className="ml-1 mt-0.5" /></a>
+   <a href="mailto:info@wxyc.org"> <FiMail  size={48} className="ml-1 mt-0.5" /></a>
+  </div>
+
     </div>
   );
 }

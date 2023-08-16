@@ -10,8 +10,8 @@ import kickballBench from "../images/kickballbench.jpeg"
 import Image from 'next/image';
 
 const images = [
-  greta,
   guyInStation,
+  greta,
   flourescent,
   crowdSunglasses,
   kickballBench,

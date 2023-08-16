@@ -1,12 +1,8 @@
-import React, { useContext, useEffect } from "react";
 import Link from "next/link";
 import { Menu } from "@headlessui/react";
-import { useRouter } from "next/router";
-import { IoIosArrowForward, IoIosArrowDown, IoMdClose } from "react-icons/io";
+import { IoIosArrowForward, IoIosArrowDown } from "react-icons/io";
 
 const ArchiveDropdown = (props) => {
-
-  // const currentRoute = useRouter().asPath;
 
   return (
     <div className="">
@@ -45,7 +41,7 @@ const ArchiveDropdown = (props) => {
                     Specialty Shows{" "}
                     <IoIosArrowForward size={20} className="my-auto" />
                   </Menu.Button>
-                  <Menu.Items className="origin-right absolute left-full ml-1  bg-black bg-opacity-50  top-0 mt-0 w-32 kallisto">
+                  <Menu.Items className="origin-right absolute left-full ml-1  bg-black bg-opacity-50  top-0 -mt-10 md:-mt-0 w-32 kallisto">
                     <Menu.Item>
                       <Link
                         legacyBehavior={false}
