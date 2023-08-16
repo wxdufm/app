@@ -1,6 +1,6 @@
 ---
 title: 'Wednesday: Rat Saw God'
-cover: 'http://localhost:3000/uploads/Screenshot 2023-06-11 at 8.34.35 p.m..png'
+cover: /uploads/Screenshot 2023-06-11 at 8.34.35 p.m..png
 tags:
   - title: Inside Track
     slug: inside-track
