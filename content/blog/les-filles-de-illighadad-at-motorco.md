@@ -1,7 +1,7 @@
 ---
 title: Les Filles De Illighadad at Motorco
 author: Sammy Quiroz-Gutierrez
-cover: 'http://localhost:3000/uploads/filles.jpeg'
+cover: /uploads/filles.jpeg
 hero: /uploads/filles.jpeg
 tags:
   - Show Review
@@ -9,7 +9,6 @@ published: 2022-04-14T04:00:00.000Z
 categories:
   - category: content/category/show-review.md
 ---
-
 
 Dazzling blue, the women of Les Filles De Illighadad took the stage at Durham’s Motorco Music Hall in glorious indigo ‘aleshu’ vestments. Adorned with interspersed golden tassels and elaborate silver beading, the women’s magnetic radiance pulled the first row of the crowd a few inches closer before any of them touched an instrument. Travelling over 5,000 miles from the Illighadad region of Niger, the women’s presence was like an oasis of cool brought to Durham straight from the Sahel Desert.
 

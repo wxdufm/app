@@ -2,7 +2,7 @@
 title: Snail Mail at Haw River Ballroom
 author: Ari Schwartz
 hero: /uploads/img_7515.webp
-cover: 'http://localhost:3000/uploads/img_7515.webp'
+cover: /uploads/img_7515.webp
 tags:
   - Show Review
 published: 2022-08-20T04:00:00.000Z
