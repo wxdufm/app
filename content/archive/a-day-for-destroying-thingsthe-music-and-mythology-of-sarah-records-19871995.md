@@ -1,7 +1,5 @@
 ---
-title: >-
-  a day for destroying things...the music and mythology of sarah records:
-  1987-1995
+title: 'the music and mythology of sarah records: 1987-1995'
 cover: /uploads/Screenshot 2023-06-28 at 12.12.32 p.m..png
 categories:
   - category: content/category/specialty-show.md
