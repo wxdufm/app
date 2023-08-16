@@ -1,7 +1,7 @@
 ---
 title: Mdou Moctar at Motorco Music Hall
 author: Tarek Zikry
-cover: 'http://localhost:3000/uploads/mdoumoctar-2.jpeg'
+cover: /uploads/mdoumoctar-2.jpeg
 hero: /uploads/mdoumoctar-2.jpeg
 tags:
   - {}
@@ -9,7 +9,6 @@ published: 2021-09-05T04:00:00.000Z
 categories:
   - category: content/category/show-review.md
 ---
-
 
 Mdou Moctar is a band led by Mahamdou Souleymane, known professionally as Mdou Moctar, a Tuareg songwriter from Niger. Their music is primarily in Tamasheq, a Tuareg dialect spoken primarily by nomadic tribes across North Africa. First gaining notoriety though cell-phone music networks, Mdou Moctar gained their first taste of international acclaim through the pscyh-rock album Ilana (The Creator), released in 2019. The band released Afrique Victime in May of this year to rave reviews. Mdou Moctar, with bandmates Ahmoudo Madassane (guitar, vocals), Souleymane Ibrahim (drums, vocals), and American Michael Coltun (production, bass, vocals), use “assouf” (desert blues music) to explore themes of imperialism, war crimes, and of course, romance.
 
