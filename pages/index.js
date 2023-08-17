@@ -48,7 +48,7 @@ export default function Home(props) {
 
       <div className="mx-auto  w-1/8 mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
               <Link href="/archive">
-                <p className="hover:underline my-1">Archive {'>'}</p>
+                <p className="hover:underline cursor-pointer my-1">Archive {'>'}</p>
               </Link>
                 </div>
           
@@ -79,7 +79,7 @@ export default function Home(props) {
           
           <div className="mx-auto w-1/8 md:mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
           <Link href="/blog">
-              <h2 className="hover:underline my-1">Older blog posts {'>'}</h2>
+              <h2 className="hover:underline cursor-pointer my-1">Older blog posts {'>'}</h2>
           </Link>
           </div>
 
@@ -90,12 +90,12 @@ export default function Home(props) {
 
          
 
-        <div className="hidden md:flex md:flex-col md:items-center">
+        <div className="hidden md:flex md:flex-col md:items-center m-0">
 
-        <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} style={{border: '0px', width: '300px', height: "400px", overflow: 'hidden', marginBottom: "50px" }} />
+        <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[25rem] overflow-hidden mt-12 mb-12"/>
 
           <iframe
-            style={{ borderRadius: "12px" }}
+            style={{ borderRadius: "12px", marginBottom:"10px" }}
             src="https://open.spotify.com/embed/playlist/2GaqYQWzfs0BiRvesw5oYk?utm_source=generator&theme=0"
             width="80%"
             height="352"

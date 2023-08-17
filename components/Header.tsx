@@ -114,7 +114,7 @@ const Header = () => {
     
     <Link href="/">
     {/* Header text parent container */}
-    <div className="flex w-full flex-col justify-center items-center md:flex-row md:items-end mb-5 pt-3 md:pt-0">
+    <div className="flex w-full flex-col justify-center items-center md:flex-row md:items-end mb-5 pt-3 md:pt-0 cursor-pointer">
         {/* Actual header text */}
             <div className="md:w-2/5  flex flex-col items-center justify-center w-full">
                 <Image src={photo} alt="Picture of the author" priority/>

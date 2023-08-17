@@ -38,9 +38,9 @@ const EventPage = (props) => {
          
 
           {data.archive.categories &&
-            <div className="flex">
+            <div className="flex mt-5">
               {data.archive.categories.map((category) => (
-                <div className="border rounded-2xl  whitespace-nowrap border-white flex justify-around mr-3 px-3 py-1 " key={category.category.id}>
+                <div className="border rounded-2xl  whitespace-nowrap border-white flex justify-around mr-3 px-3 py-1 cursor-pointer" key={category.category.id}>
                   <AiFillTag size={18} className="mr-1"/>
                  {(category.category._sys.filename === "event" || category.category._sys.filename === "specialty-show") 
                  

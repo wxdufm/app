@@ -8,7 +8,7 @@ const EventPreview = (props: EventPreviewData) => {
         return (
             <div key={props.id} >
             <Link href={`/archive/${props.slug}`}>
-                <div className="flex flex-col gap-2 w-80 ">
+                <div className="flex flex-col gap-2 w-80 cursor-pointer">
                     <img src={props.cover} alt="" className="h-80 w-80 object-cover "/>
                     <a className="text-xl text-center h-12 font-bold">{props.title}</a>
                     <p>{props.subtitle}...</p>
@@ -28,7 +28,7 @@ const EventPreview = (props: EventPreviewData) => {
     return (
         <div key={props.id} >
             <Link href={`/archive/${props.slug}`}>
-                <div className="flex flex-col gap-2 w-80 ">
+                <div className="flex flex-col gap-2 w-80 cursor-pointer">
                     <img src={props.cover} alt="" className="h-80 w-80 object-cover "/>
                     <a className="text-xl text-center h-12 font-bold">{displayDate}: {props.title}</a>
                     <p>{props.subtitle}...</p>

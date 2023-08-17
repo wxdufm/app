@@ -26,7 +26,7 @@ const PostPage = (props) => {
               {data.blog.categories.map((category) => (
                 <div className="my-2 text-neutral-400" key={category.category.id}>
                 <Link href={`/blog/category/${category.category._sys.filename}`}>
-                  <p className="hover:underline hover:cursor-pointer">{category.category.title}</p>
+                  <p className="hover:underline cursor-pointer">{category.category.title}</p>
                 </Link>
                 </div>
               ))}

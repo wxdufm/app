@@ -12,7 +12,7 @@ export default function Crumb({ text, href, last=false }) {
     if (!last && text === "WXYC PRESS") {
       return (
         <Link href={href}>
-          <p className="text-white hover:underline text-base md:text-2xl">{text}</p>
+          <p className="text-white hover:underline cursor-pointer text-base md:text-2xl">{text}</p>
         </Link>
       );
     }
@@ -25,7 +25,7 @@ export default function Crumb({ text, href, last=false }) {
     if (!last && text === "Archive") {
       return (
         <Link href={href}>
-          <p className="text-white hover:underline text-base md:text-2xl">{text}</p>
+          <p className="text-white hover:underline cursor-pointer text-base md:text-2xl">{text}</p>
         </Link>
       );
     }
@@ -39,7 +39,7 @@ export default function Crumb({ text, href, last=false }) {
     // All other crumbs will be rendered as links that can be visited 
     return (
       <Link href={href}>
-        <p className="text-white hover:underline">{text}</p>
+        <p className="text-white hover:underline cursor-pointer">{text}</p>
       </Link>
     );
   }
