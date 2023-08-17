@@ -26,7 +26,7 @@ const PostPage = (props) => {
               {data.blog.categories.map((category) => (
                 <div className="my-2 text-neutral-400" key={category.category.id}>
                 <Link href={`/blog/category/${category.category._sys.filename}`}>
-                  <p>{category.category.title}</p>
+                  <p className="hover:underline hover:cursor-pointer">{category.category.title}</p>
                 </Link>
                 </div>
               ))}
@@ -34,7 +34,7 @@ const PostPage = (props) => {
           <h1 className="text-5xl mb-2 kallisto">{data.blog.title}</h1>
           <p className="italic">{displayDate}</p>
           <h3 className="mb-3"> By {data.blog.author}</h3>
-          <img src={data.blog.cover} alt="" width="300px" height="300px" className="mb-3"/>
+          <img src={data.blog.cover} alt="" width="650px" className="my-12 max-h-[40rem] object-cover"/>
           
           <article className="prose prose-lg prose-h3:text-white text-white">
             <TinaMarkdown content={data.blog.body} />

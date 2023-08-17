@@ -91,7 +91,8 @@ export default function Home(props) {
          
 
         <div className="hidden md:flex md:flex-col md:items-center">
-        <iframe src={`https://dj.wxyc.org/#/NowPlaying`} style={{border: '0px', width: '300px', height: '400px', overflow: 'hidden', marginBottom: "50px" }} />
+
+        <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} style={{border: '0px', width: '300px', height: "400px", overflow: 'hidden', marginBottom: "50px" }} />
 
           <iframe
             style={{ borderRadius: "12px" }}

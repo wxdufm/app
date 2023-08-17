@@ -97,7 +97,7 @@ export default function PostList(props) {
         
           {postsList.slice(0, postsToShow).map((post) => (
           <LazyLoad height={200} once={true} key={post.node.id}>
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-8">
             <PostPreview 
               id={post.node.id} 
               title={post.node.title} 

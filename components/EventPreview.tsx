@@ -6,11 +6,11 @@ const EventPreview = (props: EventPreviewData) => {
     // rendered on the archive tabs
     if (!props.published) {
         return (
-            <div key={props.id} className="flex flex-col gap-5 w-80 ">
+            <div key={props.id} >
             <Link href={`/archive/${props.slug}`}>
-                <div>
+                <div className="flex flex-col gap-2 w-80 ">
                     <img src={props.cover} alt="" className="h-80 w-80 object-cover "/>
-                    <p className="text-xl text-center h-12 font-bold">{props.title}</p>
+                    <a className="text-xl text-center h-12 font-bold">{props.title}</a>
                     <p>{props.subtitle}...</p>
                 </div>
             </Link>
@@ -26,11 +26,11 @@ const EventPreview = (props: EventPreviewData) => {
 
     // rendered on home page with "xx/xx"
     return (
-        <div key={props.id} className="flexflex-col gap-5 w-80 ">
+        <div key={props.id} >
             <Link href={`/archive/${props.slug}`}>
-                <div>
+                <div className="flex flex-col gap-2 w-80 ">
                     <img src={props.cover} alt="" className="h-80 w-80 object-cover "/>
-                    <p className="text-xl text-center h-12 font-bold">{displayDate}: {props.title}</p>
+                    <a className="text-xl text-center h-12 font-bold">{displayDate}: {props.title}</a>
                     <p>{props.subtitle}...</p>
                 </div>
             </Link>
