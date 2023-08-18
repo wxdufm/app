@@ -1,6 +1,6 @@
 ---
 title: Asthmatic Kitty Records TNF
-cover: /uploads/Screenshot 2023-08-04 at 2.29.40 p.m..png
+cover: /uploads/Screenshot 2023-08-18 at 5.08.05 p.m..png
 categories:
   - category: content/category/thursday-night-feature.md
   - category: content/category/specialty-show.md
