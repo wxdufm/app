@@ -24,7 +24,7 @@ export default function Home(props) {
 
             <div className="mx-auto md:mx-0 ">
 
-            <div className=" md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-scroll snap-mandatory mx-auto">
+            <div className=" md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-auto snap-mandatory mx-auto">
               {events.map((event) => (
                 //Event previews
                 <div key={event.node.id}>
@@ -56,7 +56,7 @@ export default function Home(props) {
           {posts && (
             // Blog posts parent container
             
-            <div className="md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-scroll snap-mandatory mx-auto md:mx-0">
+            <div className="md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-auto snap-mandatory mx-auto md:mx-0">
               
               {posts.map((post) => (
                 // Blog post previews
