@@ -1,6 +1,6 @@
 ---
 title: The Sunday PR 07/30/23
-cover: /uploads/8kb8myy93jr91.jpeg
+cover: /uploads/Sinead_rips_into_the_Pope.jpeg
 categories:
   - category: content/category/the-sunday-pr.md
   - category: content/category/specialty-show.md
