@@ -5,6 +5,7 @@ import EventPreview from "../components/EventPreview";
 import PhotoGallery from "../components/PhotoGallery";
 import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
 import { FiMail } from "react-icons/fi"
+import { BsSpotify } from "react-icons/bs"
 
 //home page
 export default function Home(props) {
@@ -88,23 +89,16 @@ export default function Home(props) {
 
        
 
+        {/* Right side of the screen container */}
+
+        <div className="hidden md:flex md:flex-col mr-3 mt-12 ">
+
+        <p className="kallisto text-3xl text-left">Listen Live</p>
+
+        <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[25rem] overflow-hidden mt-5 mb-12"/>
+
          
-
-        <div className="hidden md:flex md:flex-col md:items-center m-0">
-
-        <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[25rem] overflow-hidden mt-12 mb-12"/>
-
-          <iframe
-            style={{ borderRadius: "12px", marginBottom:"10px" }}
-            src="https://open.spotify.com/embed/playlist/2GaqYQWzfs0BiRvesw5oYk?utm_source=generator&theme=0"
-            width="80%"
-            height="352"
-            frameBorder="0"
-            allowFullScreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
-        <div className="bg-gradient-to-b from-neutral-200 to-neutral-400 hover:text-neutral-700 text-black  w-5/6 flex flex-col justify-center items-center h-16 border-0 rounded-3xl mt-10 text-xl ">
+        <div className="mx-auto bg-gradient-to-b from-neutral-200 to-neutral-400 hover:text-neutral-700 text-black  w-5/6 flex flex-col justify-center items-center h-16 border-0 rounded-3xl mt-10 text-xl ">
           <div>
 
         <Link href="mailto:psa@wxyc.org" scroll={false} >Submit a PSA!</Link>
@@ -120,10 +114,12 @@ export default function Home(props) {
     <PhotoGallery/>
   </div>
 
-  <div className="w-full flex justify-center items-center gap-10 md:gap-24 mt-12 pb-10">
-    <a href="https://www.instagram.com/wxyc893/?hl=en"><AiFillInstagram size={48} className="ml-1 mt-0.5" /></a>
-   <a href="https://twitter.com/wxyc?lang=en"><AiFillTwitterCircle size={48} className="ml-1 mt-0.5" /></a>
-   <a href="mailto:info@wxyc.org"> <FiMail  size={48} className="ml-1 mt-0.5" /></a>
+  {/* Social media links footer */}
+  <div className="w-full flex justify-center items-center gap-8 md:gap-24 mt-12 pb-10">
+    <a target="_blank"  href="https://www.instagram.com/wxyc893/?hl=en"><AiFillInstagram size={44} className="ml-.5 mt-0.5" /></a>
+   <a  target="_blank"  href="https://twitter.com/wxyc?lang=en"><AiFillTwitterCircle size={44} className="ml-.5 mt-0.5" /></a>
+   <a  target="_blank" href="mailto:info@wxyc.org"> <FiMail  size={44} className="ml-.5 mt-0.5" /></a>
+   <a  target="_blank" href="mailto:info@wxyc.org"> <BsSpotify  size={44} className="ml-;5 mt-0.5" /></a>
   </div>
 
     </div>
