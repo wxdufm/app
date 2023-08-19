@@ -26,7 +26,7 @@ const EventPage = (props) => {
           
 
           <div className="column">
-          <p className="text-5xl mt-5 mb-3 kallisto">{data.archive.title}</p>
+          <p className="text-3xl lg:text-5xl mt-5 mb-3 kallisto">{data.archive.title}</p>
           <p className="text-xl mb-5">{displayDate}</p>
 
           <img className="my-2" src={data.archive.cover} alt="" width="400" height="400"/>

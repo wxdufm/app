@@ -24,7 +24,7 @@ export default function PostList(props) {
 
       <div>
         <div className="pt-3 md:pt-0 mx-auto h-32 md:h-24 items-center justify-between w-5/6 flex flex-col md:flex-row">
-          <div className="kallisto text-5xl">
+          <div className="kallisto lg:text-5xl text-4xl">
             WXYC PRESS
           </div>
 

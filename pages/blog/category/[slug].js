@@ -24,7 +24,7 @@ const BlogCategoryPage = (props) => {
     <BlogLayout>
       <div className=" w-5/6 mx-auto">
    
-      <h1 className="text-5xl mb-2 kallisto">{category}s</h1>
+      <h1 className="text-3xl lg:text-5xl mb-2 mt-2 kallisto">{category}s</h1>
       </div>
       
       {(postsList.length > 0) && 
