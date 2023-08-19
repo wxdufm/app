@@ -8,7 +8,7 @@ const DropdownMenu = () =>  {
     return(
         <div className="">
             <Menu as="div" className="relative">
-                <Menu.Button className="inline-flex justify-center w-full   text-white md:text-black">
+                <Menu.Button className="inline-flex justify-center w-full   text-white lg:text-black">
                     Listen <IoIosArrowDown size={18} className="ml-1 mt-1"/>
                 </Menu.Button>
                 <Menu.Items className="origin-top absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 rounded-sm shadow-lg bg-neutral-800 md:bg-white ring-1 ring-black ring-opacity-5">
