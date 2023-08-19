@@ -91,6 +91,13 @@ const Header = () => {
                                     </Link>
                                 </Menu.Item>
                             </div>
+                            <div className="flex justify-center items-center text-medium md:hover:bg-gray-200 hover:rounded-md text-white md:text-black w-full px-4 py-2">
+                                <Menu.Item>
+                                    <a href="https://open.spotify.com/user/wxyc" target="_blank">
+                                        Spotify
+                                    </a>
+                                </Menu.Item>
+                            </div>
                         </Menu.Items>
                     </Menu>
                 </div>
