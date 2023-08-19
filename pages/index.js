@@ -18,8 +18,8 @@ export default function Home(props) {
         
         {/* Left side of the screen container */}
         
-        <div className="flex flex-col md:w-4/6 w-full justify-center  mr-10 md:mt-10 mt-0">
-          <p className="text-white md:text-5xl mb-2 md:mb-4 whitespace-nowrap text-4xl kallisto mx-auto md:mx-0">This Week on WXYC</p>
+        <div className="flex flex-col lg:w-4/6 w-full justify-center md:mr-10 md:mt-10 mt-0">
+          <p className="text-white lg:text-5xl mb-2 md:mb-4 whitespace-nowrap text-3xl kallisto mx-auto md:mx-0">This Week on WXYC</p>
           {events && (
             //This Week on WXYC
 
@@ -53,7 +53,7 @@ export default function Home(props) {
               </Link>
                 </div>
           
-          <p className="text-white md:text-5xl text-4xl mb-2 md:mb-4 whitespace-nowrap kallisto mx-auto md:mx-0">Blog Posts</p>
+          <p className="text-white lg:text-5xl text-3xl mb-2 md:mb-4 whitespace-nowrap kallisto mx-auto md:mx-0">Blog Posts</p>
           {posts && (
             // Blog posts parent container
             
@@ -91,7 +91,7 @@ export default function Home(props) {
 
         {/* Right side of the screen container */}
 
-        <div className="hidden md:flex md:flex-col mr-3 mt-12 ">
+        <div className="hidden lg:flex lg:flex-col mr-3 mt-12 ">
 
         <p className="kallisto text-3xl text-left">Listen Live</p>
 

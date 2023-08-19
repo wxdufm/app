@@ -117,7 +117,7 @@ const Header = () => {
 <div className="relative z-20">
 
     {/* Parent container of entire desktop header  */}
-    <div className="flex w-5/6 flex-col items-start justify-center mx-auto md:mb-10 md:pt-2 pt-20">
+    <div className="flex w-5/6 flex-col items-start justify-center mx-auto md:mb-10 md:pt-2 pt-10">
     
     <Link href="/">
     {/* Header text parent container */}
