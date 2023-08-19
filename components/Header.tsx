@@ -35,7 +35,7 @@ const Header = () => {
       {isOpen && (
         <ul className="h-screen flex flex-col justify-start bg-neutral-800 bg-opacity-95 mt-16 w-screen -ml-12 ">
           
-            <div className=" flex items-center justify-center h-16 mt-16  bg-blue-500 ">
+            <div className=" flex items-center justify-center h-16 mt-16 ">
                 <Link href="/about" legacyBehavior={false}>
                     <a className="text-white text-xl no-underline cursor-pointer" onClick={toggleMenu}>
                         About
