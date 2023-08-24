@@ -117,9 +117,9 @@ export default function Home(props) {
   {/* Social media links footer */}
   <div className="w-full flex justify-center items-center gap-8 md:gap-24 mt-12 pb-10">
     <a target="_blank"  href="https://www.instagram.com/wxyc893/?hl=en"><AiFillInstagram size={44} className="ml-.5 mt-0.5" /></a>
-   <a  target="_blank"  href="https://twitter.com/wxyc?lang=en"><AiFillTwitterCircle size={44} className="ml-.5 mt-0.5" /></a>
-   <a  target="_blank" href="mailto:info@wxyc.org"> <FiMail  size={44} className="ml-.5 mt-0.5" /></a>
-   <a  target="_blank" href="mailto:info@wxyc.org"> <BsSpotify  size={44} className="ml-;5 mt-0.5" /></a>
+    <a  target="_blank"  href="https://twitter.com/wxyc?lang=en"><AiFillTwitterCircle size={44} className="ml-.5 mt-0.5" /></a>
+    <a  target="_blank" href="mailto:info@wxyc.org"> <FiMail  size={44} className="ml-.5 mt-0.5" /></a>
+    <a  target="_blank" href="mailto:info@wxyc.org"> <BsSpotify  size={44} className="ml-;5 mt-0.5" /></a>
   </div>
 
     </div>
