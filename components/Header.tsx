@@ -121,13 +121,13 @@ const Header = () => {
     
     <Link href="/">
     {/* Header text parent container */}
-    <div className="flex w-full  flex-col justify-center items-center md:flex-row md:items-end mb-5 pt-10 md:pt-20 lg:pt-1 cursor-pointer">
+    <div className="flex w-full  flex-col justify-center items-center md:flex-row md:items-end mb-5 pt-20 md:pt-20 lg:pt-1 cursor-pointer">
         {/* Actual header text */}
             <div className="lg:w-2/5 md:w-3/4 md:pt-20 lg:pt-1 flex flex-col items-center justify-center w-full">
                 <Image src={photo} alt="Picture of the author" priority/>
                 <h1 className=" text-6xl text-white font-bold no-underline m-0 mx-auto kallistobold">89.3FM</h1>
                 <div className="mt-2">
-                <h3 className="w-full poppins md:text-lg text-base md:mx-0 ml-5 mx-auto text-center">UNC-Chapel Hill's student-run, freeform radio station</h3>
+                <h3 className="w-full poppins md:text-xl text-base lg:text-base md:mx-0  mx-auto text-center">UNC-Chapel Hill's student-run, freeform radio station</h3>
                 </div>
             </div>
             
