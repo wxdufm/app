@@ -19,7 +19,7 @@ const ArchiveDropdown = (props) => {
               </p>)}
 
             </Menu.Button>
-            <Menu.Items className="origin-top absolute bg-black bg-opacity-50  my-4  left-1/2 transform -translate-x-1/2 mt-0 w-full">
+            <Menu.Items className="origin-top absolute -ml-6 md:-ml-0 bg-black bg-opacity-50  my-4  left-1/2 transform -translate-x-1/2 mt-0 w-full">
               <Menu.Item>
                 <Link
                   legacyBehavior={false}
@@ -37,11 +37,11 @@ const ArchiveDropdown = (props) => {
 
               <Menu.Item>
                 <Menu as="div" className="relative">
-                  <Menu.Button className="inline-flex pt-2  pb-1 hover:bg-neutral-600 hover:bg-opacity-50 justify-center w-full  shadow-sm  text-white kallisto">
+                  <Menu.Button className="inline-flex pt-2 pb-1 hover:bg-neutral-600 hover:bg-opacity-70 justify-center w-full  shadow-sm  text-white kallisto">
                     Specialty Shows{" "}
                     <IoIosArrowForward size={20} className="my-auto" />
                   </Menu.Button>
-                  <Menu.Items className="origin-right absolute left-full ml-1  bg-black bg-opacity-50  top-0 -mt-10 md:-mt-0 w-32 kallisto">
+                  <Menu.Items className="origin-right absolute left-full ml-1  bg-black bg-opacity-70  top-0 -mt-10 md:-mt-0 w-32 kallisto">
                     <Menu.Item>
                       <Link
                         legacyBehavior={false}
