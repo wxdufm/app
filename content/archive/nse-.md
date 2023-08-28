@@ -2,7 +2,7 @@
 title: 'NSE '
 cover: /uploads/Screenshot 2023-08-04 at 2.37.55 p.m..png
 categories:
-  - category: content/category/new-science-experiment.md
+  - category: content/category/new-science-experience.md
   - category: content/category/specialty-show.md
 published: 2023-07-14T04:00:00.000Z
 ---

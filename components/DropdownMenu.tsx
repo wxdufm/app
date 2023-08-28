@@ -21,16 +21,16 @@ const DropdownMenu = () =>  {
                     </div>
                     <div className="flex justify-center items-center text-medium md:hover:bg-gray-200 rounded-md text-white md:text-black  w-full px-4 py-2">
                         <Menu.Item>
-                            <Link href="/playlist">
+                            <Link href="/playlist" legacyBehavior={false}>
                                 Live playlist
                             </Link>
                         </Menu.Item>
                     </div>
                     <div className="flex justify-center items-center text-medium md:hover:bg-gray-200 rounded-md text-white md:text-black  w-full px-4 py-2">
                         <Menu.Item>
-                            <Link href="https://open.spotify.com/user/wxyc" target="_blank" >
+                            <a href="https://open.spotify.com/user/wxyc" target="_blank" >
                                 Spotify
-                            </Link>
+                            </a>
                         </Menu.Item>
                     </div>
                 </Menu.Items>

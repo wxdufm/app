@@ -174,7 +174,7 @@ const Header = () => {
             </div>   
                 
             <div className="hover:bg-neutral-300 h-12 flex justify-center items-center grow ">
-            <Link href="https://wxyc.bigcartel.com/" legacyBehavior>
+            <Link href="https://wxyc.bigcartel.com/">
                     <a target="_blank" rel="noopener noreferrer" className="text-black text-base no-underline">Merch</a>
                 </Link>
                 </div>    

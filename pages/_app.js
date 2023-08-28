@@ -6,12 +6,13 @@ import { Layout } from '../components/Layout';
 const App = ({ Component, pageProps }) => {
 
   return (
-   
-      <div className='flex flex-col bg-black font-poppins text-white text-base w-92 h-full m-0 max-w-screen-3xl overflow-hidden'>
+    <div className='flex flex-col lg:items-center'>
+      <div className='flex flex-col bg-black font-poppins text-white text-base w-92 max-w-screen-2xl h-full m-0 overflow-hidden'>
           <Layout>
             <Component {...pageProps} />
           </Layout>
       </div>
+    </div>  
     
   );
 };
