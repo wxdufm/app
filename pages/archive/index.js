@@ -49,7 +49,7 @@ export default function EventList(props) {
       </div>
 
 
-      <div className="archive-grid w-full mx-auto">
+      <div className="archive-grid mx-auto">
         {structuredData.slice(0, eventsToShow).map((event) => (
             <div key={event.id}>
                 {(event.type === 'heading') && <p className="text-3xl mt-10 mb-2 font-bold">Week of {event.weekStartDate}</p>}
@@ -57,7 +57,7 @@ export default function EventList(props) {
                 // needs unique key somehow
                 <div>
                 {event.weekEvents && 
-                  <div className="flex flex-row justify-start gap-2 md:gap-4 overflow-x-scroll ">
+                  <div className="flex flex-row justify-start bg gap-2 md:gap-4 overflow-x-scroll ">
                     {event.weekEvents.map((event) => (
                     <div key={event.event.id}>
                       <LazyLoad height={200} once={true}>
