@@ -21,7 +21,7 @@ const Header = () => {
     <div className="h-full"> 
     
     {/* Mobile header */}
-    <div className="flex fixed w-full bg-gradient-to-b from-neutral-600 to-neutral-800 z-50 h-16 md:h-24 lg:hidden">
+    <div className="flex fixed top-0 w-full bg-gradient-to-b from-neutral-600 to-neutral-800 z-50 h-16 md:h-24 lg:hidden">
       {/* Hamburger icon */}
       <button onClick={toggleMenu} className="hamburger-icon h-full">
         {isOpen ? (

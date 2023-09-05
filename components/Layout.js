@@ -9,8 +9,8 @@ export const Layout = (props) => {
       <Head>
         <title>WXYC</title>
         <meta name="description" content="WXYC's website" />
-        <link rel="icon" type="image/png" href="../public/10144964.png"/>
-        {/* <link rel="icon" href="../public/favicon.ico"/> */}
+        <link rel="icon" href="https://wxyc.org/wp-content/uploads/2022/12/10144964.png"/>
+        <meta name="apple-itunes-app" content="app-id=353182815" />
       </Head>
 
       <header className='header'>
