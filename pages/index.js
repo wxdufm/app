@@ -101,7 +101,7 @@ export default function Home(props) {
         <div className="mx-auto bg-gradient-to-b from-neutral-200 to-neutral-400 hover:text-neutral-700 text-black  w-5/6 flex flex-col justify-center items-center h-16 border-0 rounded-3xl mt-10 text-xl ">
           <div>
 
-        <Link href="mailto:psa@wxyc.org" scroll={false} >Submit a PSA!</Link>
+        <Link href="/page/contact" scroll={false} >Submit a PSA!</Link>
 
           </div>
         </div>
@@ -118,8 +118,8 @@ export default function Home(props) {
   <div className="w-full flex justify-center items-center gap-8 md:gap-24 mt-12 pb-10">
     <a target="_blank"  href="https://www.instagram.com/wxyc893/?hl=en"><AiFillInstagram size={44} className="ml-.5 mt-0.5" /></a>
     <a  target="_blank"  href="https://twitter.com/wxyc?lang=en"><AiFillTwitterCircle size={44} className="ml-.5 mt-0.5" /></a>
-    <a  target="_blank" href="mailto:info@wxyc.org"> <FiMail  size={44} className="ml-.5 mt-0.5" /></a>
-    <a  target="_blank" href="mailto:info@wxyc.org"> <BsSpotify  size={44} className="ml-;5 mt-0.5" /></a>
+    <Link href="/page/contact" legacyBehavior={false}> <FiMail  size={44} className="ml-.5 mt-0.5" /></Link>
+    <a  target="_blank" href="https://open.spotify.com/user/wxyc?si=f9cf2c3eff10462e"> <BsSpotify  size={44} className="ml-;5 mt-0.5" /></a>
   </div>
 
     </div>
