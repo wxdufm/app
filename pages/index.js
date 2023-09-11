@@ -20,11 +20,6 @@ export default function Home(props) {
         
         <div className="flex flex-col lg:w-4/6 w-full justify-center md:mr-10 md:mt-10 mt-0">
 
-          <div className="md:hidden">
-            <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] overflow-hidden mb-16"/>
-            {/* <a className="mt-12">download/open the app</a> */}
-          </div>
-
           <p className="text-white lg:text-5xl mb-2 md:mb-4 whitespace-nowrap text-3xl kallisto mx-auto md:mx-0">This Week on WXYC</p>
           {events && (
             //This Week on WXYC
@@ -88,6 +83,11 @@ export default function Home(props) {
           <Link href="/blog">
               <h2 className="hover:underline cursor-pointer my-1">Older blog posts {'>'}</h2>
           </Link>
+          </div>
+
+          <div className="md:hidden">
+            <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] overflow-hidden mb-16"/>
+            {/* <a className="mt-12">download/open the app</a> */}
           </div>
 
           

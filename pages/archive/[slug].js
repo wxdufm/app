@@ -38,7 +38,7 @@ const EventPage = (props) => {
          
 
           {data.archive.categories &&
-            <div className="flex mt-5">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-0 mt-5">
               {data.archive.categories.map((category) => (
                 <div className="border rounded-2xl  whitespace-nowrap border-white flex justify-around mr-3 px-3 py-1 cursor-pointer" key={category.category.id}>
                   <AiFillTag size={18} className="mr-1"/>
