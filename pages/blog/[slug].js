@@ -36,7 +36,7 @@ const PostPage = (props) => {
           <h3 className="mb-3"> By {data.blog.author}</h3>
           <img src={data.blog.cover} alt="" width="650px" className="my-12 max-h-[40rem] object-cover"/>
           
-          <article className="prose prose-lg prose-h3:text-white text-white">
+          <article className="prose prose-lg prose-h3:text-white text-white prose-a:text-slate-700">
             <TinaMarkdown content={data.blog.body} />
           </article>
       </div> 

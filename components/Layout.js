@@ -9,7 +9,7 @@ export const Layout = (props) => {
       <Head>
         <title>WXYC</title>
         <meta name="description" content="WXYC's website" />
-        <link rel="icon" href="https://wxyc.org/wp-content/uploads/2022/12/10144964.png"/>
+        <link rel="icon" href="https://is4-ssl.mzstatic.com/image/thumb/Purple116/v4/6c/55/f8/6c55f8ad-cfed-ddd7-e63d-9e8c979d7251/source/512x512bb.jpg"/>
         <meta name="apple-itunes-app" content="app-id=353182815" />
       </Head>
 

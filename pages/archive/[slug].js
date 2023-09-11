@@ -31,7 +31,7 @@ const EventPage = (props) => {
 
           <img className="my-2" src={data.archive.cover} alt="" width="400" height="400"/>
 
-          <article className="prose mt-3 text-white">
+          <article className="prose mt-3 text-white prose-a:text-slate-700">
             <TinaMarkdown content={data.archive.description} />
           </article>
 
