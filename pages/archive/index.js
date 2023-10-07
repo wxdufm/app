@@ -1,7 +1,7 @@
 import EventPreview from "../../components/EventPreview";
 import { client } from "../../tina/__generated__/client";
 import { groupEventsByWeek, generateStructuredData} from "../../components/OrganizingArchive";
-import LazyLoad from 'react-lazyload';
+// import LazyLoad from 'react-lazyload';
 import ArchiveDropdown from "../../components/ArchiveDropdown"
 import ArchiveLayout from "../../components/ArchiveLayout"
 import photo from "/images/crowd.jpg"
@@ -60,7 +60,7 @@ export default function EventList(props) {
                   <div className="flex flex-row justify-start bg gap-2 md:gap-4 overflow-x-scroll ">
                     {event.weekEvents.map((event) => (
                     <div key={event.event.id}>
-                      <LazyLoad height={200} once={true}>
+                      {/* <LazyLoad height={200} once={true}> */}
                         <EventPreview
                           id={event.event.id}
                           title={event.event.title}
@@ -68,7 +68,7 @@ export default function EventList(props) {
                           subtitle={event.event.description.children[0].children[0].text.substring(0, 75)}
                           slug={event.event._sys.filename}
                         />
-                      </LazyLoad>
+                      {/* </LazyLoad> */}
                     </div>
                     ))}
                     </div>}

@@ -1,6 +1,6 @@
 import { client } from "../../tina/__generated__/client";
 import PostPreview from "../../components/PostPreview.tsx";
-import LazyLoad from 'react-lazyload';
+// import LazyLoad from 'react-lazyload';
 import BlogLayout from "../../components/BlogLayout"
 import photo from "/images/concert.jpg"
 import mobilephoto from "/images/concertmobile.jpg"
@@ -96,7 +96,7 @@ export default function PostList(props) {
         
         
           {postsList.slice(0, postsToShow).map((post) => (
-          <LazyLoad height={200} once={true} key={post.node.id}>
+          // <LazyLoad height={200} once={true} key={post.node.id}>
             <div className="flex justify-center mb-8">
             <PostPreview 
               id={post.node.id} 
@@ -106,7 +106,7 @@ export default function PostList(props) {
               subtitle={ post.node.description ? post.node.description : post.node.body.children[0].children[0].text.substring(0, 75)}
             />
             </div>
-            </LazyLoad>
+            // </LazyLoad>
           ))}
           
         </div>

@@ -101,7 +101,7 @@ export default function Home(props) {
 
         <p className="kallisto text-3xl text-left">Listen Live</p>
 
-        <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[19rem] overflow-hidden mt-5 mb-12"/>
+        <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] mt-5 mb-12 flex items-center overflow-hidden"/>
 
          
         <div className="mx-auto bg-gradient-to-b from-neutral-200 to-neutral-400 hover:text-neutral-700 text-black  w-5/6 flex flex-col justify-center items-center h-16 border-0 rounded-3xl mt-10 text-xl ">
