@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Layout } from '../components/Layout';
 
 const MyTable = () => {
 //   const [flowsheet, setFlowsheet] = useState([]);
@@ -32,10 +31,9 @@ const MyTable = () => {
 
   return (
     
-    <div className='flex align-middle justify-center'>
-
-      <iframe src="http://www.wxyc.info/playlists/recent.html" className='w-5/6 h-screen'></iframe>
-      
+    <div className='flex align-middle justify-center'>      
+      <p></p>
+        
   
       {/* <div className="sm:mx-auto sm:w-5/6 overflow-auto pb-10"> 
       <p className="text-5xl mb-2 kallisto">Live Playlist</p>

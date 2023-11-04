@@ -67,6 +67,19 @@ export default {
         name: "body",
         placeholder: "post body",
         isBody: true,
+        templates: [
+                    {
+                      name: "audioFile",
+                      label: "Audio file",
+                      fields: [
+                        {
+                          name: "url",
+                          label: "file url",
+                          type: "string",
+                        },
+                      ],
+                    },
+                  ],
         // ui: {
         //   component: "textarea",
         // },

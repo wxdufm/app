@@ -6,6 +6,7 @@ import PhotoGallery from "../components/PhotoGallery";
 import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
 import { FiMail } from "react-icons/fi"
 import { BsSpotify } from "react-icons/bs"
+import AudioPlayerStream from "../components/AudioPlayerStream";
 
 //home page
 export default function Home(props) {
@@ -20,11 +21,16 @@ export default function Home(props) {
         
         <div className="flex flex-col lg:w-4/6 w-full justify-center md:mr-10 md:mt-10 mt-0">
 
+          <div className="flex justify-center md:hidden mb-10">
+            <AudioPlayerStream/>
+            {/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] overflow-hidden mb-12 mt-16"/> */}
+          </div>
+
           <p className="text-white lg:text-5xl mb-2 md:mb-4 whitespace-nowrap text-3xl kallisto mx-auto md:mx-0">This Week on WXYC</p>
           {events && (
             //This Week on WXYC
 
-            <div className="mx-auto md:mx-0 ">
+            <div className="mx-auto md:mx-0">
 
             <div className=" md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-auto snap-mandatory mx-auto">
               {events.map((event) => (
@@ -84,12 +90,6 @@ export default function Home(props) {
               <h2 className="hover:underline cursor-pointer my-1">Older blog posts {'>'}</h2>
           </Link>
           </div>
-
-          <div className="md:hidden">
-            <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] overflow-hidden mb-12 mt-16"/>
-            {/* <a className="mt-12">download/open the app</a> */}
-          </div>
-
           
         </div>
 
@@ -97,17 +97,20 @@ export default function Home(props) {
 
         {/* Right side of the screen container */}
 
-        <div className="hidden lg:flex lg:flex-col mr-3 mt-12 ">
+        <div className="hidden lg:flex lg:flex-col items-start mr-3 mt-12 ">
 
         <p className="kallisto text-3xl text-left">Listen Live</p>
 
-        <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] mt-5 mb-12 flex items-center overflow-hidden"/>
-
+        {/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] mt-5 mb-12 flex items-center overflow-hidden"/> */}
+        
+        <div className="pt-7">
+          <AudioPlayerStream />
+        </div>
          
-        <div className="mx-auto bg-gradient-to-b from-neutral-200 to-neutral-400 hover:text-neutral-700 text-black  w-5/6 flex flex-col justify-center items-center h-16 border-0 rounded-3xl mt-10 text-xl ">
+        <div className="lg:mx-0 mx-auto bg-gradient-to-b from-neutral-200 to-neutral-400 hover:text-neutral-700 text-black w-4/6 flex flex-col justify-center items-center h-16 border-0 rounded-3xl mt-10 text-xl ">
           <div>
 
-        <Link href="mailto:psa@wxyc.org" scroll={false} >Submit a PSA!</Link>
+            <Link href="mailto:psa@wxyc.org" scroll={false} >Submit a PSA!</Link>
 
           </div>
         </div>

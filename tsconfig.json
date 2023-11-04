@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/test.jsx", "components/WaveForm.js"  ],
+, "pages/test.jsx", "components/Waveform.tsx"  ],
   "exclude": [
     "node_modules"
   ]
