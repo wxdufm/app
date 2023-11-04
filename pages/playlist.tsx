@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Layout } from '../components/Layout';
+import Waveform from '../components/Waveform';
+// import AudioPlayerStream from '../components/AudioPlayerStream'
 
 const MyTable = () => {
 //   const [flowsheet, setFlowsheet] = useState([]);
@@ -33,6 +35,22 @@ const MyTable = () => {
   return (
     
     <div className='flex align-middle justify-center'>
+
+      <Waveform/>
+
+
+      {/* <AudioPlayer
+          autoPlay
+          src="http://audio-mp3.ibiblio.org:8000/wxyc.mp3"
+          onPlay={e => console.log("onPlay")}
+          // other props here
+        />
+      
+      <MyAudioPlayer/> */}
+      {/* <AudioPlayerStream/> */}
+      
+
+      
 
       <iframe src="http://www.wxyc.info/playlists/recent.html" className='w-5/6 h-screen'></iframe>
       
