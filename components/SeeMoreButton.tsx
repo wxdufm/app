@@ -1,6 +1,7 @@
 import React from 'react';
 import { IoIosArrowDown } from "react-icons/io";
 
+// See more button on blog and archive pages, after scrolling 
 const SeeMoreButton = ({ onClick }) => {
   return (
     <div className="flex justify-center my-6 cursor-pointer">

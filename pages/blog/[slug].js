@@ -3,6 +3,20 @@ import { client } from "../../tina/__generated__/client";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import Link from "next/link";
 import BlogLayout from "../../components/BlogLayout"
+import AudioPlayerEmbed from "../../components/AudioPlayerEmbed"
+
+
+const components = {
+  // The "NewsletterSignup" key maps to a "template" defined
+  // on our "rich-text" field
+  AudioFile: (props) => {
+    return (
+      <>
+        <AudioPlayerEmbed url={props.url}/>
+      </>
+    )
+  },
+}
 
 // individual blog post page
 const PostPage = (props) => {
@@ -36,8 +50,8 @@ const PostPage = (props) => {
           <h3 className="mb-3"> By {data.blog.author}</h3>
           <img src={data.blog.cover} alt="" width="650px" className="my-12 max-h-[40rem] object-cover"/>
           
-          <article className="prose prose-lg prose-h3:text-white text-white prose-a:text-slate-700">
-            <TinaMarkdown content={data.blog.body} />
+          <article className="prose prose-lg prose-h3:text-white text-white prose-a:text-slate-700 prose-li:mb-1">
+            <TinaMarkdown content={data.blog.body} components={components}/>
           </article>
       </div> 
     </BlogLayout>

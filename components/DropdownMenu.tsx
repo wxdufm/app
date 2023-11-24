@@ -2,11 +2,11 @@ import { Menu } from "@headlessui/react"
 import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
 
-// the dropdown in the nav bar
+// the dropdown in the nav bar (under "Listen")
 const DropdownMenu = () =>  {
 
     return(
-        <div className="">
+        <div>
             <Menu as="div" className="relative">
                 <Menu.Button className="inline-flex justify-center w-full   text-white lg:text-black">
                     Listen <IoIosArrowDown size={18} className="ml-1 mt-1"/>
@@ -21,7 +21,8 @@ const DropdownMenu = () =>  {
                     </div>
                     <div className="flex justify-center items-center text-medium md:hover:bg-gray-200 rounded-md text-white md:text-black  w-full px-4 py-2">
                         <Menu.Item>
-                            <Link href="/playlist" legacyBehavior={false}>
+                            <Link href="http://www.wxyc.info/playlists/recent.html" target="_blank" legacyBehavior={false}>
+                            {/* Until new flowsheet is deployed: <Link href="/playlist" legacyBehavior={false}> */}
                                 Live playlist
                             </Link>
                         </Menu.Item>

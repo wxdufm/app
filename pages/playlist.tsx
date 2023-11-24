@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import AudioPlayerEmbed from '../components/AudioPlayerEmbed';
+import AudioPlayerMP3 from '../components/AudioPlayerMP3';
 
 const MyTable = () => {
 //   const [flowsheet, setFlowsheet] = useState([]);
@@ -31,8 +33,10 @@ const MyTable = () => {
 
   return (
     
-    <div className='flex align-middle justify-center'>      
-      <p></p>
+    <div className='flex align-middle justify-center'>    
+      <AudioPlayerMP3/>  
+      {/* <a href="http://www.wxyc.info/playlists/recent.html" className='underline'>Live playlist</a> */}
+
         
   
       {/* <div className="sm:mx-auto sm:w-5/6 overflow-auto pb-10"> 
