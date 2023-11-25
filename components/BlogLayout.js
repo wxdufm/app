@@ -8,8 +8,6 @@ const BlogLayout = ({children}) => {
         <div>
             <div className=" w-5/6 mx-auto">
                 <BlogBreadcrumbs/>
-
-                
             </div>
 
             {children}

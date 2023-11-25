@@ -34,7 +34,6 @@ const MyTable = () => {
   return (
     
     <div className='flex align-middle justify-center'>    
-      <AudioPlayerMP3/>  
       {/* <a href="http://www.wxyc.info/playlists/recent.html" className='underline'>Live playlist</a> */}
 
         

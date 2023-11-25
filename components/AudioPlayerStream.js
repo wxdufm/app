@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
-import soundwaves from "images/soundwaves.gif";
-import nosoundwaves from "images/staticsoundwave.png";
+import soundwaves from "../images/soundwaves.gif";
+import nosoundwaves from "../images/staticsoundwave.png";
 import Image from "next/image";
 
 const AudioPlayerStream = () => {

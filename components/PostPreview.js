@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { PostPreviewData} from "./PostPreviewData";
 
-const PostPreview = (props: PostPreviewData) => {
+const PostPreview = (props) => {
     return(
       <Link href={`/blog/${props.slug}`}>
         <div key={props.id} className="flex flex-col gap-2 w-80 lg:w-[22rem] cursor-pointer">

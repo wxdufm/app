@@ -2,7 +2,7 @@ import EventPreview from "../../components/EventPreview";
 import { client } from "../../tina/__generated__/client";
 import { groupEventsByWeek, generateStructuredData} from "../../components/OrganizingArchive";
 // import LazyLoad from 'react-lazyload';
-import ArchiveDropdown from "../../components/ArchiveDropdown"
+import ArchiveDropdown from "../../components/DropdownArchive"
 import ArchiveLayout from "../../components/ArchiveLayout"
 import photo from "/images/crowd.jpg"
 import mobilephoto from "/images/crowdmobile.jpeg"

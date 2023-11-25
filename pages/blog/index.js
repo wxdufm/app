@@ -1,5 +1,5 @@
 import { client } from "../../tina/__generated__/client";
-import PostPreview from "../../components/PostPreview.tsx";
+import PostPreview from "../../components/PostPreview.js";
 // import LazyLoad from 'react-lazyload';
 import BlogLayout from "../../components/BlogLayout"
 import photo from "/images/concert.jpg"
@@ -7,7 +7,7 @@ import mobilephoto from "/images/concertmobile.jpg"
 import Image from 'next/image'
 import React, {useState} from "react"
 import Link from "next/link";
-import SeeMoreButton from "../../components/SeeMoreButton.tsx";
+import SeeMoreButton from "../../components/SeeMoreButton.js";
 
 //blog home page
 export default function PostList(props) {

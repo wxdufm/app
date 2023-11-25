@@ -1,7 +1,6 @@
 import Link from "next/link"
-import { EventPreviewData } from "./PostPreviewData"
 
-const EventPreview = (props: EventPreviewData) => {
+const EventPreview = (props) => {
 
     // rendered on the archive tabs
     if (!props.published) {
