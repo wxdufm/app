@@ -1,7 +1,5 @@
-import Link from 'next/link'
-import Head from 'next/head'
-import Header from './Header'
-// import photo from '../images/10144964.png'
+import Head from "next/head";
+import Header from "./Header";
 
 export const Layout = (props) => {
   return (
@@ -9,15 +7,22 @@ export const Layout = (props) => {
       <Head>
         <title>WXYC</title>
         <meta name="description" content="WXYC's website" />
-        <link rel="icon" href="https://is4-ssl.mzstatic.com/image/thumb/Purple116/v4/6c/55/f8/6c55f8ad-cfed-ddd7-e63d-9e8c979d7251/source/512x512bb.jpg"/>
+
+        {/* set thumbnail image */}
+        <link
+          rel="icon"
+          href="https://is4-ssl.mzstatic.com/image/thumb/Purple116/v4/6c/55/f8/6c55f8ad-cfed-ddd7-e63d-9e8c979d7251/source/512x512bb.jpg"
+        />
+
+        {/* app download banner on iphone */}
         <meta name="apple-itunes-app" content="app-id=353182815" />
       </Head>
 
-      <header className='header'>
-        <Header/>
+      <header className="header">
+        <Header />
       </header>
-     
-      <main className >{props.children}</main>
+
+      <main className>{props.children}</main>
     </div>
-  )
-}
+  );
+};
