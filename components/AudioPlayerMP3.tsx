@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useRef, useEffect, useLayoutEffect } from "react"
 import {FaPlay, FaPause} from "react-icons/fa"
 import {BsArrowLeftShort, BsArrowRightShort} from "react-icons/bs"
 
-const AudioPlayerMP3 = () => {
+const AudioPlayerMP3 = ({url}) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [duration, setDuration] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
@@ -11,13 +11,24 @@ const AudioPlayerMP3 = () => {
     const audioPlayer = useRef(); //reference to our audio component
     const progressBar = useRef(); //reference to our progress bar
     const animationRef = useRef(); //reference the animation
+    const buttonRef = useRef();
 
 
     useEffect(() => {
         const seconds = Math.floor(audioPlayer.current.duration);
         setDuration(seconds);
         progressBar.current.max = seconds;
+        if (buttonRef.current) {
+            buttonRef.current.click();
+          }
     }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState]);
+
+    useLayoutEffect(() => {
+        // Trigger the click event on the button
+        if (buttonRef.current) {
+          buttonRef.current.click();
+        }
+      }, [])
     
 
     const calculateTime = (secs) => {
@@ -67,10 +78,16 @@ const AudioPlayerMP3 = () => {
         changeRange();
     }
 
+    const loadDuration = () => {
+        audioPlayer.current.play();
+        audioPlayer.current.pause();
+
+    }
+
     return(
         <div className="audioPlayer flex w-full items-center">
         <div className="flex gap-3">
-            <audio ref={audioPlayer} src="https://docs.google.com/uc?export=open&id=17EQ-dNvMB59g1Vx7kHF_B_-tiJtzDxSB"></audio>
+            <audio ref={audioPlayer} src={url}></audio>
             <button className="forwardBackward" onClick={backThirty}><BsArrowLeftShort/> 30</button>
             <button className="bg-pink-700 text-gray-200 rounded-lg p-3" onClick={togglePlayPause}>{isPlaying ? <FaPause/> : <FaPlay className="relative pl-0.5"/>}</button>
             <button className="forwardBackward" onClick={forwardThirty}>30 <BsArrowRightShort /></button>
@@ -85,7 +102,7 @@ const AudioPlayerMP3 = () => {
         </div>
 
         {/* duration */}
-        {isNaN(duration) && <div>hi</div>}
+        {isNaN(duration) && <button ref={buttonRef} onClick={loadDuration}></button>}
         <div className="duration">{(duration && !isNaN(duration)) && calculateTime(duration)}</div>
     </div>
     )

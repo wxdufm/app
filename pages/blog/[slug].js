@@ -4,15 +4,23 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import Link from "next/link";
 import BlogLayout from "../../components/BlogLayout"
 import AudioPlayerEmbed from "../../components/AudioPlayerEmbed"
+import AudioPlayerMP3 from "../../components/AudioPlayerMP3"
 
 
 const components = {
   // The "NewsletterSignup" key maps to a "template" defined
   // on our "rich-text" field
-  AudioFile: (props) => {
+  AudioFileGD: (props) => {
     return (
       <>
         <AudioPlayerEmbed url={props.url}/>
+      </>
+    )
+  },
+  AudioFileMP3: (props) => {
+    return (
+      <>
+        <AudioPlayerMP3 url={props.url}/>
       </>
     )
   },
