@@ -2,33 +2,31 @@ import { useTina } from "tinacms/dist/react";
 import { client } from "../../tina/__generated__/client";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import Link from "next/link";
-import BlogLayout from "../../components/BlogLayout"
-import AudioPlayerEmbed from "../../components/AudioPlayerEmbed"
-import AudioPlayerMP3 from "../../components/AudioPlayerMP3"
-
+import BlogLayout from "../../components/BlogLayout";
+import AudioPlayerEmbed from "../../components/AudioPlayerEmbed";
+import AudioPlayerMP3 from "../../components/AudioPlayerMP3";
 
 const components = {
-  // The "NewsletterSignup" key maps to a "template" defined
-  // on our "rich-text" field
+  // google drive embedded iframe mp3
   AudioFileGD: (props) => {
     return (
       <>
-        <AudioPlayerEmbed url={props.url}/>
+        <AudioPlayerEmbed url={props.url} />
       </>
-    )
+    );
   },
-  AudioFileMP3: (props) => {
-    return (
-      <>
-        <AudioPlayerMP3 url={props.url}/>
-      </>
-    )
-  },
-}
+  // homemade mp3 player (need to host the audio for this to work)
+  // AudioFileMP3: (props) => {
+  //   return (
+  //     <>
+  //       <AudioPlayerMP3 url={props.url}/>
+  //     </>
+  //   )
+  // },
+};
 
 // individual blog post page
 const PostPage = (props) => {
- 
   const { data, query, variables } = useTina({
     query: props.query,
     variables: props.variables,
@@ -36,39 +34,48 @@ const PostPage = (props) => {
   });
 
   const date = new Date(data.blog.published);
-  const options = { month: 'long', day: 'numeric', year: 'numeric' };
-  const displayDate = date.toLocaleString('en-US', options);
- 
+  const options = { month: "long", day: "numeric", year: "numeric" };
+  const displayDate = date.toLocaleString("en-US", options);
+
   return (
-    
     <BlogLayout>
       <div className="mx-auto w-5/6 pb-10">
-          {data.blog.categories &&
-            <div>
-              {data.blog.categories.map((category) => (
-                <div className="my-2 text-neutral-400" key={category.category.id}>
-                <Link href={`/blog/category/${category.category._sys.filename}`}>
-                  <p className="hover:underline cursor-pointer">{category.category.title}</p>
+        {data.blog.categories && (
+          <div>
+            {data.blog.categories.map((category) => (
+              <div className="my-2 text-neutral-400" key={category.category.id}>
+                <Link
+                  href={`/blog/category/${category.category._sys.filename}`}
+                >
+                  <p className="hover:underline cursor-pointer">
+                    {category.category.title}
+                  </p>
                 </Link>
-                </div>
-              ))}
-            </div>}
-          <h1 className="text-3xl lg:text-5xl mb-2 kallisto">{data.blog.title}</h1>
-          <p className="italic">{displayDate}</p>
-          <h3 className="mb-3"> By {data.blog.author}</h3>
-          <img src={data.blog.cover} alt="" width="650px" className="my-12 max-h-[40rem] object-cover"/>
-          
-          <article className="prose prose-lg prose-h3:text-white text-white prose-a:text-slate-700 prose-li:mb-1">
-            <TinaMarkdown content={data.blog.body} components={components}/>
-          </article>
-      </div> 
+              </div>
+            ))}
+          </div>
+        )}
+        <h1 className="text-3xl lg:text-5xl mb-2 kallisto">
+          {data.blog.title}
+        </h1>
+        <p className="italic">{displayDate}</p>
+        <h3 className="mb-3"> By {data.blog.author}</h3>
+        <img
+          src={data.blog.cover}
+          alt=""
+          width="650px"
+          className="my-12 max-h-[40rem] object-cover"
+        />
+
+        <article className="prose prose-lg prose-h3:text-white text-white prose-a:text-slate-700 prose-li:mb-1">
+          <TinaMarkdown content={data.blog.body} components={components} />
+        </article>
+      </div>
     </BlogLayout>
-   
   );
-}
+};
 
 export default PostPage;
-
 
 export const getStaticPaths = async () => {
   const { data } = await client.queries.blogConnection();
@@ -87,13 +94,11 @@ export const getStaticProps = async (ctx) => {
     relativePath: ctx.params.slug + ".md",
   });
 
-  return { 
-
+  return {
     props: {
-      data, 
+      data,
       query,
       variables,
-      
-    }
+    },
+  };
 };
-}

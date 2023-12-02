@@ -3,15 +3,16 @@ import { tinaField, useTina } from "tinacms/dist/react";
 import { client } from "../../tina/__generated__/client";
 import AboutLayout from "../../components/AboutLayout";
 
-//editable static pages (about, programming, etc.)
+//editable static pages within the about tab (mission and history)
 export default function AboutPage(props) {
-  // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
     data: props.data,
   });
 
+  // gets content from CMS and stores it in content variable
+  // gets props from getStaticProps method below
   const content = data.page.body;
 
   return (
@@ -28,32 +29,27 @@ export default function AboutPage(props) {
 }
 
 export const getStaticPaths = async () => {
-    // const { data } = await client.queries.pageConnection();
-    // const paths = data.pageConnection.edges.map((x) => {
-    //   return { params: { slug: x.node._sys.filename } };
+  const paths = [
+    { params: { slug: "mission" } },
+    { params: { slug: "history" } },
+  ];
 
-      
-    // });
-    const paths = [{ params: { slug: "mission"}}, {params: {slug: "history"}}];
-  
-    return {
-      paths,
-      fallback: "blocking",
-    };
+  return {
+    paths,
+    fallback: "blocking",
   };
+};
 
 export const getStaticProps = async (ctx) => {
-    const { data, query, variables } = await client.queries.page({
-        relativePath: ctx.params.slug + ".mdx",
-    });
-  
-    return {
-      props: {
-        data,
-        query,
-        variables,
-        //myOtherProp: 'some-other-data',
-      },
-    };
-  };
+  const { data, query, variables } = await client.queries.page({
+    relativePath: ctx.params.slug + ".mdx",
+  });
 
+  return {
+    props: {
+      data,
+      query,
+      variables,
+    },
+  };
+};
