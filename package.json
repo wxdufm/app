@@ -19,7 +19,7 @@
     "react-h5-audio-player": "^3.9.0",
     "react-icons": "^4.10.1",
     "react-lazyload": "^3.2.0",
-    "tinacms": "1.5.26",
+    "tinacms": "1.5.28",
     "wavesurfer.js": "^7.4.2"
   },
   "devDependencies": {
