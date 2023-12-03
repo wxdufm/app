@@ -114,7 +114,7 @@ const Header = () => {
                           href="http://www.wxyc.info/playlists/recent.html"
                           target="_blank"
                           legacyBehavior={false}
-                        ></Link>
+                        >Live playlist</Link>
                         {/* <Link href="/playlist" legacyBehavior={false}>
                           <a onClick={toggleMenu}>Live playlist</a>
                         </Link> */}
