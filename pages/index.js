@@ -8,7 +8,7 @@ import { FiMail } from "react-icons/fi";
 import { BsSpotify } from "react-icons/bs";
 import AudioPlayerStream from "../components/AudioPlayerStream";
 
-//home page
+// home page
 export default function Home(props) {
   const posts = props.data.blogConnection.edges;
   const events = props.data.archiveConnection.edges;

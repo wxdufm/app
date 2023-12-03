@@ -28,7 +28,7 @@ const Header = () => {
           )}
         </button>
 
-        {/* Collapsible menu */}
+        {/* Collapsible menu for mobile*/}
         {isOpen && (
           <ul className="h-screen flex flex-col justify-start bg-neutral-800 bg-opacity-95 mt-16 md:gap-6 w-screen -ml-12 md:mt-24">
             <div className=" flex items-center justify-center h-16 mt-16 ">
@@ -39,7 +39,6 @@ const Header = () => {
                 >
                   About
                 </a>
-                {/* <p className="text-white text-xl no-underline cursor-pointer">About</p> */}
               </Link>
             </div>
 
@@ -111,15 +110,14 @@ const Header = () => {
                     </div>
                     <div className="flex justify-center items-center text-medium md:hover:bg-gray-200 rounded-md text-white md:text-black  w-full px-4 py-2">
                       <Menu.Item>
-                        <a
-                          href="http://wxyc.info/playlists/recent.html"
+                        <Link
+                          href="http://www.wxyc.info/playlists/recent.html"
                           target="_blank"
-                        >
-                          Live playlist
-                        </a>
+                          legacyBehavior={false}
+                        ></Link>
                         {/* <Link href="/playlist" legacyBehavior={false}>
-                                        <a onClick={toggleMenu}>Live playlist</a>
-                                    </Link> */}
+                          <a onClick={toggleMenu}>Live playlist</a>
+                        </Link> */}
                       </Menu.Item>
                     </div>
                     <div className="flex justify-center items-center text-medium md:hover:bg-gray-200 hover:rounded-md text-white md:text-black w-full px-4 py-2">
@@ -175,7 +173,7 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Parent container of navbar */}
+          {/* Parent container of web navbar */}
           <div className="w-full justify-center ">
             {/* Actual navbar */}
             <div className="invisible lg:visible w-full flex flex-row justify-around items-center bg-gradient-to-b from-neutral-100 to-neutral-300 h-12 py-3">

@@ -40,6 +40,8 @@ Alex G and Company broke away from the last lovely, fleeting moments of “Sugar
 
 In the spirit of Halloween, the band members threw out packs of raisins (my friend was lucky enough to snag one!), and John Heywood, the bassist, led the audience in a surprisingly gentle performance of “Monster Mash.” With Alex looking drunker by the minute, they rounded the performance out with a rousing cover of Third Eye Blind’s “Jumper,” before promptly exiting stage left, leaving the concert-goers to make their way out of Cat’s Cradle and into the balmy Halloween night. All in all, I can say with certainty that that night was one of my favorite ways I’ve ever spent Halloween—I left feeling lighter than I had arrived.
 
+
+
 Setlist
 Gretel
 Southern Sky
@@ -59,4 +61,3 @@ Sportstar
 Walk Away
 Crime
 SugarHouse
-

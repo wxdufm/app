@@ -1,4 +1,4 @@
-
+// android app privacy policy
 const Android = () => {
     return (
         <div className="flex justify-center align-middle m-5">
