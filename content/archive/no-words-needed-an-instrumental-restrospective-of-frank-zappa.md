@@ -7,3 +7,4 @@ categories:
 published: 2023-12-04T05:00:00.000Z
 ---
 
+This Thursday! Tune in for a restrospective listen to the instrumental music of legendary composer Frank Zappa. 9-midnight, only on WXYC 🐄
