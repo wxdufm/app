@@ -4,6 +4,7 @@ import PostPreview from "../components/PostPreview";
 import EventPreview from "../components/EventPreview";
 import PhotoGallery from "../components/PhotoGallery";
 import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
+import { FaTiktok } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { BsSpotify } from "react-icons/bs";
 import AudioPlayerStream from "../components/AudioPlayerStream";
@@ -126,11 +127,14 @@ export default function Home(props) {
 
       {/* Social media links footer */}
       <div className="w-full flex justify-center items-center gap-8 md:gap-24 mt-12 pb-10">
-        <a target="_blank" href="https://www.instagram.com/wxyc893/?hl=en">
+        <a target="_blank" href="https://instagram.com/wxyc893">
           <AiFillInstagram size={44} className="ml-.5 mt-0.5" />
         </a>
-        <a target="_blank" href="https://twitter.com/wxyc?lang=en">
+        <a target="_blank" href="https://twitter.com/wxyc">
           <AiFillTwitterCircle size={44} className="ml-.5 mt-0.5" />
+        </a>
+        <a target="_blank" href="https://tiktok.com/@wxyc893">
+          <FaTiktok size={44} className="ml-.5 mt-0.5" />
         </a>
         <a target="_blank" href="mailto:info@wxyc.org">
           {" "}
