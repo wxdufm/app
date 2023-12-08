@@ -25,41 +25,41 @@ export default function Home(props) {
             {/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] overflow-hidden mb-12 mt-16"/> */}
           </div>
 
-          <p className="text-white lg:text-5xl mb-2 md:mb-4 whitespace-nowrap text-3xl kallisto mx-auto md:mx-0">
-            This Week on WXYC
-          </p>
-          {events && (
+          {events.length > 0 && (
             //This Week on WXYC
-
-            <div className="mx-auto md:mx-0">
-              <div className=" md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-auto snap-mandatory mx-auto">
-                {events.map((event) => (
-                  //Event previews
-                  <div key={event.node.id}>
-                    <EventPreview
-                      id={event.node.id}
-                      title={event.node.title}
-                      cover={event.node.cover}
-                      subtitle={event.node.description.children[0].children[0].text.substring(
-                        0,
-                        75
-                      )}
-                      published={event.node.published}
-                      slug={event.node._sys.filename}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <div className="mx-auto  w-1/8 mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
-            <Link href="/archive">
-              <p className="hover:underline cursor-pointer my-1">
-                Archive {">"}
+            <>
+              <p className="text-white lg:text-5xl mb-2 md:mb-4 whitespace-nowrap text-3xl kallisto mx-auto md:mx-0">
+                This Week on WXYC
               </p>
-            </Link>
-          </div>
+              <div className="mx-auto md:mx-0">
+                <div className=" md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-auto snap-mandatory mx-auto">
+                  {events.map((event) => (
+                    //Event previews
+                    <div key={event.node.id}>
+                      <EventPreview
+                        id={event.node.id}
+                        title={event.node.title}
+                        cover={event.node.cover}
+                        subtitle={event.node.description.children[0].children[0].text.substring(
+                          0,
+                          75
+                        )}
+                        published={event.node.published}
+                        slug={event.node._sys.filename}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="mx-auto  w-1/8 mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
+                <Link href="/archive">
+                  <p className="hover:underline cursor-pointer my-1">
+                    Archive {">"}
+                  </p>
+                </Link>
+              </div>
+            </>
+          )}
 
           <p className="text-white lg:text-5xl text-3xl mb-2 md:mb-4 whitespace-nowrap kallisto mx-auto md:mx-0">
             Blog Posts
