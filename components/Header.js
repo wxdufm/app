@@ -43,7 +43,7 @@ const Header = () => {
 						</div>
 
 						<div className="flex h-16 items-center justify-center">
-							<Link href="page/programming" legacyBehavior={false}>
+							<Link href="/page/programming" legacyBehavior={false}>
 								<a
 									className="cursor-pointer text-xl text-white no-underline md:text-3xl"
 									onClick={toggleMenu}
