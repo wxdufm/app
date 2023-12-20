@@ -1,164 +1,168 @@
-import { client } from "../tina/__generated__/client";
-import Link from "next/link";
-import PostPreview from "../components/PostPreview";
-import EventPreview from "../components/EventPreview";
-import PhotoGallery from "../components/PhotoGallery";
-import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
-import { FiMail } from "react-icons/fi";
-import { BsSpotify } from "react-icons/bs";
-import AudioPlayerStream from "../components/AudioPlayerStream";
+import {client} from '../tina/__generated__/client'
+import Link from 'next/link'
+import PostPreview from '../components/PostPreview'
+import EventPreview from '../components/EventPreview'
+import PhotoGallery from '../components/PhotoGallery'
+import {AiFillInstagram, AiFillTwitterCircle} from 'react-icons/ai'
+import {FaTiktok} from 'react-icons/fa'
+import {FiMail} from 'react-icons/fi'
+import {BsSpotify} from 'react-icons/bs'
+import AudioPlayerStream from '../components/AudioPlayerStream'
 
 // home page
 export default function Home(props) {
-  const posts = props.data.blogConnection.edges;
-  const events = props.data.archiveConnection.edges;
+	const posts = props.data.blogConnection.edges
+	const events = props.data.archiveConnection.edges
 
-  return (
-    <div>
-      <div className="w-5/6 mx-auto flex flex-row gap-4">
-        {/* Left side of the screen container */}
+	return (
+		<div>
+			<div className="mx-auto flex w-5/6 flex-row gap-4">
+				{/* Left side of the screen container */}
 
-        <div className="flex flex-col lg:w-4/6 w-full justify-center md:mr-10 md:mt-10 mt-0">
-          <div className="flex justify-center md:hidden mb-10">
-            <AudioPlayerStream />
-            {/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] overflow-hidden mb-12 mt-16"/> */}
-          </div>
+				<div className="mt-0 flex w-full flex-col justify-center md:mr-10 md:mt-10 lg:w-4/6">
+					<div className="mb-10 flex justify-center md:hidden">
+						<AudioPlayerStream />
+						{/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] overflow-hidden mb-12 mt-16"/> */}
+					</div>
 
-          <p className="text-white lg:text-5xl mb-2 md:mb-4 whitespace-nowrap text-3xl kallisto mx-auto md:mx-0">
-            This Week on WXYC
-          </p>
-          {events && (
-            //This Week on WXYC
+					{events.length > 0 && (
+						//This Week on WXYC
+						<>
+							<p className="kallisto mx-auto mb-2 whitespace-nowrap text-3xl text-white md:mx-0 md:mb-4 lg:text-5xl">
+								This Week on WXYC
+							</p>
+							<div className="mx-auto md:mx-0">
+								<div className=" mx-auto mb-10 mt-6 flex snap-mandatory flex-col gap-6 md:mt-0 md:flex-row md:gap-4 md:overflow-x-auto">
+									{events.map((event) => (
+										//Event previews
+										<div key={event.node.id}>
+											<EventPreview
+												id={event.node.id}
+												title={event.node.title}
+												cover={event.node.cover}
+												subtitle={event.node.description.children[0].children[0].text.substring(
+													0,
+													75
+												)}
+												published={event.node.published}
+												slug={event.node._sys.filename}
+											/>
+										</div>
+									))}
+								</div>
+							</div>
+							<div className="w-1/8  mx-auto mb-16 rounded-3xl bg-neutral-800 px-3 py-2 md:mx-0 md:ml-auto md:inline-block md:bg-transparent md:px-0 md:py-0">
+								<Link href="/archive">
+									<p className="my-1 cursor-pointer hover:underline">
+										Archive {'>'}
+									</p>
+								</Link>
+							</div>
+						</>
+					)}
 
-            <div className="mx-auto md:mx-0">
-              <div className=" md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-auto snap-mandatory mx-auto">
-                {events.map((event) => (
-                  //Event previews
-                  <div key={event.node.id}>
-                    <EventPreview
-                      id={event.node.id}
-                      title={event.node.title}
-                      cover={event.node.cover}
-                      subtitle={event.node.description.children[0].children[0].text.substring(
-                        0,
-                        75
-                      )}
-                      published={event.node.published}
-                      slug={event.node._sys.filename}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+					<p className="kallisto mx-auto mb-2 whitespace-nowrap text-3xl text-white md:mx-0 md:mb-4 lg:text-5xl">
+						Blog Posts
+					</p>
+					{posts && (
+						// Blog posts parent container
 
-          <div className="mx-auto  w-1/8 mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
-            <Link href="/archive">
-              <p className="hover:underline cursor-pointer my-1">
-                Archive {">"}
-              </p>
-            </Link>
-          </div>
+						<div className="mx-auto mb-10 mt-6 flex snap-mandatory flex-col gap-6 md:mx-0 md:mt-0 md:flex-row md:gap-4 md:overflow-x-auto">
+							{posts.map((post) => (
+								// Blog post previews
 
-          <p className="text-white lg:text-5xl text-3xl mb-2 md:mb-4 whitespace-nowrap kallisto mx-auto md:mx-0">
-            Blog Posts
-          </p>
-          {posts && (
-            // Blog posts parent container
+								<div key={post.node.id}>
+									<PostPreview
+										id={post.node.id}
+										title={post.node.title}
+										slug={post.node._sys.filename}
+										cover={post.node.cover}
+										subtitle={
+											post.node.description
+												? post.node.description
+												: post.node.body.children[0].children[0].text.substring(
+														0,
+														75
+													)
+										}
+									/>
+								</div>
+							))}
+						</div>
+					)}
 
-            <div className="md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-auto snap-mandatory mx-auto md:mx-0">
-              {posts.map((post) => (
-                // Blog post previews
+					<div className="w-1/8 mx-auto rounded-3xl bg-neutral-800 px-3 py-2 md:mx-0 md:mb-20 md:ml-auto md:inline-block md:bg-transparent md:px-0 md:py-0">
+						<Link href="/blog">
+							<h2 className="my-1 cursor-pointer hover:underline">
+								Older blog posts {'>'}
+							</h2>
+						</Link>
+					</div>
+				</div>
 
-                <div key={post.node.id}>
-                  <PostPreview
-                    id={post.node.id}
-                    title={post.node.title}
-                    slug={post.node._sys.filename}
-                    cover={post.node.cover}
-                    subtitle={
-                      post.node.description
-                        ? post.node.description
-                        : post.node.body.children[0].children[0].text.substring(
-                            0,
-                            75
-                          )
-                    }
-                  />
-                </div>
-              ))}
-            </div>
-          )}
+				{/* Right side of the screen container */}
 
-          <div className="mx-auto w-1/8 md:mb-20 bg-neutral-800 px-3 py-2 rounded-3xl md:bg-transparent md:px-0 md:py-0 md:inline-block md:mx-0 md:ml-auto">
-            <Link href="/blog">
-              <h2 className="hover:underline cursor-pointer my-1">
-                Older blog posts {">"}
-              </h2>
-            </Link>
-          </div>
-        </div>
+				<div className="mr-3 mt-12 hidden items-start lg:flex lg:flex-col ">
+					<p className="kallisto text-left text-3xl">Listen Live</p>
 
-        {/* Right side of the screen container */}
+					{/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] mt-5 mb-12 flex items-center overflow-hidden"/> */}
 
-        <div className="hidden lg:flex lg:flex-col items-start mr-3 mt-12 ">
-          <p className="kallisto text-3xl text-left">Listen Live</p>
+					<div className="pt-7">
+						<AudioPlayerStream />
+					</div>
 
-          {/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] mt-5 mb-12 flex items-center overflow-hidden"/> */}
+					<div className="mx-auto mt-10 flex h-16 w-4/6 flex-col items-center justify-center rounded-3xl border-0 bg-gradient-to-b from-neutral-200 to-neutral-400 text-xl text-black hover:text-neutral-700 lg:mx-0 ">
+						<div>
+							<Link href="mailto:psa@wxyc.org" scroll={false}>
+								Submit a PSA!
+							</Link>
+						</div>
+					</div>
+				</div>
+			</div>
 
-          <div className="pt-7">
-            <AudioPlayerStream />
-          </div>
+			<div className=" mx-auto mt-16 hidden w-2/3 items-center justify-center md:visible md:flex">
+				<PhotoGallery />
+			</div>
 
-          <div className="lg:mx-0 mx-auto bg-gradient-to-b from-neutral-200 to-neutral-400 hover:text-neutral-700 text-black w-4/6 flex flex-col justify-center items-center h-16 border-0 rounded-3xl mt-10 text-xl ">
-            <div>
-              <Link href="mailto:psa@wxyc.org" scroll={false}>
-                Submit a PSA!
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className=" hidden md:visible md:flex justify-center items-center mx-auto w-2/3 mt-20">
-        <PhotoGallery />
-      </div>
-
-      {/* Social media links footer */}
-      <div className="w-full flex justify-center items-center gap-8 md:gap-24 mt-12 pb-10">
-        <a target="_blank" href="https://www.instagram.com/wxyc893/?hl=en">
-          <AiFillInstagram size={44} className="ml-.5 mt-0.5" />
-        </a>
-        <a target="_blank" href="https://twitter.com/wxyc?lang=en">
-          <AiFillTwitterCircle size={44} className="ml-.5 mt-0.5" />
-        </a>
-        <a target="_blank" href="mailto:info@wxyc.org">
-          {" "}
-          <FiMail size={44} className="ml-.5 mt-0.5" />
-        </a>
-        <a target="_blank" href="mailto:info@wxyc.org">
-          {" "}
-          <BsSpotify size={44} className="ml-;5 mt-0.5" />
-        </a>
-      </div>
-    </div>
-  );
+			{/* Social media links footer */}
+			<div className="mt-12 flex w-full items-center justify-center gap-8 pb-10 md:gap-24">
+				<a target="_blank" href="https://instagram.com/wxyc893">
+					<AiFillInstagram size={44} className="ml-.5 mt-0.5" />
+				</a>
+				<a target="_blank" href="https://twitter.com/wxyc">
+					<AiFillTwitterCircle size={44} className="ml-.5 mt-0.5" />
+				</a>
+				<a target="_blank" href="https://tiktok.com/@wxyc893">
+					<FaTiktok size={44} className="ml-.5 mt-0.5" />
+				</a>
+				<a target="_blank" href="mailto:info@wxyc.org">
+					{' '}
+					<FiMail size={44} className="ml-.5 mt-0.5" />
+				</a>
+				<a target="_blank" href="https://open.spotify.com/user/wxyc">
+					{' '}
+					<BsSpotify size={44} className="ml-;5 mt-0.5" />
+				</a>
+			</div>
+		</div>
+	)
 }
 
 export const getStaticProps = async () => {
-  const currentDateTime = new Date();
-  const startOfWeek = new Date(
-    currentDateTime.getFullYear(),
-    currentDateTime.getMonth(),
-    currentDateTime.getDate() - currentDateTime.getDay() - 1
-  );
-  const endOfWeek = new Date(
-    currentDateTime.getFullYear(),
-    currentDateTime.getMonth(),
-    currentDateTime.getDate() + (6 - currentDateTime.getDay())
-  );
-  const { data } = await client.request({
-    query: `
+	const currentDateTime = new Date()
+	const startOfWeek = new Date(
+		currentDateTime.getFullYear(),
+		currentDateTime.getMonth(),
+		currentDateTime.getDate() - currentDateTime.getDay() - 1
+	)
+	const endOfWeek = new Date(
+		currentDateTime.getFullYear(),
+		currentDateTime.getMonth(),
+		currentDateTime.getDate() + (6 - currentDateTime.getDay())
+	)
+	const {data} = await client.request({
+		query: `
     query getContent($startOfWeek: String, $endOfWeek: String)
     {    
         blogConnection(sort: "published", last:3, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u"){
@@ -195,11 +199,11 @@ export const getStaticProps = async () => {
   }
     
     `,
-    variables: {
-      endOfWeek: endOfWeek.toDateString(),
-      startOfWeek: startOfWeek.toDateString(),
-    },
-  });
+		variables: {
+			endOfWeek: endOfWeek.toDateString(),
+			startOfWeek: startOfWeek.toDateString(),
+		},
+	})
 
-  return { props: { data } };
-};
+	return {props: {data}}
+}

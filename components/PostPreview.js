@@ -1,23 +1,23 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 // used for any pages of lists of blog posts
 const PostPreview = (props) => {
-  return (
-    <Link href={`/blog/${props.slug}`}>
-      <div
-        key={props.id}
-        className="flex flex-col gap-2 w-80 lg:w-[22rem] cursor-pointer"
-      >
-        <img
-          src={props.cover}
-          className="lg:w-[22rem] lg:h-[22rem] w-80 h-80 object-cover"
-          alt=""
-        />
-        <a className="text-xl text-center h-12 font-bold">{props.title}</a>
-        <p>{props.subtitle}...</p>
-      </div>
-    </Link>
-  );
-};
+	return (
+		<Link href={`/blog/${props.slug}`}>
+			<div
+				key={props.id}
+				className="flex w-80 cursor-pointer flex-col gap-2 lg:w-[22rem]"
+			>
+				<img
+					src={props.cover}
+					className="h-80 w-80 object-cover lg:h-[22rem] lg:w-[22rem]"
+					alt=""
+				/>
+				<a className="h-12 text-center text-xl font-bold">{props.title}</a>
+				<p>{props.subtitle}...</p>
+			</div>
+		</Link>
+	)
+}
 
-export default PostPreview;
+export default PostPreview

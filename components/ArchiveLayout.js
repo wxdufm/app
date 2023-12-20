@@ -1,15 +1,15 @@
-import React from "react";
-import ArchiveBreadcrumbs from "./ArchiveBreadcrumbs";
+import React from 'react'
+import ArchiveBreadcrumbs from './ArchiveBreadcrumbs'
 
 // imported into every page in "archive" pages directory
 const ArchiveLayout = (props) => {
-  return (
-    <div className="w-5/6 mx-auto text-white pb-10 overflow-hidden">
-      <ArchiveBreadcrumbs />
+	return (
+		<div className="mx-auto w-5/6 overflow-hidden pb-10 text-white">
+			<ArchiveBreadcrumbs />
 
-      {props.children}
-    </div>
-  );
-};
+			{props.children}
+		</div>
+	)
+}
 
-export default ArchiveLayout;
+export default ArchiveLayout

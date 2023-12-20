@@ -1,32 +1,39 @@
 {
-  "name": "starter-basic",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "tinacms dev -c \"next dev\"",
-    "build": "tinacms build && next build",
-    "start": "tinacms build && next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@fontsource/poppins": "^5.0.5",
-    "@mui/material": "^5.13.6",
-    "next": "^12.0.4",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-h5-audio-player": "^3.9.0",
-    "react-icons": "^4.10.1",
-    "react-lazyload": "^3.2.0",
-    "tinacms": "1.5.26",
-    "wavesurfer.js": "^7.4.2"
-  },
-  "devDependencies": {
-    "@tailwindcss/typography": "^0.5.9",
-    "@tinacms/cli": "1.5.36",
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.24",
-    "tailwindcss": "^3.3.2"
-  }
+	"name": "starter-basic",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "tinacms dev -c \"next dev\"",
+		"build": "tinacms build && next build",
+		"start": "tinacms build && next start",
+		"lint": "next lint",
+		"check-format": "prettier --check .",
+		"format": "prettier --write ."
+	},
+	"dependencies": {
+		"@emotion/react": "^11.11.1",
+		"@emotion/styled": "^11.11.0",
+		"@fontsource/poppins": "^5.0.5",
+		"@mui/material": "^5.13.6",
+		"eslint": "^8.55.0",
+		"eslint-config-next": "^14.0.4",
+		"next": "^12.0.4",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-h5-audio-player": "^3.9.0",
+		"react-icons": "^4.10.1",
+		"react-lazyload": "^3.2.0",
+		"tinacms": "1.5.28",
+		"wavesurfer.js": "^7.4.2"
+	},
+	"devDependencies": {
+		"@tailwindcss/typography": "^0.5.9",
+		"@tinacms/cli": "1.5.38",
+		"autoprefixer": "^10.4.14",
+		"eslint-config-prettier": "^9.1.0",
+		"postcss": "^8.4.24",
+		"prettier": "^3.1.1",
+		"prettier-plugin-tailwindcss": "^0.5.9",
+		"tailwindcss": "^3.3.2"
+	}
 }

@@ -1,44 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react'
 
 // live playlist tab
 
 const MyTable = () => {
-//   const [flowsheet, setFlowsheet] = useState([]);
-//   const [lastUpdated, setLastUpdated] = useState(null);
+	//   const [flowsheet, setFlowsheet] = useState([]);
+	//   const [lastUpdated, setLastUpdated] = useState(null);
 
-//   useEffect(() => {
-//     const getFlowsheetEntries = async () => {
-//       try {
-//           const response = await fetch('https://api.wxyc.org/flowsheet?page=0&limit=50');
-  
-//           if (!response.ok) {
-//               throw new Error('Network response was not ok');
-//           }
-  
-//           const data = await response.json();
-          
-//           if (data) {
-//               setFlowsheet(data); // Directly set the fetched data to the state
-//               setLastUpdated(new Date())
-//           }
-//       } catch (error) {
-//           console.log('Error fetching flowsheet:', error.message);
-//       }
-//   };
-  
-//   getFlowsheetEntries();
-    
-// }, []);
+	//   useEffect(() => {
+	//     const getFlowsheetEntries = async () => {
+	//       try {
+	//           const response = await fetch('https://api.wxyc.org/flowsheet?page=0&limit=50');
 
+	//           if (!response.ok) {
+	//               throw new Error('Network response was not ok');
+	//           }
 
-  return (
-    
-    <div className='flex align-middle justify-center'>    
-      {/* <a href="http://www.wxyc.info/playlists/recent.html" className='underline'>Live playlist</a> */}
+	//           const data = await response.json();
 
-        
-  
-      {/* <div className="sm:mx-auto sm:w-5/6 overflow-auto pb-10"> 
+	//           if (data) {
+	//               setFlowsheet(data); // Directly set the fetched data to the state
+	//               setLastUpdated(new Date())
+	//           }
+	//       } catch (error) {
+	//           console.log('Error fetching flowsheet:', error.message);
+	//       }
+	//   };
+
+	//   getFlowsheetEntries();
+
+	// }, []);
+
+	return (
+		<div className="flex justify-center align-middle">
+			{/* <a href="http://www.wxyc.info/playlists/recent.html" className='underline'>Live playlist</a> */}
+
+			{/* <div className="sm:mx-auto sm:w-5/6 overflow-auto pb-10"> 
       <p className="text-5xl mb-2 kallisto">Live Playlist</p>
 
       <div className="flex flex-row justify-between">
@@ -76,9 +72,8 @@ const MyTable = () => {
         </tbody>
       </table>
       </div> */}
-       
-    </div>
-  );
-};
+		</div>
+	)
+}
 
-export default MyTable;
+export default MyTable

@@ -6,43 +6,43 @@
 // not really a lot to optimize anyway); but maybe this could be improved
 
 export function groupEventsByWeek(events) {
-  const groupedEvents = {};
+	const groupedEvents = {}
 
-  events.forEach((event) => {
-    const eventDate = new Date(event.node.published);
-    const weekStartDate = new Date(
-      eventDate.getFullYear(),
-      eventDate.getMonth(),
-      eventDate.getDate() - eventDate.getDay()
-    );
+	events.forEach((event) => {
+		const eventDate = new Date(event.node.published)
+		const weekStartDate = new Date(
+			eventDate.getFullYear(),
+			eventDate.getMonth(),
+			eventDate.getDate() - eventDate.getDay()
+		)
 
-    // check to see if this already exists below
-    const formattedWeekStartDate = weekStartDate.toISOString().split("T")[0];
+		// check to see if this already exists below
+		const formattedWeekStartDate = weekStartDate.toISOString().split('T')[0]
 
-    if (!groupedEvents[formattedWeekStartDate]) {
-      groupedEvents[formattedWeekStartDate] = [event.node];
-    } else {
-      groupedEvents[formattedWeekStartDate].push(event.node);
-    }
-  });
+		if (!groupedEvents[formattedWeekStartDate]) {
+			groupedEvents[formattedWeekStartDate] = [event.node]
+		} else {
+			groupedEvents[formattedWeekStartDate].push(event.node)
+		}
+	})
 
-  return groupedEvents;
+	return groupedEvents
 }
 
 export function generateStructuredData(groupedEvents) {
-  const structuredData = [];
+	const structuredData = []
 
-  Object.keys(groupedEvents).forEach((weekStartDate) => {
-    structuredData.push({ type: "heading", weekStartDate });
+	Object.keys(groupedEvents).forEach((weekStartDate) => {
+		structuredData.push({type: 'heading', weekStartDate})
 
-    const weekEvents = [];
+		const weekEvents = []
 
-    groupedEvents[weekStartDate].forEach((event) => {
-      weekEvents.push({ type: "event", event });
-    });
+		groupedEvents[weekStartDate].forEach((event) => {
+			weekEvents.push({type: 'event', event})
+		})
 
-    structuredData.push({ type: "events", weekEvents });
-  });
+		structuredData.push({type: 'events', weekEvents})
+	})
 
-  return structuredData;
+	return structuredData
 }
