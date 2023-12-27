@@ -32,7 +32,7 @@ export const getStaticPaths = async () => {
   const paths = [
     { params: { slug: "programming" } },
     { params: { slug: "contact" } },
-    { params: { slug: "android" } },
+    { params: { slug: "privacy" } },
   ];
 
   return {
