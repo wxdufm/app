@@ -7,7 +7,7 @@
 <br/>
 
 <img width="1146" alt="image" src="https://github.com/haowens/website/assets/69762131/75c67f8a-f69b-4d54-934d-ce528c9c6964">
-<p>[the development of this site is brought to you by the easily accessible assortment of photos of adrianne lenker that live on my desktop]</p>
+<p>[the development of this site is brought to you by the easily accessible assortment of photos of Adrianne Lenker that live on my desktop]</p>
 
 <h3>Wishlist</h3>
 <ul>
@@ -17,6 +17,6 @@ Contact form and instagram integrations (implemented in development, need to fig
 </li>
 <li>Search bar for archive and blog</li>
 <li>Utilize Tina blocks to make more components of site editable by admin</li>
-<li>Embed audioplayer in layout so music can continue as you browse the site</li>
+<li>Embed audio player in layout so music can continue as you browse the site</li>
 </ul>
 
