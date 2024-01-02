@@ -21,10 +21,10 @@ const EventPreview = (props) => {
 	}
 
 	//   format date as xx/xx
-	// const date = new Date(props.published).toISOString()
-	// const arr = date.split('-')
-	// const arrTime = arr[2].split('T')
-	// const displayDate = `${arr[1]}/${arrTime[0]}`
+	const date = new Date(props.published).toISOString()
+	const arr = date.split('-')
+	const arrTime = arr[2].split('T')
+	const displayDate = `${arr[1]}/${arrTime[0]}`
 
 	// rendered on home page with "xx/xx" before title
 	return (
@@ -37,7 +37,7 @@ const EventPreview = (props) => {
 						className="h-72 w-72 object-cover md:h-80 md:w-80 lg:h-[22rem] lg:w-[22rem] "
 					/>
 					<a className="h-12 text-center text-xl font-bold">
-						{props.title}
+						{displayDate}: {props.title}
 					</a>
 					<p>{props.subtitle}...</p>
 				</div>
