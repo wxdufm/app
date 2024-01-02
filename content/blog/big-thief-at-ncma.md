@@ -1,14 +1,14 @@
 ---
-title: Big Thief at NCMA
-author: Greta Travaglia
-cover: /uploads/big-thief-2.webp
 hero: /uploads/big-thief-2.webp
 tags:
   - title: Show Review
     slug: show-review
-published: 2021-09-23T04:00:00.000Z
+title: Big Thief at NCMA
+author: Greta Travaglia
+cover: /uploads/big-thief-2.webp
 categories:
   - category: content/category/show-review.md
+published: 2021-09-23T04:00:00.000Z
 ---
 
 Since the debut of their first studio album, Masterpiece, folk-rock band, Big Thief, has left a lasting impression on listeners and critics, intertwining compelling and evocative lyricism with emotive instrumentals and the devastatingly beautiful wonder that is Adrianne Lenker’s voice. Comprised of Lenker, guitarist Buck Meek, drummer James Krivchenia, and bassist Max Oleartchik, the group has produced four albums, the most recent three named “Best New Music” by Pitchfork.
@@ -26,6 +26,8 @@ As the show began to wrap up, Lenker introduced “Promise is a Pendulum,” a n
 The most notable aspect of Big Thief’s performance was the intimate dynamic between all four members. Ceaselessly in sync and communicating instinctively via nods, glances, and smiles, they’d locked eyes with one another while fusing each individual sound; Krivchenia’s entrancing, ardent drumbeat, Meek’s enthralling guitarwork, Oleartchik’s vibrantly rhythmic and grounding bass, and Lenker’s tender, but striking voice. At certain points, they would walk towards center stage until they were facing each other in a circle, absorbed in a world of their own, playing with and for one another. The chemistry between them was magnetic, pouring surreal energy into the physical space and sweeping the audience into a world that felt almost transcendental.
 
 For the finale, Big Thief performed a full-band rendition of “Mary.” Although distinct in sound from the recording, which interweaved vocals with organ and piano, the live performance preserved the haunting tone of the original version. After setting down their instruments, the band walked offstage, silent in comparison to the deafening roar of the crowd. We cheered without pause for what felt like at least five minutes, but the hopes for an encore slowly faded as the stage remained empty. Nevertheless, the clapping and screaming never let up in its intensity, and Big Thief re-emerged to play one last song. “Forgotten Eyes” may have been the most fitting encore, closing the show with the band and the crowd singing in perfect unison.
+
+
 
 Setlist
 Change
