@@ -37,7 +37,7 @@ const EventPreview = (props) => {
 						className="h-72 w-72 object-cover md:h-80 md:w-80 lg:h-[22rem] lg:w-[22rem] "
 					/>
 					<a className="h-12 text-center text-xl font-bold">
-						{displayDate} + {props.title}
+						{displayDate}: {props.title}
 					</a>
 					<p>{props.subtitle}...</p>
 				</div>

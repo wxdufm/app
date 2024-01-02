@@ -51,7 +51,7 @@ export default function Home(props) {
 									))}
 								</div>
 							</div>
-							<div className="w-1/8  mx-auto mb-20 rounded-3xl bg-neutral-800 px-3 py-2 md:mx-0 md:ml-auto md:inline-block md:bg-transparent md:px-0 md:py-0">
+							<div className="w-1/8  mx-auto mb-16 rounded-3xl bg-neutral-800 px-3 py-2 md:mx-0 md:ml-auto md:inline-block md:bg-transparent md:px-0 md:py-0">
 								<Link href="/archive">
 									<p className="my-1 cursor-pointer hover:underline">
 										Archive {'>'}
@@ -121,7 +121,7 @@ export default function Home(props) {
 				</div>
 			</div>
 
-			<div className=" mx-auto mt-20 hidden w-2/3 items-center justify-center md:visible md:flex">
+			<div className=" mx-auto mt-16 hidden w-2/3 items-center justify-center md:visible md:flex">
 				<PhotoGallery />
 			</div>
 

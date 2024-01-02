@@ -43,7 +43,7 @@ const Header = () => {
 						</div>
 
 						<div className="flex h-16 items-center justify-center">
-							<Link href="/page/programming" legacyBehavior={false}>
+							<Link href="/programming" legacyBehavior={false}>
 								<a
 									className="cursor-pointer text-xl text-white no-underline md:text-3xl"
 									onClick={toggleMenu}
@@ -76,7 +76,7 @@ const Header = () => {
 						</div>
 
 						<div className="flex h-16 items-center justify-center ">
-							<Link href="/page/contact" legacyBehavior={false}>
+							<Link href="/contact" legacyBehavior={false}>
 								<a
 									className="cursor-pointer text-xl text-white no-underline md:text-3xl"
 									onClick={toggleMenu}
@@ -199,7 +199,7 @@ const Header = () => {
 							</div>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<Link href="/page/programming" className="nav">
+								<Link href="/programming" className="nav">
 									<p className="cursor-pointer text-base text-black no-underline">
 										Programming
 									</p>
@@ -223,7 +223,7 @@ const Header = () => {
 							</div>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<Link href="/page/contact">
+								<Link href="/contact">
 									<p className="cursor-pointer text-base text-black no-underline">
 										Contact
 									</p>
