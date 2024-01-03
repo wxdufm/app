@@ -69,30 +69,19 @@ export default {
 			name: 'body',
 			placeholder: 'post body',
 			isBody: true,
-			templates: [
-				{
-					name: 'AudioFileGD',
-					label: 'Audio File: Google Drive Embed',
-					fields: [
-						{
-							name: 'url',
-							label: 'URL',
-							type: 'string',
-						},
-					],
-				},
-				// {
-				//   name: "AudioFileMP3",
-				//   label: "Audio File: Hosted MP3",
-				//   fields: [
-				//     {
-				//       name: "url",
-				//       label: "URL",
-				//       type: "string",
-				//     },
-				//   ],
-				// },
-			],
+			// templates: [
+			// 	{
+			// 		name: 'AudioFileGD',
+			// 		label: 'Audio File: Google Drive Embed',
+			// 		fields: [
+			// 			{
+			// 				name: 'url',
+			// 				label: 'URL',
+			// 				type: 'string',
+			// 			},
+			// 		],
+			// 	},
+			// ],
 			// ui: {
 			//   component: "textarea",
 			// },

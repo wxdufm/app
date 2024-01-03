@@ -4,26 +4,18 @@ import {TinaMarkdown} from 'tinacms/dist/rich-text'
 import Link from 'next/link'
 import BlogLayout from '../../components/BlogLayout'
 import AudioPlayerEmbed from '../../components/AudioPlayerEmbed'
-import AudioPlayerMP3 from '../../components/AudioPlayerMP3'
 
-const components = {
-	// google drive embedded iframe mp3
-	AudioFileGD: (props) => {
-		return (
-			<>
-				<AudioPlayerEmbed url={props.url} />
-			</>
-		)
-	},
-	// homemade mp3 player (need to host the audio for this to work)
-	// AudioFileMP3: (props) => {
-	//   return (
-	//     <>
-	//       <AudioPlayerMP3 url={props.url}/>
-	//     </>
-	//   )
-	// },
-}
+
+// const components = {
+// 	// google drive embedded iframe mp3
+// 	AudioFileGD: (props) => {
+// 		return (
+// 			<>
+// 				<AudioPlayerEmbed url={props.url} />
+// 			</>
+// 		)
+// 	},
+// }
 
 // individual blog post page
 const PostPage = (props) => {
@@ -67,8 +59,9 @@ const PostPage = (props) => {
 					className="my-12 max-h-[40rem] object-cover"
 				/>
 
-				<article className="prose prose-lg text-white prose-h3:text-white prose-a:text-slate-700 prose-li:mb-1">
-					<TinaMarkdown content={data.blog.body} components={components} />
+				<article className="prose prose-lg text-white prose-h3:text-white prose-a:text-slate-700 prose-li:mb-1 prose-strong:text-slate-700">
+					{/* <TinaMarkdown content={data.blog.body} components={components} /> */}
+					<TinaMarkdown content={data.blog.body} />
 				</article>
 			</div>
 		</BlogLayout>
