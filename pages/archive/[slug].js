@@ -35,7 +35,7 @@ const EventPage = (props) => {
 							height="400"
 						/>
 
-						<article className="prose mt-3 text-white prose-a:text-slate-700">
+						<article className="prose mt-3 text-white prose-a:text-slate-700 prose-strong:text-slate-700">
 							<TinaMarkdown content={data.archive.description} />
 						</article>
 

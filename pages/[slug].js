@@ -18,7 +18,7 @@ export default function Home(props) {
     <div>
       <div data-tina-field={tinaField(data.page, "body")}>
         <div className="flex flex-row justify-center w-5/6 mx-auto pb-10">
-          <article className="prose prose-lg prose-h1:text-white prose-h1:font-kallisto prose-h1:font-normal prose-a:text-blue-500 prose-h3:text-gray-400 text-white">
+          <article className="prose prose-lg prose-h1:text-white prose-h1:font-kallisto prose-h1:font-normal prose-a:text-blue-500 prose-h3:text-gray-400 text-white prose-strong:text-slate-700">
             <TinaMarkdown content={content} />
           </article>
         </div>
