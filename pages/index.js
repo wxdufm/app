@@ -8,6 +8,8 @@ import {FaTiktok} from 'react-icons/fa'
 import {FiMail} from 'react-icons/fi'
 import {BsSpotify} from 'react-icons/bs'
 import AudioPlayerStream from '../components/AudioPlayerStream'
+import { FaApple } from "react-icons/fa";
+import { DiAndroid } from "react-icons/di";
 
 // home page
 export default function Home(props) {
@@ -17,10 +19,10 @@ export default function Home(props) {
 	return (
 		<div>
 			<div className="mx-auto flex w-5/6 flex-row gap-4">
-				{/* Left side of the screen container */}
+				{/* Left side of the screen container - all mobile content lives here */}
 
 				<div className="mt-0 flex w-full flex-col justify-center md:mr-10 md:mt-10 lg:w-4/6">
-					<div className="mb-10 flex justify-center md:hidden">
+					<div className="mb-10 flex justify-center lg:hidden">
 						<AudioPlayerStream />
 						{/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] overflow-hidden mb-12 mt-16"/> */}
 					</div>
@@ -100,7 +102,7 @@ export default function Home(props) {
 					</div>
 				</div>
 
-				{/* Right side of the screen container */}
+				{/* Right side of the screen container - DESKTOP ONLY */}
 
 				<div className="mr-3 mt-12 hidden items-start lg:flex lg:flex-col ">
 					<p className="kallisto text-left text-3xl">Listen Live</p>
@@ -111,12 +113,23 @@ export default function Home(props) {
 						<AudioPlayerStream />
 					</div>
 
-					<div className="mx-auto mt-10 flex h-16 w-4/6 flex-col items-center justify-center rounded-3xl border-0 bg-gradient-to-b from-neutral-200 to-neutral-400 text-xl text-black hover:text-neutral-700 lg:mx-0 ">
+							
+					<div className="w-full flex flex-col mt-5">
+						<div className="flex flex-row items-center justify-center">
+						<DiAndroid size={48} className="mr-7"/>
+						<FaApple size={48}/>
+						</div>
+						<p className="mt-5 text-sm w-5/6 mx-auto text-center">Download our mobile app, available for Apple and Android</p>
+					</div>
+					
+					<div className="w-full flex justify-center">					
+					<div className="mx-auto mt-10 flex h-16 w-4/6 flex-col items-center justify-center rounded-3xl bg-gradient-to-b from-neutral-200 to-neutral-400 text-xl text-black hover:text-neutral-700 lg:mx-0 ">
 						<div>
 							<Link href="mailto:psa@wxyc.org" scroll={false}>
 								Submit a PSA!
 							</Link>
 						</div>
+					</div>
 					</div>
 				</div>
 			</div>
