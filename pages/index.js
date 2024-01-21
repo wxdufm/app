@@ -116,10 +116,13 @@ export default function Home(props) {
 							
 					<div className="w-full flex flex-col mt-5">
 						<div className="flex flex-row items-center justify-center">
-						<DiAndroid size={48} className="mr-7"/>
+						<a target="_blank" href="https://play.google.com/store/apps/details?id=org.wxyc.WXYCCH&pcampaignid=web_share">
+							<DiAndroid size={48} className="mr-7 hover:text-gray-400"/>
+						</a>
+
 						<FaApple size={48}/>
 						</div>
-						<p className="mt-5 text-sm w-5/6 mx-auto text-center">Download our mobile app, available for Apple and Android</p>
+						<p className="mt-5 text-sm w-5/6 mx-auto text-center">Listen on our mobile app, available for Apple and Android</p>
 					</div>
 					
 					<div className="w-full flex justify-center">					
