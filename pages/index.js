@@ -33,7 +33,7 @@ export default function Home(props) {
 						<a target="_blank" href="https://play.google.com/store/apps/details?id=org.wxyc.WXYCCH&pcampaignid=web_share">
 							<DiAndroid size={44} className="mr-6 hover:text-gray-400"/>
 						</a>
-					<a target="_blank" href="https://play.google.com/store/apps/details?id=org.wxyc.WXYCCH&pcampaignid=web_share">
+					<a target="_blank" href="https://apps.apple.com/us/app/wxyc-radio/id353182815">
 						<FaApple size={44} className="hover:text-gray-400"/>
 					</a>
 						</div>
@@ -135,7 +135,7 @@ export default function Home(props) {
 							<DiAndroid size={48} className="mr-7 hover:text-gray-400"/>
 						</a>
 
-						<a target="_blank" href="https://play.google.com/store/apps/details?id=org.wxyc.WXYCCH&pcampaignid=web_share">
+						<a target="_blank" href="https://apps.apple.com/us/app/wxyc-radio/id353182815">
 						<FaApple size={44} className="hover:text-gray-400"/>
 					</a>
 						</div>
