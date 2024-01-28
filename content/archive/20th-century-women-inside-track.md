@@ -2,6 +2,8 @@
 title: 20th Century Women Inside Track
 cover: /uploads/sunset-soundtrack-20th-cent-women.HEIC
 categories:
+  - category: content/category/specialty-show.md
   - category: content/category/sunset-soundtrack.md
 ---
 
+Tune in TONIGHT(!) from 7-9pm to hear the sounds of 1979 with the soundtrack to Mike Mills' sunny coming-of-age indie film 20TH CENTURY WOMEN hosted by DJ moonstruck ☀️ Features a generations-spanning setlist of punk, new wave, jazz, and ambient! :)
