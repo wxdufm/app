@@ -191,43 +191,43 @@ const Header = () => {
 						{/* Actual navbar */}
 						<div className="invisible flex h-12 w-full flex-row items-center justify-around bg-gradient-to-b from-neutral-100 to-neutral-300 py-3 lg:visible">
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<Link href="/about">
+								<a href="/about" target="_blank">
 									<p className="cursor-pointer text-base text-black no-underline">
 										About
 									</p>
-								</Link>
+								</a>
 							</div>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<Link href="/programming" className="nav">
+								<a href="/programming" className="nav" target="_blank">
 									<p className="cursor-pointer text-base text-black no-underline">
 										Programming
 									</p>
-								</Link>
+								</a>
 							</div>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<Link href="/archive">
+								<a href="/archive" target="_blank">
 									<p className="cursor-pointer text-base text-black no-underline">
 										Archive
 									</p>
-								</Link>
+								</a>
 							</div>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<Link href="/blog">
+								<a href="/blog" target="_blank">
 									<p className="cursor-pointer text-base text-black no-underline">
 										Blog
 									</p>
-								</Link>
+								</a>
 							</div>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<Link href="/contact">
+								<a href="/contact" target="_blank">
 									<p className="cursor-pointer text-base text-black no-underline">
 										Contact
 									</p>
-								</Link>
+								</a>
 							</div>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
@@ -235,7 +235,7 @@ const Header = () => {
 							</div>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<Link href="https://merch.wxyc.org/">
+								<a href="https://merch.wxyc.org/" target="_blank">
 									<a
 										target="_blank"
 										rel="noopener noreferrer"
@@ -243,7 +243,7 @@ const Header = () => {
 									>
 										Merch
 									</a>
-								</Link>
+								</a>
 							</div>
 						</div>
 					</div>
