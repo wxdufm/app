@@ -12,6 +12,21 @@
 	src: url('..//fonts/kallisto.otf');
 }
 
+.scrollbar::-webkit-scrollbar {
+	display: none;
+	/* height: 4px;
+	width: 4px;
+	border: 1px solid black; */
+}
+
+.scrollbar::-webkit-scrollbar-track {
+	/* background-color: transparent; */
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+	/* background-color: rgb(0, 0, 0); */
+}
+
 .kallistobold {
 	font-family: 'kallisto', sans-serif;
 	font-weight: 800;

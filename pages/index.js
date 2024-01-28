@@ -43,7 +43,7 @@ export default function Home(props) {
 								This Week on WXYC
 							</p>
 							<div className="mx-auto md:mx-0">
-								<div className=" mx-auto mb-10 mt-6 flex snap-mandatory flex-col gap-6 md:mt-0 md:flex-row md:gap-4 md:overflow-x-auto">
+								<div className=" mx-auto mb-10 mt-6 flex snap-mandatory flex-col gap-6 md:mt-0 md:flex-row md:gap-4 md:overflow-x-auto scrollbar">
 									{events.map((event) => (
 										//Event previews
 										<div key={event.node.id}>
@@ -78,7 +78,7 @@ export default function Home(props) {
 					{posts && (
 						// Blog posts parent container
 
-						<div className="mx-auto mb-10 mt-6 flex snap-mandatory flex-col gap-6 md:mx-0 md:mt-0 md:flex-row md:gap-4 md:overflow-x-auto">
+						<div className="mx-auto mb-10 mt-6 flex snap-mandatory flex-col gap-6 md:mx-0 md:mt-0 md:flex-row md:gap-4 md:overflow-x-auto scrollbar">
 							{posts.map((post) => (
 								// Blog post previews
 
@@ -201,6 +201,7 @@ export const getStaticProps = async () => {
 		currentDateTime.getMonth(),
 		currentDateTime.getDate() + (6 - currentDateTime.getDay())
 	)
+	console.log(endOfWeek.toDateString())
 	const {data} = await client.request({
 		query: `
     query getContent($startOfWeek: String, $endOfWeek: String)

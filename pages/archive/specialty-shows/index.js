@@ -60,7 +60,7 @@ const SpecialtyShowsPage = (props) => {
 								{event.type === 'events' && (
 									<div key={event.id}>
 										{event.weekEvents && (
-											<div className="flex flex-row justify-start gap-4 overflow-x-scroll">
+											<div className="flex flex-row justify-start gap-4 overflow-x-scroll scrollbar">
 												{event.weekEvents.map((event) => (
 													<div key={event.event.id}>
 														<EventPreview
@@ -95,23 +95,41 @@ const SpecialtyShowsPage = (props) => {
 export default SpecialtyShowsPage
 
 export const getStaticProps = async () => {
+	const currentDateTime = new Date()
+	const endOfWeek = new Date(
+		currentDateTime.getFullYear(),
+		currentDateTime.getMonth(),
+		currentDateTime.getDate() + (6 - currentDateTime.getDay())
+	)
+
+	const length = await client.request({
+		query: `{
+      archiveConnection {
+        totalCount
+      }
+    }
+    `,
+	})
+
+
 	const {data} = await client.request({
 		query: `
-      {
-      archiveConnection(filter: {categories: {category: {category: {title: {eq: "Specialty Show"}}}}}, sort: "published", last:30, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u") {
-      edges {
-        node {
-          id
-          title
-          description
-          cover
-          published
-          _sys {
-            filename
-          }
-        }
-      }
-    },
+		query getContent($endOfWeek:String, $eventCount: Float)  
+		{
+		  archiveConnection(filter: {categories: {category: {category: {title: {eq: "Specialty Show"}}}}, published: {before: $endOfWeek}}, sort: "published", last:$eventCount, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u") {
+		  edges {
+			node {
+			  id
+			  title
+			  description
+			  cover
+			  published
+			  _sys {
+				filename
+			  }
+			}
+		  }
+		},
     categoryConnection(filter: {specialtyShow: { eq:true}}) {
         edges {
           node {
@@ -124,7 +142,11 @@ export const getStaticProps = async () => {
         }
       }
   }`,
-	})
+  variables: {
+	  endOfWeek: endOfWeek.toDateString(),
+	  eventCount: length.data.archiveConnection.totalCount,
+  },
+})
 
 	return {
 		props: {
