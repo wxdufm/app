@@ -198,7 +198,6 @@ export const getStaticProps = async () => {
 		currentDateTime.getMonth(),
 		currentDateTime.getDate() + (6 - currentDateTime.getDay())
 	)
-	console.log(endOfWeek.toDateString())
 	const {data} = await client.request({
 		query: `
     query getContent($startOfWeek: String, $endOfWeek: String)
