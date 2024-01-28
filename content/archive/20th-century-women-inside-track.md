@@ -1,6 +1,6 @@
 ---
 title: 20th Century Women Inside Track
-cover: /uploads/sunset-soundtrack-20th-cent-women.HEIC
+cover: /uploads/sunset-soundtrack-20th-cent-women.jpg
 categories:
   - category: content/category/specialty-show.md
   - category: content/category/sunset-soundtrack.md
