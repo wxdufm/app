@@ -10,6 +10,10 @@ import {BsSpotify} from 'react-icons/bs'
 import AudioPlayerStream from '../components/AudioPlayerStream'
 import { FaApple } from "react-icons/fa";
 import { DiAndroid } from "react-icons/di";
+import Image from 'next/image';
+import applebadge from '/images/apple_badge.svg';
+import androidbadge from '/images/android_badge.svg';
+
 
 // home page
 export default function Home(props) {
@@ -22,22 +26,12 @@ export default function Home(props) {
 				{/* Left side of the screen container - all mobile content lives here */}
 
 				<div className="-mt-5 md:-mt-10 lg:mt-5 flex w-full flex-col justify-center md:mr-10 lg:w-4/6">
+
 					<div className="mb-2 flex justify-center lg:hidden">
+					
 						<AudioPlayerStream />
 						{/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] overflow-hidden mb-12 mt-16"/> */}
 						
-					</div>
-
-					<div className="w-full md:w-1/2 md:mx-auto flex flex-col md:flex-row mt-2 lg:hidden">
-						<div className="flex flex-row items-center justify-center">
-						<a target="_blank" href="https://play.google.com/store/apps/details?id=org.wxyc.WXYCCH&pcampaignid=web_share">
-							<DiAndroid size={44} className="mr-6 hover:text-gray-400"/>
-						</a>
-					<a target="_blank" href="https://apps.apple.com/us/app/wxyc-radio/id353182815">
-						<FaApple size={44} className="hover:text-gray-400"/>
-					</a>
-						</div>
-						<p className="mt-5 mb-5 w-5/6 mx-auto text-center">Listen on our mobile app, available for Apple and Android</p>
 					</div>
 
 					
@@ -129,18 +123,7 @@ export default function Home(props) {
 					</div>
 
 							
-					<div className="w-full flex flex-col mt-5">
-						<div className="flex flex-row items-center justify-center">
-						<a target="_blank" href="https://play.google.com/store/apps/details?id=org.wxyc.WXYCCH&pcampaignid=web_share">
-							<DiAndroid size={48} className="mr-7 hover:text-gray-400"/>
-						</a>
-
-						<a target="_blank" href="https://apps.apple.com/us/app/wxyc-radio/id353182815">
-						<FaApple size={44} className="hover:text-gray-400"/>
-					</a>
-						</div>
-						<p className="mt-5 text-sm w-5/6 mx-auto text-center">Listen on our mobile app, available for Apple and Android</p>
-					</div>
+					
 					
 					<div className="w-full flex justify-center">					
 					<div className="mx-auto mt-10 flex h-16 w-4/6 flex-col items-center justify-center rounded-3xl bg-gradient-to-b from-neutral-200 to-neutral-400 text-xl text-black hover:text-neutral-700 lg:mx-0 ">
@@ -158,7 +141,10 @@ export default function Home(props) {
 				<PhotoGallery />
 			</div>
 
+			
+
 			{/* Social media links footer */}
+			
 			<div className="mt-12 flex w-full items-center justify-center gap-8 pb-10 md:gap-24">
 				<a target="_blank" href="https://instagram.com/wxyc893">
 					<AiFillInstagram size={44} className="ml-.5 mt-0.5" />
@@ -177,7 +163,28 @@ export default function Home(props) {
 					{' '}
 					<BsSpotify size={44} className="ml-;5 mt-0.5" />
 				</a>
+				
 			</div>
+
+			<div className="w-full flex flex-col">
+			<p className=" text-sm w-5/6 mx-auto text-center">Listen on our mobile app, available for Apple and Android</p>
+						<div className="flex flex-col md:flex-row items-center justify-center mx-auto h-full mb-10">
+						
+						 
+						<a target="_blank" href="https://play.google.com/store/apps/details?id=org.wxyc.WXYCCH&pcampaignid=web_share">
+						<Image  src={androidbadge} alt="Link to the WXYC Android mobile app" />
+						</a>
+					
+						
+						<div className="md:ml-10">
+						<a target="_blank" href="https://apps.apple.com/us/app/wxyc-radio/id353182815">
+						<Image src={applebadge} alt="Link to the WXYC Apple mobile app" />
+						</a>
+						</div>
+						
+
+						</div>
+					</div>
 		</div>
 	)
 }
