@@ -33,7 +33,6 @@ export default function Home(props) {
 						{/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] overflow-hidden mb-12 mt-16"/> */}
 						
 					</div>
-
 					
 
 					{events.length > 0 && (
@@ -122,8 +121,6 @@ export default function Home(props) {
 						<AudioPlayerStream />
 					</div>
 
-							
-					
 					
 					<div className="w-full flex justify-center">					
 					<div className="mx-auto mt-10 flex h-16 w-4/6 flex-col items-center justify-center rounded-3xl bg-gradient-to-b from-neutral-200 to-neutral-400 text-xl text-black hover:text-neutral-700 lg:mx-0 ">
