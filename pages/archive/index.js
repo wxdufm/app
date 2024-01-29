@@ -69,7 +69,7 @@ export default function EventList(props) {
 							// needs unique key somehow
 							<div>
 								{event.weekEvents && (
-									<div className="bg flex flex-row justify-start gap-2 overflow-x-scroll md:gap-4 ">
+									<div className="bg flex flex-row justify-start gap-2 overflow-x-scroll md:gap-4 scrollbar">
 										{event.weekEvents.map((event) => (
 											<div key={event.event.id}>
 												{/* <LazyLoad height={200} once={true}> */}
@@ -102,6 +102,13 @@ export default function EventList(props) {
 }
 
 export const getStaticProps = async () => {
+	const currentDateTime = new Date()
+	const endOfWeek = new Date(
+		currentDateTime.getFullYear(),
+		currentDateTime.getMonth(),
+		currentDateTime.getDate() + (6 - currentDateTime.getDay())
+	)
+
 	const length = await client.request({
 		query: `{
       archiveConnection {
@@ -113,9 +120,9 @@ export const getStaticProps = async () => {
 
 	const {data} = await client.request({
 		query: `
-    query getContent($eventCount: Float)
+    query getContent($eventCount: Float, $endOfWeek: String)
     {
-      archiveConnection(sort: "published", last: $eventCount, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u"){
+      archiveConnection(filter: {published: {before: $endOfWeek}}, sort: "published", last: $eventCount, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u"){
         edges {
           node {
             id
@@ -144,6 +151,7 @@ export const getStaticProps = async () => {
     `,
 		variables: {
 			eventCount: length.data.archiveConnection.totalCount,
+			endOfWeek: endOfWeek.toDateString(),
 		},
 	})
 

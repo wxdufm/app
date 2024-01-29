@@ -17,8 +17,19 @@ const DropdownMenu = () => {
 								href="https://apps.apple.com/us/app/wxyc-radio/id353182815"
 								target="_blank"
 							>
-								iPhone app
+								iPhone App
 							</a>
+						</Menu.Item>
+					</div>
+					<div className="text-medium flex w-full items-center justify-center rounded-md px-4 py-2  text-white md:text-black md:hover:bg-gray-200">
+						<Menu.Item>
+							<Link
+								href="https://play.google.com/store/apps/details?id=org.wxyc.WXYCCH&pcampaignid=web_share"
+								target="_blank"
+								legacyBehavior={false}
+							>
+								Android App
+							</Link>
 						</Menu.Item>
 					</div>
 					<div className="text-medium flex w-full items-center justify-center rounded-md px-4 py-2  text-white md:text-black md:hover:bg-gray-200">

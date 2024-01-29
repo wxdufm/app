@@ -104,6 +104,13 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async (ctx) => {
+	const currentDateTime = new Date()
+	const endOfWeek = new Date(
+		currentDateTime.getFullYear(),
+		currentDateTime.getMonth(),
+		currentDateTime.getDate() + (6 - currentDateTime.getDay())
+	)
+
 	const title = await client.request({
 		query: `
       query getTitle($relativePath: String) {
@@ -120,8 +127,8 @@ export const getStaticProps = async (ctx) => {
 
 	const {data} = await client.request({
 		query: `
-      query getContent($title: String) {
-      archiveConnection(filter: {categories: {category: {category: {title: {eq: $title}}}}}, sort: "published", last:30, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u") {
+      query getContent($title: String, $endOfWeek: String) {
+      archiveConnection(filter: {categories: {category: {category: {title: {eq: $title}}}}, published: {before: $endOfWeek}}, sort: "published", last: 30, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u") {
       edges {
         node {
           id
@@ -150,6 +157,7 @@ export const getStaticProps = async (ctx) => {
   }`,
 		variables: {
 			title: title.data.category.title,
+			endOfWeek: endOfWeek.toDateString()
 		},
 	})
 
