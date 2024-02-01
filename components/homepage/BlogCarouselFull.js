@@ -29,8 +29,7 @@ const BlogCarouselFull = (props) => {
 						</div>
 					))}
 				</div>
-
-				<div className="w-1/8 mx-auto rounded-3xl bg-neutral-800 px-3 py-2 md:mx-0 md:mb-20 md:ml-auto md:inline-block md:bg-transparent md:px-0 md:py-0 lg:flex lg:w-full lg:justify-start">
+				<div className="w-1/8 mx-16 rounded-3xl flex bg-neutral-800 px-3 py-2 md:mx-0 md:mb-20 md:ml-auto md:inline-block md:bg-transparent md:px-0 md:py-0 lg:w-full justify-center lg:justify-start">
 					<Link href="/blog">
 						<h2 className="my-1 cursor-pointer hover:underline">
 							Older blog posts {'>'}
