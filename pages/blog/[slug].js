@@ -3,7 +3,6 @@ import {client} from '../../tina/__generated__/client'
 import {TinaMarkdown} from 'tinacms/dist/rich-text'
 import Link from 'next/link'
 import BlogLayout from '../../components/BlogLayout'
-import AudioPlayerEmbed from '../../components/AudioPlayerEmbed'
 
 // const components = {
 // 	// google drive embedded iframe mp3
