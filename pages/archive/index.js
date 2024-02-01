@@ -57,7 +57,7 @@ export default function EventList(props) {
 				<Image src={mobilephoto} alt="A crowded dancefloor at a WXYC event." />
 			</div>
 
-			<div className="archive-grid mx-auto">
+			<div className="archive-grid mx-auto lg:max-w-screen-xl">
 				{structuredData.slice(0, eventsToShow).map((event) => (
 					<div key={event.id}>
 						{event.type === 'heading' && (
