@@ -6,9 +6,9 @@ const BlogCarouselCropped = (props) => {
 	return (
 		<div>
 			<div className="flex w-full flex-row">
-				<div className="-mt-5 flex flex-col justify-center md:-mt-10 md:mr-10 lg:mt-5 lg:w-4/6">
+				<div className="-mt-5 flex flex-col justify-center md:-mt-10 md:mr-10 lg:mt-5 lg:w-4/6 lg:max-w-screen-lg">
 					<p className="kallisto mx-auto mb-2 whitespace-nowrap text-3xl text-white md:mx-0 md:mb-4 lg:text-5xl">
-						This Week on WXYC
+						Blog Posts
 					</p>
 
 					<div className="mx-auto md:mx-0">
