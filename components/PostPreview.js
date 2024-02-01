@@ -32,11 +32,11 @@ const PostPreview = (props) => {
 			<Link href={`/blog/${props.slug}`}>
 				<div
 					key={props.id}
-					className="mb-5 flex w-72 cursor-pointer flex-col gap-2 lg:w-[21rem]"
+					className="mb-5 flex w-72 cursor-pointer flex-col gap-2 md:w-[21rem]"
 				>
 					<img
 						src={props.cover}
-						className="h-72 w-72 object-cover lg:h-[21rem] lg:w-[21rem]"
+						className="h-72 w-72 object-cover md:h-[21rem] md:w-[21rem]"
 						alt=""
 					/>
 					<a className="h-12 text-center text-xl font-bold">{props.title}</a>
