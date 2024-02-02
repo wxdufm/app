@@ -19,4 +19,3 @@ Contact form and instagram integrations (implemented in development, need to fig
 <li>Utilize Tina blocks to make more components of site editable by admin</li>
 <li>Embed audio player in layout so music can continue as you browse the site</li>
 </ul>
-
