@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import AudioPlayerStream from '../audioplayers/AudioPlayerStream'
-import PostPreview from '../EventPreview'
+import PostPreview from '../PostPreview'
 
 const BlogCarouselCropped = (props) => {
 	return (
