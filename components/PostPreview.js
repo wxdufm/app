@@ -22,7 +22,7 @@ const PostPreview = (props) => {
 						className="h-72 w-72 object-cover lg:h-[23.5rem] lg:w-[23.5rem]"
 						alt=""
 					/>
-					<a className="h-12 text-center text-xl font-bold">{props.title}</a>
+					<a className="h-14 text-center text-xl font-bold">{props.title}</a>
 					<p>{props.subtitle}...</p>
 				</div>
 			</Link>
@@ -32,14 +32,14 @@ const PostPreview = (props) => {
 			<Link href={`/blog/${props.slug}`}>
 				<div
 					key={props.id}
-					className="mb-5 flex w-72 cursor-pointer flex-col gap-2 md:w-[21rem]"
+					className="mb-5 flex w-72 cursor-pointer flex-col gap-2 md:w-[22rem]"
 				>
 					<img
 						src={props.cover}
-						className="h-72 w-72 object-cover md:h-[21rem] md:w-[21rem]"
+						className="h-72 w-72 object-cover md:h-[22rem] md:w-[22rem]"
 						alt=""
 					/>
-					<a className="h-12 text-center text-xl font-bold">{props.title}</a>
+					<a className="h-14 text-center text-xl font-bold">{props.title}</a>
 					<p>{props.subtitle}...</p>
 				</div>
 			</Link>

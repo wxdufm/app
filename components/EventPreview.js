@@ -6,13 +6,13 @@ const EventPreview = (props) => {
 		return (
 			<div className=" flex w-full" key={props.id}>
 				<Link href={`/archive/${props.slug}`}>
-					<div className="mb-5 flex w-72 cursor-pointer flex-col gap-2 lg:w-[21rem]">
+					<div className="mb-5 flex w-72 cursor-pointer flex-col gap-2 lg:w-[22rem]">
 						<img
 							src={props.cover}
 							alt=""
-							className="h-72 w-72 object-cover lg:h-[21rem] lg:w-[21rem]"
+							className="h-72 w-72 object-cover lg:h-[22rem] lg:w-[22rem]"
 						/>
-						<a className="h-full text-center text-xl font-bold">{props.title}</a>
+						<a className="h-14 text-center text-xl font-bold">{props.title}</a>
 						<p>{props.subtitle}...</p>
 					</div>
 				</Link>
@@ -30,13 +30,13 @@ const EventPreview = (props) => {
 	return (
 		<div key={props.id}>
 			<Link href={`/archive/${props.slug}`}>
-				<div className="mb-5 flex w-72 cursor-pointer flex-col gap-2 md:w-[21rem]">
+				<div className="mb-5 flex w-72 cursor-pointer flex-col gap-2 md:w-[22rem]">
 					<img
 						src={props.cover}
 						alt=""
-						className="h-72 w-72 object-cover md:h-[21rem] md:w-[21rem]"
+						className="h-72 w-72 object-cover md:h-[22rem] md:w-[22rem]"
 					/>
-					<a className="h-full text-center text-xl font-bold">
+					<a className="h-14 text-center text-xl font-bold">
 						{displayDate}: {props.title}
 					</a>
 					<p>{props.subtitle}...</p>
