@@ -17,7 +17,7 @@ export default function Home(props) {
 		<div >
 		<HomepageBanner />
 		</div>
-		
+
 		<div className="mx-auto flex w-5/6 flex-col gap-4">
 			<div className="-mt-5 flex w-full flex-col justify-center md:-mt-10 md:mr-10 lg:mt-5 ">
 				<div className="mb-20 flex justify-center lg:hidden">
@@ -38,7 +38,7 @@ export default function Home(props) {
 					<PhotoGallery />
 				</div>
 
-				<Footer />
+				
 			</div>
 		</div>
 	</div>
