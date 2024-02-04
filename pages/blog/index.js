@@ -26,7 +26,7 @@ export default function PostList(props) {
 					<div className="kallisto text-4xl lg:text-5xl">WXYC PRESS</div>
 
 					{/* Desktop blog nav */}
-					<div className="z-20 hidden  h-1/2  w-full flex-row items-center justify-center text-center  text-lg md:flex md:h-1/2 md:w-1/2 md:justify-end">
+					<div className="z-20 hidden  h-1/2  w-full flex-row items-center justify-center text-center  text-lg lg:flex lg:h-1/2 lg:w-1/2 lg:justify-end">
 						<div className="kallisto mx-2 flex h-full flex-col   justify-center px-2 hover:underline md:mr-0 md:whitespace-nowrap ">
 							<Link href="/blog/category/show-review">Show Reviews</Link>
 						</div>
@@ -63,7 +63,7 @@ export default function PostList(props) {
 				</div>
 
 				{/* Mobile blog nav */}
-				<div className="z-20 mx-auto  mb-2 flex  h-1/2 w-5/6 flex-row  items-center justify-center text-center text-lg md:hidden">
+				<div className="z-20 mx-auto  mb-2 flex  h-1/2 w-5/6 flex-row  items-center justify-center text-center text-lg lg:hidden">
 					<div className="kallisto mx-2 flex h-full flex-col   justify-center px-2 hover:underline md:mr-0 md:whitespace-nowrap ">
 						<Link href="/blog/category/show-review">Show Reviews</Link>
 					</div>
