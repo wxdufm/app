@@ -60,7 +60,7 @@ const SpecialtyShowsPage = (props) => {
 								{event.type === 'events' && (
 									<div key={event.id}>
 										{event.weekEvents && (
-											<div className="flex flex-row justify-start gap-4 overflow-x-scroll scrollbar">
+											<div className="scrollbar flex flex-row justify-start gap-4 overflow-x-scroll">
 												{event.weekEvents.map((event) => (
 													<div key={event.event.id}>
 														<EventPreview
@@ -111,7 +111,6 @@ export const getStaticProps = async () => {
     `,
 	})
 
-
 	const {data} = await client.request({
 		query: `
 		query getContent($endOfWeek:String, $eventCount: Float)  
@@ -142,11 +141,11 @@ export const getStaticProps = async () => {
         }
       }
   }`,
-  variables: {
-	  endOfWeek: endOfWeek.toDateString(),
-	  eventCount: length.data.archiveConnection.totalCount,
-  },
-})
+		variables: {
+			endOfWeek: endOfWeek.toDateString(),
+			eventCount: length.data.archiveConnection.totalCount,
+		},
+	})
 
 	return {
 		props: {

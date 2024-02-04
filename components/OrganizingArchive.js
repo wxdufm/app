@@ -9,7 +9,7 @@ export function groupEventsByWeek(events) {
 	const groupedEvents = {}
 
 	events.forEach((event) => {
-		const eventDate = new Date(event.node.published);
+		const eventDate = new Date(event.node.published)
 		const weekStartDate = new Date(
 			eventDate.getFullYear(),
 			eventDate.getMonth(),
@@ -25,7 +25,7 @@ export function groupEventsByWeek(events) {
 			groupedEvents[formattedWeekStartDate].push(event.node)
 		}
 	})
-	
+
 	return groupedEvents
 }
 

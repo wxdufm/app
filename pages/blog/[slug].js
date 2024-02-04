@@ -3,8 +3,6 @@ import {client} from '../../tina/__generated__/client'
 import {TinaMarkdown} from 'tinacms/dist/rich-text'
 import Link from 'next/link'
 import BlogLayout from '../../components/BlogLayout'
-import AudioPlayerEmbed from '../../components/AudioPlayerEmbed'
-
 
 // const components = {
 // 	// google drive embedded iframe mp3
@@ -59,7 +57,7 @@ const PostPage = (props) => {
 					className="my-12 max-h-[40rem] object-cover"
 				/>
 
-				<article className="prose prose-lg text-white prose-h3:text-white prose-a:text-slate-700 prose-li:mb-1 prose-strong:text-slate-700">
+				<article className="prose prose-lg text-white prose-h3:text-white prose-a:text-slate-700 prose-strong:text-slate-700 prose-li:mb-1">
 					{/* <TinaMarkdown content={data.blog.body} components={components} /> */}
 					<TinaMarkdown content={data.blog.body} />
 				</article>

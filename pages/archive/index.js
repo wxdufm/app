@@ -57,7 +57,7 @@ export default function EventList(props) {
 				<Image src={mobilephoto} alt="A crowded dancefloor at a WXYC event." />
 			</div>
 
-			<div className="archive-grid mx-auto">
+			<div className="archive-grid mx-auto lg:max-w-screen-xl">
 				{structuredData.slice(0, eventsToShow).map((event) => (
 					<div key={event.id}>
 						{event.type === 'heading' && (
@@ -69,7 +69,7 @@ export default function EventList(props) {
 							// needs unique key somehow
 							<div>
 								{event.weekEvents && (
-									<div className="bg flex flex-row justify-start gap-2 overflow-x-scroll md:gap-4 scrollbar">
+									<div className="bg scrollbar flex flex-row justify-start gap-2 overflow-x-auto md:gap-4">
 										{event.weekEvents.map((event) => (
 											<div key={event.event.id}>
 												{/* <LazyLoad height={200} once={true}> */}

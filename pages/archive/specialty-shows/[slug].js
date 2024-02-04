@@ -157,7 +157,7 @@ export const getStaticProps = async (ctx) => {
   }`,
 		variables: {
 			title: title.data.category.title,
-			endOfWeek: endOfWeek.toDateString()
+			endOfWeek: endOfWeek.toDateString(),
 		},
 	})
 
