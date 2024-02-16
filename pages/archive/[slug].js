@@ -40,10 +40,10 @@ const EventPage = (props) => {
 						</article>
 
 						{data.archive.categories && (
-							<div className="mt-5 flex flex-col gap-3 md:flex-row md:gap-0">
+							<div className="mt-5 inline-block md:flex gap-3 md:gap-0">
 								{data.archive.categories.map((category) => (
 									<div
-										className="mr-3 flex  cursor-pointer justify-around whitespace-nowrap rounded-2xl border border-white px-3 py-1"
+										className="mr-3 flex cursor-pointer justify-start whitespace-nowrap rounded-2xl border border-white px-2 py-1 my-2"
 										key={category.category.id}
 									>
 										<AiFillTag size={18} className="mr-1" />
@@ -52,7 +52,7 @@ const EventPage = (props) => {
 											<Link
 												href={`/archive/${category.category._sys.filename}s`}
 											>
-												<div className=" text-sm">
+												<div className="text-sm">
 													{category.category.title}
 												</div>
 											</Link>
@@ -60,7 +60,7 @@ const EventPage = (props) => {
 											<Link
 												href={`/archive/specialty-shows/${category.category._sys.filename}`}
 											>
-												<div className=" text-sm">
+												<div className="text-sm">
 													{category.category.title}
 												</div>
 											</Link>
