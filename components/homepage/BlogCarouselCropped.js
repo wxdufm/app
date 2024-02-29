@@ -22,6 +22,7 @@ const BlogCarouselCropped = (props) => {
 										slug={post.node._sys.filename}
 										cover={post.node.cover}
 										subtitle={post.node.description}
+										categories={post.node.categories}
 									/>
 								</div>
 							))}

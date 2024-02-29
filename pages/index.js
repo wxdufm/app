@@ -2,7 +2,6 @@ import {client} from '../tina/__generated__/client'
 import PhotoGallery from '../components/homepage/PhotoGallery'
 import ArchiveCarousel from '../components/homepage/ArchiveCarousel'
 import BlogCarouselCropped from '../components/homepage/BlogCarouselCropped'
-import Footer from '../components/Footer'
 import BlogCarouselFull from '../components/homepage/BlogCarouselFull'
 import AudioPlayerStream from '../components/audioplayers/AudioPlayerStream'
 import HomepageBanner from '../components/HomepageBanner'
@@ -69,6 +68,16 @@ export const getStaticProps = async () => {
               cover
               published
               description
+			  categories {
+				category {
+		  			... on Category {
+						_sys {
+							filename
+						}
+						title
+					}
+  				}
+			}
               _sys {
                 filename
               }
@@ -90,8 +99,6 @@ export const getStaticProps = async () => {
 							filename
 						}
 						title
-						specialtyShow
-						description
 					}
   				}
 			}
