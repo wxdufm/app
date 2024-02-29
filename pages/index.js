@@ -55,7 +55,7 @@ export const getStaticProps = async () => {
 	const endOfWeek = new Date(
 		currentDateTime.getFullYear(),
 		currentDateTime.getMonth(),
-		currentDateTime.getDate() + (6 - currentDateTime.getDay())
+		currentDateTime.getDate() + (8 - currentDateTime.getDay())
 	)
 	const {data} = await client.request({
 		query: `
@@ -69,8 +69,6 @@ export const getStaticProps = async () => {
               cover
               published
               description
-              
-              body
               _sys {
                 filename
               }

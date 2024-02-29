@@ -18,14 +18,7 @@ const BlogCarouselFull = (props) => {
 								title={post.node.title}
 								slug={post.node._sys.filename}
 								cover={post.node.cover}
-								subtitle={
-									post.node.description
-										? post.node.description
-										: post.node.body.children[0].children[0].text.substring(
-												0,
-												75
-											)
-								}
+								subtitle={post.node.description}
 							/>
 						</div>
 					))}
