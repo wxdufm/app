@@ -12,7 +12,7 @@ const Footer = () => {
 		
 		
 
-		<div className="flex flex-col px-2 mb-3 md:flex-row md:justify-around lg:mt-5 mt-10 mx-auto lg:mt-36 lg:px-24">
+		<div className="flex flex-col px-2 mb-3 md:flex-row md:justify-around mt-10 mx-auto lg:mt-36 lg:px-24">
 		
 		
 		
