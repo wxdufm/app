@@ -13,7 +13,7 @@ const EventPreview = (props) => {
 							className="h-72 w-72 object-cover lg:h-[22rem] lg:w-[22rem]"
 						/>
 						<a className="text-center text-xl font-bold">{props.title}</a>
-						<p>{props.subtitle}...</p>
+						<p>{props.subtitle}</p>
 					</div>
 				</Link>
 			</div>
@@ -36,10 +36,10 @@ const EventPreview = (props) => {
 						alt=""
 						className="h-72 w-72 object-cover md:h-[22rem] md:w-[22rem]"
 					/>
-					<a className="text-center text-xl font-bold">
+					<a className="text-left text-xl font-bold">
 						{displayDate}: {props.title}
 					</a>
-					<p>{props.subtitle}...</p>
+					<p>{props.subtitle}</p>
 				</div>
 			</Link>
 		</div>
