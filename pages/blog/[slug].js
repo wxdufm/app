@@ -50,18 +50,19 @@ const PostPage = (props) => {
 				</h1>
 				<p className="italic">{displayDate}</p>
 				<h3 className="mb-3"> By {data.blog.author}</h3>
-				<p className="italic lg:w-3/6 text-lg my-9">{data.blog.description}</p>
+				<p className="italic lg:w-3/6 xl:w-4/6 text-lg my-9">{data.blog.description}</p>
 				<img
 					src={data.blog.cover}
 					alt=""
 					width="650px"
-					className="my-8 max-h-[40rem] object-cover"
+					className="my-8 max-h-[40rem] object-cover mb-20"
 				/>
-
-				<article className=" prose prose-lg text-white prose-h3:text-white prose-a:text-slate-700 prose-strong:text-slate-500 prose-h1:text-slate-500 prose-h2:text-slate-500 prose-em:italic prose-li:mb-1">
+			
+				<article className="prose lg:max-w-[60%] prose-lg text-white prose-h3:text-white prose-a:text-slate-700 prose-strong:text-slate-500 prose-h1:text-slate-500 prose-h2:text-slate-500 prose-em:italic prose-li:mb-1">
 					{/* <TinaMarkdown content={data.blog.body} components={components} /> */}
 					<TinaMarkdown content={data.blog.body} />
 				</article>
+		
 			</div>
 		</BlogLayout>
 	)
