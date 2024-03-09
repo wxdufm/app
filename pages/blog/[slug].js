@@ -29,7 +29,7 @@ const PostPage = (props) => {
 
 	return (
 		<BlogLayout>
-			<div className="mx-auto w-5/6 pb-10">
+			<div className="mx-auto w-5/6 pb-10 flex flex-col items-center">
 				{data.blog.categories && (
 					<div>
 						{data.blog.categories.map((category) => (
@@ -45,7 +45,7 @@ const PostPage = (props) => {
 						))}
 					</div>
 				)}
-				<h1 className="kallisto mb-2 text-3xl lg:text-5xl">
+				<h1 className="kallisto text-3xl lg:text-5xl text-center m-5">
 					{data.blog.title}
 				</h1>
 				<p className="italic">{displayDate}</p>
@@ -55,10 +55,10 @@ const PostPage = (props) => {
 					src={data.blog.cover}
 					alt=""
 					width="650px"
-					className="my-12 max-h-[40rem] object-cover"
+					className="my-8 max-h-[40rem] object-cover"
 				/>
 
-				<article className="prose prose-lg text-white prose-h3:text-white prose-a:text-slate-700 prose-strong:text-slate-500 prose-h1:text-slate-500 prose-h2:text-slate-500 prose-em:italic prose-li:mb-1">
+				<article className=" prose prose-lg text-white prose-h3:text-white prose-a:text-slate-700 prose-strong:text-slate-500 prose-h1:text-slate-500 prose-h2:text-slate-500 prose-em:italic prose-li:mb-1">
 					{/* <TinaMarkdown content={data.blog.body} components={components} /> */}
 					<TinaMarkdown content={data.blog.body} />
 				</article>
