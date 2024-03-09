@@ -38,11 +38,11 @@ const EventPreview = (props) => {
 						className="h-72 w-72 object-cover md:h-[22rem] md:w-[22rem]"
 					/>
 					<p className="text-left text-2xl font-extrabold">{displayDate}</p>
-					<p className="text-left text-xl font-bold">{props.title}</p>
+					<p className="text-left text-xl font-bold md:h-14">{props.title}</p>
 					{displayCategories.map((category) => (
-						<div key={category.category._sys.filename} className="w-2/3 my-2 mr-3 flex cursor-pointer justify-start whitespace-nowrap rounded-2xl border border-slate-400 px-2 py-1">
-							<AiFillTag size={18} className="mr-1" />
-							<div className="text-sm text-slate-400">{category.category.title}</div>
+						<div key={category.category._sys.filename} className="w-2/3 md:w-1/2 my-2 mr-3 flex cursor-pointer justify-start whitespace-nowrap rounded-2xl border border-slate-400 px-2 py-1">
+							<AiFillTag size={18} className="mr-2" />
+							<div className="text-sm text-slate-300">{category.category.title}</div>
 						</div>
 					))}
 				</div>
