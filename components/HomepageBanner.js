@@ -9,8 +9,8 @@ const Banner = ({children}) => {
 	}
 
 	return (
-		<div className="mx-auto mb-10 flex  h-12 w-5/6 flex-row items-center justify-between rounded-3xl bg-neutral-800 md:h-14 lg:mb-1 lg:h-12">
-			<p className="ml-5 py-2 text-xs md:text-base lg:text-base">
+		<div className="mx-auto px-1 mb-10 flex  h-24 md:h-18 lg:h-12 w-11/12 md:w-5/6 flex-row items-center justify-between rounded-full bg-neutral-800 lg:mb-1 ">
+			<p className="ml-5 w-4/5 md:w-full py-2 text-small md:text-xl lg:text-base">
 				NEW: The WXYC Android app is now available to download on Google Play!
 			</p>
 			<button
