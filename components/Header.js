@@ -201,7 +201,7 @@ const Header = () => {
 						{/* Actual navbar */}
 						<div className="invisible flex h-12 w-full flex-row items-center justify-around bg-gradient-to-b from-neutral-100 to-neutral-300 py-3 lg:visible">
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<a href="/about" target="_blank">
+								<a href="/about">
 									<p className="cursor-pointer text-base text-black no-underline">
 										About
 									</p>
@@ -209,7 +209,7 @@ const Header = () => {
 							</div>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<a href="/programming" className="nav" target="_blank">
+								<a href="/programming" className="nav">
 									<p className="cursor-pointer text-base text-black no-underline">
 										Programming
 									</p>
@@ -217,7 +217,7 @@ const Header = () => {
 							</div>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<a href="/archive" target="_blank">
+								<a href="/archive">
 									<p className="cursor-pointer text-base text-black no-underline">
 										Archive
 									</p>
@@ -225,7 +225,7 @@ const Header = () => {
 							</div>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<a href="/blog" target="_blank">
+								<a href="/blog">
 									<p className="cursor-pointer text-base text-black no-underline">
 										Blog
 									</p>
@@ -233,7 +233,7 @@ const Header = () => {
 							</div>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<a href="/contact" target="_blank">
+								<a href="/contact">
 									<p className="cursor-pointer text-base text-black no-underline">
 										Contact
 									</p>
@@ -245,7 +245,7 @@ const Header = () => {
 							</div>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<a href="https://merch.wxyc.org/" target="_blank">
+								<a href="https://merch.wxyc.org/">
 									<a
 										target="_blank"
 										rel="noopener noreferrer"
