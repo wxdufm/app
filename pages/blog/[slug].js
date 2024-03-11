@@ -57,7 +57,7 @@ const PostPage = (props) => {
 					className="my-12 max-h-[40rem] object-cover"
 				/>
 
-				<article className="prose prose-lg text-white prose-h3:text-white prose-a:text-slate-700 prose-strong:text-slate-700 prose-li:mb-1">
+				<article className="prose prose-lg bg-neutral-900 bg-opacity-70 py-2 text-white prose-h3:text-white prose-a:text-slate-700 prose-strong:text-slate-400 prose-li:mb-1">
 					{/* <TinaMarkdown content={data.blog.body} components={components} /> */}
 					<TinaMarkdown content={data.blog.body} />
 				</article>

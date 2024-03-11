@@ -4,6 +4,7 @@ import {TinaMarkdown} from 'tinacms/dist/rich-text'
 import Link from 'next/link'
 import ArchiveLayout from '../../components/ArchiveLayout'
 import {AiFillTag} from 'react-icons/ai'
+import Head from 'next/head'
 
 // page for a specific specialty show after it's been opened
 const EventPage = (props) => {
@@ -17,8 +18,16 @@ const EventPage = (props) => {
 	const options = {month: 'long', day: 'numeric', year: 'numeric'}
 	const displayDate = date.toLocaleString('en-US', options)
 
+	const ogUrl = 'https://wxyc.org/archive/' + data.archive.slug
+
 	return (
 		<ArchiveLayout>
+			<Head>
+				<meta property="og:title" content={data.archive.title} />
+				<meta property="og:image" content={data.archive.cover} />
+				<meta property="og:type" content="article" />
+				<meta property="og:url" content={ogUrl} />
+			</Head>
 			<div className="mx-auto w-full">
 				<div className="row">
 					<div className="column">
@@ -40,10 +49,10 @@ const EventPage = (props) => {
 						</article>
 
 						{data.archive.categories && (
-							<div className="mt-5 inline-block md:flex gap-3 md:gap-0">
+							<div className="mt-5 inline-block gap-3 md:flex md:gap-0">
 								{data.archive.categories.map((category) => (
 									<div
-										className="mr-3 flex cursor-pointer justify-start whitespace-nowrap rounded-2xl border border-white px-2 py-1 my-2"
+										className="my-2 mr-3 flex cursor-pointer justify-start whitespace-nowrap rounded-2xl border border-white px-2 py-1"
 										key={category.category.id}
 									>
 										<AiFillTag size={18} className="mr-1" />
@@ -52,17 +61,13 @@ const EventPage = (props) => {
 											<Link
 												href={`/archive/${category.category._sys.filename}s`}
 											>
-												<div className="text-sm">
-													{category.category.title}
-												</div>
+												<div className="text-sm">{category.category.title}</div>
 											</Link>
 										) : (
 											<Link
 												href={`/archive/specialty-shows/${category.category._sys.filename}`}
 											>
-												<div className="text-sm">
-													{category.category.title}
-												</div>
+												<div className="text-sm">{category.category.title}</div>
 											</Link>
 										)}
 									</div>

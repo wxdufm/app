@@ -61,7 +61,8 @@ export default {
 			type: 'string',
 			label: 'Post Description',
 			name: 'description',
-			placeholder: 'post description',
+			placeholder:
+				'post description (optional, if skipped there will be no text under post title in preview)',
 		},
 		{
 			type: 'rich-text',

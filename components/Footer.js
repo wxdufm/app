@@ -5,44 +5,35 @@ import {BsSpotify} from 'react-icons/bs'
 import applebadge from '/images/apple_badge.svg'
 import androidbadge from '/images/android_badge.svg'
 import Image from 'next/image'
-import { FaPhone } from "react-icons/fa6";
+import {FaPhone} from 'react-icons/fa6'
 
 const Footer = () => {
 	return (
-		
-		
-
-		<div className="flex flex-col px-2 mb-3 md:flex-row md:justify-around lg:mt-5 mt-10 mx-auto">
-		
-		
-		
-		<div className=" px-5">
-			<p className=" text-lg md:text-xl font-bold">Connect</p>
-			<div className="mt-2 flex w-full items-start justify-start gap-8 lg:gap-10 pb-5">
-				<a target="_blank" href="https://instagram.com/wxyc893">
-					<AiFillInstagram size={32} className=" mt-0.5" />
-				</a>
-				<a target="_blank" href="https://twitter.com/wxyc">
-					<AiFillTwitterCircle size={32} className="ml-.5 mt-0.5" />
-				</a>
-				<a target="_blank" href="https://tiktok.com/@wxyc893">
-					<FaTiktok size={32} className="ml-.5 mt-0.5" />
-				</a>
-				<a target="_blank" href="https://open.spotify.com/user/wxyc">
-					{' '}
-					<BsSpotify size={32} className="ml-;5 mt-0.5" />
-				</a>
+		<div className="mx-auto mb-3 mt-10 flex flex-col px-2 md:flex-row md:justify-around lg:mt-36 lg:px-24">
+			<div className=" px-5">
+				<p className=" text-lg font-bold md:text-xl">Connect</p>
+				<div className="mt-2 flex w-full items-start justify-start gap-8 pb-5 lg:gap-10">
+					<a target="_blank" href="https://instagram.com/wxyc893">
+						<AiFillInstagram size={32} className=" mt-0.5" />
+					</a>
+					<a target="_blank" href="https://twitter.com/wxyc">
+						<AiFillTwitterCircle size={32} className="ml-.5 mt-0.5" />
+					</a>
+					<a target="_blank" href="https://tiktok.com/@wxyc893">
+						<FaTiktok size={32} className="ml-.5 mt-0.5" />
+					</a>
+					<a target="_blank" href="https://open.spotify.com/user/wxyc">
+						{' '}
+						<BsSpotify size={32} className="ml-;5 mt-0.5" />
+					</a>
+				</div>
 			</div>
-			
 
-			
-		</div>
-		
-		<div className="flex flex-col px-5">
-				<p className=" w-5/6 text-lg md:text-xl font-bold">
-					Listen
+			<div className="flex flex-col px-5">
+				<p className=" w-5/6 text-lg font-bold md:text-xl">Listen</p>
+				<p className=" w-5/6 text-sm">
+					Our mobile app is available for Apple and Android.
 				</p>
-				<p className=" w-5/6 text-sm">Our mobile app is available for Apple and Android.</p>
 				<div className=" flex  items-center justify-start  ">
 					<a
 						target="_blank"
@@ -64,34 +55,30 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-		
-		<div className="px-5">
-			<p className="text-lg md:text-xl font-bold">Contact</p>
 
-			<div className="flex items-center mt-2 ">
-			<a target="_blank" href="mailto:info@wxyc.org">
-					{' '}
-					<FiMail size={32} className="mr-5" />
-				</a>
-			<p>info@wxyc.org</p>
-			
-			</div>
-			<div className="flex items-center mt-2 ">
-			
+			<div className="px-5">
+				<p className="text-lg font-bold md:text-xl">Contact</p>
+
+				<div className="mt-2 flex items-center ">
+					<a target="_blank" href="mailto:info@wxyc.org">
+						{' '}
+						<FiMail size={32} className="mr-5" />
+					</a>
+					<p>info@wxyc.org</p>
+				</div>
+				<div className="mt-2 flex items-center ">
 					<FaPhone size={28} className="mr-5" />
-				
-			<p>(919) 962-8989</p>
-			
-			</div>
 
-			<p className="mt-5">WXYC Music Department <br></br>
-			CB #5210 Carolina Union, South Road <br></br>
-			Chapel Hill, NC 27599</p>
-			
-			
+					<p>(919) 962-8989</p>
+				</div>
+
+				<p className="mt-5">
+					WXYC Music Department <br></br>
+					CB #5210 Carolina Union, South Road <br></br>
+					Chapel Hill, NC 27599
+				</p>
+			</div>
 		</div>
-		</div>	
-		
 	)
 }
 

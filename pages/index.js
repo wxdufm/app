@@ -2,7 +2,6 @@ import {client} from '../tina/__generated__/client'
 import PhotoGallery from '../components/homepage/PhotoGallery'
 import ArchiveCarousel from '../components/homepage/ArchiveCarousel'
 import BlogCarouselCropped from '../components/homepage/BlogCarouselCropped'
-import Footer from '../components/Footer'
 import BlogCarouselFull from '../components/homepage/BlogCarouselFull'
 import AudioPlayerStream from '../components/audioplayers/AudioPlayerStream'
 import HomepageBanner from '../components/HomepageBanner'
@@ -13,35 +12,35 @@ export default function Home(props) {
 	const events = props.data.archiveConnection.edges
 
 	return (
-	<div>
-		<div >
-		<HomepageBanner />
-		</div>
+		<div>
+			<div>
+				<HomepageBanner />
+			</div>
 
-		<div className="mx-auto flex w-5/6 flex-col gap-4">
-			<div className="-mt-5 flex w-full flex-col justify-center md:-mt-10 md:mr-10 lg:mt-5 ">
-				<div className="mb-20 flex justify-center lg:hidden">
-					<AudioPlayerStream />
-					{/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] overflow-hidden mb-12 mt-16"/> */}
+			<div className="mx-auto flex w-5/6 flex-col gap-4">
+				<div className="-mt-5 flex w-full flex-col justify-center md:-mt-10 md:mr-10 lg:mt-5 ">
+					<div className="mb-20 flex justify-center lg:hidden">
+						<AudioPlayerStream />
+						{/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] overflow-hidden mb-12 mt-16"/> */}
+					</div>
+
+					{/* if no events: just blog posts + player */}
+					{events.length === 0 && posts && (
+						<BlogCarouselCropped posts={posts} />
+					)}
+
+					{/* if yes events: events + player */}
+					{events.length > 0 && <ArchiveCarousel events={events} />}
+
+					{/* if yes events: blog posts full row */}
+					{events.length > 0 && posts && <BlogCarouselFull posts={posts} />}
+
+					<div className="mx-auto mt-16 hidden w-5/6 items-center justify-center md:visible md:flex">
+						<PhotoGallery />
+					</div>
 				</div>
-
-				{/* if no events: just blog posts + player */}
-				{events.length === 0 && posts && <BlogCarouselCropped posts={posts} />}
-
-				{/* if yes events: events + player */}
-				{events.length > 0 && <ArchiveCarousel events={events} />}
-
-				{/* if yes events: blog posts full row */}
-				{events.length > 0 && posts && <BlogCarouselFull posts={posts} />}
-
-				<div className="mx-auto mt-16 hidden w-5/6 items-center justify-center md:visible md:flex">
-					<PhotoGallery />
-				</div>
-
-				
 			</div>
 		</div>
-	</div>
 	)
 }
 
@@ -55,7 +54,7 @@ export const getStaticProps = async () => {
 	const endOfWeek = new Date(
 		currentDateTime.getFullYear(),
 		currentDateTime.getMonth(),
-		currentDateTime.getDate() + (6 - currentDateTime.getDay())
+		currentDateTime.getDate() + (8 - currentDateTime.getDay())
 	)
 	const {data} = await client.request({
 		query: `
@@ -69,8 +68,16 @@ export const getStaticProps = async () => {
               cover
               published
               description
-              
-              body
+			  categories {
+				category {
+		  			... on Category {
+						_sys {
+							filename
+						}
+						title
+					}
+  				}
+			}
               _sys {
                 filename
               }
@@ -83,9 +90,18 @@ export const getStaticProps = async () => {
           node {
             id
             title
-            description
             cover
             published
+			categories {
+				category {
+		  			... on Category {
+						_sys {
+							filename
+						}
+						title
+					}
+  				}
+			}
             _sys {
               filename
             }

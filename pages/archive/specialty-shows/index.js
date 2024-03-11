@@ -41,8 +41,8 @@ const SpecialtyShowsPage = (props) => {
 			<h1 className="kallisto my-2 text-5xl">All Specialty Shows</h1>
 			<p className="mb-10 text-lg">
 				Click{' '}
-				<Link href="../page/programming">
-					<u>here</u>
+				<Link href="../programming">
+					<u className="cursor-pointer">here</u>
 				</Link>{' '}
 				for a list of all specialty shows and their descriptions.
 			</p>
@@ -60,7 +60,7 @@ const SpecialtyShowsPage = (props) => {
 								{event.type === 'events' && (
 									<div key={event.id}>
 										{event.weekEvents && (
-											<div className="scrollbar flex flex-row justify-start gap-4 overflow-x-scroll">
+											<div className="bg scrollbar flex flex-row justify-start gap-2 overflow-x-auto md:gap-4">
 												{event.weekEvents.map((event) => (
 													<div key={event.event.id}>
 														<EventPreview
