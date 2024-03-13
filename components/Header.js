@@ -32,58 +32,53 @@ const Header = () => {
 				{isOpen && (
 					<ul className="-ml-12 mt-16 flex h-screen w-screen flex-col justify-start bg-neutral-800 bg-opacity-95 md:mt-24 md:gap-6">
 						<div className=" mt-16 flex h-16 items-center justify-center ">
-							<Link href="/about" legacyBehavior={false}>
-								<a
+								<Link
+									href="/about" legacyBehavior={false}
 									className="cursor-pointer text-xl text-white no-underline md:text-3xl"
 									onClick={toggleMenu}
 								>
 									About
-								</a>
-							</Link>
+								</Link>
 						</div>
 
 						<div className="flex h-16 items-center justify-center">
-							<Link href="/programming" legacyBehavior={false}>
-								<a
+								<Link
+									href="/programming" legacyBehavior={false}
 									className="cursor-pointer text-xl text-white no-underline md:text-3xl"
 									onClick={toggleMenu}
 								>
 									Programming
-								</a>
-							</Link>
+								</Link>
 						</div>
 
 						<div className="flex h-16 items-center justify-center ">
-							<Link href="/archive" legacyBehavior={false}>
-								<a
+								<Link
+									href="/archive" legacyBehavior={false}
 									className="cursor-pointer text-xl text-white no-underline md:text-3xl"
 									onClick={toggleMenu}
 								>
 									Archive
-								</a>
-							</Link>
+								</Link>
 						</div>
 
 						<div className="flex h-16 items-center justify-center">
-							<Link href="/blog" legacyBehavior={false}>
-								<a
+								<Link
+									href="/blog" legacyBehavior={false}
 									className="cursor-pointer text-xl text-white no-underline md:text-3xl"
 									onClick={toggleMenu}
 								>
 									Blog
-								</a>
-							</Link>
+								</Link>
 						</div>
 
 						<div className="flex h-16 items-center justify-center ">
-							<Link href="/contact" legacyBehavior={false}>
-								<a
+								<Link
+									href="/contact" legacyBehavior={false}
 									className="cursor-pointer text-xl text-white no-underline md:text-3xl"
 									onClick={toggleMenu}
 								>
 									Contact
-								</a>
-							</Link>
+								</Link>
 						</div>
 
 						<div className="mb-2 flex h-16 items-center justify-center text-xl text-white">
@@ -100,22 +95,22 @@ const Header = () => {
 									<Menu.Items className="absolute left-1/2 mt-2 w-48 origin-top -translate-x-1/2 transform rounded-sm bg-neutral-800 shadow-lg ring-1 ring-black ring-opacity-5 md:bg-white">
 										<div className="text-medium flex w-full items-center justify-center px-4 py-2 text-white hover:rounded-md md:text-black md:hover:bg-gray-200">
 											<Menu.Item>
-												<a
+												<Link
 													href="https://apps.apple.com/us/app/wxyc-radio/id353182815"
 													target="_blank"
 												>
 													iPhone app
-												</a>
+												</Link>
 											</Menu.Item>
 										</div>
 										<div className="text-medium flex w-full items-center justify-center px-4 py-2 text-white hover:rounded-md md:text-black md:hover:bg-gray-200">
 											<Menu.Item>
-												<a
+												<Link
 													href="https://play.google.com/store/apps/details?id=org.wxyc.WXYCCH&pcampaignid=web_share"
 													target="_blank"
 												>
 													Android app
-												</a>
+												</Link>
 											</Menu.Item>
 										</div>
 										<div className="text-medium flex w-full items-center justify-center rounded-md px-4 py-2  text-white md:text-black md:hover:bg-gray-200">
@@ -145,12 +140,12 @@ const Header = () => {
 										</div>
 										<div className="text-medium flex w-full items-center justify-center px-4 py-2 text-white hover:rounded-md md:text-black md:hover:bg-gray-200">
 											<Menu.Item>
-												<a
+												<Link
 													href="https://open.spotify.com/user/wxyc"
 													target="_blank"
 												>
 													Spotify
-												</a>
+												</Link>
 											</Menu.Item>
 										</div>
 									</Menu.Items>
@@ -159,15 +154,14 @@ const Header = () => {
 						</div>
 
 						<div className="flex items-center justify-center  ">
-							<Link href="https://merch.wxyc.org/">
-								<a
+								<Link
+									href="https://merch.wxyc.org/"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="text-xl text-white no-underline md:text-3xl"
 								>
 									Merch
-								</a>
-							</Link>
+								</Link>
 						</div>
 						{/* Add more navigation links as needed */}
 					</ul>
@@ -200,61 +194,61 @@ const Header = () => {
 					<div className="w-full justify-center ">
 						{/* Actual navbar */}
 						<div className="invisible flex h-12 w-full flex-row items-center justify-around bg-gradient-to-b from-neutral-100 to-neutral-300 py-3 lg:visible">
-							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<a href="/about" target="_blank">
+							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
+							<Link href="/about">
 									<p className="cursor-pointer text-base text-black no-underline">
 										About
 									</p>
-								</a>
-							</div>
+							</Link>
+							</a>
 
-							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<a href="/programming" className="nav" target="_blank">
+
+							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
+							<Link href="/programming">
 									<p className="cursor-pointer text-base text-black no-underline">
 										Programming
 									</p>
-								</a>
-							</div>
+							</Link>
+							</a>
 
-							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<a href="/archive" target="_blank">
+							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
+							<Link href="/archive" >
 									<p className="cursor-pointer text-base text-black no-underline">
 										Archive
 									</p>
-								</a>
-							</div>
+							</Link>
+							</a>
 
-							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<a href="/blog" target="_blank">
+
+							<a  className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
+							<Link href="/blog">
 									<p className="cursor-pointer text-base text-black no-underline">
 										Blog
 									</p>
-								</a>
-							</div>
+							</Link>
+							</a>
 
-							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<a href="/contact" target="_blank">
+							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
+							<Link href="/contact" >
 									<p className="cursor-pointer text-base text-black no-underline">
 										Contact
 									</p>
-								</a>
-							</div>
+							</Link>
+							</a>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
 								<DropdownMenu />
 							</div>
 
-							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<a href="https://merch.wxyc.org/" target="_blank">
+							<a href="https://merch.wxyc.org/" className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
+								<a href="https://merch.wxyc.org/">
 									<a
-										target="_blank"
-										rel="noopener noreferrer"
 										className="text-base text-black no-underline"
 									>
 										Merch
 									</a>
 								</a>
-							</div>
+							</a>
 						</div>
 					</div>
 				</div>

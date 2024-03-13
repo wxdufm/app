@@ -5,7 +5,7 @@ import PostPreview from '../PostPreview'
 const BlogCarouselCropped = (props) => {
 	return (
 		<div>
-			<div className="flex flex-col w-full lg:flex-row">
+			<div className="flex w-full flex-col lg:flex-row">
 				<div className="-mt-5 flex flex-col justify-center md:-mt-10 md:mr-10 lg:mt-5 lg:w-4/6 lg:max-w-screen-lg">
 					<p className="kallisto mx-auto mb-2 whitespace-nowrap text-3xl text-white md:mx-0 md:mb-4 lg:text-5xl">
 						Blog Posts
@@ -22,6 +22,7 @@ const BlogCarouselCropped = (props) => {
 										slug={post.node._sys.filename}
 										cover={post.node.cover}
 										subtitle={post.node.description}
+										categories={post.node.categories}
 									/>
 								</div>
 							))}

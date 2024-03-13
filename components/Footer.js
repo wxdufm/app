@@ -5,7 +5,7 @@ import {BsSpotify} from 'react-icons/bs'
 import applebadge from '/images/apple_badge.svg'
 import androidbadge from '/images/android_badge.svg'
 import Image from 'next/image'
-import { FaPhone } from "react-icons/fa6";
+import {FaPhone} from 'react-icons/fa6'
 
 const Footer = () => {
 	return (
@@ -42,7 +42,6 @@ const Footer = () => {
 				<p className=" w-5/6 text-lg md:text-xl font-bold">
 					Listen
 				</p>
-				<p className=" w-5/6 text-sm">Our mobile app is available for Apple and Android.</p>
 				<div className=" flex  items-center justify-start  ">
 					<a
 						target="_blank"
@@ -64,34 +63,30 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-		
-		<div className="px-5">
-			<p className="text-lg md:text-xl font-bold">Contact</p>
 
-			<div className="flex items-center mt-2 ">
-			<a target="_blank" href="mailto:info@wxyc.org">
-					{' '}
-					<FiMail size={32} className="mr-5" />
-				</a>
-			<p>info@wxyc.org</p>
-			
-			</div>
-			<div className="flex items-center mt-2 ">
-			
+			<div className="px-5">
+				<p className="text-lg font-bold md:text-xl">Contact</p>
+
+				<div className="mt-2 flex items-center ">
+					<a target="_blank" href="mailto:info@wxyc.org">
+						{' '}
+						<FiMail size={32} className="mr-5" />
+					</a>
+					<p>info@wxyc.org</p>
+				</div>
+				<div className="mt-2 flex items-center ">
 					<FaPhone size={28} className="mr-5" />
-				
-			<p>(919) 962-8989</p>
-			
-			</div>
 
-			<p className="mt-5">WXYC Music Department <br></br>
-			CB #5210 Carolina Union, South Road <br></br>
-			Chapel Hill, NC 27599</p>
-			
-			
+					<p>(919) 962-8989</p>
+				</div>
+
+				<p className="mt-5">
+					WXYC Music Department <br></br>
+					CB #5210 Carolina Union, South Road <br></br>
+					Chapel Hill, NC 27599
+				</p>
+			</div>
 		</div>
-		</div>	
-		
 	)
 }
 

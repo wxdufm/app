@@ -5,7 +5,7 @@ import EventPreview from '../EventPreview'
 const ArchiveCarousel = (props) => {
 	return (
 		<div>
-			<div className="flex flex-col w-full lg:flex-row">
+			<div className="flex w-full flex-col lg:flex-row">
 				<div className="-mt-5 flex flex-col justify-center md:-mt-10 md:mr-10 lg:mt-5 lg:w-4/6 lg:max-w-screen-lg">
 					<p className="kallisto mx-auto mb-2 whitespace-nowrap text-3xl text-white md:mx-0 md:mb-4 lg:text-5xl">
 						This Week on WXYC
@@ -20,12 +20,9 @@ const ArchiveCarousel = (props) => {
 										id={event.node.id}
 										title={event.node.title}
 										cover={event.node.cover}
-										subtitle={event.node.description.children[0].children[0].text.substring(
-											0,
-											75
-										)}
 										published={event.node.published}
 										slug={event.node._sys.filename}
+										categories={event.node.categories}
 									/>
 								</div>
 							))}
