@@ -48,9 +48,10 @@ const PostPreview = (props) => {
 						className="h-72 w-72 object-cover md:h-[22rem] md:w-[22rem]"
 						alt=""
 					/>
-					<a className="text-left text-xl font-bold md:h-14">{props.title}</a>
+					<a className="text-left text-xl font-bold">{props.title}</a>
 					<p>{props.subtitle}</p>
 					{displayCategories && displayCategories.map((category) => (
+
 						<div key={category.category._sys.filename} className="my-2 flex cursor-pointer justify-start whitespace-nowrap">
 							
 							<div className="flex rounded-full border border-slate-400 pl-1 pr-3 py-1 text-sm text-slate-100"><AiFillTag size={18} className="mr-3 mt-0.5" />{category.category.title}</div>

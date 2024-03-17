@@ -9,30 +9,38 @@ import {FaPhone} from 'react-icons/fa6'
 
 const Footer = () => {
 	return (
-		<div className="mx-auto mb-3 mt-10 flex flex-col px-2 md:flex-row md:justify-around lg:mt-36 lg:px-24">
-			<div className=" px-5">
-				<p className=" text-lg font-bold md:text-xl">Connect</p>
-				<div className="mt-2 flex w-full items-start justify-start gap-8 pb-5 lg:gap-10">
-					<a target="_blank" href="https://instagram.com/wxyc893">
-						<AiFillInstagram size={32} className=" mt-0.5" />
-					</a>
-					<a target="_blank" href="https://twitter.com/wxyc">
-						<AiFillTwitterCircle size={32} className="ml-.5 mt-0.5" />
-					</a>
-					<a target="_blank" href="https://tiktok.com/@wxyc893">
-						<FaTiktok size={32} className="ml-.5 mt-0.5" />
-					</a>
-					<a target="_blank" href="https://open.spotify.com/user/wxyc">
-						{' '}
-						<BsSpotify size={32} className="ml-;5 mt-0.5" />
-					</a>
-				</div>
-			</div>
+		
+		
 
-			<div className="flex flex-col px-5">
-				<p className=" w-5/6 text-lg font-bold md:text-xl">Listen</p>
-				<p className=" w-5/6 text-sm">
-					Our mobile app is available for Apple and Android.
+		<div className="flex flex-col px-2 mb-3 md:flex-row md:justify-around mt-10 mx-auto lg:mt-36 lg:px-24">
+		
+		
+		
+		<div className=" px-5">
+			<p className=" text-lg md:text-xl font-bold">Connect</p>
+			<div className="mt-2 flex w-full items-start justify-start gap-8 lg:gap-10 pb-5">
+				<a target="_blank" href="https://instagram.com/wxyc893">
+					<AiFillInstagram size={32} className=" mt-0.5" />
+				</a>
+				<a target="_blank" href="https://twitter.com/wxyc">
+					<AiFillTwitterCircle size={32} className="ml-.5 mt-0.5" />
+				</a>
+				<a target="_blank" href="https://tiktok.com/@wxyc893">
+					<FaTiktok size={32} className="ml-.5 mt-0.5" />
+				</a>
+				<a target="_blank" href="https://open.spotify.com/user/wxyc">
+					{' '}
+					<BsSpotify size={32} className="ml-;5 mt-0.5" />
+				</a>
+			</div>
+			
+
+			
+		</div>
+		
+		<div className="flex flex-col px-5">
+				<p className=" w-5/6 text-lg md:text-xl font-bold">
+					Listen
 				</p>
 				<div className=" flex  items-center justify-start  ">
 					<a
