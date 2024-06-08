@@ -172,7 +172,7 @@ const Header = () => {
 			<div className="relative z-20">
 				{/* Parent container of entire desktop header  */}
 				<div className="mx-auto flex w-5/6 flex-col items-start justify-center pt-10 md:mb-10 md:pt-2 ">
-					<Link href="/">
+					<a href="/">
 						{/* Header text parent container */}
 						<div className="mb-5 flex  w-full cursor-pointer flex-col items-center justify-center pt-20 md:flex-row md:items-end md:pt-20 lg:pt-1">
 							{/* Actual header text */}
@@ -188,52 +188,52 @@ const Header = () => {
 								</div>
 							</div>
 						</div>
-					</Link>
+					</a>
 
 					{/* Parent container of web navbar */}
 					<div className="w-full justify-center ">
 						{/* Actual navbar */}
 						<div className="invisible flex h-12 w-full flex-row items-center justify-around bg-gradient-to-b from-neutral-100 to-neutral-300 py-3 lg:visible">
 							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							<Link href="/about">
+							<a href="/about">
 									<p className="cursor-pointer text-base text-black no-underline">
 										About
 									</p>
-							</Link>
+							</a>
 							</a>
 
 
 							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							<Link href="/programming">
+							<a href="/programming">
 									<p className="cursor-pointer text-base text-black no-underline">
 										Programming
 									</p>
-							</Link>
+							</a>
 							</a>
 
 							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							<Link href="/archive" >
+							<a href="/archive" >
 									<p className="cursor-pointer text-base text-black no-underline">
 										Archive
 									</p>
-							</Link>
+							</a>
 							</a>
 
 
 							<a  className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							<Link href="/blog">
+							<a href="/blog">
 									<p className="cursor-pointer text-base text-black no-underline">
 										Blog
 									</p>
-							</Link>
+							</a>
 							</a>
 
 							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							<Link href="/contact" >
+							<a href="/contact" >
 									<p className="cursor-pointer text-base text-black no-underline">
 										Contact
 									</p>
-							</Link>
+							</a>
 							</a>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
