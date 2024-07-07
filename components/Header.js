@@ -193,61 +193,62 @@ const Header = () => {
 					{/* Parent container of web navbar */}
 					<div className="w-full justify-center ">
 						{/* Actual navbar */}
-						<div className="invisible flex h-12 w-full flex-row items-center justify-around bg-gradient-to-b from-neutral-100 to-neutral-300 py-3 lg:visible">
-							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							<a href="/about">
+						<div className="invisible flex grow h-12 w-full flex-row items-center justify-around bg-gradient-to-b from-neutral-100 to-neutral-300 py-3 lg:visible">
+							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 " href="/about">
+							
+								
 									<p className="cursor-pointer text-base text-black no-underline">
 										About
 									</p>
-							</a>
+								
+							
 							</a>
 
+							
+							
 
-							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							<a href="/programming">
+							<a className="flex growh-12 grow items-center justify-center hover:bg-neutral-300 " href="/programming">
+							
 									<p className="cursor-pointer text-base text-black no-underline">
 										Programming
 									</p>
-							</a>
+							
 							</a>
 
-							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							<a href="/archive" >
+							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 " href="/archive">
+							
 									<p className="cursor-pointer text-base text-black no-underline">
 										Archive
 									</p>
-							</a>
+							
 							</a>
 
 
-							<a  className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							<a href="/blog">
+							<a  className="flex h-12 grow items-center justify-center hover:bg-neutral-300" href="/blog">
+							
 									<p className="cursor-pointer text-base text-black no-underline">
 										Blog
 									</p>
-							</a>
+							
 							</a>
 
-							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							<a href="/contact" >
+							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 "  href="/contact" >
+							
 									<p className="cursor-pointer text-base text-black no-underline">
 										Contact
 									</p>
-							</a>
+							
 							</a>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
 								<DropdownMenu />
 							</div>
 
-							<a href="https://merch.wxyc.org/" className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<a href="https://merch.wxyc.org/">
-									<a
-										className="text-base text-black no-underline"
-									>
+							<a href="https://merch.wxyc.org/" className="flex h-12 grow items-center justify-center hover:bg-neutral-300 mr-1 ">
+								
+									<p className="text-base text-black no-underline">
 										Merch
-									</a>
-								</a>
+									</p>
 							</a>
 						</div>
 					</div>
