@@ -172,7 +172,7 @@ const Header = () => {
 			<div className="relative z-20">
 				{/* Parent container of entire desktop header  */}
 				<div className="mx-auto flex w-5/6 flex-col items-start justify-center pt-10 md:mb-10 md:pt-2 ">
-					<a href="/">
+					<Link href="/">
 						{/* Header text parent container */}
 						<div className="mb-5 flex  w-full cursor-pointer flex-col items-center justify-center pt-20 md:flex-row md:items-end md:pt-20 lg:pt-1">
 							{/* Actual header text */}
@@ -188,68 +188,73 @@ const Header = () => {
 								</div>
 							</div>
 						</div>
-					</a>
+					</Link>
 
 					{/* Parent container of web navbar */}
 					<div className="w-full justify-center ">
 						{/* Actual navbar */}
-						<div className="invisible flex grow h-12 w-full flex-row items-center justify-around bg-gradient-to-b from-neutral-100 to-neutral-300 py-3 lg:visible">
-							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 " href="/about">
+						<div className="invisible flex h-12 w-full flex-row items-center justify-around bg-gradient-to-b from-neutral-100 to-neutral-300 py-3 lg:visible">
 							
-								
+						<Link href="/about">
+							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
 									<p className="cursor-pointer text-base text-black no-underline">
 										About
 									</p>
-								
-							
 							</a>
+							</Link>
 
-							
-							
-
-							<a className="flex growh-12 grow items-center justify-center hover:bg-neutral-300 " href="/programming">
+							<Link href="/programming">
+							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
 							
 									<p className="cursor-pointer text-base text-black no-underline">
 										Programming
 									</p>
 							
 							</a>
+							</Link>
 
-							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 " href="/archive">
+							<Link href="/archive" >
+							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
 							
 									<p className="cursor-pointer text-base text-black no-underline">
 										Archive
 									</p>
-							
 							</a>
+							</Link>
 
 
-							<a  className="flex h-12 grow items-center justify-center hover:bg-neutral-300" href="/blog">
+							<Link href="/blog">
+							<a  className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
 							
 									<p className="cursor-pointer text-base text-black no-underline">
 										Blog
 									</p>
-							
 							</a>
+							</Link>
 
-							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 "  href="/contact" >
+							<Link href="/contact" >
+							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
 							
 									<p className="cursor-pointer text-base text-black no-underline">
 										Contact
 									</p>
-							
 							</a>
+							</Link>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
 								<DropdownMenu />
 							</div>
 
-							<a href="https://merch.wxyc.org/" className="flex h-12 grow items-center justify-center hover:bg-neutral-300 mr-1 ">
+							<Link href="https://merch.wxyc.org/">
+							<a href="https://merch.wxyc.org/" className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
 								
-									<p className="text-base text-black no-underline">
+									<a
+										className="text-base text-black no-underline"
+									>
 										Merch
-									</p>
-							</a>
+									</a>
+								</a>
+							</Link>
 						</div>
 					</div>
 				</div>
