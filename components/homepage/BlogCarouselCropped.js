@@ -59,7 +59,7 @@ const BlogCarouselCropped = (props) => {
 			</div>
 
 			<div className="w-1/8 mx-auto mb-16 hidden rounded-3xl bg-neutral-800 px-3 py-2 md:mx-0 md:ml-auto md:flex md:h-full md:w-full md:items-start md:justify-start md:bg-transparent md:px-0 md:py-0">
-				<Link href="/archive">
+				<Link href="/blog">
 					<p className="my-1 cursor-pointer hover:underline">
 						Older Blog Posts {'>'}
 					</p>
