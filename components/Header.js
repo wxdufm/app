@@ -194,61 +194,67 @@ const Header = () => {
 					<div className="w-full justify-center ">
 						{/* Actual navbar */}
 						<div className="invisible flex h-12 w-full flex-row items-center justify-around bg-gradient-to-b from-neutral-100 to-neutral-300 py-3 lg:visible">
+							
+						<Link href="/about">
 							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							<Link href="/about">
 									<p className="cursor-pointer text-base text-black no-underline">
 										About
 									</p>
-							</Link>
 							</a>
+							</Link>
 
-
-							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
 							<Link href="/programming">
+							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
+							
 									<p className="cursor-pointer text-base text-black no-underline">
 										Programming
 									</p>
-							</Link>
+							
 							</a>
+							</Link>
 
-							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
 							<Link href="/archive" >
+							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
+							
 									<p className="cursor-pointer text-base text-black no-underline">
 										Archive
 									</p>
-							</Link>
 							</a>
+							</Link>
 
 
-							<a  className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
 							<Link href="/blog">
+							<a  className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
+							
 									<p className="cursor-pointer text-base text-black no-underline">
 										Blog
 									</p>
-							</Link>
 							</a>
+							</Link>
 
-							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
 							<Link href="/contact" >
+							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
+							
 									<p className="cursor-pointer text-base text-black no-underline">
 										Contact
 									</p>
-							</Link>
 							</a>
+							</Link>
 
 							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
 								<DropdownMenu />
 							</div>
 
+							<Link href="https://merch.wxyc.org/">
 							<a href="https://merch.wxyc.org/" className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<a href="https://merch.wxyc.org/">
+								
 									<a
 										className="text-base text-black no-underline"
 									>
 										Merch
 									</a>
 								</a>
-							</a>
+							</Link>
 						</div>
 					</div>
 				</div>
