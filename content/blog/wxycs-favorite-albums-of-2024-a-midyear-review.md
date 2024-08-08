@@ -4,6 +4,7 @@ author: Edited by Emily Benson-Tyler
 cover: /uploads/Untitled_Artwork.jpeg
 categories:
   - category: content/category/album-review.md
+published: 2024-08-07T04:00:00.000Z
 description: >-
   A few WXYC DJs pitched in to tell us their favorite albums of the year (so
   far). Check out our monthly rotation on Instagram to follow along for the rest
