@@ -2,7 +2,7 @@ import Link from 'next/link'
 import {useRouter} from 'next/router'
 import {AiFillTag} from 'react-icons/ai'
 
-// used for any pages of lists of blog posts
+// Formats individual blog post previews in /blog
 const PostPreview = (props) => {
 	const currentRoute = useRouter().asPath
 
@@ -16,7 +16,7 @@ const PostPreview = (props) => {
 			<Link href={`/blog/${props.slug}`}>
 				<div
 					key={props.id}
-					className="mb-5 flex w-72 cursor-pointer flex-col gap-2 lg:w-[23.5rem]"
+					className="mb-5 flex w-72 cursor-pointer flex-col gap-2 lg:w-[23.5rem] "
 				>
 					<img
 						src={props.cover}
@@ -29,7 +29,7 @@ const PostPreview = (props) => {
 			</Link>
 		)
 	} else {
-		// home page
+		// Formats individual blog post previews on the homepage
 
 		let displayCategories 
 		if (props.categories) {
