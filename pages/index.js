@@ -19,7 +19,7 @@ export default function Home(props) {
 
 			<div className="mx-auto flex w-5/6 flex-col gap-4">
 				<div className="-mt-5 flex w-full flex-col justify-center md:-mt-10 md:mr-10 lg:mt-5 ">
-					<div className="mb-20 flex justify-center lg:hidden">
+					<div className="mb-20 flex justify-center lg:hidden"> 
 						<AudioPlayerStream />
 						{/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] overflow-hidden mb-12 mt-16"/> */}
 					</div>
@@ -34,6 +34,17 @@ export default function Home(props) {
 
 					{/* if yes events: blog posts full row */}
 					{events.length > 0 && posts && <BlogCarouselFull posts={posts} />}
+
+					{/* "Submit a PSA" button on moblie */}
+					<div className="lg:hidden flex w-full justify-center"> 
+						<div className="mx-auto mt-10 flex h-16 w-4/6 md:w-2/6 flex-col items-center justify-center rounded-3xl bg-gradient-to-b from-neutral-200 to-neutral-400 text-xl text-black hover:text-neutral-700 lg:mx-0 ">
+							<div>
+								<a href="mailto:psa@wxyc.org" scroll={false}>
+									Submit a PSA!
+								</a>
+							</div>
+						</div>
+					</div>
 
 					<div className="mx-auto mt-16 hidden w-5/6 items-center justify-center md:visible md:flex">
 						<PhotoGallery />
