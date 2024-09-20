@@ -5,6 +5,11 @@ title: >-
 author: Lola Oliverio
 cover: /uploads/DSCN2759 2 copy.jpg
 published: 2024-09-20T04:00:00.000Z
+description: >-
+  WXYC spoke with Pennsylvania-based indie rock band feeble little horse after
+  their performance at Hopscotch Festival in Raleigh. The band – formed in 2021
+  – consists of Lydia Slocum, Sebastian Kinsler, Ryan Walchonski and Jake
+  Kelley.
 ---
 
 ![](</uploads/DSCN2759 2 copy.jpg>)
