@@ -18,7 +18,7 @@ description: >-
 
 **WXYC: First of all, I know all of you guys are \[or] were in college. We’re with WXYC Chapel Hill, UNC-Chapel Hill’s radio station. So we are, too, in college, and I was wondering – what’s it like being a student and then going back, or, I guess, playing shows, and then going back to being a student, and then going back to playing shows? Do you find yourself struggling to acclimate to that, or is it kind of natural?**
 
-Lydia: I was going to a private Christian college for like five semesters, and it was definitely weird to play shows and then go back to that, because I just felt like it was two totally separate lives. But now I go to Chatham \[University] in Pittsburgh, and I feel more like one person instead of two different people. But it was definitely, like, strange to acclimate to and and be around people that just seriously don’t care at all.
+Lydia: I was going to a private Christian college for like five semesters, and it was definitely weird to play shows and then go back to that, because I just felt like it was two totally separate lives. But now I go to Chatham \[University] in Pittsburgh, and I feel more like one person instead of two different people. But it was definitely, like, strange to acclimate to and be around people that just seriously don’t care at all.
 
 Sebastian: We just kind of said no to a lot of stuff. Like, you can’t do everything. You can play Saturdays. But it works, so don’t drop out.
 
