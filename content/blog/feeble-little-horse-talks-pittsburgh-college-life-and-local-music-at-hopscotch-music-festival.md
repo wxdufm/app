@@ -38,7 +38,7 @@ Jake: The bands in Pittsburgh – that was the first time I’ve seen just peopl
 
 Lydia: I will just say, Pittsburgh is, like, almost too small, but there’s a really close knit community, and I feel very encouraged by the people that do know about our project. And I think that that validation right off the bat was really helpful in like, getting us out of our comfort zone and like playing shows really early on, even though we didn’t think – we didn’t know if we could ever even be a live band. So I think people encouraging us in the scene really made a huge impact. 
 
-\*\*Yeah, it’s definitely a very small community in this area as well. I always find it interesting how there are so many different scenes, and they all kind of mimic each other in a way. I was wondering, do you guys have any favorite Pittsburgh artists, or just artists that are in your circle from the area as well? \*\*
+**Yeah, it’s definitely a very small community in this area as well. I always find it interesting how there are so many different scenes, and they all kind of mimic each other in a way. I was wondering, do you guys have any favorite Pittsburgh artists, or just artists that are in your circle from the area as well?**
 
 Jake: [Gaadge](https://gaadge.bandcamp.com/) makes shoegaze in Pittsburgh that’s catchy and good.
 
@@ -56,7 +56,7 @@ Lydia: I have. I have family here. I grew up in South Carolina. I lived there fr
 
 Lydia: I, like, didn’t grow up, but I remember it.
 
-\*\*Yeah, exactly. That’s awesome. How are you guys liking it so far? \*\*
+**Yeah, exactly. That’s awesome. How are you guys liking it so far?**
 
 Sebastian: I think it’s the most beautiful state in the entire country.
 
@@ -76,11 +76,11 @@ Jake: Yeah, North Carolina’s home to the greatest cough medicine of all time, 
 
 Sebastian: Do you want us to do a radio tag?
 
-\*\*Oh, yeah, why not! Absolutely! \*\*
+**Oh, yeah, why not! Absolutely!**
 
 Lydia: Can we swear? 
 
-\*\*No, no. \*\*
+**No, no.**
 
 Sebastian: What if we say, “We’re feeble little horse, and you’re listening to ‘bleeping’ WXYC?” 
 
