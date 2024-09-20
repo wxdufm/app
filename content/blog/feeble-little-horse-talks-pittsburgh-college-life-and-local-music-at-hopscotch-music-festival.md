@@ -14,8 +14,6 @@ description: >-
   Kelley.
 ---
 
-![](</uploads/DSCN2759 2 copy.jpg>)
-
 *WXYC spoke with Pennsylvania-based indie rock band feeble little horse after their performance at Hopscotch Festival in Raleigh. The band – formed in 2021 – consists of Lydia Slocum, Sebastian Kinsler, Ryan Walchonski and Jake Kelley.*
 
 **WXYC: First of all, I know all of you guys are \[or] were in college. We’re with WXYC Chapel Hill, UNC-Chapel Hill’s radio station. So we are, too, in college, and I was wondering – what’s it like being a student and then going back, or, I guess, playing shows, and then going back to being a student, and then going back to playing shows? Do you find yourself struggling to acclimate to that, or is it kind of natural?**
