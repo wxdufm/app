@@ -20,7 +20,7 @@ I grew up in Chapel Hill, and when I grew up here, it was just a little bit diff
 
 I basically pitched them this idea that ideally, we could – at the top of Franklin Street, on the corner of Franklin and Columbia \[Streets] – do a gigantic flash mob down the street, and have everyone from the town come dressed up as something they believe in, and also bring a can to donate to this company called PORCH. They were like, “Yes, let's do it.” They kind of shared the same vision, \[and] because they're the Chapel Hill arts and culture department, they were like, “Yeah, like, we'd love to do some awesome artistic things.” So they were willing to take a chance on it. And it looks like it's happening perfectly. Everything's coming together in a way that's super awesome. So stoked about it.
 
-**That's really exciting. Was PORCH something that you always wanted – besides the energy and just excitement that you wanted to bring to Chapel Hill – to include in this event? **
+**That's really exciting. Was PORCH something that you always wanted – besides the energy and just excitement that you wanted to bring to Chapel Hill – to include in this event?**
 
 When I was thinking about ways to help the community around here, or people to donate \[to], we thought about PORCH, and it fit perfectly. It’s kind of, in a way, like a Sasquatch – you know, sometimes you have to believe in yourself if people don't believe in you. And so I wanted to kind of let the people of Chapel Hill know – people who might be struggling, people who might be going through a tough time – that we believe in them. And that we want to bring everyone together to kind of be a community that supports each other. And a food drive is a great way to do that, to help people.
 
@@ -60,7 +60,7 @@ Yeah. I mean, as far as street performing, I think I did very early on, start ou
 
 Yeah, exactly.
 
-**I know you have Cryptids for a Cause, and you have Riot Fest \[and The Fruit in Durham]. What are you most excited about for the fall? **
+**I know you have Cryptids for a Cause, and you have Riot Fest \[and The Fruit in Durham]. What are you most excited about for the fall?**
 
 \[The show at The Fruit] is really the local show. Cryptids for a Cause is a little appetizer for the show that's going to happen in Durham. And The Fruit is just an awesome place. It really is. It's my favorite place in Durham. When I got the connection to play there, I just took it because that's the place to have a rave, you know?
 
