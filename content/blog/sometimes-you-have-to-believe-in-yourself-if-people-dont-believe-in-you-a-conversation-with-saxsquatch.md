@@ -7,6 +7,9 @@ cover: /uploads/sax.jpg
 categories:
   - category: content/category/artist-interview.md
 published: 2024-09-24T04:00:00.000Z
+description: >-
+  WXYC spoke to local cryptid celebrity, Saxsquatch, about touring, new music
+  and keeping Chapel Hill weird.
 ---
 
 *WXYC spoke to local cryptid celebrity, Saxsquatch, about touring, new music and keeping Chapel Hill weird.*
