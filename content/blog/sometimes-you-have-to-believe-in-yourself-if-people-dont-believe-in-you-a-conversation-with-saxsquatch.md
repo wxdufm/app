@@ -3,6 +3,7 @@ title: >-
   'Sometimes you have to believe in yourself if people don't believe in you': a
   conversation with Saxsquatch
 author: Emily Benson-Tyler
+cover: /uploads/sax.jpg
 categories:
   - category: content/category/artist-interview.md
 published: 2024-09-24T04:00:00.000Z
