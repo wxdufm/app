@@ -1,5 +1,5 @@
 ---
-title: A night with Khurangbin
+title: A night with Khruangbin
 author: Alan Hunt
 cover: /uploads/wxyc_khruangbin_graphic.jpg
 categories:
