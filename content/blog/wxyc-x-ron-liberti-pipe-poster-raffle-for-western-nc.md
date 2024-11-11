@@ -1,6 +1,8 @@
 ---
 title: WXYC x Ron Liberti (Pipe) Poster Raffle for Western NC
 cover: /uploads/final_ron.jpeg
+categories:
+  - category: content/category/artist-interview.md
 published: 2024-11-04T05:00:00.000Z
 description: >-
   Enter the raffle for a chance to win an archival Ron Liberti PIPE screenprint
