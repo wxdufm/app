@@ -17,6 +17,6 @@ Each $5 donation counts toward 1 entry- you may enter up to 10 times ($50) per p
 
 [Enter the raffle here.](https://forms.gle/3Pz7MV2CY4HQsih27)
 
-Don’t forget to tune in to hear PIPE live on-air on WXYC’s Backyard BBQ this Sunday from 4-5pm. Long live radio!
+Don’t forget to tune in to hear PIPE live on-air on WXYC’s Backyard BBQ this Sunday from 4-5pm. Long live radio! 
 
 See the posters below:![](/uploads/PipeTonk11.jpg)![](/uploads/PipeElvis1.jpg)![](/uploads/PipeKraken2.jpg)![](/uploads/PipeSouthern3.jpg)![](/uploads/PipeShark4.jpg)![](/uploads/PipeDragSounds5.jpg)![](/uploads/PipeLud6.jpg)![](/uploads/PipeSoup7.jpg)![](/uploads/PipeTotallySlow8.jpg)![](/uploads/PipeSharkDJ9.jpg)![](/uploads/PipeNightlight10.jpg)
