@@ -5,8 +5,8 @@ categories:
   - category: content/category/artist-interview.md
 published: 2024-11-04T05:00:00.000Z
 description: >-
-  Enter the raffle for a chance to win an archival Ron Liberti PIPE screenprint
-  to raise money for the Emergency Relief Fund for Western NC.
+  WXYC raffled off archival Ron Liberti PIPE screenprints to raise money for the
+  Emergency Relief Fund for Western NC.
 ---
 
 WXYC is excited to announce a fundraiser raffle in collaboration with the legendary Ron Liberti to raise money for the Emergency Relief Fund of Western North Carolina.
