@@ -1,6 +1,6 @@
 ---
 title: >-
-  Inside the Intimate Beauty of Prague's Vibrant Club Scene with DJ Anna-Marie
+  Exploring the Intimacy of Prague's Vibrant Club Scene with DJ Anna-Marie
   Bartova
 author: Emily Benson-Tyler
 cover: /uploads/IMG_0588.JPG
@@ -9,7 +9,7 @@ categories:
 published: 2024-12-29T05:00:00.000Z
 description: >-
   DJ and local organizer Anna-Marie Bartova (AMB) shared some insight into
-  Prague's vibrant Lunchmeat Festival, the community-driven club scene, and the
+  Prague's electric Lunchmeat Festival, the community-driven club scene, and the
   struggle to break into Western media.
 ---
 
@@ -25,11 +25,11 @@ Hiding inside the charming Central European capital of the Czech Republic hides 
 
 \*\*Emily:\*\*	 Another thing that stood out to me as unique is the heavy incorporation of visuals and effects, not acting as a backdrop to the music, but as an equally important part of the entire production. Why was incorporating the whole sensory experience important in the production of this festival? Or what was your process behind making all of this happen?
 
-\*\*Anna-Marie:\*\* 	Making all this happen… It has a long history. It started 15 years ago, at which time in the Czech Republic there weren't any events like this happening. There was a group of friends with Kuba Pesek…He is still a part of Lunchmeat, he’s the main director and co-founder- and they just missed it here in the Czech Republic, so they started doing these weird events. Back around that time nobody had ever seen it here in the Czech Republic. It was 15 years ago, you know, can you imagine it? It's still after the \[communist] regime and stuff. So they started these events, and they were, I would say, one of the first ones who threw events like this and people, just like small groups of friends, started supporting them and now it's getting bigger and bigger and more professional. And here we are, 15 years after that. It's a completely different experience for us, and also, I hope, for our friends and for the audience. When you see the visuals and the music connected, it's a totally different vibe than when you are in a club dancing only with lights. And we also- we just love it! The core team of Lunchmeat is, I would say, a group of nerds, you know? We enjoy stuff like this and we love to see people enjoying it. We love it, so that is the point.
+\*\*Anna-Marie:\*\* 	Making all this happen… It has a long history. It started 15 years ago, at which time in the Czech Republic there weren't any events like this happening. There was a group of friends with Jakub Pešek…He is still a part of Lunchmeat, he’s the main director and co-founder- and they just missed it here in the Czech Republic, so they started doing these weird events. Back around that time nobody had ever seen it here in the Czech Republic. It was 15 years ago, you know, can you imagine it? It's still after the \[communist] regime and stuff. So they started these events, and they were, I would say, one of the first ones who threw events like this and people, just like small groups of friends, started supporting them and now it's getting bigger and bigger and more professional. And here we are, 15 years after that. It's a completely different experience for us, and also, I hope, for our friends and for the audience. When you see the visuals and the music connected, it's a totally different vibe than when you are in a club dancing only with lights. And we also- we just love it! The core team of Lunchmeat is, I would say, a group of nerds, you know? We enjoy stuff like this and we love to see people enjoying it. We love it, so that is the point.
 
 \*\*Emily:\*\* 	Were the offbeat visuals always a part of the festival from the beginning?
 
-\*\*Anna-Marie:\*\* 	Yes, always, it was always connected, and it’s super important for us. That’s why we are focusing on our commission projects, which means we’re connecting musicians with visual artists to create something new for the festivals. We also hope that they can showcase or present these projects or these pieces around the world and it's happening. Like last year, I would love to mention AXONTORR, it's a project from Oliver Torr and Simon Kounovski (Axonbody) and they presented in Germany at the CTM festival, Berghain, a festival in Madrid. They were in Rome, too, so that's our vision and our mission: to present local artists around the world.
+\*\*Anna-Marie:\*\* 	Yes, always, it was always connected, and it’s super important for us. That’s why we are focusing on our commission projects, which means we’re connecting musicians with visual artists to create something new for the festivals. We also hope that they can showcase or present these projects or these pieces around the world and it's happening. Like last year, I would love to mention [AXONTORR](https://www.instagram.com/axontorr?utm_source=ig_web_button_share_sheet\&igsh=ZDNlZDc0MzIxNw==), it's a project from Oliver Torr and Simon Kounovski (Axonbody) and they presented it in Germany at the CTM festival, Berghain, and a festival in Madrid. They were in Rome, too, so that's our vision and our mission: to present local artists around the world.
 
 \*\*Emily:\*\*  I think it really speaks to you staying true to your roots when you see that primarily the artists who are on this lineup are mostly from the Czech Republic or Slovakia.
 
