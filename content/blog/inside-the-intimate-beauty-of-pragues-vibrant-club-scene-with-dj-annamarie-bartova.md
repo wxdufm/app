@@ -1,7 +1,5 @@
 ---
-title: >-
-  "We're All Friends"-- Inside the Intimate Beauty of Prague's Club Scene with
-  DJ Anna-Marie Bartova
+title: Inside the Intimate Beauty of Prague's Club Scene with DJ Anna-Marie Bartova
 author: Emily Benson-Tyler
 cover: /uploads/IMG_0588.JPG
 categories:
