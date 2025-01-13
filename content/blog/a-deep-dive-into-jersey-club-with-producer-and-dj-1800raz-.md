@@ -19,18 +19,15 @@ To start off, tell me a little bit about yourself and how you started producing?
 
 I was originally born in Jersey and then moved down to North Carolina when I was 10–so in 2008–so I felt a little disconnected being up in Jersey and then coming down here. I didn't really know too much about Jersey, but I didn’t know much about North Carolina either. I was kinda sad at that moment, and I needed something to keep me connected to Jersey in some way. At that time, I was a dancer, so I liked to dance to Jersey Club to keep that connection. From 2008 to 2011, I was just listening to what I thought was Jersey Club music at the time, but was Baltimore Club music–and a few Philly tracks–and I was like, “I want to become a club producer. I want to do this.” I just kept on listening. I started going on SoundCloud more, listening to DJ Jayhood and DJ Sliink. I was like, “Yeah, I'm gonna do this,” and, in 2011, I started.
 
-
 \[@Beyonce Drunk In Love - Dj Jayhood Jersey Club Remix]
 
-\<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https\://w\.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/132725226\&color=%23ff5500\&auto\_play=false\&hide\_related=false\&show\_comments=true\&show\_user=true\&show\_reposts=false\&show\_teaser=true\&visual=true">\</iframe>\<div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">\<a href="https\://soundcloud.com/djjayhood973" title="Djjayhood973" target="\_blank" style="color: #cccccc; text-decoration: none;">Djjayhood973\</a> · \<a href="https\://soundcloud.com/djjayhood973/beyonce-drunk-in-love-dj" title="@Beyonce Drunk In Love - Dj Jayhood Jersey Club Remix" target="\_blank" style="color: #cccccc; text-decoration: none;">@Beyonce Drunk In Love - Dj Jayhood Jersey Club Remix\</a>\</div>
-
+\<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="[https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/132725226\&color=%23ff5500\&auto\_play=false\&hide\_related=false\&show\_comments=true\&show\_user=true\&show\_reposts=false\&show\_teaser=true\&visual=true">\</iframe>\<div](https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/132725226\&color=%23ff5500\&auto_play=false\&hide_related=false\&show_comments=true\&show_user=true\&show_reposts=false\&show_teaser=true\&visual=true%22%3E%3C/iframe%3E%3Cdiv) style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">\<a href="[https://soundcloud.com/djjayhood973](https://soundcloud.com/djjayhood973)" title="Djjayhood973" target="\_blank" style="color: #cccccc; text-decoration: none;">Djjayhood973\</a> · \<a href="[https://soundcloud.com/djjayhood973/beyonce-drunk-in-love-dj](https://soundcloud.com/djjayhood973/beyonce-drunk-in-love-dj)" title="@Beyonce Drunk In Love - Dj Jayhood Jersey Club Remix" target="\_blank" style="color: #cccccc; text-decoration: none;">@Beyonce Drunk In Love - Dj Jayhood Jersey Club Remix\</a>\</div>
 
 My original name, I believe, was RAZ, but of course the name changed throughout the years. I took DJ RAZ, then it went to RAZ THE PRODUCER, then some other stuff. I stuck with 1-800-RAZ because I know I'm more than just a producer. I also DJ on there and do a little graphic design here and there. You know, I'm just a jack-of-all-trades kind of guy. I guess you could say that's the story behind 1-800-RAZ.
 
 So you started producing pretty young?
 
 Yeah, if I’m doing correct math, around 14-15.
-
 
 Besides staying connected to Jersey after moving to North Carolina, what drew you to the Jersey Club sound and club music in general? Because to me Jersey Club is just so addicting. Like I could just listen to it all day, and I do.
 
@@ -40,10 +37,7 @@ Of course, club music evolved throughout the years. The club music that you hear
 
 \[Brick Bandits – ELMO'S SONG - Black Mic (2002)]
 
-\<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https\://w\.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/174056617\&color=%23ff5500\&auto\_play=false\&hide\_related=false\&show\_comments=true\&show\_user=true\&show\_reposts=false\&show\_teaser=true\&visual=true">\</iframe>\<div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">\<a href="https\://soundcloud.com/brickbandits" title="BrickBandits" target="\_blank" style="color: #cccccc; text-decoration: none;">BrickBandits\</a> · \<a href="https\://soundcloud.com/brickbandits/e-l-m-os-s-o-n-g-black-mic-2002" title="E L M O\&#x27;S  S O N G - Black Mic (2002)" target="\_blank" style="color: #cccccc; text-decoration: none;">E L M O\&#x27;S  S O N G - Black Mic (2002)\</a>\</div>
-
-
-
+\<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="[https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/174056617\&color=%23ff5500\&auto\_play=false\&hide\_related=false\&show\_comments=true\&show\_user=true\&show\_reposts=false\&show\_teaser=true\&visual=true">\</iframe>\<div](https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/174056617\&color=%23ff5500\&auto_play=false\&hide_related=false\&show_comments=true\&show_user=true\&show_reposts=false\&show_teaser=true\&visual=true%22%3E%3C/iframe%3E%3Cdiv) style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">\<a href="[https://soundcloud.com/brickbandits](https://soundcloud.com/brickbandits)" title="BrickBandits" target="\_blank" style="color: #cccccc; text-decoration: none;">BrickBandits\</a> · \<a href="[https://soundcloud.com/brickbandits/e-l-m-os-s-o-n-g-black-mic-2002](https://soundcloud.com/brickbandits/e-l-m-os-s-o-n-g-black-mic-2002)" title="E L M O\&#x27;S  S O N G - Black Mic (2002)" target="\_blank" style="color: #cccccc; text-decoration: none;">E L M O\&#x27;S  S O N G - Black Mic (2002)\</a>\</div>
 
 From your start until now, how have things changed? Are you using different platforms to release music? How has it evolved?
 
@@ -59,8 +53,7 @@ Yeah, exactly. 
 
 \[Embedded link to 1-800-RAZ Jersey Club mix on Youtube]
 
-\<iframe width="560" height="315" src="https\://www\.youtube.com/embed/ctwXEl-dfME?si=koSVReU8q\_KjAzcY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>\</iframe>
-
+\<iframe width="560" height="315" src="[https://www.youtube.com/embed/ctwXEl-dfME?si=koSVReU8q\_KjAzcY](https://www.youtube.com/embed/ctwXEl-dfME?si=koSVReU8q_KjAzcY)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>\</iframe>
 
 Nowadays with your music, do you see yourself going in any different direction? Where do you hope to see yourself go?
 
@@ -88,7 +81,7 @@ Inspiration wise, Neo Soul and RnB really inspire me. Robert Glasper–I’ve be
 
 \[Willow - symptom of life embedded spotify link]
 
-\<iframe style="border-radius:12px" src="https\://open.spotify.com/embed/track/70nmpLYSyZ58QTUzUiB1VA?utm\_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">\</iframe>
+\<iframe style="border-radius:12px" src="[https://open.spotify.com/embed/track/70nmpLYSyZ58QTUzUiB1VA?utm\_source=generator](https://open.spotify.com/embed/track/70nmpLYSyZ58QTUzUiB1VA?utm_source=generator)" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">\</iframe>
 
 I can also say TikTok 'cause I’m really into memes. Anyway I can make a song funny or relatable, or anything that the audience can catch on to or get the references from what I'm using, that's what inspires me. 
 
@@ -96,14 +89,13 @@ That's what I like about Jersey Club. You can think of any reference, movie, TV 
 
 And they’ll have it, somebody has clubbed that. 
 
-
 I also think it’s funny that you listen to ambient music driving 'cause I’m the exact opposite. Like I need bass-boosted stuff, as loud as possible, when I'm driving. 
 
 Oh yeah yeah, I love bass. I have to have my bass bumping too, but it's like mind control–it’s gotta be something like that. The sound of \[ambient music], especially when it's a nice day and all you see is clouds, it focuses your mind. That's why I love it.
 
 \[Terekke - l8r l8r embedded track]
 
-\<iframe style="border-radius:12px" src="https\://open.spotify.com/embed/track/77tLlkMyrgvMYb8T9kd7YL?utm\_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">\</iframe>
+\<iframe style="border-radius:12px" src="[https://open.spotify.com/embed/track/77tLlkMyrgvMYb8T9kd7YL?utm\_source=generator](https://open.spotify.com/embed/track/77tLlkMyrgvMYb8T9kd7YL?utm_source=generator)" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">\</iframe>
 
 Where do you see Jersey Club going, and how do you think people are gonna continue pushing the sound? Are you into any particular trends right now?
 
@@ -115,12 +107,9 @@ I feel like the House Jersey Club-type is where it could go. For instance, the J
 
 \[Jorja Smith/Beyoncé track embedded]
 
-\<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https\://w\.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1518414064\&color=%23ff5500\&auto\_play=false\&hide\_related=false\&show\_comments=true\&show\_user=true\&show\_reposts=false\&show\_teaser=true\&visual=true">\</iframe>\<div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">\<a href="https\://soundcloud.com/1800-729" title="1-800-RAZ 📟" target="\_blank" style="color: #cccccc; text-decoration: none;">1-800-RAZ 📟\</a> · \<a href="https\://soundcloud.com/1800-729/little-things-exposing-americas-problems-jorja-x-beyonce-jersey-club-flip-1800729" title="Little Things Exposing America\&#x27;s Problems (JORJA x BEYONCE) \[1-800-RAZ JERSEY CLUB FLIP]" target="\_blank" style="color: #cccccc; text-decoration: none;">Little Things Exposing America\&#x27;s Problems (JORJA x BEYONCE) \[1-800-RAZ JERSEY CLUB FLIP]\</a>\</div>
+\<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="[https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1518414064\&color=%23ff5500\&auto\_play=false\&hide\_related=false\&show\_comments=true\&show\_user=true\&show\_reposts=false\&show\_teaser=true\&visual=true">\</iframe>\<div](https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1518414064\&color=%23ff5500\&auto_play=false\&hide_related=false\&show_comments=true\&show_user=true\&show_reposts=false\&show_teaser=true\&visual=true%22%3E%3C/iframe%3E%3Cdiv) style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">\<a href="[https://soundcloud.com/1800-729](https://soundcloud.com/1800-729)" title="1-800-RAZ 📟" target="\_blank" style="color: #cccccc; text-decoration: none;">1-800-RAZ 📟\</a> · \<a href="[https://soundcloud.com/1800-729/little-things-exposing-americas-problems-jorja-x-beyonce-jersey-club-flip-1800729](https://soundcloud.com/1800-729/little-things-exposing-americas-problems-jorja-x-beyonce-jersey-club-flip-1800729)" title="Little Things Exposing America\&#x27;s Problems (JORJA x BEYONCE) \[1-800-RAZ JERSEY CLUB FLIP]" target="\_blank" style="color: #cccccc; text-decoration: none;">Little Things Exposing America\&#x27;s Problems (JORJA x BEYONCE) \[1-800-RAZ JERSEY CLUB FLIP]\</a>\</div>
 
 Do you know DRAM, the guy who sings, “I like to cha cha?” I had seen one of his TikTok lives and–it's probably an unreleased track–but it's a Jersey Club track, and it's much slower than what you would hear now. And from what I heard, I like it. I wanna say it was probably like 130-135 BPM. It was much smoother. I feel like they might hop onto that. 
-
-
-
 
 I feel like that could also widen the audience, especially if it's more of a low-key Jersey vibe. Slower stuff like that. 
 
@@ -134,7 +123,7 @@ Stay tuned to the music! Also, I should say, I have 2 pages. The main one is jus
 
 Check him out–you won’t be disappointed:
 
-Music links: https\://linktr.ee/one800raz
+Music links: [https://linktr.ee/one800raz](https://linktr.ee/one800raz)
 
 Instagram: @1800.729
 
@@ -146,21 +135,12 @@ And here are some of my favorite tracks of his:
 
 \[Kelela - Bankhead]
 
-\<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https\://w\.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1469417413\&color=%23ff5500\&auto\_play=false\&hide\_related=false\&show\_comments=true\&show\_user=true\&show\_reposts=false\&show\_teaser=true\&visual=true">\</iframe>\<div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">\<a href="https\://soundcloud.com/1800-729" title="1-800-RAZ 📟" target="\_blank" style="color: #cccccc; text-decoration: none;">1-800-RAZ 📟\</a> · \<a href="https\://soundcloud.com/1800-729/kelela-bankhead-jersey-club-140-1800729" title="KELELA \~ BANKHEAD" target="\_blank" style="color: #cccccc; text-decoration: none;">KELELA \~ BANKHEAD\</a>\</div>
-
-
-
+\<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="[https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1469417413\&color=%23ff5500\&auto\_play=false\&hide\_related=false\&show\_comments=true\&show\_user=true\&show\_reposts=false\&show\_teaser=true\&visual=true">\</iframe>\<div](https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1469417413\&color=%23ff5500\&auto_play=false\&hide_related=false\&show_comments=true\&show_user=true\&show_reposts=false\&show_teaser=true\&visual=true%22%3E%3C/iframe%3E%3Cdiv) style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">\<a href="[https://soundcloud.com/1800-729](https://soundcloud.com/1800-729)" title="1-800-RAZ 📟" target="\_blank" style="color: #cccccc; text-decoration: none;">1-800-RAZ 📟\</a> · \<a href="[https://soundcloud.com/1800-729/kelela-bankhead-jersey-club-140-1800729](https://soundcloud.com/1800-729/kelela-bankhead-jersey-club-140-1800729)" title="KELELA \~ BANKHEAD" target="\_blank" style="color: #cccccc; text-decoration: none;">KELELA \~ BANKHEAD\</a>\</div>
 
 \[Dance All Night]
 
-\<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https\://w\.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1757508693\&color=%23ff5500\&auto\_play=false\&hide\_related=false\&show\_comments=true\&show\_user=true\&show\_reposts=false\&show\_teaser=true\&visual=true">\</iframe>\<div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">\<a href="https\://soundcloud.com/1800-729" title="1-800-RAZ 📟" target="\_blank" style="color: #cccccc; text-decoration: none;">1-800-RAZ 📟\</a> · \<a href="https\://soundcloud.com/1800-729/dance-all-night-pisces-szn" title="DANCE ALL NIGHT (PISCES SZN)" target="\_blank" style="color: #cccccc; text-decoration: none;">DANCE ALL NIGHT (PISCES SZN)\</a>\</div>
-
-
-
+\<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="[https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1757508693\&color=%23ff5500\&auto\_play=false\&hide\_related=false\&show\_comments=true\&show\_user=true\&show\_reposts=false\&show\_teaser=true\&visual=true">\</iframe>\<div](https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1757508693\&color=%23ff5500\&auto_play=false\&hide_related=false\&show_comments=true\&show_user=true\&show_reposts=false\&show_teaser=true\&visual=true%22%3E%3C/iframe%3E%3Cdiv) style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">\<a href="[https://soundcloud.com/1800-729](https://soundcloud.com/1800-729)" title="1-800-RAZ 📟" target="\_blank" style="color: #cccccc; text-decoration: none;">1-800-RAZ 📟\</a> · \<a href="[https://soundcloud.com/1800-729/dance-all-night-pisces-szn](https://soundcloud.com/1800-729/dance-all-night-pisces-szn)" title="DANCE ALL NIGHT (PISCES SZN)" target="\_blank" style="color: #cccccc; text-decoration: none;">DANCE ALL NIGHT (PISCES SZN)\</a>\</div>
 
 \[[Pop Lock And Drop It V2 @1800.729 #jerseyclub](https://soundcloud.com/one-800-raz/pop-lock-and-drop-it-v2-1800729-jerseyclub)]
 
-\<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https\://w\.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1766066457\&color=%23ff5500\&auto\_play=false\&hide\_related=false\&show\_comments=true\&show\_user=true\&show\_reposts=false\&show\_teaser=true\&visual=true">\</iframe>\<div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">\<a href="https\://soundcloud.com/one-800-raz" title="ONE-800-RAZ 2nd Phone 📱" target="\_blank" style="color: #cccccc; text-decoration: none;">ONE-800-RAZ 2nd Phone 📱\</a> · \<a href="https\://soundcloud.com/one-800-raz/pop-lock-and-drop-it-v2-1800729-jerseyclub" title="Pop Lock And Drop It V2 @1800.729 #jerseyclub" target="\_blank" style="color: #cccccc; text-decoration: none;">Pop Lock And Drop It V2 @1800.729 #jerseyclub\</a>\</div>
-
-
-
+\<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="[https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1766066457\&color=%23ff5500\&auto\_play=false\&hide\_related=false\&show\_comments=true\&show\_user=true\&show\_reposts=false\&show\_teaser=true\&visual=true">\</iframe>\<div](https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1766066457\&color=%23ff5500\&auto_play=false\&hide_related=false\&show_comments=true\&show_user=true\&show_reposts=false\&show_teaser=true\&visual=true%22%3E%3C/iframe%3E%3Cdiv) style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">\<a href="[https://soundcloud.com/one-800-raz](https://soundcloud.com/one-800-raz)" title="ONE-800-RAZ 2nd Phone 📱" target="\_blank" style="color: #cccccc; text-decoration: none;">ONE-800-RAZ 2nd Phone 📱\</a> · \<a href="[https://soundcloud.com/one-800-raz/pop-lock-and-drop-it-v2-1800729-jerseyclub](https://soundcloud.com/one-800-raz/pop-lock-and-drop-it-v2-1800729-jerseyclub)" title="Pop Lock And Drop It V2 @1800.729 #jerseyclub" target="\_blank" style="color: #cccccc; text-decoration: none;">Pop Lock And Drop It V2 @1800.729 #jerseyclub\</a>\</div>
