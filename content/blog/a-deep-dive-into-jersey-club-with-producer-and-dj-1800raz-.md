@@ -15,7 +15,7 @@ description: >-
   cracks and gun clicks, and where he sees his music going in the future.
 ---
 
-***To start off, tell me a little bit about yourself and how you started producing? ***
+**To start off, tell me a little bit about yourself and how you started producing?**
 
 I was originally born in Jersey and then moved down to North Carolina when I was 10–so in 2008–so I felt a little disconnected being up in Jersey and then coming down here. I didn't really know too much about Jersey, but I didn’t know much about North Carolina either. I was kinda sad at that moment, and I needed something to keep me connected to Jersey in some way. At that time, I was a dancer, so I liked to dance to Jersey Club to keep that connection. From 2008 to 2011, I was just listening to what I thought was Jersey Club music at the time, but was Baltimore Club music–and a few Philly tracks–and I was like, “I want to become a club producer. I want to do this.” I just kept on listening. I started going on SoundCloud more, listening to DJ Jayhood and DJ Sliink. I was like, “Yeah, I'm gonna do this,” and, in 2011, I started.
 
@@ -33,7 +33,7 @@ Oh, I do too.
 
 Of course, club music evolved throughout the years. The club music that you hear now is very different from what you heard back in 2006-2007. Around that time I was still in school. We had dances and you would hear club music in the schools. If you’ve heard of DJ Tameil \[of] the Brick Bandits, that music group, they had come out with Bandits Love The Kids, which was club music for the kids–Blue’s Clues, Kim Possible, Pinky and the Brain, all of those remixes drew me to the sound of club music, and I just loved it after that. 
 
-[Brick Bandits – ELMO'S SONG - Black Mic (2002)](https://soundcloud.com/brickbandits/e-l-m-os-s-o-n-g-black-mic-2002)``
+[Brick Bandits – ELMO'S SONG - Black Mic (2002)](https://soundcloud.com/brickbandits/e-l-m-os-s-o-n-g-black-mic-2002)
 
 **From your start until now, how have things changed? Are you using different platforms to release music? How has it evolved?**
 
@@ -47,7 +47,7 @@ So the “1-800” is like a toll-free number for anything. It's like, I’m tha
 
 Yeah, exactly. 
 
-[1-800-RAZ Jersey Club Mix on Youtube](https://www.youtube.com/embed/ctwXEl-dfME?si=koSVReU8q_KjAzcY)``
+[1-800-RAZ Jersey Club Mix on Youtube](https://www.youtube.com/embed/ctwXEl-dfME?si=koSVReU8q_KjAzcY)
 
 **Nowadays with your music, do you see yourself going in any different direction? Where do you hope to see yourself go?**
 
@@ -55,7 +55,7 @@ I'm not going to stay on the Jersey Club route for long–I don't feel like I am
 
 New Jack Swing, like 90’s-type music. I wanna try Juke, DnB, or Jungle. I’m fucking with the Jungle man, the breaks. And then I also want to go back to Baltimore Club style, just slow, repetitive, but catchy and dancey. 
 
-**Yeah, I feel like with Jersey Club now, especially on Soundcloud, it's super super fast. It definitely does not sound like Baltimore Club, or where it came from. **
+**Yeah, I feel like with Jersey Club now, especially on Soundcloud, it's super super fast. It definitely does not sound like Baltimore Club, or where it came from.**
 
 Pretty much. What they want to hear now–and I don't know if this is true, but just based off some of the comments that I get on TikTok–I think they wanna listen to whip cracks and gun clicks and sounds. I don't know why, but they’ll ask, “where are the whip cracks?” 
 
@@ -67,25 +67,25 @@ I wanna say, yeah. Because the older producers–or the original ones, you could
 
 The sound today doesn't push back the sound from years ago, it adds to the sound. Some producers are still making the sound that really got them to where they’re at now. I guess they’re riding on that, but you’ve gotta switch it up. Today, things are going by fast. You have to know your audience. As far as social media nowadays, you have to learn how to market to this type of audience, and then another type of audience, if you wanna try to make everything go together. 
 
-**What are you listening to nowadays? Are there any other Jersey Club producers you like, or just music in general? What do you draw inspiration from? **
+**What are you listening to nowadays? Are there any other Jersey Club producers you like, or just music in general? What do you draw inspiration from?**
 
 I like this question. Usually I have a lot of shit going on in my head, so whatever comes to mind, or whatever I'm thinking about at that time, or if I see something on my phone, it gets my attention. For instance, have you seen the, “You Doing The Bending?” meme with Avatar and Janet Jackson? I was going to use that sample and make something out of it.
 
 Inspiration wise, Neo Soul and RnB really inspire me. Robert Glasper–I’ve been listening to him recently. And rock–I've been listening to Willow. I just finished listening to her recent album that she just put out, and I also listened to her rock album that she put out in 2022, so I've been getting inspiration from that too. I also like ambient music. It clears my mind and actually lets me think, especially when I'm driving. It has me thinking about new ideas for my music. 
 
-[Willow - symptom of life](https://open.spotify.com/embed/track/70nmpLYSyZ58QTUzUiB1VA?utm_source=generator)``
+[Willow - symptom of life](https://open.spotify.com/embed/track/70nmpLYSyZ58QTUzUiB1VA?utm_source=generator)
 
 I can also say TikTok 'cause I’m really into memes. Anyway I can make a song funny or relatable, or anything that the audience can catch on to or get the references from what I'm using, that's what inspires me. 
 
-**That's what I like about Jersey Club. You can think of any reference, movie, TV show, and look it up on SoundCloud plus Jersey Club remix. You're bound to find something.  **
+**That's what I like about Jersey Club. You can think of any reference, movie, TV show, and look it up on SoundCloud plus Jersey Club remix. You're bound to find something.**
 
 And they’ll have it, somebody has clubbed that. 
 
-**I also think it’s funny that you listen to ambient music driving 'cause I’m the exact opposite. Like I need bass-boosted stuff, as loud as possible, when I'm driving. **
+**I also think it’s funny that you listen to ambient music driving 'cause I’m the exact opposite. Like I need bass-boosted stuff, as loud as possible, when I'm driving.**
 
 Oh yeah yeah, I love bass. I have to have my bass bumping too, but it's like mind control–it’s gotta be something like that. The sound of \[ambient music], especially when it's a nice day and all you see is clouds, it focuses your mind. That's why I love it.
 
-[Terekke - l8r l8r](https://open.spotify.com/embed/track/77tLlkMyrgvMYb8T9kd7YL?utm_source=generator)``
+[Terekke - l8r l8r](https://open.spotify.com/embed/track/77tLlkMyrgvMYb8T9kd7YL?utm_source=generator)
 
 **Where do you see Jersey Club going, and how do you think people are gonna continue pushing the sound? Are you into any particular trends right now?**
 
@@ -95,15 +95,15 @@ You want to attract everybody but, of course, you have a specific group or audie
 
 I feel like the House Jersey Club-type is where it could go. For instance, the Jorja Smith and Beyoncé track that I did. Something like that–if you circulate it–will push the culture. 
 
-[Jorja Smith/Beyoncé 1-800 RAZ Club Flip](https://soundcloud.com/1800-729/little-things-exposing-americas-problems-jorja-x-beyonce-jersey-club-flip-1800729)``
+[Jorja Smith/Beyoncé 1-800 RAZ Club Flip](https://soundcloud.com/1800-729/little-things-exposing-americas-problems-jorja-x-beyonce-jersey-club-flip-1800729)
 
 Do you know DRAM, the guy who sings, “I like to cha cha?” I had seen one of his TikTok lives and–it's probably an unreleased track–but it's a Jersey Club track, and it's much slower than what you would hear now. And from what I heard, I like it. I wanna say it was probably like 130-135 BPM. It was much smoother. I feel like they might hop onto that. 
 
-**I feel like that could also widen the audience, especially if it's more of a low-key Jersey vibe. Slower stuff like that. **
+**I feel like that could also widen the audience, especially if it's more of a low-key Jersey vibe. Slower stuff like that.**
 
 Yeah, because you have older people who like to just two-step to Jersey Club music. If you get them, then you’ll have pretty much everybody. 
 
-**Is there anything else you want people to know? **
+**Is there anything else you want people to know?**
 
 Stay tuned to the music! Also, I should say, I have 2 pages. The main one is just Jersey Club music, but the second page, it's different types of genres. You can tell the difference between those tracks on the second page and the tracks on the first. If that helps out anybody–if they’re attracted to the songs nowadays with cracks and gun flicks, all that stuff will go on the second page. If they're into a more smooth club sound, that’ll be on the first page. 
 
@@ -121,8 +121,8 @@ Twitter/X: @1800RAZ
 
 And here are some of my favorite tracks of his:
 
-[Kelela - Bankhead](https://soundcloud.com/1800-729/kelela-bankhead-jersey-club-140-1800729)``
+[Kelela - Bankhead](https://soundcloud.com/1800-729/kelela-bankhead-jersey-club-140-1800729)
 
 [Dance All Night](https://soundcloud.com/1800-729/dance-all-night-pisces-szn)
 
-[Pop Lock And Drop It V2 @1800.729 #jerseyclub](https://soundcloud.com/one-800-raz/pop-lock-and-drop-it-v2-1800729-jerseyclub)``
+[Pop Lock And Drop It V2 @1800.729 #jerseyclub](https://soundcloud.com/one-800-raz/pop-lock-and-drop-it-v2-1800729-jerseyclub)
