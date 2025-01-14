@@ -123,6 +123,6 @@ And here are some of my favorite tracks of his:
 
 [Kelela - Bankhead](https://soundcloud.com/1800-729/kelela-bankhead-jersey-club-140-1800729)``
 
-[Dance All Night](https://soundcloud.com/1800-729/dance-all-night-pisces-szn)``
+[Dance All Night](https://soundcloud.com/1800-729/dance-all-night-pisces-szn)
 
 [Pop Lock And Drop It V2 @1800.729 #jerseyclub](https://soundcloud.com/one-800-raz/pop-lock-and-drop-it-v2-1800729-jerseyclub)``
