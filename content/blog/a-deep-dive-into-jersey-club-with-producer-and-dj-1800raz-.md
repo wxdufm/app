@@ -15,7 +15,7 @@ description: >-
   cracks and gun clicks, and where he sees his music going in the future.
 ---
 
-**To start off, tell me a little bit about yourself and how you started producing? **
+***To start off, tell me a little bit about yourself and how you started producing? ***
 
 I was originally born in Jersey and then moved down to North Carolina when I was 10–so in 2008–so I felt a little disconnected being up in Jersey and then coming down here. I didn't really know too much about Jersey, but I didn’t know much about North Carolina either. I was kinda sad at that moment, and I needed something to keep me connected to Jersey in some way. At that time, I was a dancer, so I liked to dance to Jersey Club to keep that connection. From 2008 to 2011, I was just listening to what I thought was Jersey Club music at the time, but was Baltimore Club music–and a few Philly tracks–and I was like, “I want to become a club producer. I want to do this.” I just kept on listening. I started going on SoundCloud more, listening to DJ Jayhood and DJ Sliink. I was like, “Yeah, I'm gonna do this,” and, in 2011, I started.
 
