@@ -4,6 +4,7 @@ author: DJ IMANAMAMA / Iman Amadou
 cover: /uploads/Picture1.png
 categories:
   - category: content/category/artist-interview.md
+published: 2025-01-25T05:00:00.000Z
 description: >-
   While studying abroad in Rotterdam, Holland, I had the chance to meet Milan
   Waterhout at a house party in the city’s South. Our conversation quickly
