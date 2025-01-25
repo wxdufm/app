@@ -147,3 +147,73 @@ There were Dutch artists who started making hip-hop music in 2015, when hip hop 
 Who are your influences or favorite artists?
 
 I listen to a lot of Dutch music like, [Yung Internet](https://rateyourmusic.com/artist/yung_internet), [Joost Klein](https://genius.com/artists/Joost), the guy who's going to Eurovision for Holland now this year.
+
+I had the opportunity to work with him, which is insane to me.
+
+I liked the way he approached hip hop, using a lot of word play and jokes (dad jokes). I love to make bad word play jokes and stuff like that. People got so tired of me, so I just decided to write them in my notes. I started using GarageBand and found some beats on YouTube. I would just rap over them with my jokes. This was a way for me to express myself, and how I started to fall more in love with music.
+
+In 2019, I was like, no, I really want this music stuff to work for me and to do some stuff internationally, because it’s just cool to me. I want other people to enjoy my vision and music. That's when I started producing.
+
+One of my first beats was  also the start of my YouTube channel. So quite fast. I was like, OK, you know,  I need to get my music out there on YouTube, and from March 2019 to the end of 2021, I uploaded almost every single day.
+
+Do you find that PLUGG artists/producers have an easy or difficult time staying relevant? I feel like there's a lot of them that come out all the time?
+
+Very difficult. 
+
+I mean, there are some artists like  [D.Savage](https://genius.com/artists/D-savage) and [Diego Money](https://genius.com/artists/Diego-money) who are kind of the originators of this genre of rapping on these kinds of beats. They're always a classic, but they're not as relevant as they used to be.  I feel like the power of the genre is that you have to stay renewable since the music sometimes sounds the same. 
+
+I feel the same way – it has to be a PLUGG format that’s recognizable but original, which seems hard to pull off. 
+
+I think if something sounds similar to the work you did in the past, that's a strong thing. A lot of people say things like, no, I don't want to make something that sounds like something I already made. But me, I aim to make something that sounds like something I already made because that’s how you develop a signature sound.
+
+I noticed with your most recent drop it sounded very different.
+
+With my most recent drop, I tried to find a different path. I'm walking the producer path, for which I'm mostly known, which is just a similar kind of PLUGG beat all the time but really pushing it out like a factory making a whole bunch of beats. An industry way of working, but with an underground kind of music.
+
+Now the music I'm trying to put out is more produced and more thought through on the artistic side of things.
+
+I sit on these songs for days before I'm satisfied. It's a different way of working.
+
+Kofi Bae, the guy I work with, is from a really different field of music. He's really into, like, disco and pop music,and I'm really into trap and hip hop. We’re working together using both our ways of making music to make something special. For instance, our project, Le Nuit Porte Conseil, has a melancholic vibe and is more about feeling lonely in the club.
+
+I’ve had interviews about the project and people said it’s like going on a night out with Kofi and I, from morning to the end of the night.
+
+The last track on that album, Le train ne passe pas deux fois (The train doesn't pass twice), is really about the feeling of being in the club.
+
+I like to delve into the club environment in the lyrics – it’s an interesting environment because, metaphorically, I would say it’s like being in a class with a whole bunch of new people.
+
+There's a hierarchy, so many interactions all in one space - it’s like a one-night life. And then the next day, everyone is just moving on.
+
+Yeah. And you forget everything.
+
+So, the song, Le train ne passe pas deux fois, is about this kind of time pressure. You meet someone in the club, have a good time, and then they’re out of your life once you leave.
+
+A lot of club music is about flexing or not caring, but Kofi and I are both very traditional when it comes to romance. We want to have a deeper relationship with someone in a club. So, trying to find a fit between the fast flex club culture and traditional romantic ideals is the basis of the song.
+
+Yeah, you're trying to have a sacred space in the club. Sometimes I think the club is like the pinnacle of human interaction, it's so funny to be there. You get to see people in all different states. People care, but they don't. You get to talk to people in a way you never talk to people in real life.
+
+You see people in their purest form sometimes, and  it's a way for people to forget their daily life – like a dreamy escape. I feel like my music is very dreamy, and I would describe myself as a dreamy person as well, in my head and thinking a lot. I think PLUGG is a very dream-like genre as well.
+
+It’s your personality, but do you still have to be disciplined in that genre?
+
+I don’t think so. We try to find a fit of PLUGG music and more dance music. So, we might have a disco track with a DMV flow kind of rap on it. We also mix the vocals in ways that go against industry standards.
+
+I wanted the vocals to be a bit lower than the beat. On the tracks, I didn't write the tracks myself because I'm singing myself, and I really want to be like a pop star.  But on the other tracks where we invited rappers, I really, really wanted to give it that PLUGG sound, give it that nonchalance in rapping and in writing.
+
+Check Milanezie out:
+
+[Website](https://milanezie.beatstars.com/)
+
+[Instagram](https://www.instagram.com/milanezie/?hl=en)
+
+[Twitter/X](https://x.com/milanezie)
+
+Great Tracks/Projects Produced by Milanezie:
+
+[https://open.spotify.com/embed/album/0O6AOkgUECgZS6BiXMsg8I?utm\_source=generator](https://open.spotify.com/embed/album/0O6AOkgUECgZS6BiXMsg8I?utm_source=generator)
+
+[https://open.spotify.com/embed/track/33kI3c1iSynileXvgE6WnA?utm\_source=generator](https://open.spotify.com/embed/track/33kI3c1iSynileXvgE6WnA?utm_source=generator)
+
+[https://open.spotify.com/embed/track/7LdVPSsrh79jODQeIFbEZK?utm\_source=generator](https://open.spotify.com/embed/track/7LdVPSsrh79jODQeIFbEZK?utm_source=generator)
+
+Edited by Zane Alsebai, Iman Amadou, Emily Benson-Tyler
