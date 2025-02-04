@@ -10,14 +10,13 @@ description: >-
   Waterhout at a house party in the city’s South. Our conversation quickly
   turned to East Coast US hip-hop, the distinctive DMV flow, and PLUGG music—a
   genre I’m deeply familiar with. Milan revealed he produces PLUGG under the
-  name Milanezie through the label Entreprise. A few weeks later, I sat down
-  with Milan for an interview at Hogeschool in Central Rotterdam. We delved into
-  his music, the history of the PLUGG genre, the vibrant French PLUGG scene,
-  internet-driven music culture, the club circuit, and the transatlantic
-  influence of Atlanta trap.
+  name Milanezie. A few weeks later, I sat down with Milan for an interview at
+  Hogeschool in Central Rotterdam. We delved into his music, the history of the
+  PLUGG genre, the vibrant French PLUGG scene, internet-driven music culture,
+  the club circuit, and the transatlantic influence of Atlanta trap.
 ---
 
-So, I first realized when I was talking with some friends from back home that not everyone is on the wave of PLUGG music—a lot of them didn’t even know what it was.  How would you define PLUGG music?
+So, I first realized when I was talking with some friends from back home that not everyone is on the wave of PLUGG music—a lot of them didn’t even know what it was. How would you define PLUGG music?
 
 PLUGG,I would say  is really about the beats, so the genre PLUGG is really the instrumental (what I mainly do). The sound really originated from Atlanta. You had this producer called [MexikoDRO](https://genius.com/artists/Mexikodro), and he was inspired by [Zaytoven](https://genius.com/artists/Zaytoven).
 
@@ -31,7 +30,7 @@ The genre is very much an internet genre, and you can see it in a lot of things 
 
 Yes, like [PLUGGNB](https://soundcloud.com/tags/pluggnb/popular-tracks) and [hyperPLUGG](https://soundcloud.com/tags/hyper%20plugg).
 
-Yeah, hyperPLUGG which is PLUGG with softer sounds, kind of what I've made with some other artists from all over the world.
+Yeah, softPLUGG which is PLUGG with softer sounds, kind of what I've made with some other artists from all over the world.
 
  It's been becoming more global. First, it was very much Atlanta culture but now it's becoming more of a thing in France as well. People even try it here in the Netherlands. 
 
@@ -46,22 +45,6 @@ What I really like about PLUGG is its instruments. You have PLUGG beats and then
 It’s definitely a lot of repetition and looping, I also read that [808s](https://blog.native-instruments.com/808-beats/) are used a lot.
 
  I feel like before they used a lot of 808s. I use a lot of [sub bass](https://www.edmprod.com/sub-bass/) and really deep bass but with soft and mellow electric pianos and synth sounds. So, it's kind of the balance of the two--like very like hard- hitting stuff with very soft sounds.
-
-I noticed your producer tag in your music is in French instead of Dutch. Why is that?
-
-Nostalgia is a big element of my music, and I just have a love for French culture. I used to vacation a lot to France, when I was a kid. I'm into surfing, so I would always go to the coast, but I also love Paris.
-
-When I listen to French language, I think of vacation. I think of good memories. I also didn't choose a Dutch one because France is a much more global language. And France is next to Holland so makes it makes sense. A lot of people use AB tech saying “I Love \[Insert producer tag]” but I always thought it sounded so corny, so I was like, I'm just going to do it the same thing but in French. 
-
-Also, because the Jetaime thing is such an iconic phrase. So, if I do it well and if I'm the first one to do it, it can become an iconic thing, just like the phrases I love Paris or I love New York.
-
-I wanted something that's catchy and gets people's attention.
-
-Did you pay someone to do it, or did you just get a random person to say it?
-
-No, it's someone I met back in 2018 and it’s just to Snapchat's voice memo.
-
-It's really funny.
 
 What do you think the PLUGG genre seeks to accomplish? Is it more about bringing back a certain aesthetic nostalgia-wise or is it about making something new.
 
@@ -123,22 +106,6 @@ I'm just releasing tracks to get feedback  'cause I know a lot of artists who 
 
 Yeah, I saw on SoundCloud you were pushing out stuff even like a few days ago.
 
-Yeah, and I have an interesting story. There’s this popular French rap artists named, [Booba](https://genius.com/artists/Booba).
-
-He’ll beef with anyone on Twitter, okay. So there was this interview with Serane, the main artist I collaborate with, on Apple Music. The show is called [Le Code with Mehdi Maïzi, ](https://music.apple.com/us/curator/le-code-radio-avec-mehdi-ma%C3%AFzi/1508024265) and it's a big opinion leader in music in France.
-
-Booba got so mad that someone like him (Serane) got this attention on the show. “Like what the \*\*\*\*? This is not hip hop?” He said, like, the worst things about him. 
-
-So, I posted on Twitter, “Thanks Booba for the opportunity” and I put  his voice on a PLUGG beat. I just grabbed his biggest song off YouTube and used a new stem extractor on  FL Studio to separate stems and vocals.
-
-Then my friend recorded a video of me in the studio with a Burberry scarf.![](/uploads/Picture2.png)
-
-Oh my god.
-
-This online storm started, and I put the song on SoundCloud. Right now it’s got like 25,000 streams, and for my SoundCloud that's big because I'm inactive on there.
-
-After that, I decided to do more PLUGG remixes of French classic songs, since it was such a success. And since PLUGG music is not big in France, I thought if the artist doesn't come to me, I'll just come to the artist. Just grab their song and put it over a PLUGG beat.
-
 I feel like I haven't asked you any personal questions about who you are. What does music mean to you?
 
 I'm Milan. I'm 24 years old. I live in Rotterdam, Holland. When I was a kid, I played violin for  6 years and piano for maybe 3 years. I never really had the motivation to make music until 2017.
@@ -189,7 +156,7 @@ Yeah. And you forget everything.
 
 So, the song, Le train ne passe pas deux fois, is about this kind of time pressure. You meet someone in the club, have a good time, and then they’re out of your life once you leave.
 
-A lot of club music is about flexing or not caring, but Kofi and I are both very traditional when it comes to romance. We want to have a deeper relationship with someone in a club. So, trying to find a fit between the fast flex club culture and traditional romantic ideals is the basis of the song.
+A lot of club music is about flexing or not caring, but Kofi and I are both very traditional when it comes to romance. So, trying to find a fit between the fast flex club culture and traditional romantic ideals is the basis of the song.
 
 Yeah, you're trying to have a sacred space in the club. Sometimes I think the club is like the pinnacle of human interaction, it's so funny to be there. You get to see people in all different states. People care, but they don't. You get to talk to people in a way you never talk to people in real life.
 
