@@ -6,6 +6,7 @@ import applebadge from '/images/apple_badge.svg'
 import androidbadge from '/images/android_badge.svg'
 import Image from 'next/image'
 import {FaPhone} from 'react-icons/fa6'
+import { FaBluesky } from 'react-icons/fa6'
 
 const Footer = () => {
 	return (
@@ -22,8 +23,8 @@ const Footer = () => {
 				<a target="_blank" href="https://instagram.com/wxyc893">
 					<AiFillInstagram size={32} className=" mt-0.5" />
 				</a>
-				<a target="_blank" href="https://twitter.com/wxyc">
-					<AiFillTwitterCircle size={32} className="ml-.5 mt-0.5" />
+				<a target="_blank" href="https://bsky.app/profile/wxyc.org">
+					<FaBluesky size={32} className="ml-.5 mt-0.5" />
 				</a>
 				<a target="_blank" href="https://tiktok.com/@wxyc893">
 					<FaTiktok size={32} className="ml-.5 mt-0.5" />
