@@ -36,7 +36,7 @@ Yeah, softPLUGG which is PLUGG with softer sounds, kind of what I've made with s
 
 It’s becoming bigger because of TikTok as well. In a way, I feel like it's music for people with a low attention span.
 
-**Yeah, because it’s so fast, and loud, you won’t get tired of it.  **
+**Yeah, because it’s so fast, and loud, you won’t get tired of it.** 
 
 What I really like about PLUGG is its instruments. You have PLUGG beats and then you have the way people rap on it which is  very specific as well--different from music you normally hear because it’s with a DMV flow. [DMV flow](https://open.spotify.com/playlist/6OHLt4x6PSgv1vn5NTZU4W?si=_PmbEL-AS8GiywpIhNMfJA)’s are just where people rap off beat on purpose.
 
@@ -130,7 +130,7 @@ Very difficult. 
 
 I mean, there are some artists like  [D.Savage](https://genius.com/artists/D-savage) and [Diego Money](https://genius.com/artists/Diego-money) who are kind of the originators of this genre of rapping on these kinds of beats. They're always a classic, but they're not as relevant as they used to be.  I feel like the power of the genre is that you have to stay renewable since the music sometimes sounds the same. 
 
-**I feel the same way – it has to be a PLUGG format that’s recognizable but original, which seems hard to pull off. **
+\*\*I feel the same way – it has to be a PLUGG format that’s recognizable but original, which seems hard to pull off. \*\*
 
 I think if something sounds similar to the work you did in the past, that's a strong thing. A lot of people say things like, no, I don't want to make something that sounds like something I already made. But me, I aim to make something that sounds like something I already made because that’s how you develop a signature sound.
 
