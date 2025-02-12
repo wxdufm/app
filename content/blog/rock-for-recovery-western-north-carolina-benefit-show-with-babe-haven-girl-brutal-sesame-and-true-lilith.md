@@ -6,19 +6,13 @@ author: Gabriel Duval aka DJ xGalahadx
 cover: /uploads/Babehaven pic 1.png
 published: 2025-02-12T05:00:00.000Z
 description: >-
-  In times of trouble, what could be better than coming together to mosh for a
-  good cause? Rock for Recovery at Motorco in Durham was a show by and for North
-  Carolina: all four bands are local to our great state. The night had a cause:
-  all ticket sales for the gig (as well as revenue from a raffle with prizes
-  donated by local businesses) went towards relief efforts in areas of Western
-  North Carolina affected by Hurricane Helene. Filling a room on a Wednesday
-  night for a mixed bill of bands ranging from emo to goth to electronic to
-  hardcore (with some encompassing every combination of those genres imaginable)
-  is no easy feat, but North Carolina showed up for the hometown scene and for
-  our state - and in Halloween costumes, no less!
+  Filling a room on a Wednesday night for a mixed bill of bands ranging from emo
+  to goth to electronic to hardcore (with some encompassing every combination of
+  those genres imaginable) is no easy feat, but North Carolina showed up for the
+  hometown scene and for our state - and in Halloween costumes, no less!
 ---
 
-Each different act kept the audience engaged while prompting a different kind of dancing from the crowd.![](</uploads/Babehaven pic 2.jpg>)(IMG: Sesame)
+In times of trouble, what could be better than coming together to mosh for a good cause? Rock for Recovery at Motorco in Durham was a show by and for North Carolina: all four bands are local to our great state. The night had a cause: all ticket sales for the gig (as well as revenue from a raffle with prizes donated by local businesses) went towards relief efforts in areas of Western North Carolina affected by Hurricane Helene. Filling a room on a Wednesday night for a mixed bill of bands ranging from emo to goth to electronic to hardcore (with some encompassing every combination of those genres imaginable) is no easy feat, but North Carolina showed up for the hometown scene and for our state - and in Halloween costumes, no less! Each different act kept the audience engaged while prompting a different kind of dancing from the crowd.![](</uploads/Babehaven pic 2.jpg>)(IMG: Sesame)
 
 Sesame, a band I can best describe as screamy emotional hardcore, opened up the show. The first three-piece ensemble of the night played a set packed with a masterful combination of soft strumming and discordant swells, loud screaming and emotional crooning, often all in the same song. Sesame had the floor moving right from the beginning with an enthusiastic push-pit giving way to a spin-kick or two at the particularly heavy parts of a song. ![](</uploads/babehaven Picture3.jpg>)(IMG: True Lilith)
 
@@ -27,11 +21,11 @@ played original goth tunes (perfect for the Halloween holiday mood) with a guita
 
 ![](</uploads/Babehaven picture 5.jpg>)(IMG: Girl Brutal)
 
-After two guitar-heavy acts, it was time for a major change of pace. Girl Brutal, hailing from Charlotte, is a band that has been hyped up to me by nearly every Charlotte-adjacent punk I’ve met, and boy were they right. ANOTHER three-piece (big night for small bands!) decked out in matching Halloween costumes, one member hammered blastbeat drums, one mixed the electronic audio, and the leadwoman yelled over it all. I was absolutely transfixed by Girl Brutal. They played some of the most incredible digital hardcore I have ever heard, and the stage presence of the lead singer is unmatched -the ability to roll around on the floor while absolutely killing a mixture of screaming and rapping vocals is unspeakably impressive. The room went crazy for this set, erupting into violent sweaty ecstatic hardcore dancin’. Girl Brutal could have played for two more hours and I would have been rapt the entire time. 
+After two guitar-heavy acts, it was time for a major change of pace. Girl Brutal, hailing from Charlotte, is a band that has been hyped up to me by nearly every Charlotte-adjacent punk I’ve met, and boy were they right. ANOTHER three-piece (big night for small bands!) decked out in matching Halloween costumes, one member hammered blastbeat drums, one mixed the electronic audio, and the leadwoman yelled over it all. I was absolutely transfixed by Girl Brutal. They played some of the most incredible digital hardcore I have ever heard, and the stage presence of the lead singer is unmatched -the ability to roll around on the floor while absolutely killing a mixture of screaming and rapping vocals is unspeakably impressive. The room went crazy for this set, erupting into violent sweaty ecstatic hardcore dancin’. Girl Brutal could have played for two more hours and I would have been rapt the entire time.
 
 ![](</uploads/Babehaven, Babehaven pic.jpg>)(IMG: Babe Haven)
 
-And just like that, it was time for the local legends themselves. Coming on stage in Halloween spirit to the Powerpuff Girls theme, the hardcore punk outfit played a set mostly of songs from their newest album Nuisance, with older classics and a brand new single mixed in. I cannot say enough good things about Babe Haven. Anyone who knows anything about hard music knows that these rockers have it. Every member of the band brings the energy every single time I’ve seen them play, their songs are lyrically and musically brilliant, and the floor is moving like crazy from the first note of the first song (sometimes with guitarist Naomi shredding in the middle of a circle pit). Frontwoman Lillie is one of the most electrifying, engaging, and talented musicians I have ever seen and commands the crowd’s attention and adoration from start to finish. Between songs, Lillie talked briefly about the personal importance of the benefit show to the band, since Babe Haven originally hails from Boone before their recent relocation to Durham. The headliners played an energetic and amazing set of beautiful angry music to be simultaneously angry and full of punk joy to. 
+And just like that, it was time for the local legends themselves. Coming on stage in Halloween spirit to the Powerpuff Girls theme, the hardcore punk outfit played a set mostly of songs from their newest album Nuisance, with older classics and a brand new single mixed in. I cannot say enough good things about Babe Haven. Anyone who knows anything about hard music knows that these rockers have it. Every member of the band brings the energy every single time I’ve seen them play, their songs are lyrically and musically brilliant, and the floor is moving like crazy from the first note of the first song (sometimes with guitarist Naomi shredding in the middle of a circle pit). Frontwoman Lillie is one of the most electrifying, engaging, and talented musicians I have ever seen and commands the crowd’s attention and adoration from start to finish. Between songs, Lillie talked briefly about the personal importance of the benefit show to the band, since Babe Haven originally hails from Boone before their recent relocation to Durham. The headliners played an energetic and amazing set of beautiful angry music to be simultaneously angry and full of punk joy to.
 
 ![](</uploads/Babehaven 2.jpg>)(IMG: Babe Haven)
 
