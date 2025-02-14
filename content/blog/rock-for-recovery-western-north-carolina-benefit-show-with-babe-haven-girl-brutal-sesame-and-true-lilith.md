@@ -4,6 +4,8 @@ title: >-
   Brutal, Sesame, and True Lilith
 author: Gabriel Duval aka DJ xGalahadx
 cover: /uploads/Babehaven pic 1.png
+categories:
+  - category: content/category/show-review.md
 published: 2025-02-12T05:00:00.000Z
 description: >-
   Filling a room on a Wednesday night for a mixed bill of bands ranging from emo
