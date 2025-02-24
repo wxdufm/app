@@ -1,6 +1,8 @@
 import PostPreview from '../PostPreview'
 import Link from 'next/link'
 
+// There are two BlogCarousel components. On desktop, if there is content in the "WXYC This Week" section, the blog post carousel renders underneath "WXYC This Week" and the audio player at full-screen (BlogCarouselFull.js) However, if there is no content in "WXYC This Week", BlogCarouselCropped.js is called, and is aligned with the audio player.
+
 const BlogCarouselFull = (props) => {
 	return (
 		<div className="-mt-5 flex flex-col md:-mt-10 md:mr-10 lg:mt-5 lg:w-full lg:max-w-screen-xl">

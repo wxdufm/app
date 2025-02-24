@@ -17,7 +17,9 @@ const Header = () => {
 	return (
 		//Parent Container
 		<div className="h-full">
-			{/* Mobile header */}
+
+
+			{/* MOBILE HEADER STARTS HERE */}
 			<div className="fixed top-0 z-50 flex h-16 w-full bg-gradient-to-b from-neutral-600 to-neutral-800 md:h-24 lg:hidden">
 				{/* Hamburger icon */}
 				<button onClick={toggleMenu} className="hamburger-icon h-full">
@@ -170,7 +172,11 @@ const Header = () => {
 
 			{/* Makes the mobile header overlap the rest of the header content */}
 			<div className="relative z-20">
-				{/* Parent container of entire desktop header  */}
+			{/* END MOBILE HEADER */}
+		
+
+				
+				{/* DESKTOP HEADER STARTS HERE */}
 				<div className="mx-auto flex w-5/6 flex-col items-start justify-center pt-10 md:mb-10 md:pt-2 ">
 					<Link href="/">
 						{/* Header text parent container */}

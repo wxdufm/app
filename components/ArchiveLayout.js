@@ -1,7 +1,7 @@
 import React from 'react'
 import ArchiveBreadcrumbs from './ArchiveBreadcrumbs'
 
-// imported into every page in "archive" pages directory
+// imported into every page in "archive" pages directory; adds archive breadcrumbs navigation
 const ArchiveLayout = (props) => {
 	return (
 		<div className="mx-auto w-5/6 overflow-hidden pb-10 text-white">

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import {AiFillTag} from 'react-icons/ai'
 
 const EventPreview = (props) => {
-	// rendered on the archive tabs
+	// Formatting for individual events in /archive
 	if (!props.published) {
 		return (
 			<div className=" flex w-full" key={props.id}>
@@ -27,7 +27,7 @@ const EventPreview = (props) => {
 	const displayDate = `${arr[1]}/${arrTime[0]}`
 
 	let displayCategories = props.categories.filter(category => category.category._sys.filename !== 'specialty-show');
-	// rendered on home page with "xx/xx" before title
+	// Formatting for individual events rendered on home page with "xx/xx" before title
 	return (
 		<div key={props.id}>
 			<Link href={`/archive/${props.slug}`}>
@@ -42,6 +42,7 @@ const EventPreview = (props) => {
 					{displayCategories.map((category) => (
 						<div key={category.category._sys.filename} className="my-2 flex cursor-pointer justify-start whitespace-nowrap">
 							
+							{/* Tag formatting */}
 							<div className="flex rounded-full border border-slate-400 pl-1 pr-3 py-1 text-sm text-slate-100"><AiFillTag size={18} className="mr-2" /> {category.category.title}</div>
 						</div>
 					))}
