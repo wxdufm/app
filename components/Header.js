@@ -105,16 +105,6 @@ const Header = () => {
 												</Link>
 											</Menu.Item>
 										</div>
-										<div className="text-medium flex w-full items-center justify-center px-4 py-2 text-white hover:rounded-md md:text-black md:hover:bg-gray-200">
-											<Menu.Item>
-												<Link
-													href="https://play.google.com/store/apps/details?id=org.wxyc.WXYCCH&pcampaignid=web_share"
-													target="_blank"
-												>
-													Android app
-												</Link>
-											</Menu.Item>
-										</div>
 										<div className="text-medium flex w-full items-center justify-center rounded-md px-4 py-2  text-white md:text-black md:hover:bg-gray-200">
 											<Menu.Item>
 												<Link
