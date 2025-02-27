@@ -145,16 +145,16 @@ const Header = () => {
 							</div>
 						</div>
 
-						<div className="flex items-center justify-center  ">
+						<div className="flex items-center justify-center text-xl">
 								<Link
 									href="https://merch.wxyc.org/"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="text-xl text-white no-underline md:text-3xl"
 								>
 									Merch
 								</Link>
 						</div>
+						
 						{/* Add more navigation links as needed */}
 					</ul>
 				)}
