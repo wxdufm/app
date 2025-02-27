@@ -24,17 +24,6 @@ const DropdownMenu = () => {
 					<div className="text-medium flex w-full items-center justify-center rounded-md px-4 py-2  text-white md:text-black md:hover:bg-gray-200">
 						<Menu.Item>
 							<Link
-								href="https://play.google.com/store/apps/details?id=org.wxyc.WXYCCH&pcampaignid=web_share"
-								target="_blank"
-								legacyBehavior={false}
-							>
-								Android App
-							</Link>
-						</Menu.Item>
-					</div>
-					<div className="text-medium flex w-full items-center justify-center rounded-md px-4 py-2  text-white md:text-black md:hover:bg-gray-200">
-						<Menu.Item>
-							<Link
 								href="https://audio-mp3.ibiblio.org/wxyc.mp3"
 								target="_blank"
 								legacyBehavior={false}

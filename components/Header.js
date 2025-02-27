@@ -105,7 +105,6 @@ const Header = () => {
 												</Link>
 											</Menu.Item>
 										</div>
-
 										<div className="text-medium flex w-full items-center justify-center rounded-md px-4 py-2  text-white md:text-black md:hover:bg-gray-200">
 											<Menu.Item>
 												<Link
