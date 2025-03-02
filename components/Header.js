@@ -5,7 +5,7 @@ import photo from '../images/logo.png'
 import Image from 'next/image'
 import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
 import {Menu} from '@headlessui/react'
-import {IoIosArrowDown} from 'react-icons/io'
+import { IoIosArrowDown } from "react-icons/io"
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false)
@@ -20,7 +20,7 @@ const Header = () => {
 
 
 			{/* MOBILE HEADER STARTS HERE */}
-			<div className="fixed top-0 z-50 flex h-16 w-full bg-gradient-to-b from-neutral-600 to-neutral-800 md:h-24 lg:hidden">
+			<div className="fixed top-0 z-50 flex h-16 w-full bg-gradient-to-b from-neutral-600 to-neutral-900 md:h-24 lg:hidden">
 				{/* Hamburger icon */}
 				<button onClick={toggleMenu} className="hamburger-icon h-full">
 					{isOpen ? (
@@ -32,70 +32,70 @@ const Header = () => {
 
 				{/* Collapsible menu for mobile*/}
 				{isOpen && (
-					<ul className="-ml-12 mt-16 flex h-screen w-screen flex-col justify-start bg-neutral-800 bg-opacity-95 md:mt-24 md:gap-6">
-						<div className=" mt-16 flex h-16 items-center justify-center ">
+					<ul className="-ml-12 mt-16 flex h-screen w-screen flex-col justify-start bg-neutral-900 bg-opacity-95 md:mt-24 md:gap-6">
+						<div className="mt-16 flex h-8 ml-10 text-3xl">
 								<Link
 									href="/about" legacyBehavior={false}
-									className="cursor-pointer text-xl text-white no-underline md:text-3xl"
+									className="cursor-pointer"
 									onClick={toggleMenu}
 								>
 									About
 								</Link>
 						</div>
 
-						<div className="flex h-16 items-center justify-center">
+						<div className="mt-8 flex h-8 ml-10 text-3xl">
 								<Link
 									href="/programming" legacyBehavior={false}
-									className="cursor-pointer text-xl text-white no-underline md:text-3xl"
+									className="cursor-pointer"
 									onClick={toggleMenu}
 								>
 									Programming
 								</Link>
 						</div>
 
-						<div className="flex h-16 items-center justify-center ">
+						<div className="mt-8 flex h-8 ml-10 text-3xl">
 								<Link
 									href="/archive" legacyBehavior={false}
-									className="cursor-pointer text-xl text-white no-underline md:text-3xl"
+									className="cursor-pointer"
 									onClick={toggleMenu}
 								>
 									Archive
 								</Link>
 						</div>
 
-						<div className="flex h-16 items-center justify-center">
+						<div className="mt-8 flex h-8 ml-10 text-3xl">
 								<Link
 									href="/blog" legacyBehavior={false}
-									className="cursor-pointer text-xl text-white no-underline md:text-3xl"
+									className="cursor-pointer"
 									onClick={toggleMenu}
 								>
 									Blog
 								</Link>
 						</div>
 
-						<div className="flex h-16 items-center justify-center ">
+						<div className="mt-8 flex h-8 ml-10 text-3xl">
 								<Link
 									href="/contact" legacyBehavior={false}
-									className="cursor-pointer text-xl text-white no-underline md:text-3xl"
+									className="cursor-pointer"
 									onClick={toggleMenu}
 								>
 									Contact
 								</Link>
 						</div>
 
-						<div className="mb-2 flex h-16 items-center justify-center text-xl text-white">
+						<div className="mt-8  flex h-8 ml-10 text-3xl">
 							{/* nested dropdown for mobile */}
 							<div className="">
-								<Menu as="div" className="relative">
-									<Menu.Button className="inline-flex w-full justify-center text-white  md:text-3xl lg:text-black">
+								<Menu as="div" className="relative w-full">
+									<Menu.Button className="inline-flex justify-center text-white">
 										Listen{' '}
 										<IoIosArrowDown
-											size={18}
-											className="ml-1 mt-1 md:ml-3 md:mt-3"
+											size={24}
+											className="ml-1 mt-2 md:ml-3"
 										/>
 									</Menu.Button>
-									<Menu.Items className="absolute left-1/2 mt-2 w-48 origin-top -translate-x-1/2 transform rounded-sm bg-neutral-800 shadow-lg ring-1 ring-black ring-opacity-5 md:bg-white">
-										<div className="text-medium flex w-full items-center justify-center px-4 py-2 text-white hover:rounded-md md:text-black md:hover:bg-gray-200">
+									<Menu.Items className="absolute pr-5 bg-neutral-800 bg-opacity-95 focus:outline-none focus:ring-0">
+										<div className=" px-2 py-3  flex w-full text-nowrap text-white">
 											<Menu.Item>
 												<Link
 													href="https://apps.apple.com/us/app/wxyc-radio/id353182815"
@@ -105,17 +105,7 @@ const Header = () => {
 												</Link>
 											</Menu.Item>
 										</div>
-										<div className="text-medium flex w-full items-center justify-center px-4 py-2 text-white hover:rounded-md md:text-black md:hover:bg-gray-200">
-											<Menu.Item>
-												<Link
-													href="https://play.google.com/store/apps/details?id=org.wxyc.WXYCCH&pcampaignid=web_share"
-													target="_blank"
-												>
-													Android app
-												</Link>
-											</Menu.Item>
-										</div>
-										<div className="text-medium flex w-full items-center justify-center rounded-md px-4 py-2  text-white md:text-black md:hover:bg-gray-200">
+										<div className="px-2 py-3 flex w-full text-nowrap text-white">
 											<Menu.Item>
 												<Link
 													href="https://audio-mp3.ibiblio.org/wxyc.mp3"
@@ -126,7 +116,7 @@ const Header = () => {
 												</Link>
 											</Menu.Item>
 										</div>
-										<div className="text-medium flex w-full items-center justify-center rounded-md px-4 py-2  text-white md:text-black md:hover:bg-gray-200">
+										<div className="px-2 py-3 flex w-full text-nowrap text-white">
 											<Menu.Item>
 												<Link
 													href="http://www.wxyc.info/playlists/recent.html"
@@ -140,7 +130,7 @@ const Header = () => {
                         </Link> */}
 											</Menu.Item>
 										</div>
-										<div className="text-medium flex w-full items-center justify-center px-4 py-2 text-white hover:rounded-md md:text-black md:hover:bg-gray-200">
+										<div className="px-2 py-3 flex w-full text-nowrap text-white">
 											<Menu.Item>
 												<Link
 													href="https://open.spotify.com/user/wxyc"
@@ -155,7 +145,7 @@ const Header = () => {
 							</div>
 						</div>
 
-						<div className="flex items-center justify-center  ">
+						<div className="mt-8 flex h-8 ml-10 text-3xl">
 								<Link
 									href="https://merch.wxyc.org/"
 									target="_blank"
