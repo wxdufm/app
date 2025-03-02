@@ -1,11 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Link from 'next/link'
 import DropdownMenu from './DropdownMenu'
 import photo from '../images/logo.png'
 import Image from 'next/image'
 import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
 import {Menu} from '@headlessui/react'
-import { IoIosArrowDown } from "react-icons/io"
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io"
 
 const Header = () => {
 
@@ -21,6 +21,19 @@ const Header = () => {
 		setIsOpen(!isOpen)
 	}
 	
+	useEffect(() => {
+		if (isOpen) {
+		  // Add a class to the body to prevent scrolling
+		  document.body.style.overflow = "hidden"; // Disable scrolling on body
+		} else {
+		  document.body.style.overflow = "auto"; // Enable scrolling when menu is closed
+		}
+	
+		// Cleanup: reset when the component is unmounted or menu is closed
+		return () => {
+		  document.body.style.overflow = "auto"; // Always restore scroll when the component is removed
+		};
+	  }, [isOpen]); // This will run every time `isOpen` changes
 	
 	return (
 		//Parent Container
@@ -28,7 +41,7 @@ const Header = () => {
 
 
 			{/* MOBILE HEADER STARTS HERE */}
-			<div className="fixed top-0 z-50 flex h-16 w-full bg-gradient-to-b from-neutral-600 to-neutral-900 md:h-24 lg:hidden">
+			<div className="fixed top-0 z-50 flex h-16 w-full bg-gradient-to-b from-neutral-600 to-neutral-900 md:h-24 lg:hidden ">
 				{/* Hamburger icon */}
 				<button onClick={toggleMenu} className="hamburger-icon h-full">
 					{isOpen ? (
@@ -37,15 +50,74 @@ const Header = () => {
 						<AiOutlineMenu size={32} className="ml-4 mt-1 md:ml-6" />
 					)}
 				</button>
-
+				
 				{/* Collapsible menu for mobile*/}
 				{isOpen && (
-					<ul className="-ml-12 mt-16 flex h-screen w-screen flex-col justify-start bg-neutral-900 bg-opacity-95 md:mt-24 md:gap-6">
-						<div className="mt-16 flex h-8 ml-10 text-3xl">
+					<ul className="overflow-y-auto -ml-12 mt-16 flex h-screen w-screen flex-col justify-start bg-neutral-900 bg-opacity-95 md:mt-24 md:gap-6">
+
+					<div className="w-full ">
+          
+		  		<Menu as="div" className="relative w-full">
+				
+            	<Menu.Button
+              		onClick={toggleSubmenu}
+              		className="mt-16 flex h-8 ml-10 text-3xl"
+            	>
+              		Listen
+					  {isOpen ? (
+						<IoIosArrowDown size={24} className="ml-1 mt-2 md:ml-3"/>
+					) : (
+						<IoIosArrowUp size={24} className="ml-1 mt-2 md:ml-3" />
+					)}
+              		
+    			</Menu.Button>
+
+            	{/* Submenu starts here */}
+           		 <div
+             		 className={`text-2xl my-5 md:text-3xl ml-14 transition-all duration-450 ease-in-out overflow-hidden focus:outline-none focus:ring-0 ${
+                	submenuOpen ? 'max-h-[400px]' : 'max-h-0'
+             	 }`}
+           		 >
+             	<div className="mb-2 flex w-full text-nowrap text-white">
+                	<Menu.Item>
+                  		<Link href="https://apps.apple.com/us/app/wxyc-radio/id353182815" target="_blank">
+                   		 iPhone app
+                  		</Link>
+                	</Menu.Item>
+              </div>
+              <div className="mb-2 flex w-full text-nowrap text-white">
+                	<Menu.Item>
+                 		 <Link href="https://audio-mp3.ibiblio.org/wxyc.mp3" target="_blank">
+                   		 Streaming
+                 	 	</Link>
+                	</Menu.Item>
+              </div>
+              <div className="mb-2 flex w-full text-nowrap text-white">
+                	<Menu.Item>
+                  		<Link href="http://www.wxyc.info/playlists/recent.html" target="_blank">
+                    	Live playlist
+                  		</Link>
+                	</Menu.Item>
+              </div>
+              <div className="mb-2 flex w-full text-nowrap text-white">
+                	<Menu.Item>
+                  		<Link href="https://open.spotify.com/user/wxyc" target="_blank">
+                   		 Spotify
+                  		</Link>
+               		 </Menu.Item>
+              </div>
+            </div>
+            {/* Submenu ends here */}
+          </Menu>
+        </div>
+
+		<div className="flex h-8 ml-10 text-3xl">
 								<Link
 									href="/about" legacyBehavior={false}
 									className="cursor-pointer"
-									onClick={toggleMenu}
+          							target="_blank"
+          							rel="noopener noreferrer"
+          							onClick={toggleMenu}
 								>
 									About
 								</Link>
@@ -55,7 +127,9 @@ const Header = () => {
 								<Link
 									href="/programming" legacyBehavior={false}
 									className="cursor-pointer"
-									onClick={toggleMenu}
+          							target="_blank"
+          							rel="noopener noreferrer"
+          							onClick={toggleMenu}
 								>
 									Programming
 								</Link>
@@ -65,7 +139,9 @@ const Header = () => {
 								<Link
 									href="/archive" legacyBehavior={false}
 									className="cursor-pointer"
-									onClick={toggleMenu}
+          							target="_blank"
+          							rel="noopener noreferrer"
+          							onClick={toggleMenu}
 								>
 									Archive
 								</Link>
@@ -75,7 +151,9 @@ const Header = () => {
 								<Link
 									href="/blog" legacyBehavior={false}
 									className="cursor-pointer"
-									onClick={toggleMenu}
+          							target="_blank"
+          							rel="noopener noreferrer"
+          							onClick={toggleMenu}
 								>
 									Blog
 								</Link>
@@ -85,75 +163,27 @@ const Header = () => {
 								<Link
 									href="/contact" legacyBehavior={false}
 									className="cursor-pointer"
-									onClick={toggleMenu}
+          							target="_blank"
+          							rel="noopener noreferrer"
+          							onClick={toggleMenu}
 								>
 									Contact
 								</Link>
 						</div>
 
-						<div className="flex flex-col ml-10 text-3xl">
-        {/* Nested dropdown for mobile */}
-        <div className="w-full">
-          <Menu as="div" className="relative w-full">
-            <Menu.Button
-              onClick={toggleSubmenu}
-              className="inline-flex justify-center text-white"
-            >
-              Listen
-              <IoIosArrowDown size={24} className="ml-1 mt-2 md:ml-3" />
-            </Menu.Button>
+		
 
-            {/* Submenu starts here */}
-            <div
-              className={`transition-all duration-300 ease-in-out overflow-hidden bg-neutral-800 bg-opacity-95 focus:outline-none focus:ring-0 ${
-                submenuOpen ? 'max-h-[400px]' : 'max-h-0'
-              }`}
-            >
-              <div className="px-2 py-3 flex w-full text-nowrap text-white">
-                <Menu.Item>
-                  <Link href="https://apps.apple.com/us/app/wxyc-radio/id353182815" target="_blank">
-                    iPhone app
-                  </Link>
-                </Menu.Item>
-              </div>
-              <div className="px-2 py-3 flex w-full text-nowrap text-white">
-                <Menu.Item>
-                  <Link href="https://audio-mp3.ibiblio.org/wxyc.mp3" target="_blank">
-                    Streaming
-                  </Link>
-                </Menu.Item>
-              </div>
-              <div className="px-2 py-3 flex w-full text-nowrap text-white">
-                <Menu.Item>
-                  <Link href="http://www.wxyc.info/playlists/recent.html" target="_blank">
-                    Live playlist
-                  </Link>
-                </Menu.Item>
-              </div>
-              <div className="px-2 py-3 flex w-full text-nowrap text-white">
-                <Menu.Item>
-                  <Link href="https://open.spotify.com/user/wxyc" target="_blank">
-                    Spotify
-                  </Link>
-                </Menu.Item>
-              </div>
-            </div>
-            {/* Submenu ends here */}
-          </Menu>
-        </div>
-      </div>
-
-      {/* Additional Menu Items */}
-      <div className="mt-8 flex h-8 ml-10 text-3xl">
-        <Link
-          href="https://merch.wxyc.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xl text-white no-underline md:text-3xl"
-        >
-          Merch
-        </Link>
-      </div>
+      					<div className="mt-8 flex h-8 ml-10 text-3xl">
+       							 <Link
+         							href="https://merch.wxyc.org/"
+									className="cursor-pointer"
+          							target="_blank"
+          							rel="noopener noreferrer"
+          							onClick={toggleMenu}
+        						>
+         							Merch
+        						</Link>
+      			</div>
 						{/* Add more navigation links as needed */}
 					</ul>
 				)}
