@@ -8,12 +8,20 @@ import {Menu} from '@headlessui/react'
 import { IoIosArrowDown } from "react-icons/io"
 
 const Header = () => {
+
+	const [submenuOpen, setSubmenuOpen] = useState(false);
+
+	const toggleSubmenu = () => {
+		setSubmenuOpen(!submenuOpen);
+	  };
+
 	const [isOpen, setIsOpen] = useState(false)
 
 	const toggleMenu = () => {
 		setIsOpen(!isOpen)
 	}
-
+	
+	
 	return (
 		//Parent Container
 		<div className="h-full">
@@ -83,78 +91,69 @@ const Header = () => {
 								</Link>
 						</div>
 
-						<div className="mt-8  flex h-8 ml-10 text-3xl">
-							{/* nested dropdown for mobile */}
-							<div className="">
-								<Menu as="div" className="relative w-full">
-									<Menu.Button className="inline-flex justify-center text-white">
-										Listen{' '}
-										<IoIosArrowDown
-											size={24}
-											className="ml-1 mt-2 md:ml-3"
-										/>
-									</Menu.Button>
-									<Menu.Items className="absolute pr-5 bg-neutral-800 bg-opacity-95 focus:outline-none focus:ring-0">
-										<div className=" px-2 py-3  flex w-full text-nowrap text-white">
-											<Menu.Item>
-												<Link
-													href="https://apps.apple.com/us/app/wxyc-radio/id353182815"
-													target="_blank"
-												>
-													iPhone app
-												</Link>
-											</Menu.Item>
-										</div>
-										<div className="px-2 py-3 flex w-full text-nowrap text-white">
-											<Menu.Item>
-												<Link
-													href="https://audio-mp3.ibiblio.org/wxyc.mp3"
-													target="_blank"
-													legacyBehavior={false}
-												>
-													Streaming
-												</Link>
-											</Menu.Item>
-										</div>
-										<div className="px-2 py-3 flex w-full text-nowrap text-white">
-											<Menu.Item>
-												<Link
-													href="http://www.wxyc.info/playlists/recent.html"
-													target="_blank"
-													legacyBehavior={false}
-												>
-													Live playlist
-												</Link>
-												{/* <Link href="/playlist" legacyBehavior={false}>
-                          <a onClick={toggleMenu}>Live playlist</a>
-                        </Link> */}
-											</Menu.Item>
-										</div>
-										<div className="px-2 py-3 flex w-full text-nowrap text-white">
-											<Menu.Item>
-												<Link
-													href="https://open.spotify.com/user/wxyc"
-													target="_blank"
-												>
-													Spotify
-												</Link>
-											</Menu.Item>
-										</div>
-									</Menu.Items>
-								</Menu>
-							</div>
-						</div>
+						<div className="flex flex-col ml-10 text-3xl">
+        {/* Nested dropdown for mobile */}
+        <div className="w-full">
+          <Menu as="div" className="relative w-full">
+            <Menu.Button
+              onClick={toggleSubmenu}
+              className="inline-flex justify-center text-white"
+            >
+              Listen
+              <IoIosArrowDown size={24} className="ml-1 mt-2 md:ml-3" />
+            </Menu.Button>
 
-						<div className="mt-8 flex h-8 ml-10 text-3xl">
-								<Link
-									href="https://merch.wxyc.org/"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="text-xl text-white no-underline md:text-3xl"
-								>
-									Merch
-								</Link>
-						</div>
+            {/* Submenu starts here */}
+            <div
+              className={`transition-all duration-300 ease-in-out overflow-hidden bg-neutral-800 bg-opacity-95 focus:outline-none focus:ring-0 ${
+                submenuOpen ? 'max-h-[400px]' : 'max-h-0'
+              }`}
+            >
+              <div className="px-2 py-3 flex w-full text-nowrap text-white">
+                <Menu.Item>
+                  <Link href="https://apps.apple.com/us/app/wxyc-radio/id353182815" target="_blank">
+                    iPhone app
+                  </Link>
+                </Menu.Item>
+              </div>
+              <div className="px-2 py-3 flex w-full text-nowrap text-white">
+                <Menu.Item>
+                  <Link href="https://audio-mp3.ibiblio.org/wxyc.mp3" target="_blank">
+                    Streaming
+                  </Link>
+                </Menu.Item>
+              </div>
+              <div className="px-2 py-3 flex w-full text-nowrap text-white">
+                <Menu.Item>
+                  <Link href="http://www.wxyc.info/playlists/recent.html" target="_blank">
+                    Live playlist
+                  </Link>
+                </Menu.Item>
+              </div>
+              <div className="px-2 py-3 flex w-full text-nowrap text-white">
+                <Menu.Item>
+                  <Link href="https://open.spotify.com/user/wxyc" target="_blank">
+                    Spotify
+                  </Link>
+                </Menu.Item>
+              </div>
+            </div>
+            {/* Submenu ends here */}
+          </Menu>
+        </div>
+      </div>
+
+      {/* Additional Menu Items */}
+      <div className="mt-8 flex h-8 ml-10 text-3xl">
+        <Link
+          href="https://merch.wxyc.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xl text-white no-underline md:text-3xl"
+        >
+          Merch
+        </Link>
+      </div>
 						{/* Add more navigation links as needed */}
 					</ul>
 				)}
