@@ -9,18 +9,6 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io"
 
 const Header = () => {
 
-	const [submenuOpen, setSubmenuOpen] = useState(false);
-
-	const toggleSubmenu = () => {
-		setSubmenuOpen(!submenuOpen);
-	  };
-
-	const [isOpen, setIsOpen] = useState(false)
-
-	const toggleMenu = () => {
-		setIsOpen(!isOpen)
-	}
-	
 	useEffect(() => {
 		if (isOpen) {
 		  // Add a class to the body to prevent scrolling
@@ -34,6 +22,20 @@ const Header = () => {
 		  document.body.style.overflow = "auto"; // Always restore scroll when the component is removed
 		};
 	  }, [isOpen]); // This will run every time `isOpen` changes
+
+	const [submenuOpen, setSubmenuOpen] = useState(false);
+
+	const toggleSubmenu = () => {
+		setSubmenuOpen(!submenuOpen);
+	  };
+
+	const [isOpen, setIsOpen] = useState(false)
+
+	const toggleMenu = () => {
+		setIsOpen(!isOpen)
+	}
+	
+	
 	
 	return (
 		//Parent Container
@@ -59,18 +61,17 @@ const Header = () => {
           
 		  		<Menu as="div" className="relative w-full">
 				
-            	<Menu.Button
-              		onClick={toggleSubmenu}
-              		className="mt-16 flex h-8 ml-10 text-3xl"
-            	>
-              		Listen
-					  {isOpen ? (
-						<IoIosArrowDown size={24} className="ml-1 mt-2 md:ml-3"/>
-					) : (
-						<IoIosArrowUp size={24} className="ml-1 mt-2 md:ml-3" />
-					)}
-              		
-    			</Menu.Button>
+				  <Menu.Button
+  					onClick={toggleSubmenu}
+  					className="mt-16 flex h-8 ml-10 text-3xl"
+					>
+  					Listen
+  					{submenuOpen ? (  
+   					 <IoIosArrowUp size={24} className="ml-1 mt-2 md:ml-3" />
+  					) : (
+    				<IoIosArrowDown size={24} className="ml-1 mt-2 md:ml-3" />
+  					)}
+				</Menu.Button>
 
             	{/* Submenu starts here */}
            		 <div
@@ -78,6 +79,7 @@ const Header = () => {
                 	submenuOpen ? 'max-h-[400px]' : 'max-h-0'
              	 }`}
            		 >
+					
              	<div className="mb-2 flex w-full text-nowrap text-white">
                 	<Menu.Item>
                   		<Link href="https://apps.apple.com/us/app/wxyc-radio/id353182815" target="_blank">
@@ -120,6 +122,7 @@ const Header = () => {
           							onClick={toggleMenu}
 								>
 									About
+									
 								</Link>
 						</div>
 
