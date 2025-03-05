@@ -9,19 +9,6 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io"
 
 const Header = () => {
 
-	useEffect(() => {
-		if (isOpen) {
-		  // Add a class to the body to prevent scrolling
-		  document.body.style.overflow = "hidden"; // Disable scrolling on body
-		} else {
-		  document.body.style.overflow = "auto"; // Enable scrolling when menu is closed
-		}
-	
-		// Cleanup: reset when the component is unmounted or menu is closed
-		return () => {
-		  document.body.style.overflow = "auto"; // Always restore scroll when the component is removed
-		};
-	  }, [isOpen]); // This will run every time `isOpen` changes
 
 	const [submenuOpen, setSubmenuOpen] = useState(false);
 
