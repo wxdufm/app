@@ -104,7 +104,6 @@ const Header = () => {
 								<Link
 									href="/about" legacyBehavior={false}
 									className="cursor-pointer"
-          							target="_blank"
           							rel="noopener noreferrer"
           							onClick={toggleMenu}
 								>
@@ -117,7 +116,6 @@ const Header = () => {
 								<Link
 									href="/programming" legacyBehavior={false}
 									className="cursor-pointer"
-          							target="_blank"
           							rel="noopener noreferrer"
           							onClick={toggleMenu}
 								>
@@ -129,7 +127,6 @@ const Header = () => {
 								<Link
 									href="/archive" legacyBehavior={false}
 									className="cursor-pointer"
-          							target="_blank"
           							rel="noopener noreferrer"
           							onClick={toggleMenu}
 								>
@@ -141,7 +138,6 @@ const Header = () => {
 								<Link
 									href="/blog" legacyBehavior={false}
 									className="cursor-pointer"
-          							target="_blank"
           							rel="noopener noreferrer"
           							onClick={toggleMenu}
 								>
@@ -153,7 +149,6 @@ const Header = () => {
 								<Link
 									href="/contact" legacyBehavior={false}
 									className="cursor-pointer"
-          							target="_blank"
           							rel="noopener noreferrer"
           							onClick={toggleMenu}
 								>
