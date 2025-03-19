@@ -6,29 +6,38 @@ const Privacy = () => {
 				<h1 className="font-kallisto text-5xl font-normal text-white">
 					Privacy Policy
 				</h1>
+				<p className="text-white">Last updated: March 18, 2025</p>
 				<h2 className="text-white">1. Introduction</h2>
 				<p>
 					WXYC is dedicated to respecting the privacy of our listeners. This
-					Privacy Policy explains the data practices of our Android and iOS
-					apps.
+					Privacy Policy explains the data practices of our website, Android
+					app, and iOS app.
 				</p>
 
 				<h2 className="text-white">2. Information Collection</h2>
 				<p>
-					Our app does not require users to log in and does not collect any
-					personal data or usage logs from its users.
+					Our website, Android app, and iOS app collect anonymous analytics data
+					to help us understand performance and usage trends. This data does not
+					include personally identifiable information.
 				</p>
 
 				<h2 className="text-white">3. Data Usage</h2>
 				<p>
-					As we do not collect any personal data, there is no usage of data for
-					any purposes including marketing, advertising, or analytics.
+					The anonymous analytics data we collect is used solely for improving
+					our services, including app performance and user experience. No
+					personally identifiable information is collected or used for marketing
+					or advertising.
 				</p>
 
 				<h2 className="text-white">4. Third-Party Services</h2>
 				<p>
-					Our app does not share any data with third-party services as no
-					personal data is collected.
+					We use{' '}
+					<a href="https://posthog.com/" className="text-white">
+						PostHog
+					</a>{' '}
+					to collect and analyze anonymous analytics data. No personally
+					identifiable information is shared with PostHog or any other third
+					parties.
 				</p>
 
 				<h2 className="text-white">5. Changes to This Privacy Policy</h2>
