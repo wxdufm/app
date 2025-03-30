@@ -7,7 +7,7 @@ categories:
 published: 2025-03-29T04:00:00.000Z
 description: >-
   Bright Eyes, throughout the night, connected us and shared their passion for
-  music. To share the emotions of loss and grief but also of happiness and love
+  music. To share the emotions of loss and grief but also of happiness and love.
 ---
 
 On a night in Richmond, Virginia, the band Bright Eyes took the stage at the National, showing the emotional rawness the band has been creating for many years. Connor Obsert, Bright Eye's frontman, made it clear that this was more than just a performance but a journey together, braving the night with sounds encompassing their entire discography. It was my first time seeing the band live, and it met my expectations—exceeding them even more. The atmosphere of the audience only added to the experience as every lyric was sung from the heart of many.
