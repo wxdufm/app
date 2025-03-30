@@ -2,6 +2,8 @@
 title: Bright Eyes with DJ Blue Dog
 author: 'Julian Swart aka DJ Blue Dog '
 cover: /uploads/Bright Eyes.png
+categories:
+  - category: content/category/show-review.md
 published: 2025-03-29T04:00:00.000Z
 description: >-
   Bright Eyes, throughout the night, connected us and shared their passion for
