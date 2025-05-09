@@ -3,6 +3,7 @@ title: WXYC is Hiring for Summer 2025!
 cover: /uploads/Fresh & Out of the Ordinary..png
 categories:
   - category: content/category/event.md
+published: 2025-05-09T04:00:00.000Z
 description: WXYC is hiring new DJs for Summer 2025. You can apply to be a DJ too.
 ---
 
@@ -16,6 +17,6 @@ Submit your application prior to interview.
 
 Applications for Summer ‘25 are live!
 
-Link to application:
+Link to application: [https://docs.google.com/forms/d/e/1FAIpQLSciiUIKDS3PlWfjmDGdr5Pf72NbrD7CGwp\_OhGNmXzuxJwI4A/viewform?usp=dialog](https://docs.google.com/forms/d/e/1FAIpQLSciiUIKDS3PlWfjmDGdr5Pf72NbrD7CGwp_OhGNmXzuxJwI4A/viewform?usp=dialog)
 
-Link to interview signup:
+Link to interview signup: [https://www.signupgenius.com/go/10C054EADAD28A0FACF8-56814397-wxyc](https://www.signupgenius.com/go/10C054EADAD28A0FACF8-56814397-wxyc)
