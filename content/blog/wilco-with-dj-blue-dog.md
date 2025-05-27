@@ -2,6 +2,8 @@
 title: Wilco with DJ Blue Dog
 author: Julian Swart aka DJ Blue Dog
 cover: /uploads/Wilco Review.png
+categories:
+  - category: content/category/show-review.md
 published: 2025-05-27T04:00:00.000Z
 description: An evening with Wilco (The Chicago Guitar Gods)
 ---
