@@ -5,7 +5,7 @@ cover: /uploads/Wilco Review.png
 categories:
   - category: content/category/show-review.md
 published: 2025-05-27T04:00:00.000Z
-description: An evening with Wilco (The Chicago Guitar Gods)
+description: An Evening with Wilco (The Chicago Guitar Gods)
 ---
 
 As dusk settled over the Live Oak Bank Pavilion, anticipation rose. Tonight Wilco would be taking the stage, performing a testament to their enduring artistry. But before the main act, the opener, Waxatachee, took the stage. Waxahatchee comes from Birmingham, Alabama and her music is primarily alternative-country. Waxahatchee played fan favorites like “Right Back to It” and “Much Ado About Nothing”. These songs brought the crowd in harmony, setting the mood for the night. A night to be full of singing, dancing, and fun for all ages to witness Wilco.
@@ -16,10 +16,10 @@ For anyone who isn’t familiar with Wilco (Or what my dad calls “Chicago Guit
 
 Wilco has encapsulated generations of music lovers and continues to do so with over a 30-year-long journey. It seems like the band has no signs of slowing down and will continue to create the masterpieces that they do. If you ever have the opportunity, make sure to give them a listen and even try to snag a ticket for their tour.
 
-Setlist:
+**Setlist:**
 
 Company in My Back, Evicted, Handshake Drugs, If I Ever Was a Child, Meant to Be, I Am Trying to Break Your Heart, Say You Miss Me, War on War, Quiet Amplifier, You Are My Face, Whole Love, Box Full of Letters, Annihilation, Hummingbird, Bird Without a Tail / Base of My Skull, Via Chicago, Either Way, Impossible Germany, Jesus, Etc., Theologians, I'm the Man Who Loves You
 
-Encore:
+**Encore:**
 
 California Stars (Billy Bragg & Wilco song), Falling Apart (Right Now), Walken, I Got You (At the End of the Century)
