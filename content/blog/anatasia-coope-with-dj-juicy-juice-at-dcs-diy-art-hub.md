@@ -6,9 +6,8 @@ categories:
   - category: content/category/artist-interview.md
 published: 2025-07-16T04:00:00.000Z
 description: >-
-  WXYC's DJ Juicy Juice spoke with Anatasia Coope, New York based experimental
-  singer-songwriter, before her show at DC's house turned DIY music venue,
-  Rhizome.
+  WXYC's DJ Juicy Juice spoke with Anatasia Coope, New York based freak folk
+  musician, before her show at DC's house turned DIY music venue, Rhizome.
 ---
 
 How can a singular person, in their own right, be so incredible? It’s a question Anastasia Coope’s best friend, Mat, asks of her, and a question that I beg when thinking of the artist and visionary. We sing our praises for Anastasia over the merch counter (which also happens to be the kitchen counter) of Rhizome, an arts hub and house-turned-DIY venue nestled in DC’s Takoma Park. Outside, I have the chance to speak with Coope before her headlining performance. She’s been on a tour of the North East, presently with fellow artist Colle, whose performance tonight was utterly captivating, and previously with rising act Lottie’s. Braving the heat and incessant mosquitoes, we discuss musical processes and girl groups in between our conversation about Coope’s music in the past, present, and future. Here is an abridged transcript of our conversation.
@@ -57,7 +56,7 @@ AC: Yeah. 
 
 KG: I was gonna say, “Return to Room” felt like the perfect ending (to Darning Woman), and I was really happy with the placement of the track. I resonate with the line “I will sleep one more time / Next to who I hurt in younger years”. It also felt like a contemplative track, leaving a lot of questions unanswered. Going along with that, are you going to carry on the themes and sounds of Darning Woman into your next release? 
 
-AC: There are some things that I haven’t shaken. I’ll obviously be using vocal layering and the voice a lot, because that’s just the way I think. 
+AC: There are some things that I haven’t shaken. I’ll obviously be using vocal layering and the voice a lot, because that’s just the way I think.
 
 \*brief intermission for a mosquito attack\* 
 
