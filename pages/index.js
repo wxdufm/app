@@ -21,7 +21,7 @@ export default function Home(props) {
 				<div className="-mt-5 flex w-full flex-col justify-center md:-mt-10 md:mr-10 lg:mt-5">
 					
 					{/* Audio player on mobile site */}
-					<div className="mb-20 flex justify-center lg:hidden border-2"> 
+					<div className="mb-20 flex justify-center lg:hidden"> 
 						<AudioPlayerStream />
 						{/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] overflow-hidden mb-12 mt-16"/> */}
 					</div>
