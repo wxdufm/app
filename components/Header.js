@@ -31,9 +31,10 @@ const Header = () => {
 
 
 			{/* MOBILE NAVBAR STARTS HERE */}
-			<div className="fixed top-0 z-50 flex h-16 w-full bg-black md:h-24 lg:hidden ">
+			<div className="fixed top-0 z-50 flex flex-col h-16 w-full bg-neutral-900 lg:hidden ">
+			<div className="flex flex-row justify-between">
 				{/* Hamburger icon */}
-				<button onClick={toggleMenu} className="hamburger-icon h-full">
+				<button onClick={toggleMenu} className="hamburger-icon h-full transition-all duration-450 ease-in-out">
 					{isOpen ? (
 						<AiOutlineClose size={32} className="ml-4 mt-1 md:ml-6" />
 					) : (
@@ -41,12 +42,16 @@ const Header = () => {
 					)}
 				</button>
 				
+				<div className="mr-3 my-auto">
 				<AudioPlayerStream />
+				</div>
+				</div>
+			
 				{/* Collapsible menu for mobile*/}
 				{isOpen && (
-					<ul className="overflow-y-auto -ml-12 mt-16 flex h-screen w-screen flex-col justify-start bg-neutral-900 bg-opacity-95 md:mt-24 md:gap-6">
+					<ul className="h-screen w-screen flex-col justify-start bg-neutral-900 md:gap-6 transition-all duration-450 ease-in-out">
 
-					<div className="w-full ">
+			<div className="w-full">
           
 		  		<Menu as="div" className="relative w-full">
 				
@@ -63,7 +68,7 @@ const Header = () => {
 				</Menu.Button>
 
             	{/* Submenu starts here */}
-           		 <div
+           	 <div
              		 className={`text-2xl my-5 md:text-3xl ml-14 transition-all duration-450 ease-in-out overflow-hidden focus:outline-none focus:ring-0 ${
                 	submenuOpen ? 'max-h-[400px]' : 'max-h-0'
              	 }`}
@@ -160,7 +165,7 @@ const Header = () => {
 
 		
 
-      					<div className="mt-8 flex h-8 ml-10 text-3xl">
+      					<div className="mt-8 flex h-8 ml-10 mb-10 text-3xl">
        							 <Link
          							href="https://merch.wxyc.org/"
 									className="cursor-pointer"
@@ -176,9 +181,33 @@ const Header = () => {
 				)}
 			</div>
 
-			{/* Makes the mobile header overlap the rest of the header content */}
+			{/* Makes the mobile navbar overlap the rest of the header content */}
 			<div className="relative z-20">
-			{/* END MOBILE HEADER */}
+			{/* END MOBILE NAVBAR */}
+
+			{/* WXYC logo in mobile header */}
+
+			<div className="mx-auto lg:hidden flex w-5/6 flex-col items-start justify-center pt-10 md:mb-10 md:pt-2 ">
+					<Link href="/">
+						{/* Header text parent container */}
+						<div className="mb-20 lg:mb-5 flex  w-full cursor-pointer flex-col items-center justify-center pt-20 md:flex-row md:items-end md:pt-20 lg:pt-1">
+							{/* Actual header text */}
+							<div className="flex w-full flex-col items-center justify-center md:w-3/4 md:pt-20 lg:w-2/5 lg:pt-1">
+								<Image src={photo} alt="Picture of the author" priority />
+								<h1 className=" kallistobold m-0 mx-auto text-6xl font-bold text-white no-underline">
+									89.3FM
+								</h1>
+								<div className="mt-2">
+									<h3 className="poppins mx-auto w-full text-center text-base md:mx-0  md:text-xl lg:text-base">
+										UNC-Chapel Hill&apos;s student-run, freeform radio station
+									</h3>
+								</div>
+							</div>
+						</div>
+					</Link>
+
+					
+				</div>
 		
 				{/* Parent container of web navbar */}
 				<div className="w-full lg:flex hidden mb-1">
@@ -254,7 +283,7 @@ const Header = () => {
 							<a href="https://merch.wxyc.org/" className="flex h-12 grow items-center justify-center ">
 								
 									<a
-										className="text-base text-white hover:text-blue-300 no-underline"
+										className="text-base text-white hover:text-blue-300 no-underline "
 									>
 										Merch
 									</a>

@@ -20,7 +20,7 @@ export default function Home(props) {
 			</div>
 
 			{/* Header with WXYC logo lives here */}
-			<div className="mx-auto flex w-5/6 flex-col items-start justify-center pt-10 md:mb-10 md:pt-2 ">
+			<div className="mx-auto lg:flex hidden w-5/6 flex-col items-start justify-center pt-10 md:mb-10 md:pt-2 ">
 					<Link href="/">
 						{/* Header text parent container */}
 						<div className="mb-20 lg:mb-5 flex  w-full cursor-pointer flex-col items-center justify-center pt-20 md:flex-row md:items-end md:pt-20 lg:pt-1">
