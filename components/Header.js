@@ -184,13 +184,20 @@ const Header = () => {
 						{/* Actual navbar */}
 						<div className="flex h-14 w-full flex-row justify-between bg-black px-1 ">
 						
-						<Link href="/">
-						<div className="flex h-10 ml-10 w-28 my-auto cursor-pointer"> 
-						<Image src={photo} />
+						{/* Logo and player*/}
+						<div className="flex flex-row my-auto">
+							<Link href="/">
+								<div className="flex h-10 ml-10 w-28 my-auto cursor-pointer"> 
+									<Image src={photo} />
+								</div>
+							</Link>
+						
+								<div className="ml-5">
+									<AudioPlayerStream />
+								</div>
 						</div>
-						</Link>
-						
-						
+
+						{/* Links*/}
 						<div className="flex flex-row w-1/2 my-auto">
 						<Link href="/about">
 							<a className="flex h-12 grow items-center justify-center">

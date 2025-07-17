@@ -21,7 +21,7 @@ const AudioPlayerStream = () => {
 	}
 
 	return (
-		<div className="flex h-24 max-w-sm items-center justify-center">
+		<div className="flex h-16 max-w-sm items-center justify-center">
 			<div className="flex flex-row">
 				<audio
 					ref={audioPlayer}
@@ -32,14 +32,14 @@ const AudioPlayerStream = () => {
 					onClick={togglePlayPause}
 				>
 					{isPlaying ? (
-						<FaPause size={36} />
+						<FaPause size={24} />
 					) : (
-						<FaPlay size={36} className="relative pl-0.5" />
+						<FaPlay size={24} className="relative pl-0.5" />
 					)}
 				</button>
 
 				{/* render moving waves vs still waves based on playing state */}
-				<div className="w-54">
+				<div className="w-48">
 					{isPlaying && (
 						<div className="pt-0.5">
 							<Image src={soundwaves} />
