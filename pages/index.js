@@ -1,9 +1,7 @@
 import {client} from '../tina/__generated__/client'
 import PhotoGallery from '../components/homepage/PhotoGallery'
 import ArchiveCarousel from '../components/homepage/ArchiveCarousel'
-import BlogCarouselCropped from '../components/homepage/BlogCarouselCropped'
 import BlogCarouselFull from '../components/homepage/BlogCarouselFull'
-import AudioPlayerStream from '../components/audioplayers/AudioPlayerStream'
 import HomepageBanner from '../components/HomepageBanner'
 
 // home page
@@ -24,7 +22,7 @@ export default function Home(props) {
 
 					{/* if no events: just blog posts + player */}
 					{events.length === 0 && posts && (
-						<BlogCarouselCropped posts={posts} />
+						<BlogCarouselFull posts={posts} />
 					)}
 
 					{/* if yes events: events + player */}
