@@ -29,7 +29,7 @@ const Header = () => {
 		<div className="h-full">
 
 
-			{/* MOBILE HEADER STARTS HERE */}
+			{/* MOBILE NAVBAR STARTS HERE */}
 			<div className="fixed top-0 z-50 flex h-16 w-full bg-gradient-to-b from-neutral-600 to-neutral-900 md:h-24 lg:hidden ">
 				{/* Hamburger icon */}
 				<button onClick={toggleMenu} className="hamburger-icon h-full">
@@ -180,7 +180,7 @@ const Header = () => {
 		
 
 				
-				{/* DESKTOP HEADER STARTS HERE */}
+				{/* Header with WXYC logo lives here */}
 				<div className="mx-auto flex w-5/6 flex-col items-start justify-center pt-10 md:mb-10 md:pt-2 ">
 					<Link href="/">
 						{/* Header text parent container */}
