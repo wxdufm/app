@@ -179,7 +179,82 @@ const Header = () => {
 			<div className="relative z-20">
 			{/* END MOBILE HEADER */}
 		
+				{/* Parent container of web navbar */}
+				<div className="w-full lg:flex hidden mb-1">
+						{/* Actual navbar */}
+						<div className="flex h-14 w-full flex-row justify-between bg-black px-1 ">
+						
+						<Link href="/">
+						<div className="flex h-10 ml-10 w-28 my-auto cursor-pointer"> 
+						<Image src={photo} />
+						</div>
+						</Link>
+						
+						
+						<div className="flex flex-row w-1/2 my-auto">
+						<Link href="/about">
+							<a className="flex h-12 grow items-center justify-center">
+									<p className="cursor-pointer text-base text-white hover:text-blue-300 no-underline">
+										About
+									</p>
+							</a>
+							</Link>
 
+							<Link href="/programming">
+							<a className="flex h-12 grow items-center justify-center">
+							
+									<p className="cursor-pointer text-base text-white hover:text-blue-300 no-underline">
+										Programming
+									</p>
+							
+							</a>
+							</Link>
+
+							<Link href="/archive" >
+							<a className="flex h-12 grow items-center justify-center">
+							
+									<p className="cursor-pointer text-base text-white hover:text-blue-300 no-underline">
+										Archive
+									</p>
+							</a>
+							</Link>
+
+
+							<Link href="/blog">
+							<a  className="flex h-12 grow items-center justify-center ">
+							
+									<p className="cursor-pointer text-base hover:text-blue-300 no-underline">
+										Blog
+									</p>
+							</a>
+							</Link>
+
+							<Link href="/contact" >
+							<a className="flex h-12 grow items-center justify-center ">
+							
+									<p className="cursor-pointer text-base hover:text-blue-300 no-underline">
+										Contact
+									</p>
+							</a>
+							</Link>
+
+							<div className="flex h-12 grow items-center justify-center ">
+								<DropdownMenu />
+							</div>
+
+							<Link href="https://merch.wxyc.org/">
+							<a href="https://merch.wxyc.org/" className="flex h-12 grow items-center justify-center ">
+								
+									<a
+										className="text-base text-white hover:text-blue-300 no-underline"
+									>
+										Merch
+									</a>
+								</a>
+							</Link>
+							</div>
+						</div>
+					</div>
 				
 				{/* Header with WXYC logo lives here */}
 				<div className="mx-auto flex w-5/6 flex-col items-start justify-center pt-10 md:mb-10 md:pt-2 ">
@@ -201,73 +276,7 @@ const Header = () => {
 						</div>
 					</Link>
 
-					{/* Parent container of web navbar */}
-					<div className="w-full justify-center ">
-						{/* Actual navbar */}
-						<div className="invisible flex h-12 w-full flex-row items-center justify-around bg-gradient-to-b from-neutral-100 to-neutral-300 py-3 lg:visible">
-							
-						<Link href="/about">
-							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-									<p className="cursor-pointer text-base text-black no-underline">
-										About
-									</p>
-							</a>
-							</Link>
-
-							<Link href="/programming">
-							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							
-									<p className="cursor-pointer text-base text-black no-underline">
-										Programming
-									</p>
-							
-							</a>
-							</Link>
-
-							<Link href="/archive" >
-							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							
-									<p className="cursor-pointer text-base text-black no-underline">
-										Archive
-									</p>
-							</a>
-							</Link>
-
-
-							<Link href="/blog">
-							<a  className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							
-									<p className="cursor-pointer text-base text-black no-underline">
-										Blog
-									</p>
-							</a>
-							</Link>
-
-							<Link href="/contact" >
-							<a className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-							
-									<p className="cursor-pointer text-base text-black no-underline">
-										Contact
-									</p>
-							</a>
-							</Link>
-
-							<div className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								<DropdownMenu />
-							</div>
-
-							<Link href="https://merch.wxyc.org/">
-							<a href="https://merch.wxyc.org/" className="flex h-12 grow items-center justify-center hover:bg-neutral-300 ">
-								
-									<a
-										className="text-base text-black no-underline"
-									>
-										Merch
-									</a>
-								</a>
-							</Link>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
