@@ -210,7 +210,7 @@ const Header = () => {
 				</div>
 		
 				{/* Parent container of web navbar */}
-				<div className="w-full lg:flex hidden mb-1">
+				<div className="w-full lg:flex hidden mb-20">
 						{/* Actual navbar */}
 						<div className="flex h-14 w-full flex-row justify-between bg-black px-1 ">
 						
