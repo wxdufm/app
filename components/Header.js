@@ -3,6 +3,7 @@ import Link from 'next/link'
 import DropdownMenu from './DropdownMenu'
 import photo from '../images/logo.png'
 import Image from 'next/image'
+import AudioPlayerStream from '../components/audioplayers/AudioPlayerStream'
 import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
 import {Menu} from '@headlessui/react'
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io"
