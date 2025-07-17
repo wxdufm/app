@@ -14,6 +14,7 @@ export default function Home(props) {
 	return (
 		<div>
 			<div>
+				{/* HomepageBanner is a component for adding a closeable banner announcement to the homepage. Toggle on or off in Components > HomepageBanner.js */}
 				<HomepageBanner />
 			</div>
 
