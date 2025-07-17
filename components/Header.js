@@ -31,7 +31,7 @@ const Header = () => {
 
 
 			{/* MOBILE NAVBAR STARTS HERE */}
-			<div className="fixed top-0 z-50 flex h-16 w-full bg-gradient-to-b from-neutral-600 to-neutral-900 md:h-24 lg:hidden ">
+			<div className="fixed top-0 z-50 flex h-16 w-full bg-neutral-900 md:h-24 lg:hidden ">
 				{/* Hamburger icon */}
 				<button onClick={toggleMenu} className="hamburger-icon h-full">
 					{isOpen ? (
