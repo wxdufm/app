@@ -39,7 +39,7 @@ const AudioPlayerStream = () => {
 				</button>
 
 				{/* render moving waves vs still waves based on playing state */}
-				<div className="w-48">
+				<div className="lg:w-48 md:w-60 w-36">
 					{isPlaying && (
 						<div className="pt-0.5">
 							<Image src={soundwaves} />

@@ -31,7 +31,7 @@ const Header = () => {
 
 
 			{/* MOBILE NAVBAR STARTS HERE */}
-			<div className="fixed top-0 z-50 flex h-16 w-full bg-neutral-900 md:h-24 lg:hidden ">
+			<div className="fixed top-0 z-50 flex h-16 w-full bg-black md:h-24 lg:hidden ">
 				{/* Hamburger icon */}
 				<button onClick={toggleMenu} className="hamburger-icon h-full">
 					{isOpen ? (
@@ -41,6 +41,7 @@ const Header = () => {
 					)}
 				</button>
 				
+				<AudioPlayerStream />
 				{/* Collapsible menu for mobile*/}
 				{isOpen && (
 					<ul className="overflow-y-auto -ml-12 mt-16 flex h-screen w-screen flex-col justify-start bg-neutral-900 bg-opacity-95 md:mt-24 md:gap-6">
