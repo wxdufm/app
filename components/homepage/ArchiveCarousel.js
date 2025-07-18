@@ -8,7 +8,7 @@ const ArchiveCarousel = (props) => {
 			{/* Div below is container for entire archive section, including audio player and PSA button on desktop */}
 			<div className="flex w-full flex-col lg:flex-row">
 			   {/* Div below is container for archive carousel only on desktop */}
-				<div className="-mt-5 flex flex-col justify-center md:-mt-10 md:mr-10 lg:mt-5 lg:w-4/6 lg:max-w-screen-lg">
+				<div className="-mt-5 flex flex-col justify-center md:-mt-10 md:mr-10 lg:mt-5 lg:w-full lg:max-w-screen-lg">
 					<p className="kallisto mx-auto mb-2 whitespace-nowrap text-3xl text-white md:mx-0 md:mb-4 lg:text-5xl">
 						This Week on WXYC
 					</p>
@@ -41,27 +41,7 @@ const ArchiveCarousel = (props) => {
 					</div>
 				</div>
 
-				{/* Desktop audio player and "Submit a PSA button" lives here, formatted with the Archive section of the homepage. Mobile player is in index.js. */}
-				<div className="ml-0 mr-3 mt-12 hidden items-start px-3 lg:flex lg:flex-col"> 
-					<p className="kallisto text-left text-3xl">Listen Live</p>
-					{/* <iframe src={`https://dj.wxyc.org/#/NowPlaying?theme=dark`} className="border-0 w-full h-[17.6rem] mt-5 mb-12 flex items-center overflow-hidden"/> */}
-					
-					{/* Player itself */}
-					<div className="pt-7">
-						<AudioPlayerStream />
-					</div>
-
-					{/* "Submit a PSA button" */}
-					<div className="flex w-full justify-center"> 
-						<div className="mx-auto mt-10 flex h-16 w-3/6 flex-col items-center justify-center rounded-3xl bg-gradient-to-b from-neutral-200 to-neutral-400 text-xl text-black hover:text-neutral-700 lg:mx-0 ">
-							<div>
-								<Link href="mailto:psa@wxyc.org" scroll={false}>
-									Submit a PSA!
-								</Link>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 
 		   {/* Link to /archive on desktop */}
