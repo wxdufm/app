@@ -5,10 +5,8 @@ import EventPreview from '../EventPreview'
 const ArchiveCarousel = (props) => {
 	return (
 		<div>
-			{/* Div below is container for entire archive section, including audio player and PSA button on desktop */}
-			<div className="flex w-full flex-col lg:flex-row">
 			   {/* Div below is container for archive carousel only on desktop */}
-				<div className="-mt-5 flex flex-col justify-center md:-mt-10 md:mr-10 lg:mt-5 lg:w-full lg:max-w-screen-lg">
+				<div className="-mt-5 flex flex-col md:-mt-10 md:mr-10 lg:mt-5 lg:w-full lg:max-w-screen-xl">
 					<p className="kallisto mx-auto mb-2 whitespace-nowrap text-3xl text-white md:mx-0 md:mb-4 lg:text-5xl">
 						This Week on WXYC
 					</p>
@@ -42,7 +40,7 @@ const ArchiveCarousel = (props) => {
 				</div>
 
 				
-			</div>
+			
 
 		   {/* Link to /archive on desktop */}
 			<div className="w-1/8 mx-auto mb-16 hidden bg-neutral-800 px-3 py-2 md:mx-0 md:ml-auto md:flex md:h-full md:w-full md:items-start md:justify-start md:bg-transparent md:px-0 md:py-0">
