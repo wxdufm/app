@@ -90,7 +90,7 @@ const Header = () => {
               </div>
               <div className="mb-2 flex w-full text-nowrap text-white">
                 	<Menu.Item>
-                  		<Link href="http://www.wxyc.info/playlists/recent.html" target="_blank">
+                  		<Link href="http://www.wxyc.info/playlists/recent" target="_blank">
                     	Live playlist
                   		</Link>
                 	</Menu.Item>

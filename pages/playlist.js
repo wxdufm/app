@@ -32,7 +32,7 @@ const MyTable = () => {
 
 	return (
 		<div className="flex justify-center align-middle">
-			{/* <a href="http://www.wxyc.info/playlists/recent.html" className='underline'>Live playlist</a> */}
+			{/* <a href="http://www.wxyc.info/playlists/recent" className='underline'>Live playlist</a> */}
 
 			{/* <div className="sm:mx-auto sm:w-5/6 overflow-auto pb-10"> 
       <p className="text-5xl mb-2 kallisto">Live Playlist</p>
