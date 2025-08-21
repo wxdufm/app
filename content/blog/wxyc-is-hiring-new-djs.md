@@ -3,6 +3,7 @@ title: WXYC is Hiring New DJs Fall 2025
 cover: /uploads/wxycfallflyerpng.png
 categories:
   - category: content/category/event.md
+published: 2025-08-21T04:00:00.000Z
 description: We're hiring! No experience necessary!
 ---
 
