@@ -22,7 +22,7 @@ const AudioPlayerStream = () => {
 
 	return (
 		<div className="flex h-16 max-w-sm items-center justify-center">
-			<div className="flex flex-row">
+			<div className="flex flex-row  items-center">
 				<audio
 					ref={audioPlayer}
 					src="https://audio-mp3.ibiblio.org/wxyc.mp3"
@@ -39,7 +39,7 @@ const AudioPlayerStream = () => {
 				</button>
 
 				{/* render moving waves vs still waves based on playing state */}
-				<div className="lg:w-48 md:w-60 w-36">
+				<div className="w-36 md:w-60 lg:w-48">
 					{isPlaying && (
 						<div className="pt-0.5">
 							<Image src={soundwaves} />
