@@ -4,8 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "tinacms dev -c \"next dev\"",
-        "check:env": "node -e \"console.log('TINA_CLIENT_ID?', !!process.env.NEXT_PUBLIC_TINA_CLIENT_ID, 'TINA_TOKEN?', !!process.env.TINA_TOKEN)\"",
-        "build": "npm run check:env && tinacms build && next build && next export",
+        "build": "tinacms build && next build && next export",
 		"start": "tinacms build && next start",
 		"lint": "next lint",
 		"check-format": "prettier --check .",
