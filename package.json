@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "tinacms dev -c \"next dev\"",
-		"build": "tinacms build && next build",
+		"build": "tinacms build && next build %% next export",
 		"start": "tinacms build && next start",
 		"lint": "next lint",
 		"check-format": "prettier --check .",
@@ -30,7 +30,7 @@
 	},
 	"devDependencies": {
 		"@tailwindcss/typography": "^0.5.9",
-		"@tinacms/cli": "1.5.51",
+		"@tinacms/cli": "^1.5.51",
 		"autoprefixer": "^10.4.14",
 		"eslint-config-prettier": "^9.1.0",
 		"postcss": "^8.4.24",
