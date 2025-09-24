@@ -81,7 +81,7 @@ const Header = () => {
 										<Menu.Item>
 											<Link
 												//href="https://audio-mp3.ibiblio.org/wxyc.mp3"
-												href="https://wxdu.art/stream" // TODO: will need to change this to wxdu.org
+												href="https://stream.wxdu.art/wxdu192.mp3" // TODO: will need to change this to wxdu.org
 												target="_blank"
 											>
 												Streaming
