@@ -25,7 +25,7 @@ const AudioPlayerStream = () => {
 			<div className="flex flex-row  items-center">
 				<audio
 					ref={audioPlayer}
-					src="http://152.3.0.231:8000/wxdu192.mp3"
+					src="https://wxdu.art/stream" // TODO: will need to change this wxdu.org when deployed
 				></audio>
 				<button
 					className="rounded-lg bg-transparent p-2 text-gray-200"
