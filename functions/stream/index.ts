@@ -1,6 +1,6 @@
 // functions/stream/index.js
 export const onRequest = async () => {
-  const origin = "http://152.3.0.231:8000/wxdu192.mp3"; // your Icecast/MP3 URL
+  const origin = "http://152.3.0.231:8000/wxdu192.mp3"; 
 
   // Fetch the origin stream; disable CF cache for live audio
   const resp = await fetch(origin, {
