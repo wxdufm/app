@@ -25,7 +25,7 @@ const AudioPlayerStream = () => {
 			<div className="flex flex-row  items-center">
 				<audio
 					ref={audioPlayer}
-					src="https://audio-mp3.ibiblio.org/wxyc.mp3"
+					src="http://152.3.0.231:8000/wxdu192.mp3"
 				></audio>
 				<button
 					className="rounded-lg bg-transparent p-2 text-gray-200"

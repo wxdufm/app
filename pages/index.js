@@ -61,7 +61,7 @@ export default function Home(props) {
 					<div className="lg:hidden flex w-full justify-center"> 
 						<div className="mx-auto mt-10 flex h-16 w-4/6 md:w-2/6 flex-col items-center justify-center rounded-3xl bg-gradient-to-b from-neutral-200 to-neutral-400 text-xl text-black hover:text-neutral-700 lg:mx-0 ">
 							<div>
-								<a href="mailto:psa@wxyc.org" scroll={false}>
+								<a href="mailto:psa@wxdu.org" scroll={false}>
 									Submit a PSA!
 								</a>
 							</div>

@@ -16,7 +16,7 @@ const Footer = () => {
 			<div className=" px-5">
 				<p className=" text-lg font-bold md:text-xl">Connect</p>
 				<div className="mt-2 flex w-full items-start justify-start gap-8 pb-5 lg:gap-10">
-					<a target="_blank" href="https://instagram.com/wxyc893">
+					<a target="_blank" href="https://instagram.com/wxdu">
 						<AiFillInstagram size={32} className=" mt-0.5" />
 					</a>
 					<a target="_blank" href="https://bsky.app/profile/wxyc.org">
@@ -29,7 +29,7 @@ const Footer = () => {
 						{' '}
 						<BsSpotify size={32} className="ml-;5 mt-0.5" />
 					</a>
-					<a target="_blank" href="https://github.com/wxyc">
+					<a target="_blank" href="https://github.com/wxdu">
 						<AiFillGithub size={32} className="ml-.5 mt-0.5" />
 					</a>
 				</div>
@@ -63,24 +63,25 @@ const Footer = () => {
 			<div className="px-5">
 				<p className="text-lg font-bold md:text-xl">Contact</p>
 
-				<a target="_blank" href="mailto:info@wxyc.org">
+				<a target="_blank" href="mailto:gm@wxdu.org">
 					<div className="mt-2 flex items-center ">
 						<FiMail size={20} className="mr-2" />
-						<p>info@wxyc.org</p>
+						<p>gm@wxdu.org</p>
 					</div>
 				</a>
-				<a target="_blank" href="tel:9199628989">
+				<a target="_blank" href="tel:9196848870">
 					<div className="mt-2 flex items-center ">
 						<FaPhone size={20} className="mr-2" />
 
-						<p>(919) 962-8989</p>
+						<p>(919) 684-8870</p>
 					</div>
 				</a>
 
 				<p className="mt-5">
-					WXYC Music Department <br></br>
-					CB #5210 Carolina Union, South Road <br></br>
-					Chapel Hill, NC 27599
+					WXDU 88.7FM <br></br>
+					PO Box 90689 <br></br>
+					Duke Station <br></br>
+					Durham, NC 27708
 				</p>
 			</div>
 		</div>
