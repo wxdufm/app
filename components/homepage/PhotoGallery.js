@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
 import {IoIosArrowDropright, IoIosArrowDropleft} from 'react-icons/io'
-import greta from '../../images/greta.jpeg'
-import controlRoom from '../../images/controlroom.png'
-import cradleEvent from '../../images/cradleevent.jpeg'
-import guyInStation from '../../images/guyinstation.jpeg'
-import flourescent from '../../images/flourescent.jpeg'
-import crowdSunglasses from '../../images/crowdsunglasses.jpeg'
-import kickballBench from '../../images/kickballbench.jpeg'
+import slamDanceBracket from '../../images/Slam_Dance_2012.jpg'
+import slamDanceLogo from '../../images/WXDUslamdance.jpg'
+import getSome from '../../images/get_some.jpg'
+import ostraca from '../../images/ostraca.jpg'
+import cardinals from '../../images/cardinals.jpg'
+import djing from '../../images/djing.jpg'
+import bivins from '../../images/bivins.jpg'
+import djNight from '../../images/dj_night.jpg'
+import wdbsCollage from '../../images/wdbs-collage.jpg'
 import Image from 'next/image'
 
 // to add images to gallery:
@@ -14,13 +16,14 @@ import Image from 'next/image'
 // (2) import them above
 // (3) add to this images array
 const images = [
-	guyInStation,
-	greta,
-	flourescent,
-	crowdSunglasses,
-	kickballBench,
-	controlRoom,
-	cradleEvent,
+    djNight,
+    cardinals,
+    djing,
+    bivins,
+    slamDanceLogo,
+    slamDanceBracket,
+    wdbsCollage,
+    getSome,
 ]
 
 export const PhotoGallery = () => {

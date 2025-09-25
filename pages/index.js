@@ -28,11 +28,11 @@ export default function Home(props) {
 							<div className="flex w-full flex-col items-center justify-center md:w-3/4 md:pt-20 lg:w-2/5 lg:pt-1">
 								<Image src={photo} alt="Picture of the author" priority />
 								<h1 className=" kallistobold m-0 mx-auto text-6xl font-bold text-white no-underline">
-									89.3FM
+									88.7FM
 								</h1>
 								<div className="mt-2">
 									<h3 className="poppins mx-auto w-full text-center text-base md:mx-0  md:text-xl lg:text-base">
-										UNC-Chapel Hill&apos;s student-run, freeform radio station
+										Duke and Durham&apos;s alternative, non-commmercial radio station
 									</h3>
 								</div>
 							</div>
