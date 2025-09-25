@@ -16,8 +16,8 @@ import Image from 'next/image'
 // (2) import them above
 // (3) add to this images array
 const images = [
-    djNight,
     cardinals,
+    djNight,
     djing,
     bivins,
     slamDanceLogo,
