@@ -36,3 +36,6 @@ yarn-error.log*
 
 # Ignore vim backup files
 *~
+
+# Local Tina directory
+/my-tina-app
