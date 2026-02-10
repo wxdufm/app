@@ -170,17 +170,6 @@ const Header = () => {
 							</Link>
 						</div>
 
-						<div className="mb-10 ml-10 mt-8 flex h-8 text-3xl">
-							<Link
-								href="https://merch.wxyc.org/"
-								className="cursor-pointer"
-								target="_blank"
-								rel="noopener noreferrer"
-								onClick={toggleMenu}
-							>
-								Merch
-							</Link>
-						</div>
 						{/* Add more navigation links as needed */}
 					</ul>
 				)}
@@ -275,16 +264,6 @@ const Header = () => {
 								<DropdownMenu />
 							</div>
 
-							<Link href="https://merch.wxyc.org/">
-								<a
-									href="https://merch.wxyc.org/"
-									className="flex h-12 grow items-center justify-center "
-								>
-									<a className="text-base text-white no-underline hover:text-blue-300 ">
-										Merch
-									</a>
-								</a>
-							</Link>
 						</div>
 					</div>
 				</div>
