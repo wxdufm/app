@@ -1,13 +1,17 @@
 import {AiFillInstagram, AiFillTwitterCircle} from 'react-icons/ai'
-import {FaTiktok} from 'react-icons/fa'
+// import {FaTiktok} from 'react-icons/fa'
+// import {FaBluesky} from 'react-icons/fa6'
+// import {BsSpotify} from 'react-icons/bs'
 import {FiMail} from 'react-icons/fi'
-import {BsSpotify} from 'react-icons/bs'
+
 import applebadge from '/images/apple_badge.svg'
 import androidbadge from '/images/android_badge.svg'
 import Image from 'next/image'
 import {FaPhone} from 'react-icons/fa6'
-import {FaBluesky} from 'react-icons/fa6'
+
 import {AiFillGithub} from 'react-icons/ai'
+import {FaTumblr} from "react-icons/fa6";
+import {FaBandcamp} from "react-icons/fa";
 
 const Footer = () => {
 	return (
@@ -19,7 +23,7 @@ const Footer = () => {
 					<a target="_blank" href="https://instagram.com/wxdu">
 						<AiFillInstagram size={32} className=" mt-0.5" />
 					</a>
-					<a target="_blank" href="https://bsky.app/profile/wxyc.org">
+					{/* <a target="_blank" href="https://bsky.app/profile/wxyc.org">
 						<FaBluesky size={32} className="ml-.5 mt-0.5" />
 					</a>
 					<a target="_blank" href="https://tiktok.com/@wxyc893">
@@ -28,9 +32,15 @@ const Footer = () => {
 					<a target="_blank" href="https://open.spotify.com/user/wxyc">
 						{' '}
 						<BsSpotify size={32} className="ml-;5 mt-0.5" />
-					</a>
+					</a> */}
 					<a target="_blank" href="https://github.com/wxdu">
 						<AiFillGithub size={32} className="ml-.5 mt-0.5" />
+					</a>
+					<a target="_blank" href="https://wxduarchive.tumblr.com/">
+						<FaTumblr size={32} className="ml-.5 mt-0.5" />
+					</a>
+					<a target="_blank" href="https://wxdu.bandcamp.com/">
+						<FaBandcamp size={32} className="ml-.5 mt-0.5" />
 					</a>
 				</div>
 			</div>
@@ -79,8 +89,8 @@ const Footer = () => {
 
 				<p className="mt-5">
 					WXDU 88.7FM <br></br>
-					PO Box 90689 <br></br>
-					Duke Station <br></br>
+					PO Box 90687 <br></br>
+					2020 Campus Drive <br></br>
 					Durham, NC 27708
 				</p>
 			</div>
