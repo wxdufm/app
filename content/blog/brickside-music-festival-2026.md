@@ -13,6 +13,9 @@ WXDU & DUKE COFFEEHOUSE PRESENT: BRICKSIDE MUSIC FESTIVAL 2026 
 SATURDAY, APRIL 4th, 2026 | 1PM
 Doors open at 12pm
 
+[Tickets](https://tickets.duke.edu/Online/default.asp?BOparam::WScontent::loadArticle::permalink=Brickside26\&BOparam::WScontent::loadArticle::context_id=) ($20 CASH ONLY at door)
+
+[Directions to Duke Coffeehouse](https://goo.gl/maps/Pa9WhFFQW67J88TZ7)
 
 The annual Brickside Music Festival returns once again on Saturday, April 4th at Duke Coffeehouse! Presented by Duke Coffeehouse and WXDU, Brickside will feature exquisite performances by artists mentioned below. Doors open at noon; with your Duke ID or a $20 paid ticket, you can enjoy FREE Gussy's food trucks, screen printing by Robby Poore, and art-making activities in addition to musical performances (beginning at 1 p.m.) ranging from fuzzed-out guitars to experimental hardware electronic to intimate acoustic to pastoral post-rock. This year, Brickside will host a panel aimed at exploring music, sound, and literature.
 
