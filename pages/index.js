@@ -35,6 +35,15 @@ export default function Home(props) {
 										Duke and Durham&apos;s alternative, non-commmercial radio station
 									</h3>
 								</div>
+								{/* Stream button */}
+								<div className="mt-4 flex justify-center">
+									
+										href="https://stream.wxdu.art/wxdu192.mp3"
+										target="_blank"
+										className="kallistobold bg-red-600 px-6 py-2 text-white hover:bg-red-400"
+									>
+										▶ Stream Live
+								</div>
 							</div>
 						</div>
 					</Link>
