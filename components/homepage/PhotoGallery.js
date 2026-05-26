@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {IoIosArrowDropright, IoIosArrowDropleft} from 'react-icons/io'
-import slamDanceBracket from '../../images/Slam_Dance_2012.jpg'
 import slamDanceLogo from '../../images/WXDUslamdance.jpg'
 import getSome from '../../images/get_some.jpg'
 import ostraca from '../../images/ostraca.jpg'
@@ -21,7 +20,6 @@ const images = [
     djing,
     bivins,
     slamDanceLogo,
-    slamDanceBracket,
     wdbsCollage,
     getSome,
 ]
