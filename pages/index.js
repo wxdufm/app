@@ -21,31 +21,28 @@ export default function Home(props) {
 
 			{/* Header with WXYC logo lives here */}
 			<div className="mx-auto lg:flex hidden w-5/6 flex-col items-start justify-center pt-10 md:mb-10 md:pt-2 ">
-					<Link href="/">
-						{/* Header text parent container */}
-						<div className="mb-20 lg:mb-5 flex  w-full cursor-pointer flex-col items-center justify-center pt-20 md:flex-row md:items-end md:pt-20 lg:pt-1">
-							{/* Actual header text */}
-							<div className="flex w-full flex-col items-center justify-center md:w-3/4 md:pt-20 lg:w-2/5 lg:pt-1">
-								<Image src={photo} alt="Picture of the author" priority />
-								<h1 className=" kallistobold m-0 mx-auto text-6xl font-bold text-white no-underline">
-									88.7FM
-								</h1>
-								<div className="mt-2">
-									<h3 className="poppins mx-auto w-full text-center text-base md:mx-0  md:text-xl lg:text-base">
-										Duke and Durham&apos;s alternative, non-commmercial radio station
-									</h3>
-								</div>
-								{/* Stream button */}
-								<div className="mt-4 flex justify-center">
-									<a href="https://stream.wxdu.art/wxdu192.mp3" target="_blank" className="kallistobold bg-red-600 px-6 py-2 text-white hover:bg-red-400">
-										▶ Stream Live
-									</a>
-								</div>
+					{/* Header text parent container */}
+					<div className="mb-20 lg:mb-5 flex  w-full cursor-pointer flex-col items-center justify-center pt-20 md:flex-row md:items-end md:pt-20 lg:pt-1">
+						{/* Actual header text */}
+						<div className="flex w-full flex-col items-center justify-center md:w-3/4 md:pt-20 lg:w-2/5 lg:pt-1">
+							<Image src={photo} alt="Picture of the author" priority />
+							<h1 className=" kallistobold m-0 mx-auto text-6xl font-bold text-white no-underline">
+								88.7FM
+							</h1>
+							<div className="mt-2">
+								<h3 className="poppins mx-auto w-full text-center text-base md:mx-0  md:text-xl lg:text-base">
+									Duke and Durham&#39;s alternative, non-commercial radio station
+								</h3>
+							</div>
+							{/* Stream button */}
+							<div className="mt-4 flex justify-center">
+								<a href="https://stream.wxdu.art/wxdu192.mp3" target="_blank" rel="noreferrer noopener" className="kallistobold bg-red-600 px-6 py-2 text-white hover:bg-red-400">
+									▶ Stream Live
+								</a>
 							</div>
 						</div>
-					</Link>
+					</div>
 
-					
 				</div>
 
 			<div className="mx-auto flex w-5/6 flex-col gap-4">
