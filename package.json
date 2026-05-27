@@ -22,6 +22,8 @@
 		"next": "^12.0.4",
 		"posthog-js": "^1.257.0",
 		"react": "^17.0.2",
+		"react-dnd": "^16.0.1",
+		"react-dnd-html5-backend": "^16.0.1",
 		"react-dom": "^17.0.2",
 		"react-h5-audio-player": "^3.9.0",
 		"react-icons": "^5.4.0",
