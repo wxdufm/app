@@ -19,9 +19,13 @@ const PostPreview = (props) => {
 					className="mb-5 flex w-72 cursor-pointer flex-col gap-2 lg:w-[23.5rem] "
 				>
 					<img
-						src={props.cover}
+						src={props.cover || '/notfound.png'}
+						onError={(e) => {
+							e.currentTarget.onerror = null
+							e.currentTarget.src = '/notfound.png'
+						}}
 						className="h-72 w-72 object-cover lg:h-[23.5rem] lg:w-[23.5rem]"
-						alt=""
+						alt={props.title}
 					/>
 					<a className="text-left text-xl font-bold">{props.title}</a>
 					<p>{props.subtitle}</p>
@@ -44,9 +48,13 @@ const PostPreview = (props) => {
 					className="mb-5  flex w-72 cursor-pointer flex-col gap-2 md:w-[22rem]"
 				>
 					<img
-						src={props.cover}
+						src={props.cover || '/notfound.png'}
+						onError={(e) => {
+							e.currentTarget.onerror = null
+							e.currentTarget.src = '/notfound.png'
+						}}
 						className="h-72 w-72 object-cover md:h-[22rem] md:w-[22rem]"
-						alt=""
+						alt={props.title}
 					/>
 					<a className="text-left text-xl font-bold">{props.title}</a>
 					<p>{props.subtitle}</p>

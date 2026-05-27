@@ -116,7 +116,7 @@ export const getStaticProps = async () => {
 		query: `
     query getContent($postCount: Float)
     {
-      blogConnection(sort: "published", last: $postCount, before: "cG9zdCNkYXRlIzE2NTc4Njg0MDAwMDAjY29udGVudC9wb3N0cy9hbm90aGVyUG9zdC5qc29u"){
+      blogConnection(sort: "published", last: $postCount){
         edges {
           node {
             id
