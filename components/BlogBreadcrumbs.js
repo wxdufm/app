@@ -39,7 +39,7 @@ export default function BlogBreadcrumbs() {
 			})
 
 			// put blog breadrumb back on non-index blog pages
-			return [{href: '/blog', text: 'WXYC PRESS'}, ...crumblist]
+			return [{href: '/blog', text: 'WXDU PRESS'}, ...crumblist]
 		},
 		[[router.asPath]]
 	) // re-run every time route changes

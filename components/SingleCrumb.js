@@ -4,11 +4,13 @@ import Link from 'next/link'
 // Each individual "crumb" in the breadcrumbs list
 export default function Crumb({text, href, last = false}) {
 	// Blog header on blog home page
-	if (last && text === 'WXYC PRESS') {
+	if (last && text === 'WXDU PRESS') { 
+		// I changed 'WXYC PRESS' to 'WXDU PRESS' in BlogBreadcrumbs.js, so this condition will never be true. Should I change it to 'WXDU PRESS' here?
+		// Does that break something?
 		return null
 	}
 	// Blog header when you're not on blog home page (links back to blog home page)
-	if (!last && text === 'WXYC PRESS') {
+	if (!last && text === 'WXDU PRESS') {
 		return (
 			<Link href={href}>
 				<p className="cursor-pointer text-base text-white hover:underline md:text-2xl">
