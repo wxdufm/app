@@ -25,7 +25,7 @@ const Header = () => {
 		//Parent Container
 		<div className="h-full">
 			{/* MOBILE NAVBAR STARTS HERE */}
-			<div className="fixed top-0 z-50 flex h-16 w-full flex-col bg-black/90 backdrop-blur-md lg:hidden ">
+			<div className="fixed top-10 z-50 flex h-16 w-full flex-col bg-black/90 backdrop-blur-md lg:hidden ">
 				<div className="flex flex-row items-center justify-between">
 					{/* Hamburger icon */}
 					<button

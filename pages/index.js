@@ -6,6 +6,7 @@ import HomepageBanner from '../components/HomepageBanner'
 import Link from 'next/link'
 import photo from '../images/logo.png'
 import Image from 'next/image'
+import StreamButton from '../components/audioplayers/StreamButton'
 
 // home page
 export default function Home(props) {
@@ -36,9 +37,7 @@ export default function Home(props) {
 							</div>
 							{/* Stream button */}
 							<div className="mt-4 flex justify-center">
-								<a href="https://stream.wxdu.art/wxdu192.mp3" target="_blank" rel="noreferrer noopener" className="kallistobold bg-red-600 px-6 py-2 text-white hover:bg-red-400">
-									▶ Stream Live
-								</a>
+								<StreamButton />
 							</div>
 						</div>
 					</div>

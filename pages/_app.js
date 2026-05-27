@@ -5,6 +5,7 @@ import {PostHogProvider} from 'posthog-js/react'
 import {useEffect} from 'react'
 import {Router} from 'next/router'
 import posthog from 'posthog-js'
+import { AudioProvider } from '../components/AudioContext'
 
 const App = ({Component, pageProps}) => {
 	useEffect(() => {
@@ -27,15 +28,17 @@ const App = ({Component, pageProps}) => {
 		}
 	}, [])
 	return (
-		<PostHogProvider client={posthog}>
-			<div className="flex flex-col lg:items-center">
-				<div className="m-0 flex h-full w-full flex-col overflow-hidden bg-black font-poppins text-base text-white">
-					<Layout>
-						<Component {...pageProps} />
-					</Layout>
-				</div>
-			</div>
-		</PostHogProvider>
+	    <PostHogProvider client={posthog}>
+            <AudioProvider>
+                <div className="flex flex-col lg:items-center">
+                    <div className="m-0 flex h-full w-full flex-col overflow-hidden bg-black font-poppins text-base text-white">
+                        <Layout>
+                            <Component {...pageProps} />
+                        </Layout>
+                    </div>
+                </div>
+            </AudioProvider>
+        </PostHogProvider>
 	)
 }
 
