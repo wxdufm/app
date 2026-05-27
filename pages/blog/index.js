@@ -23,7 +23,7 @@ export default function PostList(props) {
 		<BlogLayout>
 			<div>
 				<div className="mx-auto flex h-32 w-5/6 flex-col items-center justify-between pt-3 md:h-24 md:flex-row md:pt-0">
-					<div className="kallisto text-4xl lg:text-5xl">WXYC PRESS</div>
+					<div className="kallisto text-4xl lg:text-5xl">WXDU PRESS</div>
 
 					{/* Desktop blog nav */}
 					<div className="z-20 hidden  h-1/2  w-full flex-row items-center justify-center text-center  text-lg lg:flex lg:h-1/2 lg:w-1/2 lg:justify-end">
@@ -45,7 +45,7 @@ export default function PostList(props) {
 
 				<div className="relative z-20 mx-auto mb-10 w-5/6 ">
 					<p className="-mt-12  text-center md:-mt-2 md:text-left">
-						Read reviews and interviews by WXYC DJs.
+						Read reviews and interviews by WXDU DJs.
 					</p>
 				</div>
 
