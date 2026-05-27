@@ -45,7 +45,7 @@ const Footer = () => {
 				</div>
 			</div>
 
-			<div className="flex flex-col px-5">
+			{/* <div className="flex flex-col px-5">
 				<p className=" w-5/6 text-lg font-bold md:text-xl">Listen</p>
 				<div className=" flex items-center justify-start gap-4 ">
 					<a
@@ -68,7 +68,7 @@ const Footer = () => {
 						</a>
 					</div>
 				</div>
-			</div>
+			</div> */}
 
 			<div className="px-5">
 				<p className="text-lg font-bold md:text-xl">Contact</p>
