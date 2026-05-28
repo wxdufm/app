@@ -6,6 +6,7 @@ import {useEffect} from 'react'
 import {Router} from 'next/router'
 import posthog from 'posthog-js'
 import { AudioProvider } from '../components/AudioContext'
+import NavPlayer from '../components/audioplayers/NavPlayer'
 
 const App = ({Component, pageProps}) => {
 	useEffect(() => {
@@ -32,7 +33,8 @@ const App = ({Component, pageProps}) => {
             <AudioProvider>
                 <div className="flex flex-col lg:items-center">
                     <div className="m-0 flex h-full w-full flex-col overflow-hidden bg-black font-poppins text-base text-white">
-                        <Layout>
+                        <NavPlayer />
+						<Layout>
                             <Component {...pageProps} />
                         </Layout>
                     </div>
