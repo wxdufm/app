@@ -84,7 +84,7 @@ const NavPlayer = () => {
                 {/* animate-conveyor = custom animation defined in globals.css
                     whitespace-nowrap keeps the text on one line so it scrolls horizontally */}
                 <div className="animate-conveyor whitespace-nowrap">
-                    <span className="bitcount text-[#e0ff05] text-base tracking-widest uppercase px-8">
+                    <span className="bitcount text-[#e0ff05] text-base tracking-widest px-8">
                     {/* Replace with Adrenalin data */}
                         Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: _ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </span>
