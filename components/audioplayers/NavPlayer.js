@@ -1,10 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaPlay, FaPause } from 'react-icons/fa'
 import { useAudio } from '../AudioContext'
 
 
 const NavPlayer = () => {
     const { isPlaying, togglePlayPause } = useAudio()
+
+    // create state for now-playing API data
+    const [nowPlaying, setNowPlaying] = useState({
+        artist: null,
+        title: null,
+        album: null
+    })
+
+    // function to fetch now-playing data
+    async function fetchNowPlaying() {
+        try {
+            const response = await fetch('../../api/now-playing')
+
+            const data = await response.json()
+
+            setNowPlaying({
+                artist: data.artist,
+                title: data.title,
+                album: data.album
+            })
+
+        } catch (error) {
+            console.error('Failed to fetch now-playing data:', error)
+        }
+    }
+
+    // calls API on component mount and every 30 seconds thereafter
+    useEffect(() => {
+
+        // initial fetch
+        fetchNowPlaying()
+
+        // poll API again every 30 secs
+        const interval = setInterval(fetchNowPlaying, 30000)
+
+        // clean-up on component unmount
+        return () => clearInterval(interval)
+
+    }, [])
+
+    // takes API result and turns it into text
+    const currentTrack =
+        nowPlaying.artist && nowPlaying.title && nowPlaying.album
+            ? `${nowPlaying.artist} — ${nowPlaying.title} ... ${nowPlaying.album}`
+            : `it's a secret... tune in to find out`
 
     return (
         // The outer bar: fixed underneath main bar, full width, black background, yellow border on bottom 
@@ -41,11 +86,11 @@ const NavPlayer = () => {
                 <div className="animate-conveyor whitespace-nowrap">
                     <span className="bitcount text-[#e0ff05] text-base tracking-widest uppercase px-8">
                     {/* Replace with Adrenalin data */}
-                        Currently Playing: tune in to find out &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: _ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: _ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </span>
                     {/* Text is repeated so there's no gap when it loops */}
                     <span className="bitcount text-[#e0ff05] text-base tracking-widest uppercase px-8">
-                        Currently Playing: tune in to find out &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: _ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: _ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </span>
                 </div>
             </div>
