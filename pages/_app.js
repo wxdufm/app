@@ -40,8 +40,8 @@ const App = ({Component, pageProps}) => {
 						</Layout>
 					</div>
 				</div>
+				<DJRequestWidget />
 			</AudioProvider>
-			<DJRequestWidget />
 		</PostHogProvider>
 	)
 }
