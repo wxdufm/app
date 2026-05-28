@@ -1,4 +1,3 @@
-import { Table } from "@mui/material";
 import * as cheerio from "cheerio";
 
 const PLAYLIST_URL = "https://wxdu.org/plmanager/world/currentplaylist.php";
@@ -10,6 +9,7 @@ function cleanText(text) {
 export default async function handler(req, res) {
 
     // fetch currentplaylist page from wxdu.org
+    console.log("[now-playing API] fetching playlist...");
     try {
         const response = await fetch(PLAYLIST_URL, {
             headers: {
@@ -30,15 +30,17 @@ export default async function handler(req, res) {
         // reads currentplaylist page as raw html and loads it into cheerio
         const html = await response.text();
         const $ = cheerio.load(html);
+        console.log("[now-playing API] HTML length: ", html.length);
 
         // find last row in the first table on the page, which is the flowsheet
         const flowsheetTable = $("table").first();
-        const lastRow = table.find("tr").last();
+        const lastRow = flowsheetTable.find("tr").last();
+        console.log("[now-playing API] current playlist rows: ", flowsheetTable.find("tr").length - 1); // subtract header row
 
         // parses each cell in the last row
         const cells = lastRow
             .find("td")
-            .map((_, cell) => clean($(cell).text()))
+            .map((_, cell) => cleanText($(cell).text()))
             .get();
 
         // in case of half-filled rows... avoids errors later
@@ -83,11 +85,13 @@ export default async function handler(req, res) {
         return res.status(200).json(result);
         
     } catch (error) {
+        console.error("]now-playing API] threw error: ", error);
+
         return res.status(500).json({
             artist: null,
             title: null,
             source: PLAYLIST_URL,
-            error: "Unable to fetch now-playing data",
+            error: error.message
         });
     }
 }
