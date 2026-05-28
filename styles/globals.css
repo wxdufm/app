@@ -196,3 +196,32 @@ body::-webkit-scrollbar-thumb {
 	transform: scale(1.3, 1.3);
 	background: var (--selectedKnobby);
 }
+
+@keyframes conveyor {
+	{/* translateX moves it horizontally, and -50 moves it left */}
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.animate-conveyor {
+    display: inline-flex;
+    animation: conveyor 20s linear infinite;
+}
+
+@font-face {
+    font-family: 'micro5charted';
+    src: url('..//fonts/Micro5Charted-Regular.ttf');
+}
+
+.micro5charted {
+    font-family: 'micro5charted', monospace;
+}
+
+@font-face {
+    font-family: 'bitcount';
+    src: url('..//fonts/bitcount.ttf');
+}
+
+.bitcount {
+    font-family: 'bitcount', monospace;
+}

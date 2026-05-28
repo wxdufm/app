@@ -3,7 +3,6 @@ import Link from 'next/link'
 import DropdownMenu from './DropdownMenu'
 import photo from '../images/logo.png'
 import Image from 'next/image'
-import AudioPlayerStream from '../components/audioplayers/AudioPlayerStream'
 import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
 import {Menu} from '@headlessui/react'
 import {IoIosArrowDown, IoIosArrowUp} from 'react-icons/io'
@@ -38,10 +37,6 @@ const Header = () => {
 							<AiOutlineMenu size={32} className="ml-4 mt-1 md:ml-6" />
 						)}
 					</button>
-
-					<div className="my-auto mr-3">
-						<AudioPlayerStream />
-					</div>
 				</div>
 
 				{/* Collapsible menu for mobile*/}
@@ -202,7 +197,7 @@ const Header = () => {
 				</div>
 
 				{/* Parent container of web navbar */}
-				<div className="mb-20 hidden w-full lg:flex">
+				<div className="mb-20 hidden w-full lg:flex mt-10">
 					{/* Actual navbar */}
 					<div className="flex h-14 w-full flex-row justify-between bg-black px-1 py-4 ">
 						{/* Logo and player*/}
@@ -212,10 +207,6 @@ const Header = () => {
 									<Image src={photo} />
 								</div>
 							</Link>
-
-							<div className="ml-5">
-								<AudioPlayerStream />
-							</div>
 						</div>
 
 						{/* Links*/}
