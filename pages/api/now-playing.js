@@ -1,3 +1,5 @@
+// kind of janky API because it scrapes HTML off wxdu.org's current playlist instead of actually plugging into adrenalin's php backend
+
 import * as cheerio from "cheerio";
 
 const PLAYLIST_URL = "https://wxdu.org/plmanager/world/currentplaylist.php";
@@ -66,14 +68,22 @@ export default async function handler(req, res) {
             });
         }
 
+        // find the h2 containing the DJ/show name, and extract the DJ name only
+        const showInfo = $("h2").first();
+        const noArchive = showInfo.clone().find("a").remove().end().text().replace(/\s+/g, " ").trim();
+        const djTemp = noArchive.match(/with\s+(.+)$/);
+        const djName = djTemp?.[1] || null;
+
+        // the successful one
         const result = {
             artist,
             title,
-            // extra goodies
             album: cells[2] ?? null,
+            dj: djName,
+            // extra goodies
             label: cells[3] ?? null,
             comments: cells[4] ?? null,
-            source: PLAYLIST_URL
+            source: PLAYLIST_URL,
         };
 
         // cache

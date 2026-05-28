@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FaPlay, FaPause } from 'react-icons/fa'
 import { useAudio } from '../AudioContext'
+import { data } from 'autoprefixer'
 
 
 const NavPlayer = () => {
@@ -10,7 +11,8 @@ const NavPlayer = () => {
     const [nowPlaying, setNowPlaying] = useState({
         artist: null,
         title: null,
-        album: null
+        album: null,
+        dj: null
     })
 
     // function to fetch now-playing data
@@ -23,7 +25,8 @@ const NavPlayer = () => {
             setNowPlaying({
                 artist: data.artist,
                 title: data.title,
-                album: data.album
+                album: data.album,
+                dj: data.dj
             })
 
         } catch (error) {
@@ -86,11 +89,11 @@ const NavPlayer = () => {
                 <div className="animate-conveyor whitespace-nowrap">
                     <span className="bitcount text-[#e0ff05] text-base tracking-widest px-8">
                     {/* Replace with Adrenalin data */}
-                        Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: _ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: {nowPlaying.dj} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </span>
                     {/* Text is repeated so there's no gap when it loops */}
                     <span className="bitcount text-[#e0ff05] text-base tracking-widest uppercase px-8">
-                        Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: _ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: {nowPlaying.dj} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </span>
                 </div>
             </div>
