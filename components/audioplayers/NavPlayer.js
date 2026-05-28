@@ -92,7 +92,7 @@ const NavPlayer = () => {
                         Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: {nowPlaying.dj} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </span>
                     {/* Text is repeated so there's no gap when it loops */}
-                    <span className="bitcount text-[#e0ff05] text-base tracking-widest uppercase px-8">
+                    <span className="bitcount text-[#e0ff05] text-base tracking-widest px-8">
                         Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: {nowPlaying.dj} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </span>
                 </div>
