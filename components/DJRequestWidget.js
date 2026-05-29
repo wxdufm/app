@@ -16,7 +16,7 @@ export default function DJRequestWidget() {
         setStatus(null)
 
         try {
-            const response = await fetch('/api/dj-request.js', {
+            const response = await fetch('/api/dj-request', {
                 method: 'POST',
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify(data)
@@ -31,7 +31,7 @@ export default function DJRequestWidget() {
             setStatus('error')
         } finally {
             setIsLoading(false)
-        }
+        
         }
             }
 
@@ -151,9 +151,19 @@ export default function DJRequestWidget() {
                                 >
                                     {isLoading ? 'Sending...' : 'Send Message'}
                                 </button>
+                               
                             </div>
                         )}
-
+                                {status === 'success' && (
+                                    <p className="mt-3 text-center text-sm text-green-400">
+                                        Sent! The DJ will see your request shortly.
+                                    </p>
+                                )}
+                                {status === 'error' && (
+                                    <p className="mt-3 text-center text-sm text-red-400">
+                                        Something went wrong. Please try again.
+                                    </p>
+                                )}
                     </div>
                 </div>
             )}
