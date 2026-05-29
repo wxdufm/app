@@ -8,6 +8,32 @@ export default function DJRequestWidget() {
     const [songName, setSongName] = useState('')
     const [messageName, setMessageName] = useState('')
     const [messageText, setMessageText] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
+    const [status, setStatus] = useState(null)
+
+    const handleSend = async (data) => {
+        setIsLoading(true)
+        setStatus(null)
+
+        try {
+            const response = await fetch('/api/dj-request.js', {
+                method: 'POST',
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify(data)
+            })
+
+            if(response.ok) {
+                setStatus('success')
+            } else {
+                setStatus('error')
+            }
+        } catch(error) {
+            setStatus('error')
+        } finally {
+            setIsLoading(false)
+        }
+        }
+            }
 
     return (
         <>
@@ -83,9 +109,14 @@ export default function DJRequestWidget() {
                                 </div>
                                 <button
                                     className="w-full bg-red-600 py-3 font-bold text-white hover:bg-red-700"
-                                    onClick={() => alert(`Song: ${songTitle} by ${songArtist}, from ${songName}`)}
+                                    onClick={() => handleSend({
+                                        type: 'song',
+                                        songTitle,
+                                        songArtist,
+                                        songName
+                                    })}
                                 >
-                                    Send Request
+                                    {isLoading ? 'Sending...' : 'Send Request'}
                                 </button>
                             </div>
                         ) : (
@@ -112,9 +143,13 @@ export default function DJRequestWidget() {
                                 </div>
                                 <button
                                     className="w-full bg-red-600 py-3 font-bold text-white hover:bg-red-700"
-                                    onClick={() => alert(`Message from ${messageName}: ${messageText}`)}
+                                    onClick={() => handleSend({
+                                        type: 'message',
+                                        messageName,
+                                        messageText
+                                    })}
                                 >
-                                    Send Message
+                                    {isLoading ? 'Sending...' : 'Send Message'}
                                 </button>
                             </div>
                         )}

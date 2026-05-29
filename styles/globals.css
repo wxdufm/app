@@ -227,10 +227,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 @font-face {
-	font-family: 'ithaca';
-	src: url('..//fonts/ithaca.ttf');
+    font-family: 'ithaca';
+    src: url('..//fonts/ithaca.ttf');
 }
 
 .ithaca {
-	font-family: 'ithaca', monospace;
+    font-family: 'ithaca', monospace;
 }
