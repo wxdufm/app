@@ -7,6 +7,7 @@ import {Router} from 'next/router'
 import posthog from 'posthog-js'
 import { AudioProvider } from '../components/AudioContext'
 import NavPlayer from '../components/audioplayers/NavPlayer'
+import DJRequestWidget from '../components/DJRequestWidget'
 
 const App = ({Component, pageProps}) => {
 	useEffect(() => {
@@ -29,18 +30,19 @@ const App = ({Component, pageProps}) => {
 		}
 	}, [])
 	return (
-	    <PostHogProvider client={posthog}>
-            <AudioProvider>
-                <div className="flex flex-col lg:items-center">
-                    <div className="m-0 flex h-full w-full flex-col overflow-hidden bg-black font-poppins text-base text-white">
-                        <NavPlayer />
+		<PostHogProvider client={posthog}>
+			<AudioProvider>
+				<div className="flex flex-col lg:items-center">
+					<div className="m-0 flex h-full w-full flex-col overflow-hidden bg-black font-poppins text-base text-white">
+						<NavPlayer />
 						<Layout>
-                            <Component {...pageProps} />
-                        </Layout>
-                    </div>
-                </div>
-            </AudioProvider>
-        </PostHogProvider>
+							<Component {...pageProps} />
+						</Layout>
+					</div>
+				</div>
+				<DJRequestWidget />
+			</AudioProvider>
+		</PostHogProvider>
 	)
 }
 
