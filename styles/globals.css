@@ -225,3 +225,12 @@ body::-webkit-scrollbar-thumb {
 .bitcount {
     font-family: 'bitcount', monospace;
 }
+
+@font-face {
+	font-family: 'ithaca';
+	src: url('..//fonts/ithaca.ttf');
+}
+
+.ithaca {
+	font-family: 'ithaca', monospace;
+}

@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_shared
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: wxdu
+      MYSQL_DATABASE: mysql_database
+      MYSQL_USER: codeplus
+      MYSQL_PASSWORD: wxduwxdu
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d
+volumes:
+  mysql_data:
