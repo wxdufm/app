@@ -33,7 +33,7 @@ const App = ({Component, pageProps}) => {
 		<PostHogProvider client={posthog}>
 			<AudioProvider>
 				<div className="flex flex-col lg:items-center">
-					<div className="m-0 flex h-full w-full flex-col overflow-hidden bg-black font-poppins text-base text-white">
+					<div className="m-0 flex h-full w-full flex-col overflow-hidden bg-black font-courierprime text-base text-white">
 						<NavPlayer />
 						<Layout>
 							<Component {...pageProps} />
