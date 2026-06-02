@@ -54,7 +54,7 @@ export default function DJRequestWidget() {
                         <div className="mb-4 flex items-center justify-between">
                             <h2 className="text-lg font-bold text-white">Send DJ Request</h2>
                             <button className="text-gray-400 hover:text-white" onClick={() => setIsOpen(false)}>
-                                X
+                                ✕
                             </button>
                         </div>
 
