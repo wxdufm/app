@@ -39,3 +39,6 @@ yarn-error.log*
 
 # Local Tina directory
 /my-tina-app
+
+.agents
+.codex
