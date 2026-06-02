@@ -8,6 +8,9 @@ import photo from '../images/logo.png'
 import Image from 'next/image'
 import StreamButton from '../components/audioplayers/StreamButton'
 import CDLink from '../components/homepage/CDLink'
+import IpodWidget from '../components/homepage/IpodWidget'
+
+
 
 // home page
 export default function Home(props) {
@@ -35,6 +38,9 @@ export default function Home(props) {
 								<h3 className="bitcount mx-auto w-full text-center text-base md:mx-0  md:text-xl lg:text-base">
 									Duke and Durham&#39;s alternative, non-commercial radio station
 								</h3>
+							<div className="mt-4 flex justify-center">
+								<IpodWidget />
+							</div>
 							</div>
 							{/* Stream button */}
 							<div className="mt-4 flex justify-center">
