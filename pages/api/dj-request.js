@@ -1,14 +1,4 @@
-import mysql from 'mysql2/promise'
-
-// DB pool connection using credentials from .env.local
-// "pool" handles the connections synchronously, no await needed
-const pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-})
+import db from '../../lib/db/requests'
 
 export default async function handler(req,res) {
     // rejects anything that isn't a POST
@@ -27,7 +17,7 @@ export default async function handler(req,res) {
 
     try {
         // inserts into request table: fills old Twitter columns with defaults
-        await pool.execute(
+        await db.execute(
             `INSERT INTO request (tweet_id, in_reply_to_status_id, text, created_at, user_profile_image_url, user_screen_name, user_name, user_id, email)
             VALUES (0, 0, ?, ?, '', '', ?, 0, '')`,
             [text, createdAt, userName]
