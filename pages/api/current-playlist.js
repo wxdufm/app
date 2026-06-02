@@ -8,9 +8,9 @@ export default async function handler(req, res) {
         const db = await mysql.createConnection({
         host: '127.0.0.1', // 'localhost' points back to your machine where Docker exposed the port
         port: 3306,
-        user: 'wxdu_pl',      // Using root to bypass any backup-script user overrides for now
-        password: 'm3rzb0w',  // Matches MYSQL_ROOT_PASSWORD in compose
-        database: 'plmanager', // Matches MYSQL_DATABASE in compose
+        user: 'wxdu_pl',      
+        password: 'm3rzb0w',  
+        database: 'plmanager', 
         });
 
         // query in MySQL that gets the 5 most recent songs from the current show
