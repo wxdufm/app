@@ -24,9 +24,7 @@ const DropdownMenu = () => {
 					<div className="text-medium flex w-full items-center justify-center rounded-md px-4 py-2  text-white hover:text-blue-300">
 						<Menu.Item>
 							<Link
-								href="https://stream.wxdu.art/wxdu192.mp3"
-								target="_blank"
-								legacyBehavior={false}
+								href="/listen"
 							>
 								Streaming
 							</Link>
