@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaPlay, FaPause } from 'react-icons/fa'
 import { useAudio } from '../AudioContext'
 import { data } from 'autoprefixer'
+import Link from 'next/link'
 
 
 const NavPlayer = () => {
@@ -84,19 +85,31 @@ const NavPlayer = () => {
             {/* RIGHT SECTION: scrolling ticker
                 overflow-hidden clips the text so it scrolls inside the bar */}
             <div className="overflow-hidden flex-1">
-                {/* animate-conveyor = custom animation defined in globals.css
-                    whitespace-nowrap keeps the text on one line so it scrolls horizontally */}
-                <div className="animate-conveyor whitespace-nowrap">
-                    <span className="bitcount text-[#e0ff05] text-base tracking-widest px-8">
-                    {/* Replace with Adrenalin data */}
-                        Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: {nowPlaying.dj} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span>
-                    {/* Text is repeated so there's no gap when it loops */}
-                    <span className="bitcount text-[#e0ff05] text-base tracking-widest px-8">
-                        Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: {nowPlaying.dj} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span>
-                </div>
+                <Link href="/listen" legacyBehavior>
+                    <a
+                        className="block w-full h-full group cursor-pointer hover:bg-white/5 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded"
+                        aria-label="Open listen page"
+                        title="Open listen page"
+                        onClick={(e) => { e.currentTarget.blur(); }}
+                    >
+                        <div className="overflow-hidden flex-1">
+                            {/* animate-conveyor = custom animation defined in globals.css
+                                whitespace-nowrap keeps the text on one line so it scrolls horizontally */}
+                            <div className="animate-conveyor whitespace-nowrap">
+                                <span className="bitcount text-[#e0ff05] text-base tracking-widest px-8 group-hover:underline group-hover:text-white group-focus:underline group-focus:text-white">
+                                {/* Replace with Adrenalin data */}
+                                    Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: {nowPlaying.dj} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                                {/* Text is repeated so there's no gap when it loops */}
+                                <span className="bitcount text-[#e0ff05] text-base tracking-widest px-8 group-hover:underline group-hover:text-white group-focus:underline group-focus:text-white">
+                                    Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: {nowPlaying.dj} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </Link>
             </div>
+
 
         </div>
     )
