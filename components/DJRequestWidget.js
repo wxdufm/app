@@ -1,4 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
+
+const COOLDOWN_SECONDS = 60
+const COOLDOWN_KEY = 'dj_request_cooldown_until'
 
 export default function DJRequestWidget() {
     const [isOpen, setIsOpen] = useState(false)
@@ -10,8 +13,35 @@ export default function DJRequestWidget() {
     const [messageText, setMessageText] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const [status, setStatus] = useState(null)
+    const [cooldownRemaining, setCooldownRemaining] = useState(0)
+    const timerRef = useRef(null)
+
+    useEffect(() => {
+        const stored = localStorage.getItem(COOLDOWN_KEY)
+        if (stored) {
+            const remaining = Math.ceil((parseInt(stored) - Date.now()) / 1000)
+            if (remaining > 0) setCooldownRemaining(remaining)
+        }
+    }, [])
+    useEffect(() => {
+        if (cooldownRemaining <= 0) {
+            clearInterval(timerRef.current)
+            return
+        }
+        timerRef.current = setInterval(() => {
+            setCooldownRemaining(prev => {
+                if (prev <= 1) {
+                    clearInterval(timerRef.current)
+                    return 0
+                }
+                return prev - 1
+            })
+        }, 1000)
+        return () => clearInterval(timerRef.current)
+    }, [cooldownRemaining > 0])
 
     const handleSend = async (data) => {
+        if (cooldownRemaining > 0) return
         setIsLoading(true)
         setStatus(null)
 
@@ -24,6 +54,9 @@ export default function DJRequestWidget() {
 
             if(response.ok) {
                 setStatus('success')
+                const until = Date.now() + COOLDOWN_SECONDS * 1000
+                localStorage.setItem(COOLDOWN_KEY, until.toString())
+                setCooldownRemaining(COOLDOWN_SECONDS)
             } else {
                 setStatus('error')
             }
@@ -108,15 +141,16 @@ export default function DJRequestWidget() {
                                     />
                                 </div>
                                 <button
-                                    className="w-full bg-red-600 py-3 font-bold text-white hover:bg-red-700"
+                                    className={`w-full py-3 font-bold text-white ${cooldownRemaining > 0 ? 'bg-zinc-600 cursor-not-allowed' : 'bg-red-600 hover:bg-red-700'}`}
                                     onClick={() => handleSend({
                                         type: 'song',
                                         songTitle,
                                         songArtist,
                                         songName
                                     })}
+                                    disabled={isLoading || cooldownRemaining > 0}
                                 >
-                                    {isLoading ? 'Sending...' : 'Send Request'}
+                                    {isLoading ? 'Sending...' : cooldownRemaining > 0 ? `Wait ${cooldownRemaining}s` : 'Send Request'}
                                 </button>
                             </div>
                         ) : (
@@ -142,14 +176,15 @@ export default function DJRequestWidget() {
                                     />
                                 </div>
                                 <button
-                                    className="w-full bg-red-600 py-3 font-bold text-white hover:bg-red-700"
+                                    className={`w-full py-3 font-bold text-white ${cooldownRemaining > 0 ? 'bg-zinc-600 cursor-not-allowed' : 'bg-red-600 hover:bg-red-700'}`}
                                     onClick={() => handleSend({
                                         type: 'message',
                                         messageName,
                                         messageText
                                     })}
+                                    disabled={isLoading || cooldownRemaining > 0}
                                 >
-                                    {isLoading ? 'Sending...' : 'Send Message'}
+                                    {isLoading ? 'Sending...' : cooldownRemaining > 0 ? `Wait ${cooldownRemaining}s` : 'Send Message'}
                                 </button>
                                
                             </div>
