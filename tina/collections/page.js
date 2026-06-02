@@ -22,6 +22,20 @@ export default {
 						},
 					],
 				},
+				{
+					name: 'weeklySchedule',
+					label: 'Weekly Schedule',
+					fields: [ // placeholder field is necessary for Tina to recognise this
+						{
+							name: 'placeholder',
+							label: 'Placeholder',
+							type: 'string',
+							ui: {
+								component: 'hidden',
+							},
+						},
+					],
+				}
 			],
 		},
 	],
