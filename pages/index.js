@@ -38,6 +38,7 @@ export default function Home(props) {
 								<h3 className="bitcount mx-auto w-full text-center text-base md:mx-0  md:text-xl lg:text-base">
 									Duke and Durham&#39;s alternative, non-commercial radio station
 								</h3>
+							<div className="flex flex-row justify-center gap-16 mt-16"></div>
 							<div className="mt-4 flex justify-center">
 								<IpodWidget />
 							</div>
