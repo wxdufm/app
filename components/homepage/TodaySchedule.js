@@ -20,7 +20,7 @@ export default function TodaySchedule({ schedule }) {
 		return null
 	}
 
-	// Collapse consecutive rows with the same show into one block
+	// Collapse consecutive rows with the same show into one block; makes new array for today
 	const shows = []
 	hourRows.forEach((row) => {
 		const hour = row[0]
