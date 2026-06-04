@@ -3,6 +3,10 @@ import {tinaField, useTina} from 'tinacms/dist/react'
 import {client} from '../tina/__generated__/client'
 import WeeklySchedule from '../components/WeeklySchedule'
 
+import {parseSchedule} from '../lib/scheduleParser'
+import {lookupFullNames} from '../lib/schedule-fullName-lookup'
+import {lookupDjNames} from '../lib/schedule-djName-lookup'
+
 //editable static pages (programming, contact, etc.)
 export default function Home(props) {
 	// data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -57,13 +61,13 @@ export const getStaticProps = async (ctx) => {
 	// otherwise schedule is null and WeeklySchedule component won't render!
 	let schedule = null
 	if (ctx.params.slug === 'programming') {
-		const scheduleModule = require('../lib/scheduleParser')
-		const loadSchedule =
-			scheduleModule.loadSchedule ||
-			scheduleModule.default?.loadSchedule ||
-			scheduleModule.default
+		const scheduleCarrier = parseSchedule();
+		const idGrid = await lookupFullNames(fullNameGrid[3]);
+		scheduleCarrier[4] = idGrid;
+		const djNameGrid = await lookupDjNames(idGrid);
+		scheduleCarrier[3] = djNameGrid;
 
-		schedule = typeof loadSchedule === 'function' ? loadSchedule() : null
+		schedule = typeof loadSchedule === 'function' ? loadSchedule() : null;
 	}
 
 	return {

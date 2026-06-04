@@ -1,15 +1,32 @@
 import {useState} from 'react'
 
-// Receives parsed CSV data from lib/schedule.js and renders a weekly grid.
+/*
+Receives parsed CSV data from lib/scheduleParser.js and renders a weekly grid.
+headerRow includes value of corner cell A1, but is removed from hourColumn
+
+[0] headerRow = fullArray[0],
+[1] hourColumn = fullArray.map(row => row[0]).slice(1),
+[2] specialtyShowIndices = [],
+[3] djNameOnlyArray = [] (starts out as fullNameOnlyArray but gets overwritten)
+[4] idGrid (same dimensions as [3] but with MySQL ids)
+*/
+
 export default function WeeklySchedule({schedule}) {
+
+	// because I'm lazy and I don't want to rewrite the array logic below, I'm going to simply reconstruct the carrier into full array with header
+	const reconstructedSchedule = [
+		schedule[0],
+		...schedule[3].map((row, i) => [schedule[1][i], ...row])
+	];
+
 	const [selectedDj, setSelectedDj] = useState(null)
 
-	if (!Array.isArray(schedule) || schedule.length === 0) {
+	if (!Array.isArray(reconstructedSchedule) || reconstructedSchedule.length === 0) {
 		return null
 	}
 
-	const headerRow = schedule[0]
-	const hourRows = schedule.slice(1)
+	const headerRow = reconstructedSchedule[0]
+	const hourRows = reconstructedSchedule.slice(1)
 	const days = headerRow
 
 	return (
