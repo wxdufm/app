@@ -3,7 +3,7 @@ import {tinaField, useTina} from 'tinacms/dist/react'
 import {client} from '../tina/__generated__/client'
 import WeeklySchedule from '../components/WeeklySchedule'
 
-import {parseSchedule} from '../lib/scheduleParser'
+import {parseSchedule} from '../lib/schedule/scheduleParser'
 import {lookupFullNames} from '../lib/schedule-fullName-lookup'
 import {lookupDjNames} from '../lib/schedule-djName-lookup'
 
