@@ -11,7 +11,6 @@ import CDLink from '../components/homepage/CDLink'
 import IpodWidget from '../components/homepage/IpodWidget'
 
 
-
 // home page
 export default function Home(props) {
 	const posts = props.data.blogConnection.edges
