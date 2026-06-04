@@ -24,10 +24,16 @@ async function run() {
 
         const dateStr = date.toISOString().split('T')[0]; // "2018-03-25"
 
-        const titleEl = $('p strong').first()
-        if(!titleEl.length) continue;
-        const title = titleEl.text().trim();
-        if (!title.toLowerCase().includes('chart')) continue;
+        let title = '';
+        const pStrong = $('p strong').first();
+        const h2link = $('h2 a').first();
+        if (pStrong.length) {
+            title = pStrong.text().trim();
+        } else if (h2link.length) {
+            title = h2link.text().trim();
+        }
+        if (!title) title = `WXDU Charts Ending ${dateText}`;
+
 
         
         const rawLines = [];
