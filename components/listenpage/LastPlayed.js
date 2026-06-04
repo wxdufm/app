@@ -8,7 +8,7 @@ export default function LastPlayed() {
             <p>This is Last Played</p>
             <div className="flex justify-center">
                 <div className="w-full max-w-sm">
-                    <StreamButton /> // button to play the song
+                    <StreamButton />
                 </div>
             </div>
         </div>
