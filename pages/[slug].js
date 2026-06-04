@@ -57,7 +57,7 @@ export const getStaticProps = async (ctx) => {
 	// otherwise schedule is null and WeeklySchedule component won't render!
 	let schedule = null
 	if (ctx.params.slug === 'programming') {
-		const scheduleModule = require('../lib/schedule')
+		const scheduleModule = require('../lib/scheduleParser')
 		const loadSchedule =
 			scheduleModule.loadSchedule ||
 			scheduleModule.default?.loadSchedule ||
