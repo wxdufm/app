@@ -35,39 +35,30 @@ export default function TodaySchedule({ schedule }) {
 	})
 
 	return (
-		<div className="overflow-x-auto text-sm kallisto text-[#e0ff05]">
-			<table className="w-full table-auto border-collapse border border-gray-300">
-				<thead>
-					<tr>
-						<th className="border border-gray-300 px-4 py-2 bg-black">hour</th>
-						<th className="border border-gray-300 px-4 py-2 bg-black">show</th>
-					</tr>
-				</thead>
-				<tbody>
-					{shows.map(({ hour, endHour, show }, i) => (
-						<tr key={`${hour}-${i}`}>
-							<th className="border border-gray-300 px-4 py-2 bg-black text-left whitespace-nowrap">
-								{endHour ? `${hour} – ${endHour}` : hour}
-							</th>
-							<td className={`border border-gray-300 px-4 py-2 text-center align-middle ${
-								show && selectedShow === show ? 'bg-yellow-200 text-black' : ''
-							}`}>
-								{show ? (
-									<button
-										type="button"
-										onClick={() =>
-											setSelectedShow((cur) => cur === show ? null : show)
-										}
-										className="underline hover:no-underline"
-									>
-										{show}
-									</button>
-								) : null}
-							</td>
-						</tr>
-					))}
-				</tbody>
-			</table>
-		</div>
+    <div className="text-sm kallisto text-[#e0ff05]">
+		<h1 className="bitcount mb-2 text-left text-lg text-white">Today's Schedule</h1>
+        {shows.map(({ hour, endHour, show }, i) => (
+            show ? (
+                <div key={`${hour}-${i}`} className="flex gap-4 py-3 border-b border-gray-300">
+                    <span className="w-16 text-right shrink-0">
+                        {endHour ? `${hour} – ${endHour}` : hour}
+                    </span>
+                    <span className="border-l border-gray-300 pl-4">
+                        <button
+                            type="button"
+                            onClick={() =>
+                                setSelectedShow((cur) => cur === show ? null : show)
+                            }
+                            className={`text-left underline hover:no-underline ${
+                                selectedShow === show ? 'bg-yellow-200 text-black' : ''
+                            }`}
+                        >
+                            {show}
+                        </button>
+                    </span>
+                </div>
+            ) : null
+        ))}
+    </div>
 	)
 }

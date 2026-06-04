@@ -9,12 +9,15 @@ import Image from 'next/image'
 import StreamButton from '../components/audioplayers/StreamButton'
 import CDLink from '../components/homepage/CDLink'
 import IpodWidget from '../components/homepage/IpodWidget'
+import TodaySchedule from '../components/homepage/TodaySchedule'
+import { loadSchedule } from '../lib/schedule'
 
 
 // home page
 export default function Home(props) {
 	const posts = props.data.blogConnection.edges
 	const events = props.data.archiveConnection.edges
+	const schedule = props.schedule
 
 	return (
 		<div>
@@ -38,13 +41,13 @@ export default function Home(props) {
 									Duke and Durham&#39;s alternative, non-commercial radio station
 								</h3>
 							<div className="flex flex-row justify-center gap-16 mt-16"></div>
-							<div className="mt-4 flex justify-center">
-								<IpodWidget />
+							<div className="mt-4 flex flex-row justify-center gap-4 items-start">
+								<TodaySchedule schedule={schedule} />
+								<div className="flex flex-col items-center gap-2">
+									<IpodWidget />
+									<StreamButton />
+								</div>
 							</div>
-							</div>
-							{/* Stream button */}
-							<div className="mt-4 flex justify-center">
-								<StreamButton />
 							</div>
 						</div>
 					</div>
@@ -166,5 +169,6 @@ export const getStaticProps = async () => {
 		},
 	})
 
-	return {props: {data}}
+	const schedule = loadSchedule()
+	return {props: {data, schedule}}
 }
