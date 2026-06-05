@@ -35,8 +35,8 @@ export default function IpodWidget() {
   const song = songs[current]
 
   return (
-    <div className="mx-auto w-72 md:w-96">
-      <h1 className="bitcount mb-2 text-left text-lg text-white">Recently Played</h1>
+    <div className="w-120">
+      <h1 className="bitcount mb-2 text-right text-6xl text-white whitespace-nowrap">Recently Played</h1>
       <div className="relative select-none">
         <Image
           src="/ipod-filler4.png"
@@ -71,7 +71,7 @@ export default function IpodWidget() {
                     <img
                       src={song.albumArt}
                       alt={`${song.album} cover`}
-                      className="h-full w-auto max-h-28 object-contain"
+                      className="h-full w-auto max-h-64 object-contain"
                     />
                   </div>
                 )}
@@ -79,12 +79,12 @@ export default function IpodWidget() {
                 {/* Song + artist */}
                 <div className="flex flex-col justify-center gap-[3px] min-w-0">
                   <div
-                    className="font-kallisto text-[11px] font-bold leading-tight text-[#e0ff05]"
+                    className="font-kallisto text-[20px] font-bold leading-tight text-[#e0ff05]"
                     style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
                   >
                     {song.song}
                   </div>
-                  <div className="font-kallisto overflow-hidden whitespace-nowrap text-[9px] text-white">
+                  <div className="font-kallisto overflow-hidden whitespace-nowrap text-[20px] text-white">
                     {song.artist}
                   </div>
                 </div>
@@ -92,7 +92,7 @@ export default function IpodWidget() {
 
               {/* Bottom row: play time spanning full width */}
               <div className="flex items-center justify-between">
-                <span className="text-[8px] text-zinc-400">Played at {formatTime(song.songstart)}</span>
+                <span className="text-[18px] text-zinc-400">Played at {formatTime(song.songstart)}</span>
                 <span className="text-[8px] text-zinc-300">{current + 1} / {songs.length}</span>
               </div>
             </div>

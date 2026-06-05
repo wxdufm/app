@@ -26,27 +26,27 @@ export default function Home(props) {
 				{/* HomepageBanner is a component for adding a closeable banner announcement to the homepage. Toggle on or off in Components > HomepageBanner.js */}
 				<HomepageBanner />
 			</div>
-
 			{/* Header with WXDU logo lives here */}
-			<div className="mx-auto lg:flex hidden w-5/6 flex-col items-start justify-center pt-10 md:mb-10 md:pt-2 ">
+			<div className="mx-auto lg:flex hidden w-full flex-col items-start justify-center pt-10 md:mb-10 md:pt-2 ">
 					{/* Header text parent container */}
 					<div className="mb-20 lg:mb-5 flex  w-full cursor-pointer flex-col items-center justify-center pt-20 md:flex-row md:items-end md:pt-20 lg:pt-1">
 						{/* Actual header text */}
-						<div className="flex w-full flex-col items-center justify-center md:w-3/4 md:pt-20 lg:w-3/5 lg:pt-1">
+						<div className="flex w-full flex-col items-center justify-center md:w-3/4 md:pt-20 lg:w-full lg:pt-1">
 							<Image src={photo} alt="Picture of the author" priority className="w-[1088px]" />
-							<div className="mt-2">
-								<h1 className="bitcount mx-auto w-full text-center text-base md:mx-0  md:text-3xl lg:text-2xl">
+							<div className="mt-2 w-full" style={{ paddingLeft: '4rem', paddingRight: '4rem' }}>
+								<h1 className="bitcount mx-auto w-full text-center text-base md:mx-0  md:text-3xl lg:text-5xl">
 									Duke and Durham&#39;s alternative, non-commercial radio station
 								</h1>
 							<div className="flex flex-row justify-center gap-16 mt-16"></div>
-							<div className="
-							mt-4 flex flex-row justify-center gap-4 items-start" style={{ zoom: 1.3 }}>
-								<TodaySchedule schedule={schedule} />
-								<div className="flex flex-col items-center gap-2">
+							<div className="mt-4 flex flex-row justify-between gap-16 items-start px-2 w-full" style={{ zoom: 1.3 }}>
+								<div className="flex-1">
+									<TodaySchedule schedule={schedule} />
+								</div>
+								<div className="flex flex-col items-end gap-2 flex-1">
 									<IpodWidget />
 									<StreamButton />
 									{/* CDs (fillers for now) that link to important pages */}
-								<div className="flex flex-row justify-center gap-4 mt-4">
+								<div className="flex flex-row justify-between gap-2 mt-4 w-full">
 									<CDLink href="/blog" label="blog posts" image="/CD_1_Filler.jpg" />
 									<CDLink href="/programming" label="programming" image="/CD_2_Filler.jpg" />
 									<CDLink href="/about" label="about" image="/CD_3_Filler.jpg" />
@@ -61,7 +61,7 @@ export default function Home(props) {
 
 <div className="mt-6">
     <ShowCalendar />
-  </div>
+</div>
 
 			<div className="mx-auto flex w-5/6 flex-col gap-4">
 				<div className="-mt-5 flex w-full flex-col justify-center md:-mt-10 md:mr-10 lg:mt-5">
@@ -91,7 +91,7 @@ export default function Home(props) {
 					</div>
 					
 					{/* Photo gallery */}
-					<div className="mx-auto mt-16 hidden w-5/6 items-center justify-center md:visible md:flex">
+					<div className="mx-auto mt-16 hidden w-full items-center justify-center md:visible md:flex">
 						<PhotoGallery />
 					</div>
 				</div>
