@@ -6,12 +6,12 @@ const CDLink = ({ image, label, href }) => {
     return (
         <Link href={href}>
             <div className="flex flex-col items-center cursor-pointer group">
-                <div className="w-32 h-32 relative overflow-hidden">
+                <div className="w-64 h-64 relative overflow-hidden">
                     <Image
                         src={image}
                         alt={label}
-                        width={128}
-                        height={128}
+                        width={256}
+                        height={256}
                         // will make the image cover the entire box without stretching so the image doesn't distort
                         style={{ objectFit: 'cover' }}
                         className="group-hover:opacity-80 transition-opacity"
