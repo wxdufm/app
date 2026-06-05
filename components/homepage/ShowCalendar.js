@@ -78,15 +78,15 @@ export default function ShowCalendar() {
 	}
 
 	return (
-		<div className="kallisto text-sm text-white">
+		<div className="kallisto mx-auto w-[60vw] text-sm text-white">
 			<h2 className="bitcount mb-3 text-lg text-white">Upcoming Shows</h2>
-			<div className="space-y-6">
+			<div className="max-h-[50vh] overflow-y-auto border border-white p-4">
 				{daysWithShows.map((day) => (
-					<section key={day.date}>
-						<h3 className="mb-2 border-b border-neutral-600 pb-1 text-base text-[#e0ff05]">{prettyDayLabel(day.date)}</h3>
-						<ul className="space-y-2">
+					<section key={day.date} className="border-b-4 border-white py-4 last:border-b-0">
+						<h3 className="mb-3 text-base text-[#e0ff05]">{prettyDayLabel(day.date)}</h3>
+						<ul>
 							{day.shows.map((show) => (
-								<li key={`${day.date}-${show.eventId}`} className="border-l border-neutral-600 pl-3">
+								<li key={`${day.date}-${show.eventId}`} className="border-b border-neutral-600 py-2 last:border-b-0">
 									<div className="text-white">
 										{show.venue.url ? (
 											<a
