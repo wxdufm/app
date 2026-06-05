@@ -30,18 +30,18 @@ export default function Home(props) {
 					{/* Header text parent container */}
 					<div className="mb-20 lg:mb-5 flex  w-full cursor-pointer flex-col items-center justify-center pt-20 md:flex-row md:items-end md:pt-20 lg:pt-1">
 						{/* Actual header text */}
-						<div className="flex w-full flex-col items-center justify-center md:w-3/4 md:pt-20 lg:w-full lg:pt-1">
+						<div className="flex w-full flex-col items-center justify-center md:w-3/4 md:pt-4 lg:w-full lg:pt-1">
 							<Image src={photo} alt="Picture of the author" priority className="w-[1088px]" />
-							<div className="mt-2 w-full" style={{ paddingLeft: '4rem', paddingRight: '4rem' }}>
+							<div className="mt-0 w-full" style={{ paddingLeft: '4rem', paddingRight: '4rem' }}>
 								<h1 className="bitcount mx-auto w-full text-center text-base md:mx-0  md:text-3xl lg:text-5xl">
 									Duke and Durham&#39;s alternative, non-commercial radio station
 								</h1>
 							<div className="flex flex-row justify-center gap-16 mt-16"></div>
-							<div className="mt-4 flex flex-row justify-between gap-16 items-start px-2 w-full" style={{ zoom: 1.3 }}>
-								<div className="flex-1">
+							<div className="mt-4 flex flex-row justify-between gap-4 items-start px-2 w-full" style={{ zoom: 1.1 }}>
+								<div className="flex-[5]">
 									<TodaySchedule schedule={schedule} />
 								</div>
-								<div className="flex flex-col items-end gap-2 flex-1">
+								<div className="flex flex-col justify-right items-end gap-2 flex-[2]" style={{ zoom: 0.85 }}>
 									<IpodWidget />
 									<StreamButton />
 									{/* CDs (fillers for now) that link to important pages */}
@@ -57,6 +57,22 @@ export default function Home(props) {
 					</div>
 
 				</div>
+
+			{/* Mobile layout — hidden on desktop */}
+			<div className="lg:hidden flex flex-col items-center gap-8 px-8 pt-10 pb-16">
+				<div className="flex flex-col items-center gap-2 w-full">
+					<StreamButton />
+					<IpodWidget />
+		
+				</div>
+				<TodaySchedule schedule={schedule} />
+				<div className="flex flex-row justify-between gap-1 mt-4 w-full">
+						<CDLink href="/blog" label="blog posts" image="/CD_1_Filler.jpg" />
+						<CDLink href="/programming" label="programming" image="/CD_2_Filler.jpg" />
+						<CDLink href="/about" label="about" image="/CD_3_Filler.jpg" />
+				</div>
+				
+			</div>
 
 			<div className="mx-auto flex w-full flex-col gap-4">
 				<div className="-mt-5 flex w-full flex-col justify-center md:-mt-10 md:mr-10 lg:mt-5">

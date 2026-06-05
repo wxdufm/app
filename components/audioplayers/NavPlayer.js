@@ -73,7 +73,7 @@ const NavPlayer = () => {
                 </span>
 
                 {/* Soundwave gif —> animated when playing, still when paused; height can be adjusted, currently ~24 because h-10 in the parent div */}
-                <div className="shrink-0 flex items-center">
+                <div className="hidden lg:flex shrink-0 items-center">
                     <img 
                         src={isPlaying ? "/soundwaves.gif" : "/staticsoundwave.gif"}
                         alt="soundwaves"
