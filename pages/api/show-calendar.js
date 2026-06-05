@@ -46,6 +46,18 @@ function enumerateDays(startDate, days) {
 	return output
 }
 
+// conservative hard-coded approach since there aren't that many venues
+function fixMojibake(str) {
+    if (!str) return ""
+    return str
+        .replace(/â€™/g, "’")
+        .replace(/â€œ/g, "“")
+        .replace(/â€/g, "”")
+        .replace(/â€"/g, "—")
+        .replace(/â€“/g, "–")
+        .replace(/Â/g, "")
+}
+
 export default async function handler(req, res) {
 	if (req.method !== "GET") {
 		return res.status(405).json({ error: "Method not allowed" })
@@ -88,6 +100,7 @@ export default async function handler(req, res) {
 		const calendarByDate = new Map(calendar.map((entry) => [entry.date, entry]))
 
 		rows.forEach((row) => {
+
 			const showStart = formatLocalDate(row.startDate)
 			const showEnd = formatLocalDate(row.endDate)
 
@@ -95,6 +108,8 @@ export default async function handler(req, res) {
 				if (date >= showStart && date <= showEnd) {
 					const dayEntry = calendarByDate.get(date)
 					if (dayEntry) {
+                        const venueName = fixMojibake(row.venueName || "")
+                        const venueCity = fixMojibake(row.venueCity || "")
 						dayEntry.shows.push({
 							eventId: row.eventId,
 							startDate: showStart,
@@ -102,9 +117,9 @@ export default async function handler(req, res) {
 							description: row.description,
 							venue: {
 								id: row.locationId,
-								name: row.venueName || "",
-								city: row.venueCity || "",
-								label: [row.venueName, row.venueCity].filter(Boolean).join(", "),
+								name: venueName,
+								city: venueCity,
+								label: [venueName, venueCity].filter(Boolean).join(", "),
 								url: row.venueUrl || ""
 							}
 						})
