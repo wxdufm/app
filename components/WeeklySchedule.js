@@ -39,7 +39,7 @@ export default function WeeklySchedule({schedule}) {
 						{days.map((day) => (
 							<th
 								key={day}
-								className="border border-gray-300 px-4 py-2 bg-black"
+								className="border border-gray-300 px-4 py-2 bg-red"
 							>
 								{day}
 							</th>
@@ -58,7 +58,7 @@ export default function WeeklySchedule({schedule}) {
 							<tr key={`${hour}-${rowIndex}`}>
 
                                 {/* first column is the hour */}
-								<th className="border border-gray-300 px-4 py-2 bg-black text-left">
+								<th className="border border-gray-300 px-4 py-2 bg-pink text-left">
 									{hour}
 								</th>
 
