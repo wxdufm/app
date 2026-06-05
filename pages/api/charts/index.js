@@ -1,16 +1,32 @@
-import clientPromise from '../../../lib/db/mongodb'
+import db from '../../../lib/db/plmanager'
 
 export default async function handler(req, res){
 	try {
-		const client = await clientPromise
-		const db = client.db('wxdu');
-		const charts = await db.collection('charts')
-			.find({}, { projection: { date: 1, title: 1, _id: 0 } })
-			.sort({ date: -1 })
-			.toArray();
-			return res.status(200).json(charts);
+		const [rows] = await db.query(`
+			SELECT artist, album, MIN(label) as label, COUNT(*) as spins
+			FROM playlist
+			WHERE playlist IN ('red', 'black', 'red/nonrock', 'black/nonrock')
+			AND songstart >= DATE_SUB((SELECT MAX(songstart) FROM playlist), INTERVAL 7 DAY)
+			AND artist != '*****'
+			AND album IS NOT NULL AND album != ''
+			GROUP BY artist, album
+			ORDER BY spins DESC
+			LIMIT 10
+		`);
+
+		const chart = rows.map((row, index) => ({
+			rank: index + 1,
+			spins: row.spins,
+			artist: row.artist,
+			album: row.album,
+			label: row.label || '',
+		}));
+
+		res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate');
+		return res.status (200).json(chart);
+
 	} catch (error) {
 		console.error('[charts API]', error);
-		return res.status(500).json({ error: error.message });
+		return { props: {chart: [] } };
 	}
 }
