@@ -37,12 +37,11 @@ export default function Home(props) {
 								<h1 className="bitcount mx-auto w-full text-center text-base md:mx-0  md:text-3xl lg:text-5xl">
 									Duke and Durham&#39;s alternative, non-commercial radio station
 								</h1>
-							<div className="flex flex-row justify-center gap-16 mt-16"></div>
 							<div className="mt-4 flex flex-row justify-between gap-4 items-start px-2 w-full" style={{ zoom: 1.1 }}>
 								<div className="flex-[5]">
 									<TodaySchedule schedule={schedule} />
 								</div>
-								<div className="flex flex-col justify-right items-end gap-2 flex-[2]" style={{ zoom: 0.85 }}>
+								<div className="flex flex-col items-end gap-2 flex-[2]" style={{ zoom: 0.85 }}>
 									<IpodWidget />
 									<StreamButton />
 									{/* CDs (fillers for now) that link to important pages */}
@@ -113,6 +112,7 @@ export default function Home(props) {
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	)
 }
