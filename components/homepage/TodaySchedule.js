@@ -36,11 +36,11 @@ export default function TodaySchedule({ schedule }) {
 
 	return (
     <div className="text-lg kallisto text-[#e0ff05] w-full">
-		<h1 className="bitcount mb-2 text-left text-6xl text-white">Today's Schedule</h1>
+		<h1 className="bitcount mb-2 text-center lg:text-left text-2xl lg:text-5xl text-white">Today's Schedule</h1>
         {shows.map(({ hour, endHour, show }, i) => (
             show ? (
                 <div key={`${hour}-${i}`} className="flex gap-4 py-3 border-b border-gray-300">
-                    <span className="w-32 text-right">
+                    <span className="w-24 text-right">
                         {endHour ? `${hour} – ${endHour}` : hour}
                     </span>
                     <span className="border-l border-gray-300 pl-4 flex-1">

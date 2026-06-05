@@ -6,7 +6,7 @@ const CDLink = ({ image, label, href }) => {
     return (
         <Link href={href}>
             <div className="flex flex-col items-center cursor-pointer group">
-                <div className="w-64 h-64 relative overflow-hidden">
+                <div className="w-28 h-28 lg:w-64 lg:h-64 relative overflow-hidden">
                     <Image
                         src={image}
                         alt={label}
