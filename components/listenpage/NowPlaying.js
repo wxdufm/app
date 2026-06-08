@@ -19,7 +19,7 @@ export default function NowPlaying() {
 
             <div className="flex justify-center">
                 <div className="w-full max-w-sm">
-                    <StreamButton /> // button to play the song
+                    <StreamButton />
                 </div>
             </div>
         </div>
