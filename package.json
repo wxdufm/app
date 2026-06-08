@@ -20,6 +20,7 @@
 		"eslint": "^8.55.0",
 		"eslint-config-next": "^14.0.4",
 		"fuse.js": "^7.4.2",
+		"fs": "^0.0.1-security",
 		"iconv-lite": "^0.7.2",
 		"latest": "^0.2.0",
 		"mongodb": "^7.2.0",

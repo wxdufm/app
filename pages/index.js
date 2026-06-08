@@ -10,7 +10,6 @@ import StreamButton from '../components/audioplayers/StreamButton'
 import CDLink from '../components/homepage/CDLink'
 import IpodWidget from '../components/homepage/IpodWidget'
 import TodaySchedule from '../components/homepage/TodaySchedule'
-import { loadSchedule } from '../lib/schedule'
 import ShowCalendar from "../components/homepage/ShowCalendar"
 
 
@@ -189,7 +188,7 @@ export const getStaticProps = async () => {
 			startOfWeek: startOfWeek.toDateString(),
 		},
 	})
-
-	const schedule = loadSchedule()
-	return {props: {data, schedule}}
+	const { scheduleBuilder } = await import('../lib/schedule/scheduleBuilder')
+	const schedule = await scheduleBuilder()
+	return { props: { data, schedule } }
 }
