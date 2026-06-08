@@ -2,14 +2,15 @@ import db from '../../lib/db/plmanager';
 import ChartEntryRow from '../../components/charts/ChartEntryRow';
 import { useState, useEffect } from 'react';
 
-
+//initalChart and latestDate come from getServerSideProps below
 export default function ChartsPage({ initialChart, latestDate }) {
-    const [chart, setChart] = useState(initialChart);
-    const [selectedDate, setSelectedDate] = useState(latestDate);
+    const [chart, setChart] = useState(initialChart);  //chart data currently shown
+    const [selectedDate, setSelectedDate] = useState(latestDate); //date the user has picked
     const [loading, setLoading] = useState(false);
 
+    //runs whenever selectedDate changes - fetches chart for the new date from the api
     useEffect(() => {
-        if (selectedDate === latestDate) return;
+        if (selectedDate === latestDate) return; //skip fetch on first load, we already have the data
         setLoading(true);
         fetch(`/api/charts/${selectedDate}`)
             .then(r => r.json())
@@ -20,6 +21,8 @@ export default function ChartsPage({ initialChart, latestDate }) {
     return (
         <div className="min-h-screen text-white px-4 py-8 max-w-3xl mx-auto">
             <h1 className="font-courierprime text-3xl font-bold mb-6">WXDU TOP 10</h1>
+
+            {/* date picker: user selects the date and the API returns the prior 7 days */}
             <div className="mb-6">
                 <label className="font-courierprime text-sm text-zinc-400 block mb-2">
                     Week ending:
@@ -54,13 +57,16 @@ export default function ChartsPage({ initialChart, latestDate }) {
     );
 }
 
+//runs on the server before the page loads - fetches the default chart (most recent week)
 export async function getServerSideProps() {
     try {
+        //gets most recent date in the db to be default
         const [[latestRow]] = await db.query(
-            `SELECT DATE_FORMAT(MAX(songstart), '%Y-%m-%d')`
+            `SELECT DATE_FORMAT(MAX(songstart), '%Y-%m-%d') as latestDate FROM playlist`
         );
         const latestDate = latestRow.latestDate
 
+        //fetch the top 10 for the 7 days ending on that date
         const [rows] = await db.query(`
             SELECT artist, album, MIN(label) as label, COUNT(*) as spins
             FROM playlist
@@ -73,6 +79,7 @@ export async function getServerSideProps() {
             LIMIT 10
         `);
 
+        //add rank 1-10 to each row
         const initialChart = rows.map((row, index) => ({
             rank: index + 1,
             spins: row.spins,
