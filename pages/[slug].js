@@ -2,10 +2,7 @@ import {TinaMarkdown} from 'tinacms/dist/rich-text'
 import {tinaField, useTina} from 'tinacms/dist/react'
 import {client} from '../tina/__generated__/client'
 import WeeklySchedule from '../components/WeeklySchedule'
-
-import {parseSchedule} from '../lib/schedule/scheduleParser'
-import {lookupIDsfromFullNames} from '../lib/schedule/id-lookup'
-import {lookupDjNamesFromIDs} from '../lib/schedule/djName-lookup'
+import { scheduleBuilder } from '../lib/schedule/scheduleBuilder'
 
 //editable static pages (programming, contact, etc.)
 export default function Home(props) {
@@ -61,12 +58,7 @@ export const getStaticProps = async (ctx) => {
 	// otherwise schedule is null and WeeklySchedule component won't render!
 	let schedule = null
 	if (ctx.params.slug === 'programming') {
-		const scheduleCarrier = parseSchedule()
-		const idGrid = await lookupIDsfromFullNames(scheduleCarrier[3])
-		const djNameGrid = await lookupDjNamesFromIDs(idGrid)
-		scheduleCarrier[4] = idGrid
-		scheduleCarrier[3] = djNameGrid
-		schedule = scheduleCarrier
+		schedule = await scheduleBuilder()
 	}
 
 	return {
