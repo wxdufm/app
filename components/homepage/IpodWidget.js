@@ -36,7 +36,7 @@ export default function IpodWidget() {
 
   return (
     <div className="w-full">
-      <h1 className="bitcount mb-2 text-center lg:text-right text-2xl lg:text-5xl text-white whitespace-nowrap">Recently Played</h1>
+      <h1 className="bitcount mb-2 text-center lg:text-right text-2xl lg:text-6xl text-white whitespace-nowrap">Recently Played</h1>
       <div className="relative select-none">
         <Image
           src="/ipod-filler4.png"
