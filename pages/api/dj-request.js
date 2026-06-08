@@ -28,7 +28,7 @@ export default async function handler(req,res) {
 
     try {
         // inserts into request table: fills old Twitter columns with defaults
-        await db.execute(
+        await pool.execute(
             `INSERT INTO request (tweet_id, in_reply_to_status_id, text, created_at, user_profile_image_url, user_screen_name, user_name, user_id, email)
             VALUES (0, 0, ?, ?, '', '', ?, 0, '')`,
             [text, createdAt, userName]

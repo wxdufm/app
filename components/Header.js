@@ -172,14 +172,12 @@ const Header = () => {
 				<div className="mx-auto flex w-5/6 flex-col items-start justify-center pt-10 md:mb-10 md:pt-2 lg:hidden ">
 					<Link href="/">
 						{/* Header text parent container */}
-						<div className="mb-20 flex w-full  cursor-pointer flex-col items-center justify-center pt-20 md:flex-row md:items-end md:pt-20 lg:mb-5 lg:pt-1">
+						<div className="mb-20 flex w-full  cursor-pointer flex-col items-center justify-center pt-4 md:flex-row md:items-end md:pt-4 lg:mb-5 lg:pt-1">
 							{/* Actual header text */}
-							<div className="flex w-full flex-col items-center justify-center md:w-3/4 md:pt-20 lg:w-2/5 lg:pt-1">
+							<div className="flex w-full flex-col items-center justify-center md:w-3/4 md:pt-0 lg:w-2/5 lg:pt-1">
 								<Image src={photo} alt="Picture of the author" priority />
-								<h1 className=" kallistobold m-0 mx-auto text-6xl font-bold text-white no-underline">
-									89.3FM
-								</h1>
-								<div className="mt-2">
+
+								<div className="mt-0">
 									<h3 className="poppins mx-auto w-full text-center text-base md:mx-0  md:text-xl lg:text-base">
 										Duke University&apos;s student-run, freeform radio station
 									</h3>
