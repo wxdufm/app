@@ -21,6 +21,8 @@ export default function ChartsPage({ initialChart, latestDate }) {
     return (
         <div className="min-h-screen text-white px-4 py-8 max-w-3xl mx-auto">
             <h1 className="font-courierprime text-3xl font-bold mb-6">WXDU TOP 10</h1>
+            <p className="font-courierprime text-sm text-zinc-400 mb-6">Most spun new-add albums: Past 7 days</p>
+
 
             {/* date picker: user selects the date and the API returns the prior 7 days */}
             <div className="mb-6">
