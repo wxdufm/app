@@ -4,11 +4,13 @@ import {useState} from 'react'
 Receives parsed CSV data from lib/scheduleParser.js and renders a weekly grid.
 headerRow includes value of corner cell A1, but is removed from hourColumn
 
-[0] headerRow = fullArray[0],
-[1] hourColumn = fullArray.map(row => row[0]).slice(1),
-[2] specialtyShowIndices = [],
-[3] djNameOnlyArray = [] (starts out as fullNameOnlyArray but gets overwritten)
-[4] idGrid (same dimensions as [3] but with MySQL ids)
+fullArray is what scheduleParser.js returns (25x8)
+
+[0] headerRow = fullArray[0]   (1 row, 8 columns)
+[1] hourColumn = fullArray.map(row => row[0]).slice(1)   (rotates hour column into 1 row, 24 columns)
+[2] specialtyShowIndices = []   (marks indexes of all specialty shows [WIP])
+[3] djNameOnlyArray = [] (starts out as fullNameOnlyArray but gets overwritten)     (24 rows, 7 columns)
+[4] idGrid     (same dimensions as [3] but with MySQL ids)
 */
 
 export default function WeeklySchedule({schedule}) {
@@ -19,12 +21,15 @@ export default function WeeklySchedule({schedule}) {
 		...schedule[3].map((row, i) => [schedule[1][i], ...row])
 	];
 
+	// for temp button functionality
 	const [selectedDj, setSelectedDj] = useState(null)
 
+	// make sure we aren't passing in non-arrays or nothing
 	if (!Array.isArray(reconstructedSchedule) || reconstructedSchedule.length === 0) {
 		return null
 	}
 
+	// init arrays
 	const headerRow = reconstructedSchedule[0]
 	const hourRows = reconstructedSchedule.slice(1)
 	const days = headerRow
