@@ -122,6 +122,18 @@ const Header = () => {
 							</Link>
 						</div>
 
+						<div className="ml-10 my-8 flex h-8 text-3xl">
+							<Link
+								href="/charts"
+								legacyBehavior={false}
+								className="cursor-pointer"
+								rel="noopener noreferrer"
+								onClick={toggleMenu}
+								>
+									Charts
+								</Link>
+						</div>
+
 						<div className="ml-10 mt-8 flex h-8 text-3xl">
 							<Link
 								href="/archive"
@@ -217,6 +229,14 @@ const Header = () => {
 									</p>
 								</a>
 							</Link>
+
+							<Link href="/charts">
+								<a className="flex h-12 grow items-center justify-center">
+									<p className="cursor-pointer text-base text-white no-underline hover:text-blue-300">
+										Charts
+										</p>
+									</a>
+								</Link>
 
 							<Link href="/archive">
 								<a className="flex h-12 grow items-center justify-center">
