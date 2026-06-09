@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react'
+import Image from 'next/image'
 
 const COOLDOWN_SECONDS = 60
 const COOLDOWN_KEY = 'dj_request_cooldown_until'
@@ -15,6 +16,7 @@ export default function DJRequestWidget() {
     const [status, setStatus] = useState(null)
     const [cooldownRemaining, setCooldownRemaining] = useState(0)
     const timerRef = useRef(null)
+    const [isHovered, setIsHovered] = useState(false)
 
     useEffect(() => {
         const stored = localStorage.getItem(COOLDOWN_KEY)
@@ -72,11 +74,22 @@ export default function DJRequestWidget() {
         <>
             {/* Floating button */}
             <button
-                className="fixed bottom-6 right-6 z-50 w-36 cursor-pointer bg-red-700 px-4 py-4 text-center text-sm font-bold text-white shadow-xl hover:bg-red-800"
+                className="fixed bottom-6 right-6 z-50 cursor-pointer bg-transparent border-0 p-0"
                 onClick={() => setIsOpen(true)}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
             >
-                Send DJ Request
+                <img
+                    src={isHovered ? '/requestwidget_hover_bg.png' : '/requestwidget_bg.png'}
+                    alt="Send DJ Request"
+                    style={{
+                        width: 130,
+                        height: 'auto',
+                        display: 'block',
+                    }}
+                />
             </button>
+
 
             {/* Modal */}
             {isOpen && (
