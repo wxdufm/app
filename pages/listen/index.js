@@ -16,6 +16,8 @@ export default function Listen() {
         dj: null
     })
 
+    const [currentPlaylist, setCurrentPlaylist] = useState({});
+
     // function to fetch now-playing data
     async function fetchNowPlaying() {
         try {
@@ -35,14 +37,32 @@ export default function Listen() {
         }
     }
 
+    // function to fetch current playlist
+    async function fetchCurrentPlaylist(){
+        try {
+            const response = await fetch('https://api.wxdu.art/api/playlists/current')
+
+            const data = await response.json()
+
+            setCurrentPlaylist(data)
+
+        } catch (error) {
+            console.error('Failed to fetch current-playlist data:', error)
+        }
+    }
+
     // calls API on component mount and every 30 seconds thereafter
     useEffect(() => {
 
         // initial fetch
-        fetchNowPlaying()
+        fetchNowPlaying();
+        fetchCurrentPlaylist();
 
         // poll API again every 30 secs
-        const interval = setInterval(fetchNowPlaying, 30000)
+        const interval = setInterval(() => {
+            fetchNowPlaying();
+            fetchCurrentPlaylist();
+        }, 3000)
 
         // clean-up on component unmount
         return () => clearInterval(interval)
@@ -56,7 +76,7 @@ export default function Listen() {
             <div className="grid grid-cols-1 md:grid-cols-[40%_60%] gap-8">
                 <div className="md:h-[calc(100vh-160px)] md:overflow-auto h-auto flex justify-center">
                     <div className="w-full max-w-[360px]">
-                        <PlayTabs nowPlaying={nowPlaying} />
+                        <PlayTabs nowPlaying={nowPlaying} currentPlaylist={currentPlaylist}/>
                     </div>
                 </div>
 
