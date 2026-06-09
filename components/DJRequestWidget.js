@@ -1,7 +1,9 @@
 import React, {useState, useEffect, useRef} from 'react'
+import Image from 'next/image'
+import { apiFetch } from '../lib/api'
 
 const COOLDOWN_SECONDS = 60
-const COOLDOWN_KEY = 'dj_request_cooldown_until'
+const COOLDOWN_KEY = 'dj_request_cooldown_until' // localStorage key for persisting cooldown across page refreshes
 
 export default function DJRequestWidget() {
     const [isOpen, setIsOpen] = useState(false)
@@ -15,7 +17,9 @@ export default function DJRequestWidget() {
     const [status, setStatus] = useState(null)
     const [cooldownRemaining, setCooldownRemaining] = useState(0)
     const timerRef = useRef(null)
+    const [isHovered, setIsHovered] = useState(false)
 
+    // on mount: restore any active cooldown from a previous submission
     useEffect(() => {
         const stored = localStorage.getItem(COOLDOWN_KEY)
         if (stored) {
@@ -23,6 +27,8 @@ export default function DJRequestWidget() {
             if (remaining > 0) setCooldownRemaining(remaining)
         }
     }, [])
+
+    // tick the countdown timer down every second while a cooldown is active
     useEffect(() => {
         if (cooldownRemaining <= 0) {
             clearInterval(timerRef.current)
@@ -46,37 +52,52 @@ export default function DJRequestWidget() {
         setStatus(null)
 
         try {
-            const response = await fetch('/api/dj-request', {
+            // format the request text the same way the old server-side route did
+            const text = data.type === 'song'
+                ? `Song Request: ${data.songTitle} by ${data.songArtist}`
+                : `Message: ${data.messageText}`
+            const user_name = data.type === 'song' ? data.songName : data.messageName
+
+            // POST to the external API — throws on any non-2xx response (including 429)
+            await apiFetch('/api/requests', {
                 method: 'POST',
-                headers: {'Content-Type':'application/json'},
-                body: JSON.stringify(data)
+                headers: { 'Content-Type' : 'application/json'},
+                body: JSON.stringify({ text, user_name })
             })
 
-            if(response.ok) {
-                setStatus('success')
-                const until = Date.now() + COOLDOWN_SECONDS * 1000
-                localStorage.setItem(COOLDOWN_KEY, until.toString())
-                setCooldownRemaining(COOLDOWN_SECONDS)
-            } else {
-                setStatus('error')
-            }
+            setStatus('success')
+            const until = Date.now() + COOLDOWN_SECONDS * 1000
+            localStorage.setItem(COOLDOWN_KEY, until.toString())
+            setCooldownRemaining(COOLDOWN_SECONDS)
+
         } catch(error) {
-            setStatus('error')
+            // 429 = server-side rate limit hit; anything else is a generic failure
+            setStatus(error.status === 429 ? 'ratelimit' : 'error')
         } finally {
             setIsLoading(false)
-        
         }
-            }
+    }
 
     return (
         <>
             {/* Floating button */}
             <button
-                className="fixed bottom-6 right-6 z-50 w-36 cursor-pointer bg-red-700 px-4 py-4 text-center text-sm font-bold text-white shadow-xl hover:bg-red-800"
+                className="fixed bottom-6 right-6 z-50 cursor-pointer bg-transparent border-0 p-0"
                 onClick={() => setIsOpen(true)}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
             >
-                Send DJ Request
+                <img
+                    src={isHovered ? '/requestwidget_hover_bg.png' : '/requestwidget_bg.png'}
+                    alt="Send DJ Request"
+                    style={{
+                        width: 130,
+                        height: 'auto',
+                        display: 'block',
+                    }}
+                />
             </button>
+
 
             {/* Modal */}
             {isOpen && (
@@ -192,6 +213,11 @@ export default function DJRequestWidget() {
                                 {status === 'success' && (
                                     <p className="mt-3 text-center text-sm text-green-400">
                                         Sent! The DJ will see your request shortly.
+                                    </p>
+                                )}
+                                {status === 'ratelimit' && (
+                                    <p className="mt-3 text-center text-sm text-yellow-400">
+                                        Too many requests — wait a moment and try again.
                                     </p>
                                 )}
                                 {status === 'error' && (
