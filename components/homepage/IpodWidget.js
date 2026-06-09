@@ -48,6 +48,14 @@ export default function IpodWidget() {
           priority
         />
 
+        {/* Mobile-only prev/next buttons outside the screen */}
+        <button onClick={prev} className="lg:hidden absolute z-10 -translate-y-1/2 text-zinc-400 hover:text-white cursor-pointer" style={{ top: '50%', left: '0%' }}>
+          <IoIosArrowDropleft size={20} />
+        </button>
+        <button onClick={next} className="lg:hidden absolute z-10 -translate-y-1/2 text-zinc-400 hover:text-white cursor-pointer" style={{ top: '50%', left: '61%' }}>
+          <IoIosArrowDropright size={20} />
+        </button>
+
         {/* Screen overlay */}
         <div
           className="absolute overflow-hidden bg-black"
@@ -65,7 +73,7 @@ export default function IpodWidget() {
             <div className="flex h-full flex-row items-stretch">
 
               {/* Prev button */}
-              <button onClick={prev} className="flex items-center px-1 text-zinc-400 hover:text-white cursor-pointer shrink-0">
+              <button onClick={prev} className="hidden lg:flex items-center px-1 text-zinc-400 hover:text-white cursor-pointer shrink-0">
                 <IoIosArrowDropleft size={24} />
               </button>
 
@@ -73,21 +81,24 @@ export default function IpodWidget() {
               <div className="flex flex-col flex-1 justify-between py-2 pr-1 gap-1 min-w-0">
                 {/* Top row: album art + song info, left-aligned */}
                 <div className="flex flex-row gap-2 min-h-0 flex-1 justify-start">
-                  <div className="flex-shrink-0 w-32 h-32 lg:w-48 lg:h-48">
+                  <div className="flex-shrink-0 aspect-square w-[16vw] min-w-[100px] max-w-[192px]">
                     <img
                       src={song.albumArt || cardinalsFallback.src}
                       alt={`${song.album} cover`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
-                  <div className="flex flex-col justify-center gap-[3px] min-w-0">
+                  <div className="flex flex-col justify-center gap-[3px] min-w-0 overflow-hidden">
                     <div
                       className="font-kallisto text-[11px] lg:text-[20px] font-bold leading-tight text-[#e0ff05]"
-                      style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                      style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
                     >
                       {song.song}
                     </div>
-                    <div className="font-kallisto text-[11px] lg:text-[20px] text-white break-words">
+                    <div
+                      className="font-kallisto text-[11px] lg:text-[20px] text-white"
+                      style={{ display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                    >
                       {song.artist}
                     </div>
                   </div>
@@ -101,7 +112,7 @@ export default function IpodWidget() {
               </div>
 
               {/* Next button */}
-              <button onClick={next} className="flex items-center px-1 text-zinc-400 hover:text-white cursor-pointer shrink-0">
+              <button onClick={next} className="hidden lg:flex items-center px-1 text-zinc-400 hover:text-white cursor-pointer shrink-0">
                 <IoIosArrowDropright size={24} />
               </button>
 
