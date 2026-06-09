@@ -123,7 +123,7 @@ export default function WeeklySchedule({schedule}) {
 									<th className="border border-gray-300 px-4 py-2 bg-pink text-left">
 										{
 											collapseAwareHourRow.startHour.replace(/–.*$/, "")
-										}–{
+										}↔{
 											collapseAwareHourRow.endHour.replace(/^.*–/, "")
 										}
 									</th>
