@@ -14,7 +14,7 @@ export default function ChartsPage({ initialChart, latestDate }) {
         setLoading(true);
         fetch(`/api/charts/${selectedDate}`)
             .then(r => r.json())
-            .then(data => { setChart(data); setLoading(false); })
+            .then(data => { setChart(Array.isArray(data) ? data : []); setLoading(false); })
             .catch(() => setLoading(false));
     }, [selectedDate]);
 
