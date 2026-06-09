@@ -211,17 +211,17 @@ export default function DJRequestWidget() {
                             </div>
                         )}
                                 {status === 'success' && (
-                                    <p className="mt-3 text-center text-sm text-green-400">
+                                    <p className="font-courierprime mt-3 text-center text-sm text-green-400">
                                         Sent! The DJ will see your request shortly.
                                     </p>
                                 )}
                                 {status === 'ratelimit' && (
-                                    <p className="mt-3 text-center text-sm text-yellow-400">
+                                    <p className="font-courierprime mt-3 text-center text-sm text-yellow-400">
                                         Too many requests — wait a moment and try again.
                                     </p>
                                 )}
                                 {status === 'error' && (
-                                    <p className="mt-3 text-center text-sm text-red-400">
+                                    <p className="font-courierprime mt-3 text-center text-sm text-red-400">
                                         Something went wrong. Please try again.
                                     </p>
                                 )}
