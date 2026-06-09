@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { FaPlay, FaPause } from 'react-icons/fa'
 import { useAudio } from '../AudioContext'
-import { data } from 'autoprefixer'
 import Link from 'next/link'
 
 
 const NavPlayer = () => {
     const { isPlaying, togglePlayPause } = useAudio()
+
+    // init stuff for ping pong animation
+    const tickerContainerRef = useRef(null)
+    const tickerTextRef = useRef(null)
+    const [tickerDistance, setTickerDistance] = useState(0)
 
     // create state for now-playing API data
     const [nowPlaying, setNowPlaying] = useState({
@@ -54,6 +58,24 @@ const NavPlayer = () => {
         nowPlaying.artist && nowPlaying.title && nowPlaying.album
             ? `${nowPlaying.artist} — ${nowPlaying.title} ... ${nowPlaying.album}`
             : `it's a secret... tune in to find out`
+    
+    // measures length of text + container for ping pong --> grabs difference
+    useEffect(() => {
+        function measureTicker() {
+            const containerWidth = tickerContainerRef.current?.getBoundingClientRect().width || 0
+            const textWidth = tickerTextRef.current?.getBoundingClientRect().width || 0
+
+            setTickerDistance(Math.ceil(Math.max(textWidth - containerWidth, 0)))
+        }
+
+        measureTicker()
+        window.addEventListener('resize', measureTicker)
+
+        return () => window.removeEventListener('resize', measureTicker)
+    }, [currentTrack, nowPlaying.dj])
+
+    // only scroll if the difference is >0 i.e. text is longer than container width
+    const shouldScrollTicker = tickerDistance > 0
 
     return (
         // The outer bar: fixed underneath main bar, full width, black background, yellow border on bottom 
@@ -84,7 +106,7 @@ const NavPlayer = () => {
 
             {/* RIGHT SECTION: scrolling ticker
                 overflow-hidden clips the text so it scrolls inside the bar */}
-            <div className="overflow-hidden flex-1">
+            <div ref={tickerContainerRef} className="overflow-hidden flex-1">
                 <Link href="/listen" legacyBehavior>
                     <a
                         className="block w-full h-full group cursor-pointer hover:bg-white/5 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded"
@@ -93,19 +115,37 @@ const NavPlayer = () => {
                         onClick={(e) => { e.currentTarget.blur(); }}
                     >
                         <div className="overflow-hidden flex-1">
-                            {/* animate-conveyor = custom animation defined in globals.css
-                                whitespace-nowrap keeps the text on one line so it scrolls horizontally */}
-                            <div className="animate-conveyor whitespace-nowrap">
+                            <div
+                                // animate-ticker-pingpong is defined in globals.css if you want to tweak
+                                className={`whitespace-nowrap inline-block ${
+                                    shouldScrollTicker ? 'animate-ticker-pingpong' : ''
+                                }`}
+                                style={{
+                                    '--ticker-distance': `${tickerDistance}px`,
+                                }}
+                            >
+                                <span ref={tickerTextRef} className="font-semibold text-[#e0ff05] text-base tracking-widest px-8 group-hover:underline group-hover:text-white group-focus:underline group-focus:text-white">
+                                    Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: {nowPlaying.dj}
+                                </span>
+                            </div>
+                        </div>
+
+                        {/*
+                        <div className="overflow-hidden flex-1">
+                                // animate-conveyor = custom animation defined in globals.css
+                                // whitespace-nowrap keeps the text on one line so it scrolls horizontally
+                            <div className="animate-ticker-pingpong whitespace-nowrap">
                                 <span className="bitcount text-[#e0ff05] text-base tracking-widest px-8 group-hover:underline group-hover:text-white group-focus:underline group-focus:text-white">
-                                {/* Replace with Adrenalin data */}
+                                // Replace with Adrenalin data
                                     Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: {nowPlaying.dj} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </span>
-                                {/* Text is repeated so there's no gap when it loops */}
+                                // </Link>Text is repeated so there's no gap when it loops
                                 <span className="bitcount text-[#e0ff05] text-base tracking-widest px-8 group-hover:underline group-hover:text-white group-focus:underline group-focus:text-white">
                                     Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: {nowPlaying.dj} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </span>
                             </div>
                         </div>
+                        */}
                     </a>
                 </Link>
             </div>

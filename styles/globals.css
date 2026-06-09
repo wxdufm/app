@@ -211,6 +211,24 @@ body::-webkit-scrollbar-thumb {
     animation: conveyor 20s linear infinite;
 }
 
+@keyframes ticker-pingpong {
+  0%, 10% {
+    transform: translateX(0);
+  }
+
+  40%, 60% {
+    transform: translateX(calc(-1 * var(--ticker-distance)));
+  }
+
+  90%, 100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-ticker-pingpong {
+  animation: ticker-pingpong 20s ease-in-out infinite;
+}
+
 @font-face {
     font-family: 'micro5charted';
     src: url('..//fonts/Micro5Charted-Regular.ttf');
