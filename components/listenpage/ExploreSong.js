@@ -1,3 +1,5 @@
+// This is the component for each song that is shown on the ExploreTab.
+
 import Image from "next/image"
 
 export default function ExploreSong({ rank = "", info = {} }) {
@@ -7,7 +9,7 @@ export default function ExploreSong({ rank = "", info = {} }) {
             <div className="text-2xl font-medium mb-2 select-none">{rank}</div>
             <div className="w-36 h-36 mb-3 overflow-hidden rounded">
                 <Image
-                    src={cover}
+                    src={info.cover}
                     alt={info.album || info.song || "cover"}
                     width={144}
                     height={144}

@@ -4,13 +4,13 @@ import {useState} from "react";
 import NowPlaying from "./NowPlaying";
 import LastPlayed from "./LastPlayed";
 
-export default function PlayTabs() {
+export default function PlayTabs({ nowPlaying = {}}) {
     const [activeTab, setActiveTab] = useState("nowplaying");
 
     // To render the correct tab based on the activeTab state (i.e which tab the user has clicked on)
     function renderTab() {
         if (activeTab === "nowplaying") {
-            return <NowPlaying  />
+            return <NowPlaying nowPlaying={nowPlaying} />
         } else if (activeTab === "lastplayed") {
             return <LastPlayed />
         }

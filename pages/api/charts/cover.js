@@ -1,3 +1,7 @@
+// This API returns cover url when given artist and album name.
+
+
+
 import connectToMongoDB from '../../../lib/db/mongodb';
 import { ObjectId } from 'mongodb'
 import Fuse from 'fuse.js'
@@ -48,6 +52,7 @@ function escapeRegex(str) {
     return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// function to implement a fuzzy search of the database
 async function fuzzySearch(artist, album, db) {
     const albumQ = album ? escapeRegex(album) : '';
     const artistQ = artist ? escapeRegex(artist) : '';
