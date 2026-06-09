@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState} from "react"
 
 /*
 Receives parsed CSV data from lib/scheduleParser.js and renders a weekly grid.
@@ -24,14 +24,15 @@ function isOttofulRow(hourRow) {
 	)
 }
 
-//
-function whichRowsOtto(hourRows) {
+// checks if there's 2+ consecutive rows where for all days of the week, it's just otto
+// alias = Lunohkod 3
+function whichRowsCollapse(hourRows) {
 	const rows = []
 	let i = 0
 
 	while (i < hourRows.length) {
 		if (!isOttofulRow(hourRows[i])) {
-			rows.push({ type: 'normal', row: hourRows[i] })
+			rows.push({ type: "normal", row: hourRows[i], originalRowIndex: i })
 			i += 1
 			continue
 		}
@@ -45,15 +46,15 @@ function whichRowsOtto(hourRows) {
 
 		if (block.length >= 2) {
 			rows.push({
-				type: 'ottoCollapse',
+				type: "ottoCollapse",
 				startHour: block[0][0],
 				endHour: block[block.length - 1][0],
 				cells: block[0].slice(1).map((_, dayIndex) =>
-					block.some((row) => row[dayIndex + 1] === ottoAlias) ? ottoAlias : ''
+					block.some((row) => row[dayIndex + 1] === ottoAlias) ? ottoAlias : ""
 				),
 			})
 		} else {
-			rows.push({ type: 'normal', row: hourRows[i] })
+			rows.push({ type: "normal", row: hourRows[i] })
 		}
 
 		i = j
@@ -64,8 +65,8 @@ function whichRowsOtto(hourRows) {
 
 export default function WeeklySchedule({schedule}) {
 
-	// because I'm lazy and I don't want to rewrite the array logic below (which accounts for headers),
-	// I'm going to simply reconstruct the carrier into full array with header and feed it in
+	// because I"m lazy and I don"t want to rewrite the array logic below (which accounts for headers),
+	// I"m going to simply reconstruct the carrier into full array with header and feed it in
 	const reconstructedSchedule = [
 		schedule[0],
 		...schedule[3].map((row, i) => [schedule[1][i], ...row])
@@ -74,7 +75,7 @@ export default function WeeklySchedule({schedule}) {
 	// for temp button functionality
 	const [selectedDj, setSelectedDj] = useState(null)
 
-	// make sure we aren't passing in non-arrays or nothing
+	// make sure we aren"t passing in non-arrays or nothing
 	if (!Array.isArray(reconstructedSchedule) || reconstructedSchedule.length === 0) {
 		return null
 	}
@@ -83,7 +84,16 @@ export default function WeeklySchedule({schedule}) {
 	const headerRow = reconstructedSchedule[0]
 	const hourRows = reconstructedSchedule.slice(1)
 	const days = headerRow
-	const ottoAwareRows = whichRowsOtto(hourRows)
+	const collapseAwareHourRows = whichRowsCollapse(hourRows)
+	const specialtyShowIndices = schedule[2] || []
+
+	// checks for specialty shows, so we can format them differently
+	function isSpecialtyShow(rowIndex, dayIndex) {
+		return specialtyShowIndices.some(
+			([specialtyRowIndex, specialtyDayIndex]) =>
+				specialtyRowIndex === rowIndex && specialtyDayIndex === dayIndex
+		)
+	}
 
 	return (
 		<div className="overflow-x-auto text-sm text-[#e0ff05]">
@@ -106,19 +116,23 @@ export default function WeeklySchedule({schedule}) {
                 {/* table body!! */}
 				<tbody>
 
-					{ottoAwareRows.map((ottoAwareRow, rowIndex) => {
-						if (ottoAwareRow.type === 'ottoCollapse') {
+					{collapseAwareHourRows.map((collapseAwareHourRow, rowIndex) => {
+						if (collapseAwareHourRow.type === "ottoCollapse") {
 							return (
-								<tr key={`lunokhod-${ottoAwareRow.startHour}-${rowIndex}`}>
+								<tr key={`lunokhod-${collapseAwareHourRow.startHour}-${rowIndex}`}>
 									<th className="border border-gray-300 px-4 py-2 bg-pink text-left">
-										{ottoAwareRow.startHour}–{ottoAwareRow.endHour}
+										{
+											collapseAwareHourRow.startHour.replace(/–.*$/, "")
+										}–{
+											collapseAwareHourRow.endHour.replace(/^.*–/, "")
+										}
 									</th>
 
-									{ottoAwareRow.cells.map((djName, dayIndex) => (
+									{collapseAwareHourRow.cells.map((djName, dayIndex) => (
 										<td
 											key={`lunokhod-${dayIndex}`}
 											className={`border border-gray-300 bg-black px-4 py-2 text-center align-middle ${
-												selectedDj === djName ? 'bg-yellow-200 text-black' : ''
+												selectedDj === djName ? "bg-yellow-200 text-black" : ""
 											}`}
 										>
 											{djName && (
@@ -140,7 +154,8 @@ export default function WeeklySchedule({schedule}) {
 							)
 						}
 					
-						const hourRow = ottoAwareRow.row
+						// these are normal, non-collapsing rows
+						const hourRow = collapseAwareHourRow.row
 						const hour = hourRow[0]
 						const djCells = hourRow.slice(1)
 
@@ -163,10 +178,13 @@ export default function WeeklySchedule({schedule}) {
 										)
 									}
 
+									// checks if current cell is specialty show
+									const specialtyShow = isSpecialtyShow(collapseAwareHourRow.originalRowIndex, dayIndex)
+
 									// Skip repeated cells so rowSpan can cover multi-hour shows.
-									const previousRow = ottoAwareRows[rowIndex - 1]
+									const previousRow = collapseAwareHourRows[rowIndex - 1]
 									const previousDj =
-										previousRow?.type === 'normal'
+										previousRow?.type === "normal"
 											? previousRow.row[dayIndex + 1]
 											: null
 
@@ -177,8 +195,8 @@ export default function WeeklySchedule({schedule}) {
 
 									let rowSpan = 1
 									while (
-										ottoAwareRows[rowIndex + rowSpan]?.type === 'normal' &&
-										ottoAwareRows[rowIndex + rowSpan].row[dayIndex + 1] === djName
+										collapseAwareHourRows[rowIndex + rowSpan]?.type === "normal" &&
+										collapseAwareHourRows[rowIndex + rowSpan].row[dayIndex + 1] === djName
 									) {
 										rowSpan += 1
 									}
@@ -188,7 +206,9 @@ export default function WeeklySchedule({schedule}) {
 											key={`${hour}-${dayIndex}`}
 											rowSpan={rowSpan}
 											className={`border border-gray-300 px-4 py-2 text-center bg-black align-middle ${
-												selectedDj === djName ? 'bg-yellow-200 text-black' : ''
+												specialtyShow ? 'bg-[#e0ff05] text-black italic' : 'bg-black' // HIGHLIGHT SPECIALTY SHOWS!!!
+											} ${
+												selectedDj === djName ? "bg-yellow-200 text-black" : ""
 											}`}
 										>
                                             {/* placeholder onClick which is just a button. will eventually redirect to DJ pages */}
