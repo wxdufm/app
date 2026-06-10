@@ -1,3 +1,7 @@
+// This API returns cover url when given artist and album name.
+
+
+
 import connectToMongoDB from '../../../lib/db/mongodb';
 import { ObjectId } from 'mongodb'
 import Fuse from 'fuse.js'
@@ -32,7 +36,14 @@ export default async function handler(req, res) {
             });
 
             if (download && download.nonaudio && download.nonaudio.length > 0) {
-                const coverUrl = `https://beachyhead.wxdu.duke.edu/media/${download.dirname}/${download.nonaudio[0]}`;
+                let nonaudio = download.nonaudio[0];
+                let test = download.nonaudio
+                // check to see which element is the image file
+                if (download.nonaudio.length > 1){
+                    nonaudio = findNonAudio(download.nonaudio)
+                }
+                const coverUrl = `https://beachyhead.wxdu.duke.edu/media/${download.dirname}/${nonaudio}`;
+                
                 return res.status(200).json({ coverUrl });
             }
         }
@@ -48,6 +59,20 @@ function escapeRegex(str) {
     return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// function to return the image file in an array of more than one element
+function findNonAudio(nonaudio){
+    let url;
+    for (const item of nonaudio) {
+        if (item.includes(".jpg") || item.includes(".png"))
+        {
+            return item
+        }
+    }
+
+    return null
+}
+
+// function to implement a fuzzy search of the database
 async function fuzzySearch(artist, album, db) {
     const albumQ = album ? escapeRegex(album) : '';
     const artistQ = artist ? escapeRegex(artist) : '';
