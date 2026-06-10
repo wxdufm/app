@@ -4,6 +4,7 @@ import collectionPage from './collections/page.js'
 import collectionBlog from './collections/blog.js'
 import collectionArchive from './collections/archive.js'
 import collectionCategory from './collections/category.js'
+import collectionContacts from './collections/contacts.js'
 
 const schema = defineSchema({
 	collections: [
@@ -11,6 +12,7 @@ const schema = defineSchema({
 		collectionBlog,
 		collectionArchive,
 		collectionCategory,
+		collectionContacts,
 	],
 })
 
