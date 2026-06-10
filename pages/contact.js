@@ -1,31 +1,45 @@
+import {client} from '../tina/__generated__/client'
+
 export async function getStaticProps(){
-    const query = `{
-        getContactsList {
-            edges{
-                node{
+    try{
+        // get total count first (pattern used elsewhere in the repo)
+        const countResp = await client.request({
+            query: `{ contactsConnection { totalCount } }`,
+        })
+
+        const total = countResp.data?.contactsConnection?.totalCount || 0
+
+        const { data } = await client.request({
+            query: `
+            query getContacts($count: Float) {
+              contactsConnection(first: $count, sort: "order") {
+                edges {
+                    node {
                     name
                     role
                     order
                     contact_methods { type value }
-                    _body
+                    description
+                    _sys { filename }
+                  }
                 }
+              }
             }
+            `,
+            variables: { count: total },
+        })
+
+        const contacts = (data?.contactsConnection?.edges || []).map(e => e.node)
+
+        return {
+            props: { contacts },
+            revalidate: 60,
         }
-    }`;
+    }catch(err){
+        console.error('Tina query failed', err)
+        return { props: { contacts: [] } }
+    }
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-    const res = await fetch(`${baseUrl}/api/___tina`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ query })
-    })
-
-    const bodyText = await res.text();
-    console.log('Fetch status', res.status, 'body preview:', bodyText.slice(0,300));
-    if (!res.ok) throw new Error(`HTTP ${res.status}: ${bodyText.slice(0,200)}`);
-    const json = JSON.parse(bodyText);
-    const contacts = json?.data?.getContactsList?.edges.map(e => e.node) || [];
-    return { props: { contacts }};
 }
 
 export default function Contact({ contacts }){
@@ -39,7 +53,7 @@ export default function Contact({ contacts }){
             <div>
                 {c.contact_methods?.map((m, j) => <div key={j}>{m.type}: {m.value}</div>)}
             </div>
-            <div>{c._body}</div> {/* MDX body; render with MDX if desired */}
+            <div>{typeof c.description === 'string' ? c.description : JSON.stringify(c.description || '')}</div>
             </section>
         ))}
         </main>
