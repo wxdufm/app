@@ -1,6 +1,19 @@
 import { Text, View } from "react-native";
 
-export default function NowPlayingHeader({ currentPlaylist = {} }) {
+type CurrentPlaylist = {
+  show?: {
+    djname?: string | null;
+    title?: string | null;
+  } | null;
+};
+
+type NowPlayingHeaderProps = {
+  currentPlaylist?: CurrentPlaylist;
+};
+
+export default function NowPlayingHeader({
+  currentPlaylist = {},
+}: NowPlayingHeaderProps) {
   const show = currentPlaylist.show || {};
 
   const djname = show.djname || "";

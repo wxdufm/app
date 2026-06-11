@@ -1,10 +1,22 @@
 import { useEffect, useState } from "react";
-import { Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, type ImageSourcePropType } from "react-native";
 
 const fallbackCover = require("../../assets/CD_1_Filler.jpg");
 
-export default function SongAlbumCover({ artist, album, apiBaseUrl }) {
-  const [coverUrl, setCoverUrl] = useState(null);
+type SongAlbumCoverProps = {
+  artist?: string | null;
+  album?: string | null;
+  apiBaseUrl?: string;
+  fallbackSource?: ImageSourcePropType;
+};
+
+export default function SongAlbumCover({
+  artist,
+  album,
+  apiBaseUrl,
+  fallbackSource = fallbackCover,
+}: SongAlbumCoverProps) {
+  const [coverUrl, setCoverUrl] = useState<string | null>(null);
 
   useEffect(() => {
     setCoverUrl(null);
@@ -18,7 +30,7 @@ export default function SongAlbumCover({ artist, album, apiBaseUrl }) {
 
     fetch(url)
       .then((response) => (response.ok ? response.json() : Promise.reject()))
-      .then((data) => {
+      .then((data: { coverUrl?: string | null }) => {
         if (data.coverUrl) setCoverUrl(data.coverUrl);
       })
       .catch(() => {});
@@ -26,7 +38,7 @@ export default function SongAlbumCover({ artist, album, apiBaseUrl }) {
 
   return (
     <Image
-      source={coverUrl ? { uri: coverUrl } : fallbackCover}
+      source={coverUrl ? { uri: coverUrl } : fallbackSource}
       accessibilityLabel={`${artist || "Unknown artist"} - ${album || "Unknown album"}`}
       resizeMode="cover"
       style={styles.cover}

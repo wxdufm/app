@@ -2,20 +2,43 @@ import { Platform, StyleSheet, Text, View } from "react-native";
 
 import SongAlbumCover from "./SongAlbumCover";
 
-export default function SongRow({ song, artist, album, songStart }) {
-  function formatTime(iso) {
-    return new Date(iso).toLocaleTimeString([], {
+type SongStart = string | number | Date | null | undefined;
+
+type SongRowProps = {
+  song?: string | null;
+  artist?: string | null;
+  album?: string | null;
+  songStart?: SongStart;
+  apiBaseUrl?: string;
+};
+
+function formatTime(value: SongStart) {
+  if (!value) return "";
+
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+
+  return date.toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
-    });
-  }
+  });
+}
+
+export default function SongRow({
+  song,
+  artist,
+  album,
+  songStart,
+  apiBaseUrl,
+}: SongRowProps) {
+  const playedAt = formatTime(songStart);
 
   return (
     <View className="flex-row items-center gap-4 border-b border-zinc-800 py-3">
-      <SongAlbumCover artist={artist} album={album} />
+      <SongAlbumCover artist={artist} album={album} apiBaseUrl={apiBaseUrl} />
 
       <Text className="w-16 shrink-0 text-center text-sm text-zinc-400">
-        Played at {formatTime(songStart)}
+        {playedAt ? `Played at ${playedAt}` : "Played"}
       </Text>
 
       <View className="min-w-0 flex-1">

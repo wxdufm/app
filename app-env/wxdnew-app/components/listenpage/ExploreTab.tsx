@@ -1,9 +1,17 @@
-import { useState, useEffect } from 'react'
-import { View, Text, Pressable, FlatList } from 'react-native'
+import { useEffect, useState } from 'react'
+import { FlatList, Pressable, Text, View } from 'react-native'
 import ExploreSong from './ExploreSong'
 
 const API_BASE = 'https://api.wxdu.art'
 const FILLER = 'https://wxdu.org/CD_1_Filler.jpg'
+
+type ChartSong = {
+    rank?: number | string | null
+    song?: string | null
+    artist?: string | null
+    album?: string | null
+    cover?: string | null
+}
 
 const RANGES = [
     { label: 'Last 1 day', value: 1 },
@@ -12,23 +20,25 @@ const RANGES = [
     { label: 'Last year', value: 365 },
 ]
 
-async function getCovers(album, artist) {
+async function getCovers(album?: string | null, artist?: string | null) {
+    if (!album || !artist) return null
+
     const res = await fetch(`${API_BASE}/api/charts/cover?artist=${encodeURIComponent(artist)}&album=${encodeURIComponent(album)}`)
     if (!res.ok) throw new Error(`Cover search failed: ${res.status}`)
-    const cover = await res.json()
-    return cover.coverUrl
+    const cover = await res.json() as { coverUrl?: string | null }
+    return cover.coverUrl || null
 }
 
 export default function ExploreTab() {
-    const [songs, setSongs] = useState([])
+    const [songs, setSongs] = useState<ChartSong[]>([])
     const [range, setRange] = useState(7)
 
-    async function fetchSongs(range) {
+    async function fetchSongs(selectedRange: number) {
         try {
-            const res = await fetch(`${API_BASE}/api/charts?range=${encodeURIComponent(range)}`)
+            const res = await fetch(`${API_BASE}/api/charts?range=${encodeURIComponent(selectedRange)}`)
             if (!res.ok) throw new Error(`Charts fetch failed: ${res.status}`)
             const raw = await res.json()
-            const items = Array.isArray(raw) ? raw : []
+            const items: ChartSong[] = Array.isArray(raw) ? raw : []
             const withCover = await Promise.all(items.map(async item => {
                 try {
                     const r = await getCovers(item.album, item.artist)
@@ -45,9 +55,7 @@ export default function ExploreTab() {
     }
 
     useEffect(() => {
-        const ac = new AbortController()
         fetchSongs(range)
-        return () => ac.abort()
     }, [range])
 
     return (
@@ -75,7 +83,7 @@ export default function ExploreTab() {
                 keyExtractor={(_, i) => String(i)}
                 numColumns={3}
                 columnWrapperStyle={{ justifyContent: 'center', gap: 8 }}
-                renderItem={({ item }) => <ExploreSong rank={item.rank} info={item} />}
+                renderItem={({ item }) => <ExploreSong rank={String(item.rank ?? '')} info={item} />}
                 scrollEnabled={false}
             />
         </View>
