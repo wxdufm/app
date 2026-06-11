@@ -90,7 +90,9 @@ export default function DJRequestWidget() {
                 <img
                     src={isHovered ? '/requestwidget_hover_bg.png' : '/requestwidget_bg.png'}
                     alt="Send DJ Request"
-                    className="w-[10vw]"
+                    className={
+                        isHovered ? "w-[10vw]" : "w-[9.5vw]"
+                    }
                     style={{
                         height: 'auto',
                         display: 'block',
