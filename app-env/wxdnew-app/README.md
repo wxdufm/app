@@ -2,6 +2,16 @@
 
 React Native app built with Expo 54, NativeWind, and TypeScript.
 
+## What is ngrok and why do we use it?
+
+When you run `expo start`, it starts a local Metro bundler server on your machine (port 8081). For Expo Go on your phone to load the app, it needs to reach that server over the network.
+
+**The problem:** On WSL2 (Windows Subsystem for Linux), your dev environment runs inside a virtual network that your phone can't see — even if your phone and PC are on the same WiFi. The same issue can come up with strict firewalls or when teammates are on different networks.
+
+**What ngrok does:** It creates a secure tunnel from a public URL to your local server. Your phone connects to that public URL, ngrok forwards the traffic to your machine, and Expo Go loads your app — regardless of network setup.
+
+This makes `--tunnel` the most reliable option for a team, since it works the same way for everyone no matter their OS or network.
+
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18+)
