@@ -1,20 +1,22 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 // Receives parsed CSV data from lib/schedule.js and renders today's schedule.
 export default function TodaySchedule({ schedule }) {
 	const [selectedShow, setSelectedShow] = useState(null)
+	const [today, setToday] = useState('')
 
-	if (!Array.isArray(schedule) || schedule.length === 0) {
+	useEffect(() => {
+		setToday(new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase())
+	}, [])
+
+	if (!Array.isArray(schedule) || schedule.length === 0 || !today) {
 		return null
 	}
 
 	const headerRow = schedule[0]
 	const hourRows = schedule.slice(1)
 
-    // creates new JS Date object, and formats it as the weekday name but in lowercase to match the schedule.csv file
-	const today = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
-	// loops through the header array, finds index of today
-    const todayIndex = headerRow.findIndex(h => h === today)
+	const todayIndex = headerRow.findIndex(h => h === today)
 
 	if (todayIndex === -1) {
 		return null

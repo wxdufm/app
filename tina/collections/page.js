@@ -38,6 +38,75 @@ export default {
 				}
 			],
 		},
+		{
+			name: 'homepageBanner',
+			label: 'Homepage Banner',
+			type: 'object',
+			fields: [
+				{
+					name: 'columns',
+					label: 'Columns',
+					type: 'object',
+					list: true,
+					fields: [
+						{
+							name: 'images',
+							label: 'Images',
+							type: 'object',
+							list: true,
+							fields: [
+								{
+									name: 'image',
+									label: 'Image',
+									type: 'image',
+								},
+								{
+									name: 'alt',
+									label: 'Alt Text',
+									type: 'string',
+								},
+							],
+						},
+					],
+				},
+				{
+					name: 'aboveLogo',
+					label: 'Columns Above Logo',
+					type: 'object',
+					list: true,
+					fields: [
+						{
+							name: 'images',
+							label: 'Images',
+							type: 'object',
+							list: true,
+							fields: [
+								{ name: 'image', label: 'Image', type: 'image' },
+								{ name: 'alt', label: 'Alt Text', type: 'string' },
+							],
+						},
+					],
+				},
+				{
+					name: 'belowLogo',
+					label: 'Columns Below Logo',
+					type: 'object',
+					list: true,
+					fields: [
+						{
+							name: 'images',
+							label: 'Images',
+							type: 'object',
+							list: true,
+							fields: [
+								{ name: 'image', label: 'Image', type: 'image' },
+								{ name: 'alt', label: 'Alt Text', type: 'string' },
+							],
+						},
+					],
+				},
+			],
+		},
 	],
 	ui: {
 		router: ({document}) => {
