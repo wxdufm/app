@@ -96,18 +96,22 @@ export default function WeeklySchedule({schedule}) {
 	}
 
 	return (
-		<div className="overflow-x-auto text-sm text-[#e0ff05]">
-			<table className="w-full table-auto border-collapse border border-gray-300">
+		<div className="h-[80vh] w-[80vw] overflow-auto text-sm text-[#e0ff05] tracking-[-0.09em]">
+			<table className="w-full table-auto border-separate border-spacing-0">
 
                 {/* table header row, including cell A1 ("show start time" or something) */}
-				<thead> 
+				<thead>
 					<tr>
-						{days.map((day) => (
+						{days.map((day, dayIndex) => (
 							<th
-								key={day}
-								className="border border-gray-300 px-4 py-2 bg-red"
+								key={dayIndex}
+								className={`sticky border border-gray-300 bg-black px-4 py-2 text-xl ${
+									dayIndex === 0
+										? "top-0 left-0 z-50"
+										: "top-0 z-30"
+								}`}
 							>
-								{day}
+								{dayIndex === 0 ? ":3" : day}
 							</th>
 						))}
 					</tr>
@@ -120,10 +124,10 @@ export default function WeeklySchedule({schedule}) {
 						if (collapseAwareHourRow.type === "ottoCollapse") {
 							return (
 								<tr key={`lunokhod-${collapseAwareHourRow.startHour}-${rowIndex}`}>
-									<th className="border border-gray-300 px-4 py-2 bg-pink text-left">
+									<th className="sticky left-0 z-10 border border-gray-300 bg-black px-4 py-2 text-right text-xl">
 										{
 											collapseAwareHourRow.startHour.replace(/–.*$/, "")
-										}↔{
+										}↔↔{
 											collapseAwareHourRow.endHour.replace(/^.*–/, "")
 										}
 									</th>
@@ -163,7 +167,7 @@ export default function WeeklySchedule({schedule}) {
 							<tr key={`${hour}-${rowIndex}`}>
 
                                 {/* first column is the hour */}
-								<th className="border border-gray-300 px-4 py-2 bg-pink text-left">
+								<th className="sticky left-0 z-10 border border-gray-300 bg-black px-4 py-2 text-right text-xl">
 									{hour}
 								</th>
 
@@ -201,16 +205,16 @@ export default function WeeklySchedule({schedule}) {
 										rowSpan += 1
 									}
 
-									return (
-										<td
-											key={`${hour}-${dayIndex}`}
-											rowSpan={rowSpan}
-											className={`border border-gray-300 px-4 py-2 text-center bg-black align-middle ${
-												specialtyShow ? 'bg-[#e0ff05] text-black italic' : 'bg-black' // HIGHLIGHT SPECIALTY SHOWS!!!
-											} ${
-												selectedDj === djName ? "bg-yellow-200 text-black" : ""
-											}`}
-										>
+										return (
+											<td
+												key={`${hour}-${dayIndex}`}
+												rowSpan={rowSpan}
+												className={`border border-gray-300 px-4 py-2 text-center align-middle ${
+													specialtyShow ? "bg-[#e0ff05] text-black" : "bg-black" // HIGHLIGHT SPECIALTY SHOWS!!!
+												} ${
+													selectedDj === djName ? "bg-yellow-200 text-black" : ""
+												}`}
+											>
                                             {/* placeholder onClick which is just a button. will eventually redirect to DJ pages */}
 											<button
 												type="button"

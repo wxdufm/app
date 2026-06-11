@@ -41,7 +41,7 @@ export default function Home(props) {
 
 // build all the editable static pages ahead of time via github action
 export const getStaticPaths = async () => {
-	const paths = [{params: {slug: 'programming'}}, {params: {slug: 'contact'}}]
+	const paths = [{params: {slug: 'programming'}}]
 
 	return {
 		paths,
@@ -51,23 +51,28 @@ export const getStaticPaths = async () => {
 
 // get relevant content via graphql
 export const getStaticProps = async (ctx) => {
-	const {data, query, variables} = await client.queries.page({
+	try{
+		const {data, query, variables} = await client.queries.page({
 		relativePath: ctx.params.slug + '.mdx',
-	})
-	// loads schedule data from csv file (via lib/schedule.js) if on programming page
-	// otherwise schedule is null and WeeklySchedule component won't render!
-	let schedule = null
-	if (ctx.params.slug === 'programming') {
-		schedule = await scheduleBuilder()
-	}
+		})
+		// loads schedule data from csv file (via lib/schedule.js) if on programming page
+		// otherwise schedule is null and WeeklySchedule component won't render!
+		let schedule = null
+		if (ctx.params.slug === 'programming') {
+			schedule = await scheduleBuilder()
+		}
 
-	return {
-		props: {
-			data,
-			query,
-			variables,
-			slug: ctx.params.slug,
-			schedule,
-		},
+		return {
+			props: {
+				data,
+				query,
+				variables,
+				slug: ctx.params.slug,
+				schedule,
+			},
+		}
+	}catch (err) {
+		// page not found in Tina => return 404
+		return { notFound: true };
 	}
 }
