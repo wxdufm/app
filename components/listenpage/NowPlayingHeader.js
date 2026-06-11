@@ -2,29 +2,9 @@
 
 import { useState, useEffect } from 'react';
 
-export default function NowPlayingHeader({ nowPlaying }) {
+export default function NowPlayingHeader({ currentPlaylist = {} }) {
 
-    const [show, setShow] = useState("");
-
-    // fetching the show name of the current playing dj
-    useEffect(() => {
-        fetch(`/api/dj-show?dj=${encodeURIComponent(nowPlaying.dj)}`)
-        .then(r => r.ok ? r.json() : Promise.reject())
-        .then(data => data ? setShow(data) : setShow(null))
-    })
-
-    // rending the Show part only if a show has been returned through the api
-    function renderShow(){
-        if (show){
-            return(
-                 <h4 className="text-2xl text-center text-gray-300 mt-1">
-                    Show: {show}
-                </h4>
-            )
-        }
-
-        return null
-    }
+    let show = currentPlaylist.show || {};
 
     return(
         <>
@@ -32,9 +12,11 @@ export default function NowPlayingHeader({ nowPlaying }) {
                 Current Show
             </p>
             <h1 className="text-5xl text-center font-light leading-tight"> 
-                DJ: {nowPlaying.dj}
+                DJ: {show.djname}
             </h1>
-            {renderShow()}
+            <h4 className="text-2xl text-center text-gray-300 mt-1">
+                    Show: {show.title}
+            </h4>
         </>
 
     )

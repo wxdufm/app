@@ -8,34 +8,7 @@ import ExploreTab from "../../components/listenpage/ExploreTab";
 
 export default function Listen() {
 
-    // create state for now-playing API data
-    const [nowPlaying, setNowPlaying] = useState({
-        artist: null,
-        title: null,
-        album: null,
-        dj: null
-    })
-
     const [currentPlaylist, setCurrentPlaylist] = useState({});
-
-    // function to fetch now-playing data
-    async function fetchNowPlaying() {
-        try {
-            const response = await fetch('../../api/now-playing')
-
-            const data = await response.json()
-
-            setNowPlaying({
-                artist: data.artist,
-                title: data.title,
-                album: data.album,
-                dj: data.dj
-            })
-
-        } catch (error) {
-            console.error('Failed to fetch now-playing data:', error)
-        }
-    }
 
     // function to fetch current playlist
     async function fetchCurrentPlaylist(){
@@ -55,12 +28,10 @@ export default function Listen() {
     useEffect(() => {
 
         // initial fetch
-        fetchNowPlaying();
         fetchCurrentPlaylist();
 
         // poll API again every 30 secs
         const interval = setInterval(() => {
-            fetchNowPlaying();
             fetchCurrentPlaylist();
         }, 3000)
 
@@ -71,12 +42,12 @@ export default function Listen() {
 
     return(
         <div className="min-h-screen text-white pb-2">
-            <NowPlayingHeader nowPlaying={nowPlaying} />
+            <NowPlayingHeader currentPlaylist={currentPlaylist} />
 
             <div className="grid grid-cols-1 md:grid-cols-[40%_60%] gap-8">
                 <div className="md:h-[calc(100vh-160px)] md:overflow-auto h-auto flex justify-center">
                     <div className="w-full max-w-[360px]">
-                        <PlayTabs nowPlaying={nowPlaying} currentPlaylist={currentPlaylist}/>
+                        <PlayTabs currentPlaylist={currentPlaylist}/>
                     </div>
                 </div>
 
