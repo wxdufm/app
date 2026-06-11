@@ -179,25 +179,6 @@ const Header = () => {
 			<div className="relative z-20">
 				{/* END MOBILE NAVBAR */}
 
-				{/* WXYC logo in mobile header */}
-
-				<div className="mx-auto flex w-5/6 flex-col items-start justify-center pt-10 md:mb-10 md:pt-2 lg:hidden ">
-					<Link href="/">
-						{/* Header text parent container */}
-						<div className="mb-20 flex w-full  cursor-pointer flex-col items-center justify-center pt-4 md:flex-row md:items-end md:pt-4 lg:mb-5 lg:pt-1">
-							{/* Actual header text */}
-							<div className="flex w-full flex-col items-center justify-center md:w-3/4 md:pt-0 lg:w-2/5 lg:pt-1">
-								<Image src={photo} alt="Picture of the author" priority />
-
-								<div className="mt-0">
-									<h3 className="poppins mx-auto w-full text-center text-base md:mx-0  md:text-xl lg:text-base">
-										Duke University&apos;s student-run, freeform radio station
-									</h3>
-								</div>
-							</div>
-						</div>
-					</Link>
-				</div>
 
 				{/* Parent container of web navbar */}
 				<div className="mb-20 hidden w-full lg:flex mt-10">
