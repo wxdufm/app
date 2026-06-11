@@ -4,7 +4,10 @@ import { useState, useEffect } from 'react';
 
 export default function NowPlayingHeader({ currentPlaylist = {} }) {
 
-    let show = currentPlaylist.show || {};
+    const show = currentPlaylist.show || {};
+
+    const djname = show.djname || "";
+    const title = show.title || "";
 
     return(
         <>
@@ -12,10 +15,10 @@ export default function NowPlayingHeader({ currentPlaylist = {} }) {
                 Current Show
             </p>
             <h1 className="text-5xl text-center font-light leading-tight"> 
-                DJ: {show.djname}
+                DJ: {djname}
             </h1>
             <h4 className="text-2xl text-center text-gray-300 mt-1">
-                    Show: {show.title}
+                    Show: {title}
             </h4>
         </>
 

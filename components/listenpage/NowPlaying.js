@@ -6,13 +6,17 @@ import StreamButton from "../audioplayers/StreamButton"
 
 export default function NowPlaying({ currentPlaylist = {} }) {
 
-    const track = currentPlaylist.tracks?.[0] || {};
+    const reverseTrack = Array.isArray(currentPlaylist.tracks) ? [...currentPlaylist.tracks].reverse() : []
+    const track = reverseTrack?.[0] || {};
     const [cover, setCover] = useState("");
+
+    // checking if track returns something. And default value in case it doesn't    
+    const song = track.song || "";
+    const artist = track.artist || "";
+    const album = track.album || "";
 
     // looking for the cover of the currently playing song.
     useEffect(()=> {
-        const artist = track.artist || "";
-        const album = track.album || "";
         if (!artist && !album) return;
 
         fetch(`/api/charts/cover?artist=${encodeURIComponent(artist)}&album=${encodeURIComponent(album)}`)
@@ -32,9 +36,9 @@ export default function NowPlaying({ currentPlaylist = {} }) {
                 height={150}
                 className="w-full h-auto object-cover rounded-sm"
             />
-            <p className="mt-4 text-xl text-white">Song: {track.song}</p>
-            <p>Artist: {track.artist}</p>
-            <p className="text-lg text-gray-300 mt-1">Album: {track.album}</p>
+            <p className="mt-4 text-xl text-white">Song: {song}</p>
+            <p>Artist: {artist}</p>
+            <p className="text-lg text-gray-300 mt-1">Album: {album}</p>
 
             <div className="flex justify-center">
                 <div className="w-full max-w-sm">
