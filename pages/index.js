@@ -31,7 +31,7 @@ export default function Home(props) {
 
 	return (
 		<div>
-			<div data-tina-field={tinaField(pageData.page, 'homepageBanner')} className="pt-28 lg:pt-0 lg:px-16">
+			<div data-tina-field={pageData?.page ? tinaField(pageData.page, 'homepageBanner') : undefined} className="pt-28 lg:pt-0 lg:px-16">
 				{/* HomepageBanner is a component for adding a closeable banner announcement to the homepage. Toggle on or off in Components > HomepageBanner.js */}
 				<HomepageBanner columns={bannerColumns} aboveLogo={bannerAboveLogo} belowLogo={bannerBelowLogo} />
 			</div>
