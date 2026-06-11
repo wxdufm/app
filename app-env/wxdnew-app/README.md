@@ -61,3 +61,9 @@ The `--tunnel` flag routes traffic through ngrok so the app works regardless of 
 - [Expo](https://expo.dev) SDK 54
 - [NativeWind](https://www.nativewind.dev) v4 (Tailwind CSS for React Native)
 - TypeScript
+
+
+## Expo Router
+- Expo Router gives the same file-based routing as a Next.js page. This is another feature of Expo that allows for easy migration between the mobile app and the website.
+- |` npx expo install expo-router expo-linking expo-constants expo-status-bar react-native-safe-area-context react-native-screens ` |
+
