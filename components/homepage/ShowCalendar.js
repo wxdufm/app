@@ -1,9 +1,9 @@
 /*
 
 fetch rows using api/show-calendar
-  - request a 7-day window from current date
+  - request a 10-day window from current date
 
-render 7 day "sections", each listing shows with date, venue, description
+render day "sections", each listing shows with date, venue, description
 
 skip days with no shows listed
 
@@ -11,9 +11,15 @@ skip days with no shows listed
 
 import { useEffect, useMemo, useState } from "react"
 
-const TEMP_START_DATE = "2026-03-19"
+// formats local browser date into YYYY-MM-DD for the API query
+function formatLocalDate(date) {
+	const year = date.getFullYear()
+	const month = String(date.getMonth() + 1).padStart(2, "0")
+	const day = String(date.getDate()).padStart(2, "0")
+	return `${year}-${month}-${day}`
+}
 
-// makes the date look nice and not numbery
+// makes the date look nice and not numbery for display in div
 function prettyDayLabel(isoDate) {
 	const [year, month, day] = isoDate.split("-").map(Number)
 	const date = new Date(year, month - 1, day)
@@ -31,13 +37,14 @@ export default function ShowCalendar() {
 
 	useEffect(() => {
 		let cancelled = false
-		const start = TEMP_START_DATE
+		const start = formatLocalDate(new Date())
 
 		async function fetchCalendar() {
 			try {
 				setLoading(true)
 				setError(null)
-				const response = await fetch(`api/show-calendar?start=${start}&days=7`)
+				// request a 10-day window per homepage requirements
+				const response = await fetch(`api/show-calendar?start=${start}&days=10`)
 				if (!response.ok) {
 					throw new Error("Calendar fetch failed")
 				}
@@ -78,16 +85,16 @@ export default function ShowCalendar() {
 	}
 
 	return (
-		<div className="kallisto mx-auto w-[60vw] text-sm text-white">
-			<h2 className="bitcount mb-3 text-lg text-white">Upcoming Shows</h2>
+		<div className="mx-auto w-[60vw] text-sm text-white tracking-[0.1em]">
+			<h2 className="mb-3 text-lg text-white">Upcoming Shows</h2>
 			<div className="max-h-[50vh] overflow-y-auto border border-white p-4">
 				{daysWithShows.map((day) => (
 					<section key={day.date} className="border-b-4 border-white py-4 last:border-b-0">
-						<h3 className="mb-3 text-base text-[#e0ff05]">{prettyDayLabel(day.date)}</h3>
+						<h3 className="font-bold mb-3 text-base text-[#e0ff05]">{prettyDayLabel(day.date)}</h3>
 						<ul>
 							{day.shows.map((show) => (
 								<li key={`${day.date}-${show.eventId}`} className="border-b border-neutral-600 py-2 last:border-b-0">
-									<div className="text-white">
+									<div className="kallisto text-white">
 										{show.venue.url ? (
 											<a
 												href={show.venue.url}
