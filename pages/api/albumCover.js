@@ -4,22 +4,22 @@ const LML_URL = process.env.LML_URL || 'http://localhost:8000';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.wxdu.art';
 
+const DISCOGS_TOKEN = process.env.DISCOGS_TOKEN || null;
+
 export default async function getAlbumCover(artist, song, album){
     if (!artist || !album || !song) return null;
 
-    // start by using Discogs to find album cover
-    let cover = await useDiscogs(artist, song, album);
+  // starts by using local discogs through Jake's metadata, then api.wxdu.art API, then final Discogs own API
+ const cover =
+    await useDiscogsLocal(artist, song, album) ||
+    await useMongodb(artist, song, album) ||
+    await useDiscogsAPI(artist, song, album);
 
-    // if Discogs does not find, then use Mongodb
-    if (!cover){
-        cover = await useMongodb(artist, song, album);
-    }
-
-    return cover;
+  return cover;
 }
 
 // given an artist, song and album name, searches Discogs and returns an album cover URL
-async function useDiscogs(artist, song, album) {
+async function useDiscogsLocal(artist, song, album) {
 
   try {
     // step 1: search Discogs for releases that contain this track
@@ -43,7 +43,7 @@ async function useDiscogs(artist, song, album) {
     return releaseData.artwork_url || null;
   } catch (e) {
     // if anything fails, return null so the widget still works without art
-    console.error("[useDiscogs]", e);
+    console.error("[useDiscogsLocal]", e);
     return null;
   }
 }
@@ -63,4 +63,41 @@ async function useMongodb(artist, song, album){
 
     if (!url) return null
     return `${API_URL}/${url}`
+}
+
+//using Discogs API direcly instead of Jake's metadata.
+// error 429 may occur if two many requests are sent. so use this rarely.
+async function useDiscogsAPI(artist, song, album){
+  if (!DISCOGS_TOKEN){
+    return null
+  }
+  // setting up URL search parameters
+  let params = new URLSearchParams({
+    type: "release",
+    token: DISCOGS_TOKEN
+  });
+
+  // adding to the parameters all that we can find.
+  if (artist) params.append("artist", artist);
+  if (album) params.append("release_title", album);
+  if (song) params.append("track", song);
+
+  // querrying Discogs API
+  const res = await fetch(
+    `https://api.discogs.com/database/search?${params}`
+  );
+
+  if (!res.ok) {
+    throw new Error(`Discogs API error: ${res.status}`);
+  }
+
+  const data = await res.json();
+
+  // if the first array element does not contain cover image, goes to the next elements until it finds one with cover_image
+  // if none is find, returns null
+  return (
+    data.results?.[0]?.cover_image ??
+    data.results?.find(item => item?.cover_image)?.cover_image ??
+    null
+  );
 }
