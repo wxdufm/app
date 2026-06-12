@@ -2,7 +2,6 @@ import { useState, useEffect } from "react"
 
 // Receives parsed CSV data from lib/schedule.js and renders today's schedule.
 export default function TodaySchedule({ schedule }) {
-	const [selectedShow, setSelectedShow] = useState(null)
 	const [today, setToday] = useState("")
 
 	useEffect(() => {
@@ -73,26 +72,16 @@ export default function TodaySchedule({ schedule }) {
 	})
 
 	return (
-		<div className="text-lg kallisto text-[#e0ff05] w-full">
+		<div className="text-lg text-[#e0ff05] w-full tracking-[-0.07em]">
 			<h1 className="bitcount mb-2 text-center lg:text-left text-2xl lg:text-5xl text-white">Today's Schedule</h1>
 			{shows.map(({ startLabel, endLabel, show }, i) => (
 				show ? (
 					<div key={`${startLabel}-${endLabel}-${i}`} className="flex gap-4 py-3 border-b border-gray-300">
 						<span className="w-24 text-right">
-							{startLabel === endLabel ? startLabel : `${startLabel} – ${endLabel}`}
+							{startLabel === endLabel ? (startLabel) : (<>{startLabel}–<br />{endLabel}</>)}
 						</span>
-						<span className="border-l border-gray-300 pl-4 flex-1">
-							<button
-								type="button"
-								onClick={() =>
-									setSelectedShow((cur) => cur === show ? null : show)
-								}
-								className={`text-left underline hover:no-underline ${
-									selectedShow === show ? "bg-yellow-200 text-black" : ""
-								}`}
-							>
-								{show}
-							</button>
+						<span className="border-l font-bold border-gray-300 pl-4 flex-1">
+							{show}
 						</span>
 					</div>
 				) : null
