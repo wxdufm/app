@@ -9,24 +9,32 @@ export default function TodaySchedule({ schedule }) {
 		setToday(new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase())
 	}, [])
 
-	if (!Array.isArray(schedule) || schedule.length === 0 || !today) {
+	// scheduleCarrier structure:
+	// [0] headerRow: ['hour', 'monday', 'tuesday', ...]
+	// [1] hourColumn: ['12am', '1am', ...]
+	// [3] showGrid: 2D array (hours × days), hour column already stripped
+
+	const headerRow = Array.isArray(schedule?.[0]) ? schedule[0] : []
+	const hourColumn = Array.isArray(schedule?.[1]) ? schedule[1] : []
+	const showGrid = Array.isArray(schedule?.[3]) ? schedule[3] : []
+
+	if (!headerRow.length || !hourColumn.length || !showGrid.length || !today) {
 		return null
 	}
 
-	const headerRow = schedule[0]
-	const hourRows = schedule.slice(1)
-
-	const todayIndex = headerRow.findIndex(h => h === today)
+	// headerRow[0] is 'hour', days start at index 1; showGrid columns are 0-based (no hour col)
+	const todayIndex = headerRow.findIndex(h => h?.toLowerCase() === today)
 
 	if (todayIndex === -1) {
 		return null
 	}
 
-	// Collapse consecutive rows with the same show into one block; makes new array for today
+	const showColIndex = todayIndex - 1
+
+	// Collapse consecutive rows with the same show into one block
 	const shows = []
-	hourRows.forEach((row) => {
-		const hour = row[0]
-		const show = row[todayIndex] || null
+	hourColumn.forEach((hour, i) => {
+		const show = showGrid[i]?.[showColIndex] || null
 		const last = shows[shows.length - 1]
 
 		if (show && last && last.show === show) {
