@@ -1,38 +1,9 @@
-// URL for the library-metadata-lookup Python service (Discogs)
-// uses localhost:8000 locally, or whatever LML_URL is set to in production
-const LML_URL = process.env.LML_URL || 'http://localhost:8000';
+import getAlbumCover from "./albumCover";
 
 // URL for the WXDU hosted API (replaces direct MySQL connection)
 // reads from .env.local locally, or Cloudflare Pages env vars in production
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.wxdu.art';
 
-// given an artist and song name, searches Discogs and returns an album cover URL
-async function getAlbumArt(artist, song) {
-  try {
-    // step 1: search Discogs for releases that contain this track
-    // encodeURIComponent converts spaces/special chars to URL-safe format
-    // e.g. "200 Years" becomes "200%20Years"
-    const trackRes = await fetch(
-      `${LML_URL}/api/v1/discogs/track-releases?artist=${encodeURIComponent(artist)}&track=${encodeURIComponent(song)}`
-    );
-    const trackData = await trackRes.json();
-
-    // if no releases found on Discogs, return null (no art)
-    if (!trackData.releases?.length) return null;
-
-    // take the first matching release's ID
-    const releaseId = trackData.releases[0].release_id;
-
-    // step 2: fetch full release details using that ID, which includes artwork_url
-    const releaseRes = await fetch(`${LML_URL}/api/v1/discogs/release/${releaseId}`);
-    const releaseData = await releaseRes.json();
-
-    return releaseData.artwork_url || null;
-  } catch (e) {
-    // if anything fails, return null so the widget still works without art
-    return null;
-  }
-}
 
 export default async function handler(req, res) {
   console.log("[now-playing API] fetching playlist from remote API...");
@@ -89,17 +60,17 @@ export default async function handler(req, res) {
 
     if (!tracks.length) {
       return res.status(404).json({ error: "No current playlist found" });
-    }
+    } 
 
     // fetch album art for all 5 songs in parallel
     const songsWithArt = await Promise.all(
       tracks.map(async (track) => ({
-        song: track.song,
-        artist: track.artist,
-        album: track.album,
-        label: track.label,
-        songstart: track.songstart,
-        albumArt: await getAlbumArt(track.artist, track.song)
+          song: track.song,
+          artist: track.artist,
+          album: track.album,
+          label: track.label,
+          songstart: track.songstart,
+          albumArt: await getAlbumCover(track.artist, track.song, track.album)
       }))
     );
 
