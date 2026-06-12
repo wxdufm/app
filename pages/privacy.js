@@ -6,17 +6,16 @@ const Privacy = () => {
 				<h1 className="font-kallisto text-5xl font-normal text-white">
 					Privacy Policy
 				</h1>
-				<p className="text-white">Last updated: March 18, 2025</p>
+				<p className="text-white">Last updated: June 12, 2026</p>
 				<h2 className="text-white">1. Introduction</h2>
 				<p>
-					WXYC is dedicated to respecting the privacy of our listeners. This
-					Privacy Policy explains the data practices of our website, Android
-					app, and iOS app.
+					WXDU is dedicated to respecting the privacy of our listeners. This
+					Privacy Policy explains the data practices of our website.
 				</p>
 
 				<h2 className="text-white">2. Information Collection</h2>
 				<p>
-					Our website, Android app, and iOS app collect anonymous analytics data
+					Our website collects anonymous analytics data
 					to help us understand performance and usage trends. This data does not
 					include personally identifiable information.
 				</p>
@@ -50,8 +49,8 @@ const Privacy = () => {
 				<p>
 					If you have any questions about this Privacy Policy, please contact us
 					at{' '}
-					<a className="text-white" href="mailto:privacy@wxyc.org">
-						privacy@wxyc.org
+					<a className="text-white" href="mailto:gm@wxyc.org">
+						gm@wxdu.org
 					</a>
 					.
 				</p>
