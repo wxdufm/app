@@ -69,15 +69,15 @@ export default function IpodWidget() {
                 </div>
                 {/* Text to the right */}
                 <div className="flex flex-col justify-center items-center gap-1 flex-1 h-full min-w-0 overflow-hidden px-1 text-center">
-                  <div className="font-kallisto text-[11px] md:text-[18px] font-bold leading-tight text-[#e0ff05] w-full"
-                    style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                  <div className="flex-shrink-0 font-kallisto text-[11px] md:text-[18px] font-bold leading-tight text-[#e0ff05] w-full"
+                    style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                     {song.song}
                   </div>
-                  <div className="font-kallisto text-[11px] md:text-[16px] text-white w-full"
-                    style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                  <div className="flex-shrink-0 font-kallisto text-[11px] md:text-[16px] text-white w-full"
+                    style={{ display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                     {song.artist}
                   </div>
-                  <div className="text-[9px] md:text-[13px] text-zinc-400 w-full">
+                  <div className="flex-shrink-0 text-[9px] md:text-[13px] text-zinc-400 w-full">
                     {formatTime(song.songstart)} · {current + 1}/{songs.length}
                   </div>
                 </div>
