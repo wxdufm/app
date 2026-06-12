@@ -1,158 +1,124 @@
-import React, { useEffect, useState, useRef } from 'react'
-import { FaPlay, FaPause } from 'react-icons/fa'
-import { useAudio } from '../AudioContext'
-import Link from 'next/link'
-
+import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { FaPause, FaPlay } from "react-icons/fa";
+import { useAudio } from "../AudioContext";
 
 const NavPlayer = () => {
-    const { isPlaying, togglePlayPause } = useAudio()
+    const { isPlaying, togglePlayPause } = useAudio();
 
-    // init stuff for ping pong animation
-    const tickerContainerRef = useRef(null)
-    const tickerTextRef = useRef(null)
-    const [tickerDistance, setTickerDistance] = useState(0)
+    // refs for measuring available ticker width vs text width
+    const tickerContainerRef = useRef(null);
+    const tickerTextRef = useRef(null);
 
-    // create state for now-playing API data
+    // computed scroll distance for ping-pong ticker animation
+    const [tickerDistance, setTickerDistance] = useState(0);
+
     const [nowPlaying, setNowPlaying] = useState({
         artist: null,
-        title: null,
+        song: null,
         album: null,
-        dj: null
-    })
+        dj: "mystery dj"
+    });
 
-    // function to fetch now-playing data
+    // polls the local API wrapper route that proxies api.wxdu.art atm
     async function fetchNowPlaying() {
         try {
-            const response = await fetch('../../api/now-playing')
-
-            const data = await response.json()
+            const response = await fetch("/api/now-playing");
+            const data = await response.json();
 
             setNowPlaying({
                 artist: data.artist,
-                title: data.title,
+                song: data.song,
                 album: data.album,
                 dj: data.dj
-            })
-
+            });
         } catch (error) {
-            console.error('Failed to fetch now-playing data:', error)
+            console.error("Failed to fetch now-playing data:", error);
         }
     }
 
-    // calls API on component mount and every 30 seconds thereafter
+    // do an immediate fetch and then refresh every 30 seconds
     useEffect(() => {
+        fetchNowPlaying();
 
-        // initial fetch
-        fetchNowPlaying()
+        const interval = setInterval(fetchNowPlaying, 30000);
+        return () => clearInterval(interval);
+    }, []);
 
-        // poll API again every 30 secs
-        const interval = setInterval(fetchNowPlaying, 30000)
-
-        // clean-up on component unmount
-        return () => clearInterval(interval)
-
-    }, [])
-
-    // takes API result and turns it into text
+    // only show track info when artist/song/album are all present
     const currentTrack =
-        nowPlaying.artist && nowPlaying.title && nowPlaying.album
-            ? `${nowPlaying.artist} — ${nowPlaying.title} ... ${nowPlaying.album}`
-            : `it's a secret... tune in to find out`
-    
-    // measures length of text + container for ping pong --> grabs difference
+        nowPlaying.artist && nowPlaying.song && nowPlaying.album
+            ? `${nowPlaying.artist} — ${nowPlaying.song} ... ${nowPlaying.album}`
+            : "it's a secret... tune in to find out";
+
+    // measure text and container widths so animation distance is exact
     useEffect(() => {
         function measureTicker() {
-            const containerWidth = tickerContainerRef.current?.getBoundingClientRect().width || 0
-            const textWidth = tickerTextRef.current?.getBoundingClientRect().width || 0
-
-            setTickerDistance(Math.ceil(Math.max(textWidth - containerWidth, 0)))
+            const containerWidth = tickerContainerRef.current?.getBoundingClientRect().width || 0;
+            const textWidth = tickerTextRef.current?.getBoundingClientRect().width || 0;
+            setTickerDistance(Math.ceil(Math.max(textWidth - containerWidth, 0)));
         }
 
-        measureTicker()
-        window.addEventListener('resize', measureTicker)
+        measureTicker();
+        window.addEventListener("resize", measureTicker);
+        return () => window.removeEventListener("resize", measureTicker);
+    }, [currentTrack, nowPlaying.dj]);
 
-        return () => window.removeEventListener('resize', measureTicker)
-    }, [currentTrack, nowPlaying.dj])
-
-    // only scroll if the difference is >0 i.e. text is longer than container width
-    const shouldScrollTicker = tickerDistance > 0
+    // only animate if text overflows horizontally
+    const shouldScrollTicker = tickerDistance > 0;
 
     return (
-        // The outer bar: fixed underneath main bar, full width, black background, yellow border on bottom 
-        <div className="fixed top-0 left-0 z-50 w-full bg-black border-b-2 border-[#e0ff05] flex flex-row items-center h-16 overflow-hidden">
-            
-            {/* LEFT SECTION: play/pause button + Stream Here + soundwave gif
-                This stays still while the ticker scrolls next to it */}
-            <div className="flex flex-row items-center gap-2 px-4 shrink-0 border-r border-[#e0ff05]">
-                {/* Play/pause button — calls togglePlayPause from AudioContext */}
+        <div className="fixed top-0 left-0 z-50 flex h-16 w-full flex-row items-center overflow-hidden border-b-2 border-[#e0ff05] bg-black">
+            <div className="flex shrink-0 flex-row items-center gap-2 border-r border-[#e0ff05] px-4">
                 <button onClick={togglePlayPause} className="text-[#e0ff05] hover:text-yellow-200">
                     {isPlaying ? <FaPause size={18} /> : <FaPlay size={18} />}
                 </button>
 
-                {/* "Stream Here" text in kallisto font */}
-                <span className="bitcount text-[#e0ff05] text-base tracking-widest uppercase">
+                <span className="bitcount text-base uppercase tracking-widest text-[#e0ff05]">
                     Stream Here
                 </span>
 
-                {/* Soundwave gif —> animated when playing, still when paused; height can be adjusted, currently ~24 because h-10 in the parent div */}
-                <div className="hidden lg:flex shrink-0 items-center">
-                    <img 
+                <div className="hidden shrink-0 items-center lg:flex">
+                    <img
                         src={isPlaying ? "/soundwaves.gif" : "/staticsoundwave.gif"}
                         alt="soundwaves"
-                        style={{ height: '75px', width: '175px', objectFit: 'cover' }}
+                        style={{ height: "75px", width: "175px", objectFit: "cover" }}
                     />
                 </div>
             </div>
 
-            {/* RIGHT SECTION: scrolling ticker
-                overflow-hidden clips the text so it scrolls inside the bar */}
-            <div ref={tickerContainerRef} className="overflow-hidden flex-1">
+            <div ref={tickerContainerRef} className="flex-1 overflow-hidden">
                 <Link href="/listen" legacyBehavior>
                     <a
-                        className="block w-full h-full group cursor-pointer hover:bg-white/5 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded"
+                        className="group block h-full w-full cursor-pointer rounded transition-colors duration-150 hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
                         aria-label="Open listen page"
                         title="Open listen page"
-                        onClick={(e) => { e.currentTarget.blur(); }}
+                        onClick={(event) => {
+                            event.currentTarget.blur();
+                        }}
                     >
-                        <div className="overflow-hidden flex-1">
+                        <div className="flex-1 overflow-hidden">
                             <div
-                                // animate-ticker-pingpong is defined in globals.css if you want to tweak
-                                className={`whitespace-nowrap inline-block ${
-                                    shouldScrollTicker ? 'animate-ticker-pingpong' : ''
+                                className={`inline-block whitespace-nowrap ${
+                                    shouldScrollTicker ? "animate-ticker-pingpong" : ""
                                 }`}
                                 style={{
-                                    '--ticker-distance': `${tickerDistance}px`,
+                                    "--ticker-distance": `${tickerDistance}px`
                                 }}
                             >
-                                <span ref={tickerTextRef} className="font-semibold text-[#e0ff05] text-base tracking-widest px-8 group-hover:underline group-hover:text-white group-focus:underline group-focus:text-white">
+                                <span
+                                    ref={tickerTextRef}
+                                    className="px-8 text-base font-semibold tracking-widest text-[#e0ff05] group-hover:text-white group-hover:underline group-focus:text-white group-focus:underline"
+                                >
                                     Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: {nowPlaying.dj}
                                 </span>
                             </div>
                         </div>
-
-                        {/*
-                        <div className="overflow-hidden flex-1">
-                                // animate-conveyor = custom animation defined in globals.css
-                                // whitespace-nowrap keeps the text on one line so it scrolls horizontally
-                            <div className="animate-ticker-pingpong whitespace-nowrap">
-                                <span className="bitcount text-[#e0ff05] text-base tracking-widest px-8 group-hover:underline group-hover:text-white group-focus:underline group-focus:text-white">
-                                // Replace with Adrenalin data
-                                    Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: {nowPlaying.dj} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                </span>
-                                // </Link>Text is repeated so there's no gap when it loops
-                                <span className="bitcount text-[#e0ff05] text-base tracking-widest px-8 group-hover:underline group-hover:text-white group-focus:underline group-focus:text-white">
-                                    Currently Playing: {currentTrack} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DJ ON AIR: {nowPlaying.dj} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                </span>
-                            </div>
-                        </div>
-                        */}
                     </a>
                 </Link>
             </div>
-
-
         </div>
-    )
-}
+    );
+};
 
-export default NavPlayer
+export default NavPlayer;
