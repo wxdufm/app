@@ -66,8 +66,8 @@ const Header = () => {
 									<div className="mb-2 flex w-full text-nowrap text-white">
 										<Menu.Item>
 											<Link
-												//href="https://audio-mp3.ibiblio.org/wxyc.mp3"
-												href="/listen" // TODO: will need to change this to wxdu.org
+												// webstream moved to its own page!
+												href="/listen"
 											>
 												Listen Here
 											</Link>
@@ -76,14 +76,14 @@ const Header = () => {
 									<div className="mb-2 flex w-full text-nowrap text-white">
 										<Menu.Item>
 											<Link
-												href="https://apps.apple.com/us/app/wxyc-radio/id353182815"
+												href="https://wxdu.org"
 												target="_blank"
 											>
-												iPhone app
+												Mobile app (wip)
 											</Link>
 										</Menu.Item>
 									</div>
-									<div className="mb-2 flex w-full text-nowrap text-white">
+									{/* <div className="mb-2 flex w-full text-nowrap text-white">
 										<Menu.Item>
 											<Link
 												href="http://www.wxyc.info/playlists/recent"
@@ -92,7 +92,7 @@ const Header = () => {
 												Live playlist
 											</Link>
 										</Menu.Item>
-									</div>
+									</div> */}
 								</div>
 								{/* Submenu ends here */}
 							</Menu>

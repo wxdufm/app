@@ -18,7 +18,7 @@ const EventPage = (props) => {
 	const options = {month: 'long', day: 'numeric', year: 'numeric'}
 	const displayDate = date.toLocaleString('en-US', options)
 
-	const ogUrl = 'https://wxyc.org/archive/' + data.archive.slug
+	const ogUrl = 'https://wxdu.org/archive/' + data.archive.slug
 
 	return (
 		<ArchiveLayout>

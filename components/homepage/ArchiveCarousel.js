@@ -8,7 +8,7 @@ const ArchiveCarousel = (props) => {
 			   {/* Div below is container for archive carousel only on desktop */}
 				<div className="-mt-5 flex flex-col md:-mt-10 md:mr-10 lg:mt-5 lg:w-full lg:max-w-screen-xl">
 					<p className="kallisto mx-auto mb-2 whitespace-nowrap text-3xl text-white md:mx-0 md:mb-4 lg:text-5xl">
-						This Week on WXYC
+						This Week
 					</p>
 
 					<div className="mx-auto md:mx-0">

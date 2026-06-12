@@ -16,32 +16,32 @@ const DropdownMenu = () => {
 							<Link
 								href="/listen"
 							>
-								Listen Here
+								Listen here
 							</Link>
 						</Menu.Item>
 					</div>
 					<div className="text-medium flex w-full items-center justify-center px-4 py-2 text-white hover:text-blue-300">
 						<Menu.Item>
 							<a
-								href="https://apps.apple.com/us/app/wxyc-radio/id353182815"
+								href="https://wxdu.org"
 								target="_blank"
 							>
-								iPhone App
+								Mobile app (WIP)
 							</a>
 						</Menu.Item>
 					</div>
-					<div className="text-medium flex w-full items-center justify-center rounded-md px-4 py-2  text-white hover:text-blue-300">
+					{/* <div className="text-medium flex w-full items-center justify-center rounded-md px-4 py-2  text-white hover:text-blue-300">
 						<Menu.Item>
 							<Link
 								href="http://www.wxyc.info/playlists/recent"
 								target="_blank"
 								legacyBehavior={false}
 							>
-								{/* Until new flowsheet is deployed: <Link href="/playlist" legacyBehavior={false}> */}
+								Until new flowsheet is deployed: <Link href="/playlist" legacyBehavior={false}>
 								Live playlist
 							</Link>
 						</Menu.Item>
-					</div>
+					</div> */}
 				</Menu.Items>
 			</Menu>
 		</div>
