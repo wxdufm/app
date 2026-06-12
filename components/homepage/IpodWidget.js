@@ -68,16 +68,16 @@ export default function IpodWidget() {
                   />
                 </div>
                 {/* Text to the right */}
-                <div className="flex flex-col justify-center items-center gap-1 flex-1 h-full min-w-0 overflow-hidden px-1 text-center">
-                  <div className="flex-shrink-0 font-kallisto text-[11px] md:text-[18px] font-bold leading-tight text-[#e0ff05] w-full"
-                    style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-                    {song.song}
+                <div className="flex flex-col justify-between items-center flex-1 h-full min-w-0 overflow-hidden px-1 py-1">
+                  <div className="flex-1 flex flex-col items-center justify-center gap-[2px] w-full">
+                    <div className="font-kallisto text-[11px] md:text-[18px] font-bold leading-tight text-[#e0ff05] w-full break-words text-center">
+                      {song.song}
+                    </div>
+                    <div className="font-kallisto text-[11px] md:text-[16px] text-white w-full break-words text-center leading-tight">
+                      {song.artist}
+                    </div>
                   </div>
-                  <div className="flex-shrink-0 font-kallisto text-[11px] md:text-[16px] text-white w-full"
-                    style={{ display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-                    {song.artist}
-                  </div>
-                  <div className="flex-shrink-0 text-[9px] md:text-[13px] text-zinc-400 w-full">
+                  <div className="text-[9px] md:text-[13px] text-zinc-400 text-center w-full pb-1 leading-tight">
                     {formatTime(song.songstart)} · {current + 1}/{songs.length}
                   </div>
                 </div>
@@ -112,12 +112,10 @@ export default function IpodWidget() {
                       />
                     </div>
                     <div className="flex flex-col justify-center gap-[3px] flex-1 min-w-0 overflow-hidden">
-                      <div className="font-kallisto text-[20px] font-bold leading-tight text-[#e0ff05]"
-                        style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                      <div className="font-kallisto text-[20px] font-bold leading-tight text-[#e0ff05] break-words">
                         {song.song}
                       </div>
-                      <div className="font-kallisto text-[20px] text-white"
-                        style={{ display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                      <div className="font-kallisto text-[20px] text-white leading-tight break-words">
                         {song.artist}
                       </div>
                     </div>
