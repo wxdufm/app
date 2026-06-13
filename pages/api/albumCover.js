@@ -67,6 +67,7 @@ async function useMongodb(artist, song, album){
 
 //using Discogs API direcly instead of Jake's metadata.
 // error 429 may occur if two many requests are sent. so use this rarely.
+// Precieux: I'm using my Discogs account TOKEN which is not a good idea for deployment or use by many people
 async function useDiscogsAPI(artist, song, album){
   if (!DISCOGS_TOKEN){
     return null
