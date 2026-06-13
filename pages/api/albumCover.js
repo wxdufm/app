@@ -10,7 +10,7 @@ export default async function getAlbumCover(artist, song, album){
     if (!artist || !album || !song) return null;
 
   // starts by using local discogs through Jake's metadata, then api.wxdu.art API, then final Discogs own API
- const cover =
+  const cover =
     await useDiscogsLocal(artist, song, album) ||
     await useMongodb(artist, song, album) ||
     await useDiscogsAPI(artist, song, album);
@@ -100,4 +100,49 @@ async function useDiscogsAPI(artist, song, album){
     data.results?.find(item => item?.cover_image)?.cover_image ??
     null
   );
+}
+
+// using MBID to get album cover
+// works but requires User-Agent through the server
+async function useMBID(artist, song, album){
+
+  const query = `artist:${artist} AND release:"${album}"`;
+
+  // step 1: fetching musicbrainz to get release information
+  const res = await fetch(`
+      https://musicbrainz.org/ws/2/release/?query=${encodeURIComponent(query)}&fmt=json
+    `)
+  
+  // Fetch receives a 403 Forbidden error.
+  /*
+  console.log(res.status);
+  const body = await res.text();
+  console.log(body);
+  
+  */
+
+  if (!res.ok) {
+    throw new Error(`MBID API error: ${res.status}`);
+  }
+
+  const data = await res.json();
+
+  // getting mbid from the release information
+  const mbid = data?.releases?.[0]?.id;
+
+  if (!mbid){
+    return null;
+  }
+  
+  // Step 2: getting from coverartarchive the info for the album cover 
+  const coverData = await fetch(`https://coverartarchive.org/release/${mbid}`)
+    .then(r => r.ok ? r.json() : null)
+    .catch(() => null)
+
+    // look for the front image first, if none then just take the first image, if none return null
+    return (
+      coverData?.images?.find(img => img.front)?.image ??
+      coverData?.images?.[0]?.image ??
+      null
+    );
 }
