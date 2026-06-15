@@ -1,57 +1,101 @@
 # wxdnew-app
 
-React Native app built with Expo 54, NativeWind, and TypeScript.
+React Native app built with Expo 54, NativeWind, and TypeScript. Content is pulled from TinaCMS via GraphQL.
 
-## What is ngrok and why do we use it?
+## Why localtunnel?
 
-When you run `expo start`, it starts a local Metro bundler server on your machine (port 8081). For Expo Go on your phone to load the app, it needs to reach that server over the network.
+When you run `expo start`, it starts a local Metro bundler server on your machine (port 8081). For Expo Go on your phone to load the app, it needs to reach that server — and your phone also needs to reach TinaCMS (port 4001) to fetch content.
 
-**The problem:** On WSL2 (Windows Subsystem for Linux), your dev environment runs inside a virtual network that your phone can't see — even if your phone and PC are on the same WiFi. The same issue can come up with strict firewalls or when teammates are on different networks.
+**The problem:** On WSL2 (Windows Subsystem for Linux), your dev environment runs inside a virtual network that your phone can't reach directly. The same issue applies on strict firewalls or across different networks.
 
-**What ngrok does:** It creates a secure tunnel from a public URL to your local server. Your phone connects to that public URL, ngrok forwards the traffic to your machine, and Expo Go loads your app — regardless of network setup.
+**The solution:** [localtunnel](https://github.com/localtunnel/localtunnel) creates a public URL that forwards to your local server. No account, no auth tokens, no setup — just run it.
 
-This makes `--tunnel` the most reliable option for a team, since it works the same way for everyone no matter their OS or network.
+> **Why not ngrok?** `expo start --tunnel` uses a bundled ngrok v2 binary. ngrok dropped free account support for v2 agents in June 2026 (ERR_NGROK_121), so it no longer works without a paid plan.
 
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18+)
 - [Expo Go](https://expo.dev/go) installed on your phone
-- A free [ngrok](https://ngrok.com) account
 
 ## Setup
 
 ### 1. Install dependencies
 
+From the **project root** (`radio-2026/`):
 ```bash
-cd app-env/wxdnew-app
+npm install
+```
+
+From the **app directory** (`radio-2026/app-env/wxdnew-app/`):
+```bash
 npm install --legacy-peer-deps
 ```
 
-### 2. Set up ngrok (one-time per developer)
+### 2. Configure your .env
 
-Sign up at [ngrok.com](https://ngrok.com), then copy your auth token from the dashboard and run:
-
+Copy the example env file and fill in your TinaCMS tunnel URL (you'll get this in Step 3 below each session):
 ```bash
-npx ngrok authtoken YOUR_TOKEN_HERE
+cp .env.example .env
 ```
 
-## Running the app
-
-```bash
-npx expo start --tunnel
+`.env` should look like this — update `EXPO_PUBLIC_TINA_URL` each session with a fresh localtunnel URL:
+```
+EXPO_PUBLIC_TINA_URL=https://xxxx.loca.lt/graphql
+EXPO_PUBLIC_SITE_URL=https://wxdu.org
 ```
 
-Scan the QR code in your terminal with:
+## Running locally
+
+You need four terminals each session.
+
+### Terminal 1 — Start TinaCMS + Next.js (from project root)
+
+```bash
+cd radio-2026
+npm run dev
+```
+
+This starts TinaCMS on port 4001 and Next.js on port 3000. Wait until you see `ready` in the output before continuing.
+
+### Terminal 2 — Tunnel TinaCMS
+
+```bash
+npx localtunnel --port 4001
+```
+
+Copy the URL it gives you (e.g. `https://xxxx.loca.lt`) and update `EXPO_PUBLIC_TINA_URL` in your `.env`:
+```
+EXPO_PUBLIC_TINA_URL=https://xxxx.loca.lt/graphql
+```
+
+### Terminal 3 — Tunnel Expo Metro
+
+```bash
+npx localtunnel --port 8081
+```
+
+Copy the URL it gives you (e.g. `https://yyyy.loca.lt`).
+
+### Terminal 4 — Start Expo
+
+```bash
+cd radio-2026/app-env/wxdnew-app
+EXPO_PACKAGER_PROXY_URL=https://yyyy.loca.lt npx expo start
+```
+
+Replace `https://yyyy.loca.lt` with the URL from Terminal 3.
+
+Scan the QR code with:
 - **Android**: the Expo Go app
 - **iPhone**: the default Camera app
 
-The `--tunnel` flag routes traffic through ngrok so the app works regardless of network or OS (WSL2, Mac, Linux, etc.).
+> **Note:** localtunnel URLs are temporary — they change every time you restart the tunnels. You'll need to update `EXPO_PUBLIC_TINA_URL` in `.env` and the `EXPO_PACKAGER_PROXY_URL` each session.
 
 ## Scripts
 
 | Command | Description |
 |---|---|
-| `npx expo start --tunnel` | Start with tunnel (recommended for team dev) |
+| `npx expo start` | Start Metro (use with `EXPO_PACKAGER_PROXY_URL` for tunnel) |
 | `npm run android` | Start targeting Android emulator |
 | `npm run ios` | Start targeting iOS simulator |
 | `npm run web` | Start in browser |
