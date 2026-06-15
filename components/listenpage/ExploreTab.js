@@ -2,10 +2,11 @@
 
 import ExploreSong from './ExploreSong';
 import { useState, useEffect } from 'react';
+import getAlbumCover from "../../pages/api/albumCover";
 
 // function to get the album cover for each song.
 async function getCovers(album, artist){
-    const res = await fetch(`/api/charts/cover?artist=${encodeURIComponent(artist)}&album=${encodeURIComponent(album)}`);
+    const res = await fetch(`/api/albumCover?artist=${encodeURIComponent(artist)}&album=${encodeURIComponent(album)}`);
     if (!res.ok) {
         throw new Error(`Cover search failed: ${res.status}`);
     }
@@ -30,17 +31,7 @@ export default function ExploreTab() {
             const raw = await res.json();
             const items = Array.isArray(raw) ? raw : []; // storing the result as an array
 
-            // adding the album covers for each item of the array
-            const withCover = await Promise.all(items.map(async item =>{
-                try{
-                    const r = await getCovers(item.album, item.artist);
-                    return { ...item, cover: r || '/CD_1_Filler.jpg' };
-                }catch{
-                    return { ...item, cover: '/CD_1_Filler.jpg' }; // default cover if none was found through the api
-                }
-            }))
-
-            setSongs(withCover); // updating the songs variable.
+            setSongs(items); // updating the songs variable.
         } catch (err) {
             console.error('fetchSongs error', err);
             setSongs([]);

@@ -1,106 +1,125 @@
-// kind of janky API because it scrapes HTML off wxdu.org's current playlist instead of actually plugging into adrenalin's php backend
+import { apiFetch } from "@/lib/api";
 
-import * as cheerio from "cheerio";
+// upstream endpoint on api.wxdu.art that includes show, dj, and tracks
+const SOURCE_PATH = "/api/playlists/current";
 
-const PLAYLIST_URL = "https://wxdu.org/plmanager/world/currentplaylist.php";
+// decode Buffer-like comments payloads from upstream into plain strings
+function normaliseComments(rawComments) {
+    // already a normal string
+    if (typeof rawComments === "string") {
+        const trimmed = rawComments.trim();
+        return trimmed || null;
+    }
 
-function cleanText(text) {
-    return text?.replace(/\s+/g, ' ').trim() || null;
+    // Node Buffer object
+    if (Buffer.isBuffer(rawComments)) {
+        const decoded = rawComments.toString("utf8").trim();
+        return decoded || null;
+    }
+
+    // Buffer-like object from JSON: { type: "Buffer", data: [...] }
+    if (
+        rawComments &&
+        typeof rawComments === "object" &&
+        rawComments.type === "Buffer" &&
+        Array.isArray(rawComments.data)
+    ) {
+        const decoded = Buffer.from(rawComments.data).toString("utf8").trim();
+        return decoded || null;
+    }
+
+    // unsupported shape
+    return null;
+}
+
+// selects the currently playing track using time/order fallbacks
+function pickCurrentTrack(tracks) {
+    if (!Array.isArray(tracks) || tracks.length === 0) {
+        return null;
+    }
+
+    // copy before sort so original payload is untouched
+    const sorted = [...tracks].sort((a, b) => {
+        const timeA = Date.parse(a?.songstart || "");
+        const timeB = Date.parse(b?.songstart || "");
+
+        // prefer valid songstart timestamps when present
+        const hasTimeA = Number.isFinite(timeA);
+        const hasTimeB = Number.isFinite(timeB);
+        if (hasTimeA && hasTimeB && timeA !== timeB) {
+            return timeA - timeB;
+        }
+
+        // fallback to numeric orderkey when timestamps are missing/equal
+        const orderA = Number.isFinite(Number(a?.orderkey)) ? Number(a.orderkey) : -Infinity;
+        const orderB = Number.isFinite(Number(b?.orderkey)) ? Number(b.orderkey) : -Infinity;
+        if (orderA !== orderB) {
+            return orderA - orderB;
+        }
+
+        // final stable fallback
+        return 0;
+    });
+
+    // latest track is the final entry after ascending sort
+    return sorted[sorted.length - 1] || null;
 }
 
 export default async function handler(req, res) {
+    if (req.method !== "GET") {
+        return res.status(405).json({ error: "Method not allowed" });
+    }
 
-    // fetch currentplaylist page from wxdu.org
-    console.log("[now-playing API] fetching playlist...");
     try {
-        const response = await fetch(PLAYLIST_URL, {
-            headers: {
-                "User-Agent": "wxdu.art now-playing fetcher"
-            },
-        });
+        // fetch current show payload via the shared API wrapper
+        const payload = await apiFetch(SOURCE_PATH);
 
-        // if wxdu.org currentplaylist fails to load
-        if (!response.ok) {
-        return res.status(502).json({
-            artist: null,
-            title: null,
-            source: PLAYLIST_URL,
-            error: `Playlist request failed with ${response.status}`,
-        });
-        }
+        // normalise incoming top-level objects
+        const show = payload?.show || null;
+        const dj = payload?.dj || null;
+        const tracks = Array.isArray(payload?.tracks) ? payload.tracks : [];
 
-        // reads currentplaylist page as raw html and loads it into cheerio
-        const html = await response.text();
-        const $ = cheerio.load(html);
-        console.log("[now-playing API] HTML length: ", html.length);
+        // select the most recent/current track
+        const track = pickCurrentTrack(tracks);
 
-        // find last row in the first table on the page, which is the flowsheet
-        const flowsheetTable = $("table").first();
-        const lastRow = flowsheetTable.find("tr").last();
-        console.log("[now-playing API] current playlist rows: ", flowsheetTable.find("tr").length - 1); // subtract header row
-
-        // parses each cell in the last row
-        const cells = lastRow
-            .find("td")
-            .map((_, cell) => cleanText($(cell).text()))
-            .get();
-
-        // in case of half-filled rows... avoids errors later
-        if (cells.length < 2) {
+        // no track means nothing to display yet; default info below
+        if (!track) {
             return res.status(404).json({
                 artist: null,
-                title: null,
-                source: PLAYLIST_URL,
-                error: "No current track found",
+                song: null,
+                album: null,
+                label: null,
+                dj: show?.djname || dj?.defdjname || null,
+                comments: null,
+                source: SOURCE_PATH,
+                error: "No current track found"
             });
         }
 
-        const artist = cells[0];
-        const title = cells[1];
-
-        // in case of missing artist/title info...
-        if (!artist || !title) {
-            return res.status(404).json({
-                artist: null,
-                title: null,
-                source: PLAYLIST_URL,
-                error: "No current track found",
-            });
-        }
-
-        // find the h2 containing the DJ/show name, and extract the DJ name only
-        const showInfo = $("h2").first();
-        const noArchive = showInfo.clone().find("a").remove().end().text().replace(/\s+/g, " ").trim();
-        const djTemp = noArchive.match(/with\s+(.+)$/);
-        const djName = djTemp?.[1] || null;
-
-        // the successful one
+        // build strict upstream-style response keys (song, not title)
         const result = {
-            artist,
-            title,
-            album: cells[2] ?? null,
-            dj: djName,
-            // extra goodies
-            label: cells[3] ?? null,
-            comments: cells[4] ?? null,
-            source: PLAYLIST_URL,
+            artist: track.artist || null,
+            song: track.song || null,
+            album: track.album || null,
+            label: track.label || null,
+            dj: show?.djname || dj?.defdjname || null,
+            comments: normaliseComments(track.comments),
+            source: SOURCE_PATH
         };
 
-        // cache
-        res.setHeader(
-            "Cache-Control",
-            "s-maxage=30, stale-while-revalidate=120"
-        );
+        // keep lightweight caching for repeated polling in the nav player
+        res.setHeader("Cache-Control", "s-maxage=30, stale-while-revalidate=120");
 
         return res.status(200).json(result);
-        
     } catch (error) {
-        console.error("]now-playing API] threw error: ", error);
-
         return res.status(500).json({
             artist: null,
-            title: null,
-            source: PLAYLIST_URL,
+            song: null,
+            album: null,
+            label: null,
+            dj: null,
+            comments: null,
+            source: SOURCE_PATH,
             error: error.message
         });
     }

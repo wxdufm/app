@@ -10,8 +10,7 @@ import Image from 'next/image'
 import {FaPhone} from 'react-icons/fa6'
 
 import {AiFillGithub} from 'react-icons/ai'
-import {FaTumblr} from "react-icons/fa6";
-import {FaBandcamp} from "react-icons/fa";
+import {FaTumblr, FaBandcamp} from "react-icons/fa6";
 
 const Footer = () => {
 	return (

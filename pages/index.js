@@ -2,6 +2,7 @@ import {client} from '../tina/__generated__/client'
 import PhotoGallery from '../components/homepage/PhotoGallery'
 import ArchiveCarousel from '../components/homepage/ArchiveCarousel'
 import BlogCarouselFull from '../components/homepage/BlogCarouselFull'
+	import {useTina, tinaField} from 'tinacms/dist/react'
 import HomepageBanner from '../components/HomepageBanner'
 import Link from 'next/link'
 import photo from '../images/logo.png'
@@ -15,15 +16,24 @@ import ShowCalendar from "../components/homepage/ShowCalendar"
 
 // home page
 export default function Home(props) {
+	const { data: pageData } = useTina({
+		query: props.pageQuery,
+		variables: props.pageVariables,
+		data: props.pageData,
+	})
+
+	const bannerColumns = pageData?.page?.homepageBanner?.columns || []
+	const bannerAboveLogo = pageData?.page?.homepageBanner?.aboveLogo || []
+	const bannerBelowLogo = pageData?.page?.homepageBanner?.belowLogo || []
 	const posts = props.data.blogConnection.edges
 	const events = props.data.archiveConnection.edges
 	const schedule = props.schedule
 
 	return (
 		<div>
-			<div>
+			<div data-tina-field={pageData?.page ? tinaField(pageData.page, 'homepageBanner') : undefined} className="pt-28 lg:pt-0 lg:px-16">
 				{/* HomepageBanner is a component for adding a closeable banner announcement to the homepage. Toggle on or off in Components > HomepageBanner.js */}
-				<HomepageBanner />
+				<HomepageBanner columns={bannerColumns} aboveLogo={bannerAboveLogo} belowLogo={bannerBelowLogo} />
 			</div>
 			{/* Header with WXDU logo lives here */}
 			<div className="mx-auto lg:flex hidden w-full flex-col items-start justify-center pt-10 md:mb-10 md:pt-2 ">
@@ -31,11 +41,6 @@ export default function Home(props) {
 					<div className="mb-20 lg:mb-5 flex  w-full cursor-pointer flex-col items-center justify-center pt-20 md:flex-row md:items-end md:pt-20 lg:pt-1">
 						{/* Actual header text */}
 						<div className="flex w-full flex-col items-center justify-center md:w-3/4 md:pt-4 lg:w-full lg:pt-1">
-							<Image src={photo} alt="Picture of the author" priority className="w-[1088px]" />
-							<div className="mt-0 w-full" style={{ paddingLeft: '4rem', paddingRight: '4rem' }}>
-								<h1 className="bitcount mx-auto w-full text-center text-base md:mx-0  md:text-3xl lg:text-5xl">
-									Duke and Durham&#39;s alternative, non-commercial radio station
-								</h1>
 							<div className="mt-4 flex flex-row justify-between gap-4 items-start px-2 w-full" style={{ zoom: 1.1 }}>
 								<div className="flex-[5]">
 									<TodaySchedule schedule={schedule} />
@@ -49,7 +54,7 @@ export default function Home(props) {
 									<CDLink href="/programming" label="programming" image="/CD_2_Filler.jpg" />
 									<CDLink href="/about" label="about" image="/CD_3_Filler.jpg" />
 								</div>
-								</div>
+								
 							</div>
 							</div>
 						</div>
@@ -58,7 +63,7 @@ export default function Home(props) {
 				</div>
 
 			{/* Mobile layout — hidden on desktop */}
-			<div className="lg:hidden flex flex-col items-center gap-8 px-8 pt-10 pb-16">
+			<div className="lg:hidden flex flex-col items-center gap-8 px-8 pt-1 pb-16">
 				<div className="flex flex-col items-center gap-2 w-full">
 					<StreamButton />
 					<IpodWidget />
@@ -88,8 +93,9 @@ export default function Home(props) {
 						<BlogCarouselFull posts={posts} />
 					)}
 
-					{/* if yes events: events + player */}
-					{events.length > 0 && <ArchiveCarousel events={events} />}
+					{/* if yes events: events + player
+					{events.length > 0 && <ArchiveCarousel events={events} />} */}
+					{/* ^ disables archive carousel, since WXDU doesn't use this function */}
 
 					{/* if yes events: blog posts full row */}
 					{events.length > 0 && posts && <BlogCarouselFull posts={posts} />}
@@ -128,6 +134,10 @@ export const getStaticProps = async () => {
 		currentDateTime.getMonth(),
 		currentDateTime.getDate() + (8 - currentDateTime.getDay())
 	)
+	const pageResult = await client.queries.page({
+		relativePath: 'home.mdx',
+	})
+
 	const {data} = await client.request({
 		query: `
     query getContent($startOfWeek: String, $endOfWeek: String)
@@ -190,5 +200,13 @@ export const getStaticProps = async () => {
 	})
 	const { scheduleBuilder } = await import('../lib/schedule/scheduleBuilder')
 	const schedule = await scheduleBuilder()
-	return { props: { data, schedule } }
+	return {
+		props: {
+			data,
+			schedule,
+			pageData: pageResult.data,
+			pageQuery: pageResult.query,
+			pageVariables: pageResult.variables,
+		},
+	}
 }

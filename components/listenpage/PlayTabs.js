@@ -10,7 +10,7 @@ export default function PlayTabs({ nowPlaying = {}, currentPlaylist = {}}) {
     // To render the correct tab based on the activeTab state (i.e which tab the user has clicked on)
     function renderTab() {
         if (activeTab === "nowplaying") {
-            return <NowPlaying nowPlaying={nowPlaying} />
+            return <NowPlaying currentPlaylist={currentPlaylist} />
         } else if (activeTab === "lastplayed") {
             return <LastPlayed currentPlaylist={currentPlaylist}/>
         }

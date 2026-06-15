@@ -14,7 +14,7 @@ fullArray is what scheduleParser.js returns (25x8)
 */
 
 // adding functionality to collapse 2+ otto-only rows to save space
-const ottoAlias = "Lunokhod 3"
+const ottoAlias = "Луноход 3"
 function isOttofulRow(hourRow) {
 	const djCells = hourRow.slice(1)
 
@@ -95,19 +95,42 @@ export default function WeeklySchedule({schedule}) {
 		)
 	}
 
+	// reads the visible DJ cell value from either row type so merge logic can cross ottoCollapse rows
+	function getRenderedDjValue(renderedRow, dayIndex) {
+		if (!renderedRow) {
+			return null
+		}
+
+		if (renderedRow.type === "normal") {
+			return renderedRow.row?.[dayIndex + 1] ?? ""
+		}
+
+		if (renderedRow.type === "ottoCollapse") {
+			return renderedRow.cells?.[dayIndex] ?? ""
+		}
+
+		return ""
+	}
+
+	const firstColumnClass = "sticky left-0 z-10 border border-gray-300 bg-white px-4 py-2 text-right text-xl whitespace-nowrap uppercase text-red-600"
+
 	return (
-		<div className="overflow-x-auto text-sm text-[#e0ff05]">
-			<table className="w-full table-auto border-collapse border border-gray-300">
+		<div className="h-[80vh] w-[80vw] overflow-auto text-xl font-semibold text-[#e0ff05] tracking-[-0.09em]">
+			<table className="w-full table-auto border-separate border-spacing-0">
 
                 {/* table header row, including cell A1 ("show start time" or something) */}
-				<thead> 
+				<thead>
 					<tr>
-						{days.map((day) => (
+						{days.map((day, dayIndex) => (
 							<th
-								key={day}
-								className="border border-gray-300 px-4 py-2 bg-red"
+								key={dayIndex}
+								className={`sticky border border-gray-300 px-4 py-2 text-xl uppercase ${
+									dayIndex === 0
+										? "top-0 left-0 z-50 bg-black"
+										: "top-0 z-30 bg-white text-red-600"
+								}`}
 							>
-								{day}
+								{dayIndex === 0 ? "summer 2026" : day}
 							</th>
 						))}
 					</tr>
@@ -120,35 +143,56 @@ export default function WeeklySchedule({schedule}) {
 						if (collapseAwareHourRow.type === "ottoCollapse") {
 							return (
 								<tr key={`lunokhod-${collapseAwareHourRow.startHour}-${rowIndex}`}>
-									<th className="border border-gray-300 px-4 py-2 bg-pink text-left">
+									<th className={firstColumnClass}>
 										{
 											collapseAwareHourRow.startHour.replace(/–.*$/, "")
-										}↔{
+										}↔↔{
 											collapseAwareHourRow.endHour.replace(/^.*–/, "")
 										}
 									</th>
 
 									{collapseAwareHourRow.cells.map((djName, dayIndex) => (
-										<td
-											key={`lunokhod-${dayIndex}`}
-											className={`border border-gray-300 bg-black px-4 py-2 text-center align-middle ${
-												selectedDj === djName ? "bg-yellow-200 text-black" : ""
-											}`}
-										>
-											{djName && (
-												<button
-													type="button"
-													onClick={() =>
-														setSelectedDj((currentDj) =>
-															currentDj === djName ? null : djName
-														)
-													}
-													className="underline hover:no-underline"
+										(() => {
+											// skip duplicate cell if a rowSpan from above already covers this column
+											const previousRow = collapseAwareHourRows[rowIndex - 1]
+											const previousDj = getRenderedDjValue(previousRow, dayIndex)
+											if (djName && previousDj === djName) {
+												return null
+											}
+
+											// collapse blocks count as one visible row in rowSpan math
+											let rowSpan = 1
+											while (
+												djName &&
+												getRenderedDjValue(collapseAwareHourRows[rowIndex + rowSpan], dayIndex) === djName
+											) {
+												rowSpan += 1
+											}
+
+											return (
+												<td
+													key={`lunokhod-${dayIndex}`}
+													rowSpan={rowSpan}
+													className={`border border-gray-300 bg-black px-4 py-2 text-center align-middle ${
+														selectedDj === djName ? "bg-yellow-200 text-black" : ""
+													}`}
 												>
-													{djName}
-												</button>
-											)}
-										</td>
+													{djName && (
+														<button
+															type="button"
+															onClick={() =>
+																setSelectedDj((currentDj) =>
+																	currentDj === djName ? null : djName
+																)
+															}
+															// className="underline hover:no-underline"
+														>
+															{djName}
+														</button>
+													)}
+												</td>
+											)
+										})()
 									))}
 								</tr>
 							)
@@ -163,7 +207,7 @@ export default function WeeklySchedule({schedule}) {
 							<tr key={`${hour}-${rowIndex}`}>
 
                                 {/* first column is the hour */}
-								<th className="border border-gray-300 px-4 py-2 bg-pink text-left">
+								<th className={firstColumnClass}>
 									{hour}
 								</th>
 
@@ -178,39 +222,33 @@ export default function WeeklySchedule({schedule}) {
 										)
 									}
 
-									// checks if current cell is specialty show
-									const specialtyShow = isSpecialtyShow(collapseAwareHourRow.originalRowIndex, dayIndex)
+										// checks if current cell is specialty show
+										const specialtyShow = isSpecialtyShow(collapseAwareHourRow.originalRowIndex, dayIndex)
 
-									// Skip repeated cells so rowSpan can cover multi-hour shows.
-									const previousRow = collapseAwareHourRows[rowIndex - 1]
-									const previousDj =
-										previousRow?.type === "normal"
-											? previousRow.row[dayIndex + 1]
-											: null
+										// Skip repeated cells so rowSpan can cover multi-hour shows.
+										const previousRow = collapseAwareHourRows[rowIndex - 1]
+										const previousDj = getRenderedDjValue(previousRow, dayIndex)
 
-									if (previousDj === djName) {
-										return null
-									}
+										if (previousDj === djName) {
+											return null
+										}
 
 
-									let rowSpan = 1
-									while (
-										collapseAwareHourRows[rowIndex + rowSpan]?.type === "normal" &&
-										collapseAwareHourRows[rowIndex + rowSpan].row[dayIndex + 1] === djName
-									) {
-										rowSpan += 1
-									}
+										let rowSpan = 1
+										while (getRenderedDjValue(collapseAwareHourRows[rowIndex + rowSpan], dayIndex) === djName) {
+											rowSpan += 1
+										}
 
-									return (
-										<td
-											key={`${hour}-${dayIndex}`}
-											rowSpan={rowSpan}
-											className={`border border-gray-300 px-4 py-2 text-center bg-black align-middle ${
-												specialtyShow ? 'bg-[#e0ff05] text-black italic' : 'bg-black' // HIGHLIGHT SPECIALTY SHOWS!!!
-											} ${
-												selectedDj === djName ? "bg-yellow-200 text-black" : ""
-											}`}
-										>
+										return (
+											<td
+												key={`${hour}-${dayIndex}`}
+												rowSpan={rowSpan}
+												className={`border border-gray-300 px-4 py-2 text-center align-middle ${
+													specialtyShow ? "bg-[#e0ff05] text-black" : "bg-black" // HIGHLIGHT SPECIALTY SHOWS!!!
+												} ${
+													selectedDj === djName ? "bg-yellow-200 text-black" : ""
+												}`}
+											>
                                             {/* placeholder onClick which is just a button. will eventually redirect to DJ pages */}
 											<button
 												type="button"
@@ -219,7 +257,7 @@ export default function WeeklySchedule({schedule}) {
 														currentDj === djName ? null : djName
 													)
 												}
-												className="underline hover:no-underline"
+												// className="underline hover:no-underline"
 											>
 												{djName}
 											</button>
