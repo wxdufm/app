@@ -46,18 +46,20 @@ export const PhotoGallery = () => {
 			</div>
 
 			<div className="arrows">
-				<button
-					onClick={goToPrevious}
-					className="absolute left-2 top-1/2 z-10 -translate-y-1/2 transform cursor-pointer text-2xl"
-				>
-					<IoIosArrowDropleft size={42} />
-				</button>
-				<button
-					onClick={goToNext}
-					className="absolute right-2 top-1/2 z-10 -translate-y-1/2 transform cursor-pointer text-2xl"
-				>
-					<IoIosArrowDropright size={42} />
-				</button>
+					<button
+						onClick={goToPrevious}
+						className="absolute left-2 top-1/2 z-10 -translate-y-1/2 transform cursor-pointer text-2xl"
+						aria-label="Show previous gallery image"
+					>
+						<IoIosArrowDropleft size={42} />
+					</button>
+					<button
+						onClick={goToNext}
+						className="absolute right-2 top-1/2 z-10 -translate-y-1/2 transform cursor-pointer text-2xl"
+						aria-label="Show next gallery image"
+					>
+						<IoIosArrowDropright size={42} />
+					</button>
 			</div>
 		</div>
 	)

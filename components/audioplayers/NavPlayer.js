@@ -70,7 +70,13 @@ const NavPlayer = () => {
     return (
         <div className="fixed top-0 left-0 z-50 flex h-16 w-full flex-row items-center overflow-hidden border-b-2 border-[#e0ff05] bg-black">
             <div className="flex shrink-0 flex-row items-center gap-2 border-r border-[#e0ff05] px-4">
-                <button onClick={togglePlayPause} className="text-[#e0ff05] hover:text-yellow-200">
+                {/* Icon-only control needs an explicit name for screen readers. */}
+                <button
+                    onClick={togglePlayPause}
+                    className="text-[#e0ff05] hover:text-yellow-200"
+                    aria-label={isPlaying ? 'Pause stream' : 'Play stream'}
+                    title={isPlaying ? 'Pause stream' : 'Play stream'}
+                >
                     {isPlaying ? <FaPause size={18} /> : <FaPlay size={18} />}
                 </button>
 

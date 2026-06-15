@@ -96,12 +96,13 @@ export default function ShowCalendar() {
 								<li key={`${day.date}-${show.eventId}`} className="border-b border-neutral-600 py-2 last:border-b-0">
 									<div className="kallisto text-white">
 										{show.venue.url ? (
-											<a
-												href={show.venue.url}
-												target="_blank"
-												rel="noreferrer"
-												className="underline hover:no-underline"
-											>
+												<a
+													href={show.venue.url}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="underline hover:no-underline"
+													aria-label={`${show.venue.label} (opens in a new tab)`}
+												>
 												{show.venue.label || "Venue TBA"}
 											</a>
 										) : (
