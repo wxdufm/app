@@ -29,8 +29,10 @@ export async function queryTina<T = unknown>(
 }
 
 // TinaCMS stores cover images as relative paths (e.g. /uploads/foo.jpg) — prepend site URL to make them absolute
+// encodeURI converts spaces and other invalid URL characters (e.g. "my file.jpg" → "my%20file.jpg")
+// without touching slashes, colons, or other meaningful URL characters
 export function resolveImageUrl(path: string | null | undefined): string | undefined {
     if (!path) return undefined
-    if (path.startsWith('http')) return path
-    return `${SITE_URL}${path}`
+    if (path.startsWith('http')) return encodeURI(path)
+    return encodeURI(`${SITE_URL}${path}`)
 }

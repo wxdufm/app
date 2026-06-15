@@ -38,15 +38,15 @@ Copy the example env file and fill in your TinaCMS tunnel URL (you'll get this i
 cp .env.example .env
 ```
 
-`.env` should look like this — update `EXPO_PUBLIC_TINA_URL` each session with a fresh localtunnel URL:
+`.env` should look like this — update `EXPO_PUBLIC_TINA_URL` and `EXPO_PUBLIC_SITE_URL` each session with a fresh localtunnel URL:
 ```
 EXPO_PUBLIC_TINA_URL=https://xxxx.loca.lt/graphql
-EXPO_PUBLIC_SITE_URL=https://wxdu.org
+EXPO_PUBLIC_SITE_URL=https://xxxx.loca.lt/
 ```
 
 ## Running locally
 
-You need four terminals each session.
+You need five terminals each session. Start them in order and wait for each one to be ready before moving to the next.
 
 ### Terminal 1 — Start TinaCMS + Next.js (from project root)
 
@@ -55,41 +55,61 @@ cd radio-2026
 npm run dev
 ```
 
-This starts TinaCMS on port 4001 and Next.js on port 3000. Wait until you see `ready` in the output before continuing.
+This starts TinaCMS on port 4001 and Next.js on port 3000. Wait until you see `ready - started server on 0.0.0.0:3000` in the output before continuing.
 
-### Terminal 2 — Tunnel TinaCMS
+### Terminal 2 — Tunnel TinaCMS (port 4001)
 
 ```bash
 npx localtunnel --port 4001
 ```
 
-Copy the URL it gives you (e.g. `https://xxxx.loca.lt`) and update `EXPO_PUBLIC_TINA_URL` in your `.env`:
+Copy the URL it gives you (e.g. `https://xxxx.loca.lt`).
+
+Open that URL in your browser. You will see a localtunnel confirmation page — enter your IP and click through. This allows your phone to make API requests through the tunnel.
+
+Then update `EXPO_PUBLIC_TINA_URL` in your `.env`:
 ```
 EXPO_PUBLIC_TINA_URL=https://xxxx.loca.lt/graphql
 ```
+Note the `/graphql` at the end — the browser URL does not have it but the `.env` value does.
 
-### Terminal 3 — Tunnel Expo Metro
+### Terminal 3 — Tunnel Next.js media server (port 3000)
+
+```bash
+npx localtunnel --port 3000
+```
+
+Copy the URL it gives you (e.g. `https://yyyy.loca.lt`) and update `EXPO_PUBLIC_SITE_URL` in your `.env`:
+```
+EXPO_PUBLIC_SITE_URL=https://yyyy.loca.lt
+```
+
+This is needed so your phone can load images, which are served by Next.js and stored in `public/uploads/`.
+
+### Terminal 4 — Tunnel Expo Metro bundler (port 8081)
 
 ```bash
 npx localtunnel --port 8081
 ```
 
-Copy the URL it gives you (e.g. `https://yyyy.loca.lt`).
+Copy the URL it gives you (e.g. `https://zzzz.loca.lt`).
 
-### Terminal 4 — Start Expo
+### Terminal 5 — Start Expo
 
 ```bash
 cd radio-2026/app-env/wxdnew-app
-EXPO_PACKAGER_PROXY_URL=https://yyyy.loca.lt npx expo start
+EXPO_PACKAGER_PROXY_URL=https://zzzz.loca.lt npx expo start
 ```
 
-Replace `https://yyyy.loca.lt` with the URL from Terminal 3.
+Replace `https://zzzz.loca.lt` with the URL from Terminal 4.
 
 Scan the QR code with:
 - **Android**: the Expo Go app
 - **iPhone**: the default Camera app
 
-> **Note:** localtunnel URLs are temporary — they change every time you restart the tunnels. You'll need to update `EXPO_PUBLIC_TINA_URL` in `.env` and the `EXPO_PACKAGER_PROXY_URL` each session.
+> **Note:** localtunnel URLs are temporary — they change every time you restart the tunnels. You'll need to update `.env` with the new URLs for Terminals 2 and 3, then restart Expo (Terminal 5) so it picks up the new values. Expo bakes `EXPO_PUBLIC_*` variables into the bundle at startup — a running Metro will not see `.env` changes until restarted.
+
+> **If you get a 503 error:** The localtunnel for port 4001 likely dropped. Kill Terminal 2, restart it, get the new URL, update `.env`, and restart Expo. Visit the new tunnel URL in a browser to bypass the confirmation page before testing on your phone.
 
 ## Scripts
 
