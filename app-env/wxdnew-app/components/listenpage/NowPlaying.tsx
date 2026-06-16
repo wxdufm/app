@@ -30,12 +30,12 @@ export default function NowPlaying({ currentPlaylist = {} }: any) {
     }, [artist, album])
 
     return (
-        <View className="w-full max-w-[320px] mx-auto">
+        <View className="w-full mx-auto">
             <Image
                 source={cover ? { uri: cover } : FILLER}
                 resizeMode="cover"
                 className="w-full rounded-sm"
-                style={{ aspectRatio: 1 }}
+                style={{ aspectRatio: 1, maxHeight: 350, alignSelf: 'center' }}
             />
             <Text className="mt-4 text-xl text-white">Song: {song}</Text>
             <Text className="text-white">Artist: {artist}</Text>
