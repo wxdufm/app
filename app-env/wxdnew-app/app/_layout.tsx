@@ -9,12 +9,18 @@ import { AudioProvider } from "../components/AudioContext";
 export default function RootLayout() {
     return (
         <AudioProvider>
-            <Tabs>
-                <Tabs.Screen name="index" options={{ title: "Home" }} />
-                <Tabs.Screen name="listen/index" options={{ title: "Listen" }} />
-                <Tabs.Screen name="blog" options={{ title: "Blog" }} />
-                <Tabs.Screen name="charts/index" options={{ title: "Charts" }} />
-                <Tabs.Screen name="archive" options={{ title: "Archive" }} />
+            <Tabs
+                screenOptions={{
+                    tabBarStyle: { backgroundColor: "#0a0a0a", borderTopColor: "#27272a" },
+                    tabBarActiveTintColor: "#ffffff",
+                    tabBarInactiveTintColor: "#52525b",
+                    headerStyle: { backgroundColor: "#0a0a0a" },
+                    headerTintColor: "#ffffff",
+                    headerShadowVisible: false,
+                }}
+            >
+                <Tabs.Screen name="index" options={{ title: "Now Playing" }} />
+                <Tabs.Screen name="connect" options={{ title: "Connect" }} />
             </Tabs>
         </AudioProvider>
     );
