@@ -1,7 +1,7 @@
 import { View } from 'react-native'
 import SongRow from './SongRow'
 
-export default function LastPlayed({ currentPlaylist = {} }: any) {
+export default function LastPlayed({ currentPlaylist = {}, onSongPress }: any) {
     const tracks = Array.isArray(currentPlaylist.tracks)
         ? [...currentPlaylist.tracks].reverse()
         : []
@@ -16,6 +16,7 @@ export default function LastPlayed({ currentPlaylist = {} }: any) {
                         artist={item.artist}
                         album={item.album}
                         songStart={item.songstart}
+                        onPress={onSongPress ? () => onSongPress(item.song ?? '', item.artist ?? '', item.album ?? '') : undefined}
                     />
                 ))}
             </View>

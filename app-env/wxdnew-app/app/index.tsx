@@ -10,9 +10,11 @@ import { ScrollView, Text, View } from 'react-native'
 import NowPlayingHeader from '../components/listenpage/NowPlayingHeader'
 import NowPlaying from '../components/listenpage/NowPlaying'
 import LastPlayed from '../components/listenpage/LastPlayed'
+import SongDetailModal from '../components/SongDetailModal'
 
 export default function NowPlayingScreen() {
     const [currentPlaylist, setCurrentPlaylist] = useState<any>({})
+    const [modalTrack, setModalTrack] = useState<{ song: string; artist: string; album: string } | null>(null)
 
     // fetch logic
     useEffect(() => {
@@ -41,19 +43,34 @@ export default function NowPlayingScreen() {
 
     // the JSX
     return (
-        <ScrollView className="flex-1 bg-black">
-            <View className="px-4 pt-4 pb-2">
-                <NowPlayingHeader currentPlaylist={currentPlaylist} />
-            </View>
-            <View className="px-4 mt-2">
-                <NowPlaying currentPlaylist={currentPlaylist} />
-            </View>
-            <View className="px-4 mt-6">
-                <Text className="text-white text-sm font-courier-bold uppercase tracking-widest mb-2">
-                    Recently Played
-                </Text>
-                <LastPlayed currentPlaylist={historyPlaylist} />
-            </View>
-        </ScrollView>
+        <>
+            <ScrollView className="flex-1 bg-black">
+                <View className="px-4 pt-4 pb-2">
+                    <NowPlayingHeader currentPlaylist={currentPlaylist} />
+                </View>
+                <View className="px-4 mt-2">
+                    <NowPlaying
+                        currentPlaylist={currentPlaylist}
+                        onPress={(song: string, artist: string, album: string) => setModalTrack({ song, artist, album })}
+                    />
+                </View>
+                <View className="px-4 mt-6">
+                    <Text className="text-white text-sm font-courier-bold uppercase tracking-widest mb-2">
+                        Recently Played
+                    </Text>
+                    <LastPlayed
+                        currentPlaylist={historyPlaylist}
+                        onSongPress={(song: string, artist: string, album: string) => setModalTrack({ song, artist, album })}
+                    />
+                </View>
+            </ScrollView>
+            <SongDetailModal
+                visible={modalTrack !== null}
+                song={modalTrack?.song ?? ''}
+                artist={modalTrack?.artist ?? ''}
+                album={modalTrack?.album ?? ''}
+                onClose={() => setModalTrack(null)}
+            />
+        </>
     )
 }

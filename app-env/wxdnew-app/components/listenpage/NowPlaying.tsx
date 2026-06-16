@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, Pressable } from 'react-native'
 import StreamButton from '../audioplayers/StreamButton'
 
 const API_BASE = 'https://api.wxdu.art'
 const FILLER = 'https://wxdu.org/CD_1_Filler.jpg'
 
-export default function NowPlaying({ currentPlaylist = {} }: any) {
+export default function NowPlaying({ currentPlaylist = {}, onPress }: any) {
     const reverseTrack = Array.isArray(currentPlaylist.tracks)
         ? [...currentPlaylist.tracks].reverse()
         : []
@@ -33,9 +33,14 @@ export default function NowPlaying({ currentPlaylist = {} }: any) {
                 className="w-full rounded-sm"
                 style={{ aspectRatio: 1 }}
             />
-            <Text className="mt-4 text-xl text-white font-courier">Song: {song}</Text>
-            <Text className="text-white font-courier-italic">Artist: {artist}</Text>
-            <Text className="text-lg text-gray-300 mt-1 font-courier">Album: {album}</Text>
+            <Pressable
+                onPress={() => onPress?.(song, artist, album)}
+                style={({ pressed }) => ({ opacity: pressed ? 0.6 : 1 })}
+            >
+                <Text className="mt-4 text-xl text-white font-courier">Song: {song}</Text>
+                <Text className="text-white font-courier-italic">Artist: {artist}</Text>
+                <Text className="text-lg text-gray-300 mt-1 font-courier">Album: {album}</Text>
+            </Pressable>
             <View className="items-center">
                 <View className="w-full max-w-sm">
                     <StreamButton />

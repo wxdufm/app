@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 
 import SongAlbumCover from "./SongAlbumCover";
 
@@ -10,6 +10,7 @@ type SongRowProps = {
   album?: string | null;
   songStart?: SongStart;
   apiBaseUrl?: string;
+  onPress?: () => void;
 };
 
 function formatTime(value: SongStart) {
@@ -30,11 +31,16 @@ export default function SongRow({
   album,
   songStart,
   apiBaseUrl,
+  onPress,
 }: SongRowProps) {
   const playedAt = formatTime(songStart);
 
   return (
-    <View className="flex-row items-center gap-4 border-b border-zinc-800 py-3">
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => ({ opacity: pressed ? 0.6 : 1 })}
+      className="flex-row items-center gap-4 border-b border-zinc-800 py-3"
+    >
       <SongAlbumCover artist={artist} album={album} apiBaseUrl={apiBaseUrl} />
 
       <Text className="w-16 shrink-0 text-center text-sm text-zinc-400 font-courier">
@@ -52,6 +58,6 @@ export default function SongRow({
           {album}
         </Text>
       </View>
-    </View>
+    </Pressable>
   );
 }
