@@ -28,13 +28,11 @@ export default function ChartsPage({ initialChart, latestDate }) {
             <div className="mb-6">
                 <label className="font-courierprime text-sm text-zinc-400 block mb-2">
                     Week ending:
+                    <input
+                        type="date"
+                        className="font-courierprime bg-zinc-900 border border-zinc-600 text-white rounded px-3 py-2"
+                    />
                 </label>
-                <input
-                    type="date"
-                    value={selectedDate}
-                    onChange={e => setSelectedDate(e.target.value)}
-                    className="font-courierprime bg-zinc-900 border border-zinc-600 text-white rounded px-3 py-2"
-                />
             </div>
 
             {loading ? (
