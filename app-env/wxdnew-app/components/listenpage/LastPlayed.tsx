@@ -16,6 +16,7 @@ export default function LastPlayed({ currentPlaylist = {} }: any) {
                         artist={item.artist}
                         album={item.album}
                         songStart={item.songstart}
+                        apiBaseUrl="https://api.wxdu.art"
                     />
                 ))}
             </View>
