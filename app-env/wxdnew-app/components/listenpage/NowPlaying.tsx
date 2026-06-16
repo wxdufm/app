@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { View, Text, Image, type ImageSourcePropType } from 'react-native'
 import StreamButton from '../audioplayers/StreamButton'
+import StreamingLinksSection from './StreamingLinksSection'
 
 const API_BASE = 'https://api.wxdu.art'
 const FILLER = require('../../assets/CD_1_Filler.jpg') as ImageSourcePropType
@@ -40,7 +41,8 @@ export default function NowPlaying({ currentPlaylist = {} }: any) {
             <Text className="mt-4 text-xl text-white">Song: {song}</Text>
             <Text className="text-white">Artist: {artist}</Text>
             <Text className="text-lg text-gray-300 mt-1">Album: {album}</Text>
-            <View className="items-center">
+            <StreamingLinksSection artist={artist} song={song} />
+            <View className="items-center mt-4">
                 <View className="w-full max-w-sm">
                     <StreamButton />
                 </View>
