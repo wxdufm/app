@@ -22,10 +22,11 @@ const DropdownMenu = () => {
 					</div>
 					<div className="text-medium flex w-full items-center justify-center px-4 py-2 text-white hover:text-blue-300">
 						<Menu.Item>
-							<a
-								href="https://wxdu.org"
-								target="_blank"
-							>
+								<a
+									href="https://wxdu.org"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 								Mobile app (WIP)
 							</a>
 						</Menu.Item>

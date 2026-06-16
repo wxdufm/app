@@ -44,10 +44,11 @@ export default function IpodWidget() {
         <div className="relative select-none">
           <Image src="/ipod.png" alt="iPod" width={891} height={340} className="w-full" priority />
 
-          <button onClick={prev} className="absolute z-10 -translate-y-1/2 text-zinc-400 hover:text-white cursor-pointer" style={{ top: '50%', left: '0%' }}>
+          {/* Previous/next are icon-only, so add labels for screen readers. */}
+          <button onClick={prev} aria-label="Show previous song" className="absolute z-10 -translate-y-1/2 text-zinc-400 hover:text-white cursor-pointer" style={{ top: '50%', left: '0%' }}>
             <IoIosArrowDropleft size={24} />
           </button>
-          <button onClick={next} className="absolute z-10 -translate-y-1/2 text-zinc-400 hover:text-white cursor-pointer" style={{ top: '50%', left: '61%' }}>
+          <button onClick={next} aria-label="Show next song" className="absolute z-10 -translate-y-1/2 text-zinc-400 hover:text-white cursor-pointer" style={{ top: '50%', left: '61%' }}>
             <IoIosArrowDropright size={24} />
           </button>
 
@@ -99,7 +100,7 @@ export default function IpodWidget() {
               <div className="flex h-full items-center justify-center text-[9px] text-zinc-400">no playlist</div>
             ) : (
               <div className="flex h-full flex-row items-stretch">
-                <button onClick={prev} className="flex items-center px-1 text-zinc-400 hover:text-white cursor-pointer shrink-0">
+                <button onClick={prev} aria-label="Show previous song" className="flex items-center px-1 text-zinc-400 hover:text-white cursor-pointer shrink-0">
                   <IoIosArrowDropleft size={24} />
                 </button>
                 <div className="flex flex-col flex-1 justify-between py-2 pr-1 gap-1 min-w-0">
@@ -125,7 +126,7 @@ export default function IpodWidget() {
                     <span className="text-[12px] text-zinc-300">{current + 1} / {songs.length}</span>
                   </div>
                 </div>
-                <button onClick={next} className="flex items-center px-1 text-zinc-400 hover:text-white cursor-pointer shrink-0">
+                <button onClick={next} aria-label="Show next song" className="flex items-center px-1 text-zinc-400 hover:text-white cursor-pointer shrink-0">
                   <IoIosArrowDropright size={24} />
                 </button>
               </div>

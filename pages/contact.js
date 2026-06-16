@@ -77,7 +77,7 @@ export default function Contact({ contacts }){
                                         {/* if contains @ then display it as email*/}
                                         {m.value.includes("@") 
                                         ? (
-                                            <a href={`mailto:${m.value}`} className="text-blue-500 underline">
+                                            <a href={`mailto:${m.value}`} className="text-blue-300 underline">
                                                 {m.value}
                                             </a>
                                         ) 
@@ -89,7 +89,7 @@ export default function Contact({ contacts }){
 
                         <div className="whitespace-pre-line text-base prose prose-invert max-w-none prose-p:text-gray-200 prose-p:leading-relaxed prose-strong:font-extrabold 
                             prose-strong:font-black prose-em:text-[#e0ff05] prose-em:italic 
-                            prose-a:text-blue-500 prose-a:underline prose-a:decoration-2 prose-a:underline-offset-4"
+                            prose-a:text-blue-300 prose-a:underline prose-a:decoration-2 prose-a:underline-offset-4"
                         >
                             <TinaMarkdown content={c.description} />
                         </div>
@@ -100,4 +100,3 @@ export default function Contact({ contacts }){
         </main>
     );
 }
-

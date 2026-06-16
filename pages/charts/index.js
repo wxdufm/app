@@ -26,10 +26,15 @@ export default function ChartsPage({ initialChart, latestDate }) {
 
             {/* date picker: user selects the date and the API returns the prior 7 days */}
             <div className="mb-6">
-                <label className="font-courierprime text-sm text-zinc-400 block mb-2">
+                <label
+                    htmlFor="week-ending"
+                    className="font-courierprime text-sm text-zinc-400 block mb-2"
+                >
                     Week ending:
                 </label>
+
                 <input
+                    id="week-ending"
                     type="date"
                     value={selectedDate}
                     onChange={e => setSelectedDate(e.target.value)}

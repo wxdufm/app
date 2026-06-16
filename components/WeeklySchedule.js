@@ -115,8 +115,11 @@ export default function WeeklySchedule({schedule}) {
 	const firstColumnClass = "sticky left-0 z-10 border border-gray-300 bg-white px-4 py-2 text-right text-xl whitespace-nowrap uppercase text-red-600"
 
 	return (
-		<div className="h-[80vh] w-[80vw] overflow-auto text-xl font-semibold text-[#e0ff05] tracking-[-0.09em]">
+		<div className="h-[80vh] w-[80vw] overflow-auto text-xl font-semibold text-[#e0ff05] tracking-[-0.09em] flex justify-center">
 			<table className="w-full table-auto border-separate border-spacing-0">
+                    <caption className="sr-only">
+                        WXDU on-air show schedule with DJ names per hour
+                    </caption>
 
                 {/* table header row, including cell A1 ("show start time" or something) */}
 				<thead>
@@ -207,7 +210,7 @@ export default function WeeklySchedule({schedule}) {
 							<tr key={`${hour}-${rowIndex}`}>
 
                                 {/* first column is the hour */}
-								<th className={firstColumnClass}>
+								<th scope="row" className={firstColumnClass}>
 									{hour}
 								</th>
 
