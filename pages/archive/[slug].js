@@ -39,7 +39,7 @@ const EventPage = (props) => {
 						<img
 							className="my-2"
 							src={data.archive.cover}
-							alt=""
+							alt="Archive post cover photo generic"
 							width="400"
 							height="400"
 						/>

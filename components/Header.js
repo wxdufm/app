@@ -191,7 +191,7 @@ const Header = () => {
 								{/* Keep logo as a semantic anchor target for keyboard users. */}
 								<Link href="/" legacyBehavior>
 									<a className="my-auto ml-10 flex h-10 w-28 cursor-pointer">
-										<Image src={photo} alt="ADD ALT TEXT" />
+										<Image src={photo} alt="WXDU logo" />
 									</a>
 								</Link>
 							</div>

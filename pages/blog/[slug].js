@@ -52,7 +52,7 @@ const PostPage = (props) => {
 				<p className="italic lg:w-3/6 xl:w-3/5 text-lg my-9">{data.blog.description}</p>
 					<img
 						src={data.blog.cover}
-						alt="ADD ALT TEXT"
+						alt="Blog post cover photo generic"
 						width="650px"
 						className="my-8 max-h-[40rem] object-cover mb-20"
 					/>
