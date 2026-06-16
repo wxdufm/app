@@ -10,7 +10,6 @@ import { ScrollView, Text, View } from 'react-native'
 import NowPlayingHeader from '../components/listenpage/NowPlayingHeader'
 import NowPlaying from '../components/listenpage/NowPlaying'
 import LastPlayed from '../components/listenpage/LastPlayed'
-import SongDetailModal from '../components/SongDetailModal'
 
 export default function NowPlayingScreen() {
     const [currentPlaylist, setCurrentPlaylist] = useState<any>({})
@@ -64,13 +63,6 @@ export default function NowPlayingScreen() {
                     />
                 </View>
             </ScrollView>
-            <SongDetailModal
-                visible={modalTrack !== null}
-                song={modalTrack?.song ?? ''}
-                artist={modalTrack?.artist ?? ''}
-                album={modalTrack?.album ?? ''}
-                onClose={() => setModalTrack(null)}
-            />
         </>
     )
 }
