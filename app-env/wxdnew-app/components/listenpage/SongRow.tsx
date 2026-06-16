@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Modal, Platform, Pressable, StyleSheet, Text, View } from "react-native";
+import { Modal, Pressable, Text, View } from "react-native";
 
 import SongAlbumCover from "./SongAlbumCover";
 import StreamingLinksSection from "./StreamingLinksSection";
@@ -12,6 +12,7 @@ type SongRowProps = {
   album?: string | null;
   songStart?: SongStart;
   apiBaseUrl?: string;
+  onPress?: () => void;
 };
 
 function formatTime(value: SongStart) {
@@ -40,26 +41,23 @@ export default function SongRow({
     <>
       <Pressable
         onPress={() => setModalVisible(true)}
+        style={({ pressed }) => ({ opacity: pressed ? 0.6 : 1 })}
         className="flex-row items-center gap-4 border-b border-zinc-800 py-3"
       >
         <SongAlbumCover artist={artist} album={album} apiBaseUrl={apiBaseUrl} />
 
-        <Text className="w-16 shrink-0 text-center text-sm text-zinc-400">
+        <Text className="w-16 shrink-0 text-center text-sm text-zinc-400 font-courier">
           {playedAt ? `Played at ${playedAt}` : "Played"}
         </Text>
 
         <View className="min-w-0 flex-1">
-          <Text numberOfLines={1} style={styles.mono} className="text-white">
+          <Text numberOfLines={1} className="text-white font-courier">
             {song}
           </Text>
-          <Text
-            numberOfLines={1}
-            style={[styles.mono, styles.italic]}
-            className="text-sm text-zinc-300"
-          >
+          <Text numberOfLines={1} className="text-sm text-zinc-300 font-courier-italic">
             {artist}
           </Text>
-          <Text numberOfLines={1} style={styles.mono} className="text-xs text-zinc-500">
+          <Text numberOfLines={1} className="text-xs text-zinc-500 font-courier">
             {album}
           </Text>
         </View>
@@ -77,14 +75,14 @@ export default function SongRow({
         >
           <Pressable onPress={() => {}} className="rounded-t-3xl bg-zinc-900 p-6">
             <View className="mb-1 h-1 w-12 self-center rounded-full bg-zinc-600" />
-            <Text style={styles.mono} className="mt-4 text-xl text-white" numberOfLines={2}>
+            <Text className="mt-4 text-xl text-white font-courier" numberOfLines={2}>
               {song}
             </Text>
-            <Text style={[styles.mono, styles.italic]} className="text-zinc-400">
+            <Text className="text-zinc-400 font-courier-italic">
               {artist}
             </Text>
             {album ? (
-              <Text style={styles.mono} className="text-sm text-zinc-500">
+              <Text className="text-sm text-zinc-500 font-courier">
                 {album}
               </Text>
             ) : null}
@@ -95,16 +93,3 @@ export default function SongRow({
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  mono: {
-    fontFamily: Platform.select({
-      ios: "Courier",
-      android: "monospace",
-      default: "monospace",
-    }),
-  },
-  italic: {
-    fontStyle: "italic",
-  },
-});

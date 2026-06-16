@@ -21,15 +21,15 @@ export default function NowPlayingHeader({
 
   return (
     <View className="items-center">
-      <Text className="text-base text-center text-gray-300 tracking-wide">
+      <Text className="text-base text-center text-gray-300 tracking-wide font-courier">
         Current Show
       </Text>
 
-      <Text className="text-5xl text-center font-light leading-tight text-white">
+      <Text className="text-5xl text-center leading-tight text-white font-courier">
         DJ: {djname}
       </Text>
 
-      <Text className="mt-1 text-2xl text-center text-gray-300">
+      <Text className="mt-1 text-2xl text-center text-gray-300 font-courier">
         Show: {title}
       </Text>
     </View>
