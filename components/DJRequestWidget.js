@@ -173,14 +173,24 @@ export default function DJRequestWidget() {
                         </div>
 
                         {/* Tab buttons — both closed here, BEFORE the forms */}
-                        <div className="mb-6 flex gap-2">
+                        <div className="mb-6 flex gap-2" role="tablist" aria-label="DJ request form tabs">
                             <button
+                                id="dj-request-song-tab"
+                                type="button"
+                                role="tab"
+                                aria-selected={activeTab === 'song'}
+                                aria-controls="dj-request-song-panel"
                                 className={activeTab === 'song' ? 'font-courierprime bg-red-500 px-4 py-2 text-sm font-bold text-white' : 'font-courierprime bg-zinc-700 px-4 py-2 text-sm text-gray-300'}
                                 onClick={() => setActiveTab('song')}
                             >
                                 Song Request
                             </button>
                             <button
+                                id="dj-request-message-tab"
+                                type="button"
+                                role="tab"
+                                aria-selected={activeTab === 'message'}
+                                aria-controls="dj-request-message-panel"
                                 className={activeTab === 'message' ? 'font-courierprime bg-red-500 px-4 py-2 text-sm font-bold text-white' : 'font-courierprime bg-zinc-700 px-4 py-2 text-sm text-gray-300'}
                                 onClick={() => setActiveTab('message')}
                             >
@@ -190,7 +200,11 @@ export default function DJRequestWidget() {
 
                         {/* Forms — lives outside and below the tab buttons */}
                         {activeTab === 'song' ? (
-                            <div>
+                            <div
+                                id="dj-request-song-panel"
+                                role="tabpanel"
+                                aria-labelledby="dj-request-song-tab"
+                            >
                                 <div className="mb-3">
                                     {/* Explicitly pair labels and inputs for screen readers. */}
                                     <label htmlFor="dj-song-title" className="font-courierprime mb-1 block text-sm text-gray-400">Song Title</label>
@@ -239,7 +253,12 @@ export default function DJRequestWidget() {
                                 </button>
                             </div>
                         ) : (
-                            <div>
+                            <div
+                                id="dj-request-message-panel"
+                                role="tabpanel"
+                                aria-labelledby="dj-request-message-tab"
+                                hidden={activeTab !== 'message'}
+                            >
                                 <div className="mb-3">
                                     <label htmlFor="dj-message-name" className="font-courierprime mb-1 block text-sm text-gray-400">Your Name</label>
                                     <input

@@ -12,6 +12,7 @@ const NavPlayer = () => {
 
     // computed scroll distance for ping-pong ticker animation
     const [tickerDistance, setTickerDistance] = useState(0);
+    const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
     const [nowPlaying, setNowPlaying] = useState({
         artist: null,
@@ -64,8 +65,32 @@ const NavPlayer = () => {
         return () => window.removeEventListener("resize", measureTicker);
     }, [currentTrack, nowPlaying.dj]);
 
-    // only animate if text overflows horizontally
-    const shouldScrollTicker = tickerDistance > 0;
+    // check if reduced motion is on...and will disable the ticker if so
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        setPrefersReducedMotion(mediaQuery.matches);
+
+        const handleChange = (event) => {
+            setPrefersReducedMotion(event.matches);
+        };
+
+        if (mediaQuery.addEventListener) {
+            mediaQuery.addEventListener('change', handleChange);
+        } else if (mediaQuery.addListener) {
+            mediaQuery.addListener(handleChange);
+        }
+
+        return () => {
+            if (mediaQuery.removeEventListener) {
+                mediaQuery.removeEventListener('change', handleChange);
+            } else if (mediaQuery.removeListener) {
+                mediaQuery.removeListener(handleChange);
+            }
+        };
+    }, []);
+
+    // only animate if text overflows horizontally and motion is not reduced
+    const shouldScrollTicker = tickerDistance > 0 && !prefersReducedMotion;
 
     return (
         <div className="fixed top-0 left-0 z-50 flex h-16 w-full flex-row items-center overflow-hidden border-b-2 border-[#e0ff05] bg-black">

@@ -15,7 +15,7 @@ import {FaTumblr, FaBandcamp} from "react-icons/fa6";
 const Footer = () => {
 	return (
 		// Footer is formatted as a column on phone screen and as a row on tablet+desktop screens
-		<div className="mx-auto mb-3 mt-10 flex flex-col px-2 md:flex-row md:justify-around lg:mt-36 lg:px-24">
+		<footer className="mx-auto mb-3 mt-10 flex flex-col px-2 md:flex-row md:justify-around lg:mt-36 lg:px-24">
 			<div className=" px-5">
 				<p className=" text-lg font-bold md:text-xl">Connect</p>
 				<div className="mt-2 flex w-full items-start justify-start gap-8 pb-5 lg:gap-10">
@@ -94,7 +94,7 @@ const Footer = () => {
 					Durham, NC 27708
 				</p>
 			</div>
-		</div>
+		</footer>
 	)
 }
 
