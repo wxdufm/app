@@ -21,7 +21,7 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
         try {
             if (!soundRef.current) {
                 setIsLoading(true)
-                await Audio.setAudioModeAsync({ playsInSilentModeIOS: true })
+                await Audio.setAudioModeAsync({ playsInSilentModeIOS: true, staysActiveInBackground: true })
                 const { sound } = await Audio.Sound.createAsync(
                     { uri: 'https://stream.wxdu.art/wxdu192.mp3' },
                     { shouldPlay: true }

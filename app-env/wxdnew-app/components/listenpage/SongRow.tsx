@@ -1,4 +1,4 @@
-import { Platform, StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 import SongAlbumCover from "./SongAlbumCover";
 
@@ -37,38 +37,21 @@ export default function SongRow({
     <View className="flex-row items-center gap-4 border-b border-zinc-800 py-3">
       <SongAlbumCover artist={artist} album={album} apiBaseUrl={apiBaseUrl} />
 
-      <Text className="w-16 shrink-0 text-center text-sm text-zinc-400">
+      <Text className="w-16 shrink-0 text-center text-sm text-zinc-400 font-courier">
         {playedAt ? `Played at ${playedAt}` : "Played"}
       </Text>
 
       <View className="min-w-0 flex-1">
-        <Text numberOfLines={1} style={styles.mono} className="text-white">
+        <Text numberOfLines={1} className="text-white font-courier">
           {song}
         </Text>
-        <Text
-          numberOfLines={1}
-          style={[styles.mono, styles.italic]}
-          className="text-sm text-zinc-300"
-        >
+        <Text numberOfLines={1} className="text-sm text-zinc-300 font-courier-italic">
           {artist}
         </Text>
-        <Text numberOfLines={1} style={styles.mono} className="text-xs text-zinc-500">
+        <Text numberOfLines={1} className="text-xs text-zinc-500 font-courier">
           {album}
         </Text>
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  mono: {
-    fontFamily: Platform.select({
-      ios: "Courier",
-      android: "monospace",
-      default: "monospace",
-    }),
-  },
-  italic: {
-    fontStyle: "italic",
-  },
-});

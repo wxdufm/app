@@ -18,7 +18,7 @@ export default function StreamButton() {
                     color="white"
                 />
             </View>
-            <Text className="text-white text-xl tracking-widest">
+            <Text className="text-white text-xl tracking-widest font-courier">
                 {isLoading ? 'connecting...' : isPlaying ? 'pause' : 'stream here'}
             </Text>
         </Pressable>

@@ -33,9 +33,9 @@ export default function NowPlaying({ currentPlaylist = {} }: any) {
                 className="w-full rounded-sm"
                 style={{ aspectRatio: 1 }}
             />
-            <Text className="mt-4 text-xl text-white">Song: {song}</Text>
-            <Text className="text-white">Artist: {artist}</Text>
-            <Text className="text-lg text-gray-300 mt-1">Album: {album}</Text>
+            <Text className="mt-4 text-xl text-white font-courier">Song: {song}</Text>
+            <Text className="text-white font-courier-italic">Artist: {artist}</Text>
+            <Text className="text-lg text-gray-300 mt-1 font-courier">Album: {album}</Text>
             <View className="items-center">
                 <View className="w-full max-w-sm">
                     <StreamButton />

@@ -49,7 +49,7 @@ export default function NowPlayingScreen() {
                 <NowPlaying currentPlaylist={currentPlaylist} />
             </View>
             <View className="px-4 mt-6">
-                <Text className="text-white text-sm font-bold uppercase tracking-widest mb-2">
+                <Text className="text-white text-sm font-courier-bold uppercase tracking-widest mb-2">
                     Recently Played
                 </Text>
                 <LastPlayed currentPlaylist={historyPlaylist} />

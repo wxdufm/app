@@ -34,20 +34,20 @@ export default function ConnectScreen() {
             <View className="flex-1 justify-center gap-8">
                 
                 <View>
-                    <Text className="text-white text-xl font-bold mb-3">Make a Request</Text>
+                    <Text className="text-white text-xl font-courier-bold mb-3">Make a Request</Text>
                     <TextInput
                         value={requestText}
                         onChangeText={setRequestText}
                         placeholder="Song and artist..."
                         placeholderTextColor="#52525b"
-                        className="bg-zinc-900 text-white px-4 py-3 rounded mb-3"
+                        className="bg-zinc-900 text-white px-4 py-3 rounded mb-3 font-courier"
                     />
                     <Pressable
                         onPress={sendRequest}
                         disabled={sending || !requestText.trim()}
                         className={`items-center py-4 rounded-full ${sending || !requestText.trim() ? 'bg-zinc-700' : 'bg-blue-600'}`}
                     >
-                        <Text className="text-white font-bold">
+                        <Text className="text-white font-courier-bold">
                             {sending ? 'Sending...' : 'Send Request'}
                         </Text>
                     </Pressable>
@@ -57,7 +57,7 @@ export default function ConnectScreen() {
                     onPress={() => Linking.openURL('tel:9196848870')}
                     className="items-center bg-green-700 py-4 rounded-full"
                 >
-                    <Text className="text-white font-bold text-base">Dial a DJ</Text>
+                    <Text className="text-white font-courier-bold text-base">Dial a DJ</Text>
                 </Pressable>
 
             </View>
