@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Alert, Linking, Pressable, Text, TextInput, View } from 'react-native'
+import { Alert, Keyboard, Linking, Pressable, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native'
 
 export default function ConnectScreen() {
     const [requestText, setRequestText] = useState('')
@@ -29,6 +29,7 @@ export default function ConnectScreen() {
 
     // the JSX
     return (
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View className="flex-1 bg-black px-6">
             <View className="flex-1 justify-center gap-8">
                 
@@ -61,5 +62,6 @@ export default function ConnectScreen() {
 
             </View>
         </View>
+        </TouchableWithoutFeedback>
     )
 }
