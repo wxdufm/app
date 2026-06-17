@@ -24,14 +24,15 @@ export default function SongAlbumCover({
     if (!artist || !album || !apiBaseUrl) return;
 
     const url =
-      `${apiBaseUrl}/api/charts/cover` +
+      `${apiBaseUrl}/api/releases` +
       `?artist=${encodeURIComponent(artist)}` +
-      `&album=${encodeURIComponent(album)}`;
+      `&title=${encodeURIComponent(album)}`;
 
     fetch(url)
       .then((response) => (response.ok ? response.json() : Promise.reject()))
-      .then((data: { coverUrl?: string | null }) => {
-        if (data.coverUrl) setCoverUrl(data.coverUrl);
+      .then((data: Array<{ cover_url?: string | null }>) => {
+        const path = data?.[0]?.cover_url;
+        if (path) setCoverUrl(`${apiBaseUrl}${path}`);
       })
       .catch(() => {});
   }, [artist, album, apiBaseUrl]);

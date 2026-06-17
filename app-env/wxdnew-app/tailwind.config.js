@@ -10,8 +10,13 @@ module.exports = {
   //swaps Tailwind's web defaults for ReactNative compativle equivalents
 
   theme: {
-    //this is where custom styles (colors, fonts, spacing, etc. will be added)
-    extend: {},
+    extend: {
+      fontFamily: {
+        courier: ['CourierPrime-Regular'],
+        'courier-bold': ['CourierPrime-Bold'],
+        'courier-italic': ['CourierPrime-Italic'],
+      },
+    },
   },
   //for future plugins that are added
   plugins: [],
