@@ -1,4 +1,4 @@
-import { apiFetch } from "@/lib/api";
+import { apiFetch } from "../../lib/api";
 
 // upstream endpoint on api.wxdu.art that includes show, dj, and tracks
 const SOURCE_PATH = "/api/playlists/current";
