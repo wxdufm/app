@@ -93,8 +93,9 @@ export default function Home(props) {
 						<BlogCarouselFull posts={posts} />
 					)}
 
-					{/* if yes events: events + player */}
-					{events.length > 0 && <ArchiveCarousel events={events} />}
+					{/* if yes events: events + player
+					{events.length > 0 && <ArchiveCarousel events={events} />} */}
+					{/* ^ disables archive carousel, since WXDU doesn't use this function */}
 
 					{/* if yes events: blog posts full row */}
 					{events.length > 0 && posts && <BlogCarouselFull posts={posts} />}

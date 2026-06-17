@@ -32,17 +32,16 @@ const PostPage = (props) => {
 			<div className="mx-auto w-5/6 pb-10 flex flex-col items-center">
 				{data.blog.categories && (
 					<div>
-						{data.blog.categories.map((category) => (
-							<div className="my-2 text-neutral-400" key={category.category.id}>
-								<Link
-									href={`/blog/category/${category.category._sys.filename}`}
-								>
-									<p className="cursor-pointer hover:underline">
-										{category.category.title}
-									</p>
-								</Link>
-							</div>
-						))}
+							{data.blog.categories.map((category) => (
+								<div className="my-2 text-neutral-400" key={category.category.id}>
+									{/* Keep category links as true anchor elements. */}
+									<Link href={`/blog/category/${category.category._sys.filename}`} legacyBehavior>
+										<a className="cursor-pointer hover:underline">
+											{category.category.title}
+										</a>
+									</Link>
+								</div>
+							))}
 					</div>
 				)}
 				<h1 className="kallisto text-3xl lg:text-5xl text-center m-5">
@@ -51,14 +50,15 @@ const PostPage = (props) => {
 				<p className="italic">{displayDate}</p>
 				<h3 className="mb-3"> By {data.blog.author}</h3>
 				<p className="italic lg:w-3/6 xl:w-3/5 text-lg my-9">{data.blog.description}</p>
-				<img
-					src={data.blog.cover}
-					alt=""
-					width="650px"
-					className="my-8 max-h-[40rem] object-cover mb-20"
-				/>
-			
-				<article className="prose lg:max-w-[60%] bg-neutral-800 bg-opacity-70 px-5 py-2 prose-lg text-white prose-h3:text-white prose-a:text-slate-700 prose-strong:text-slate-400 prose-h1:text-slate-500 prose-h2:text-slate-500 prose-em:italic prose-li:mb-1">
+					<img
+						src={data.blog.cover}
+						alt="Blog post cover photo generic"
+						width="650px"
+						className="my-8 max-h-[40rem] object-cover mb-20"
+					/>
+				
+					{/* Increase dark-on-dark text contrast for article content. */}
+					<article className="prose lg:max-w-[60%] bg-neutral-800 bg-opacity-70 px-5 py-2 prose-lg text-white prose-h3:text-white prose-a:text-blue-300 prose-strong:text-slate-200 prose-h1:text-slate-200 prose-h2:text-slate-200 prose-em:italic prose-li:mb-1">
 					{/* <TinaMarkdown content={data.blog.body} components={components} /> */}
 					<TinaMarkdown content={data.blog.body} />
 				</article>

@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useRef} from 'react'
-import Image from 'next/image'
 import { apiFetch } from '../lib/api'
 
 const COOLDOWN_SECONDS = 60
@@ -18,6 +17,9 @@ export default function DJRequestWidget() {
     const [cooldownRemaining, setCooldownRemaining] = useState(0)
     const timerRef = useRef(null)
     const [isHovered, setIsHovered] = useState(false)
+    const triggerButtonRef = useRef(null)
+    const modalRef = useRef(null)
+    const closeButtonRef = useRef(null)
 
     // on mount: restore any active cooldown from a previous submission
     useEffect(() => {
@@ -45,6 +47,48 @@ export default function DJRequestWidget() {
         }, 1000)
         return () => clearInterval(timerRef.current)
     }, [cooldownRemaining > 0])
+
+    // Keep keyboard focus inside the modal and support Escape to close.
+    useEffect(() => {
+        if (!isOpen) return
+
+        const previousOverflow = document.body.style.overflow
+        const triggerElement = triggerButtonRef.current
+        document.body.style.overflow = 'hidden'
+        closeButtonRef.current?.focus()
+
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape') {
+                setIsOpen(false)
+                return
+            }
+
+            if (event.key !== 'Tab' || !modalRef.current) return
+
+            const focusable = modalRef.current.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            )
+            if (!focusable.length) return
+
+            const first = focusable[0]
+            const last = focusable[focusable.length - 1]
+
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault()
+                last.focus()
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault()
+                first.focus()
+            }
+        }
+
+        document.addEventListener('keydown', handleKeyDown)
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown)
+            document.body.style.overflow = previousOverflow
+            triggerElement?.focus()
+        }
+    }, [isOpen])
 
     const handleSend = async (data) => {
         if (cooldownRemaining > 0) return
@@ -82,10 +126,12 @@ export default function DJRequestWidget() {
         <>
             {/* Floating button */}
             <button
+                ref={triggerButtonRef}
                 className="fixed bottom-6 right-6 z-50 cursor-pointer bg-transparent border-0 p-0"
                 onClick={() => setIsOpen(true)}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
+                aria-label="Open DJ request modal"
             >
                 <img
                     src={isHovered ? '/requestwidget_hover_bg.png' : '/requestwidget_bg.png'}
@@ -104,25 +150,47 @@ export default function DJRequestWidget() {
             {/* Modal */}
             {isOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
-                    <div className="w-96 rounded-lg bg-zinc-900 p-6">
+                    {/* Dialog semantics are required for screen readers. */}
+                    <div
+                        ref={modalRef}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="dj-request-title"
+                        className="w-96 rounded-lg bg-zinc-900 p-6"
+                    >
 
                         {/* Header */}
                         <div className="mb-4 flex items-center justify-between">
-                            <h2 className="font-courierprime text-lg font-bold text-white">Send DJ Request</h2>
-                            <button className="text-gray-400 hover:text-white" onClick={() => setIsOpen(false)}>
+                            <h2 id="dj-request-title" className="font-courierprime text-lg font-bold text-white">Send DJ Request</h2>
+                            <button
+                                ref={closeButtonRef}
+                                className="text-gray-400 hover:text-white"
+                                onClick={() => setIsOpen(false)}
+                                aria-label="Close DJ request modal"
+                            >
                                 ✕
                             </button>
                         </div>
 
                         {/* Tab buttons — both closed here, BEFORE the forms */}
-                        <div className="mb-6 flex gap-2">
+                        <div className="mb-6 flex gap-2" role="tablist" aria-label="DJ request form tabs">
                             <button
+                                id="dj-request-song-tab"
+                                type="button"
+                                role="tab"
+                                aria-selected={activeTab === 'song'}
+                                aria-controls="dj-request-song-panel"
                                 className={activeTab === 'song' ? 'font-courierprime bg-red-500 px-4 py-2 text-sm font-bold text-white' : 'font-courierprime bg-zinc-700 px-4 py-2 text-sm text-gray-300'}
                                 onClick={() => setActiveTab('song')}
                             >
                                 Song Request
                             </button>
                             <button
+                                id="dj-request-message-tab"
+                                type="button"
+                                role="tab"
+                                aria-selected={activeTab === 'message'}
+                                aria-controls="dj-request-message-panel"
                                 className={activeTab === 'message' ? 'font-courierprime bg-red-500 px-4 py-2 text-sm font-bold text-white' : 'font-courierprime bg-zinc-700 px-4 py-2 text-sm text-gray-300'}
                                 onClick={() => setActiveTab('message')}
                             >
@@ -132,10 +200,16 @@ export default function DJRequestWidget() {
 
                         {/* Forms — lives outside and below the tab buttons */}
                         {activeTab === 'song' ? (
-                            <div>
+                            <div
+                                id="dj-request-song-panel"
+                                role="tabpanel"
+                                aria-labelledby="dj-request-song-tab"
+                            >
                                 <div className="mb-3">
-                                    <label className="font-courierprime mb-1 block text-sm text-gray-400">Song Title</label>
+                                    {/* Explicitly pair labels and inputs for screen readers. */}
+                                    <label htmlFor="dj-song-title" className="font-courierprime mb-1 block text-sm text-gray-400">Song Title</label>
                                     <input
+                                        id="dj-song-title"
                                         type="text"
                                         value={songTitle}
                                         onChange={(e) => setSongTitle(e.target.value)}
@@ -144,8 +218,9 @@ export default function DJRequestWidget() {
                                     />
                                 </div>
                                 <div className="mb-3">
-                                    <label className="font-courierprime mb-1 block text-sm text-gray-400">Artist</label>
+                                    <label htmlFor="dj-song-artist" className="font-courierprime mb-1 block text-sm text-gray-400">Artist</label>
                                     <input
+                                        id="dj-song-artist"
                                         type="text"
                                         value={songArtist}
                                         onChange={(e) => setSongArtist(e.target.value)}
@@ -154,8 +229,9 @@ export default function DJRequestWidget() {
                                     />
                                 </div>
                                 <div className="mb-5">
-                                    <label className="font-courierprime mb-1 block text-sm text-gray-400">Your Name</label>
+                                    <label htmlFor="dj-song-name" className="font-courierprime mb-1 block text-sm text-gray-400">Your Name</label>
                                     <input
+                                        id="dj-song-name"
                                         type="text"
                                         value={songName}
                                         onChange={(e) => setSongName(e.target.value)}
@@ -177,10 +253,16 @@ export default function DJRequestWidget() {
                                 </button>
                             </div>
                         ) : (
-                            <div>
+                            <div
+                                id="dj-request-message-panel"
+                                role="tabpanel"
+                                aria-labelledby="dj-request-message-tab"
+                                hidden={activeTab !== 'message'}
+                            >
                                 <div className="mb-3">
-                                    <label className="font-courierprime mb-1 block text-sm text-gray-400">Your Name</label>
+                                    <label htmlFor="dj-message-name" className="font-courierprime mb-1 block text-sm text-gray-400">Your Name</label>
                                     <input
+                                        id="dj-message-name"
                                         type="text"
                                         value={messageName}
                                         onChange={(e) => setMessageName(e.target.value)}
@@ -189,8 +271,9 @@ export default function DJRequestWidget() {
                                     />
                                 </div>
                                 <div className="mb-5">
-                                    <label className="font-courierprime mb-1 block text-sm text-gray-400">Message</label>
+                                    <label htmlFor="dj-message-text" className="font-courierprime mb-1 block text-sm text-gray-400">Message</label>
                                     <textarea
+                                        id="dj-message-text"
                                         value={messageText}
                                         onChange={(e) => setMessageText(e.target.value)}
                                         className="font-courierprime w-full rounded bg-zinc-800 px-3 py-2 text-white"
@@ -213,17 +296,17 @@ export default function DJRequestWidget() {
                             </div>
                         )}
                                 {status === 'success' && (
-                                    <p className="font-courierprime mt-3 text-center text-sm text-green-400">
+                                    <p role="status" aria-live="polite" className="font-courierprime mt-3 text-center text-sm text-green-400">
                                         Sent! The DJ will see your request shortly.
                                     </p>
                                 )}
                                 {status === 'ratelimit' && (
-                                    <p className="font-courierprime mt-3 text-center text-sm text-yellow-400">
+                                    <p role="status" aria-live="polite" className="font-courierprime mt-3 text-center text-sm text-yellow-400">
                                         Too many requests — wait a moment and try again.
                                     </p>
                                 )}
                                 {status === 'error' && (
-                                    <p className="font-courierprime mt-3 text-center text-sm text-red-400">
+                                    <p role="status" aria-live="polite" className="font-courierprime mt-3 text-center text-sm text-red-400">
                                         Something went wrong. Please try again.
                                     </p>
                                 )}

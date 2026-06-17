@@ -230,6 +230,14 @@ body::-webkit-scrollbar-thumb {
   animation: ticker-pingpong 20s ease-in-out infinite;
 }
 
+/* Respect reduced-motion user preference for marquee/hover-heavy UI. */
+@media (prefers-reduced-motion: reduce) {
+	.animate-conveyor,
+	.animate-ticker-pingpong {
+		animation: none !important;
+	}
+}
+
 @font-face {
     font-family: 'micro5charted';
     src: url('..//fonts/Micro5Charted-Regular.ttf');
