@@ -6,16 +6,20 @@ export default function LastPlayed({ currentPlaylist = {}, onSongPress }: any) {
         ? [...currentPlaylist.tracks].reverse()
         : []
 
-    // group consecutive tracks that share the same showID
-    type Group = { showID: number; djname: string | null; showtitle: string | null; tracks: any[] }
+    // group consecutive tracks by DJ name + show title —
+    // grouping by showID would split recurring DJs with the same show name into duplicate headers
+    type Group = { djname: string | null; showtitle: string | null; tracks: any[] }
     const groups: Group[] = []
     for (const track of tracks) {
         const last = groups[groups.length - 1]
-        if (last && last.showID === track.showID) {
+        const sameLabel =
+            last &&
+            last.djname === (track._djname || null) &&
+            last.showtitle === (track._showtitle || null)
+        if (sameLabel) {
             last.tracks.push(track)
         } else {
             groups.push({
-                showID: track.showID,
                 djname: track._djname || null,
                 showtitle: track._showtitle || null,
                 tracks: [track],
