@@ -19,6 +19,8 @@ export default function NowPlayingHeader({
   const djname = show.djname || "";
   const title = show.title || "";
 
+  const isAuto = djname.toLowerCase() === "lunokhod 3";
+
   return (
     <View className="items-center">
       <Text className="text-base text-center text-gray-300 tracking-wide font-courier">
@@ -26,7 +28,7 @@ export default function NowPlayingHeader({
       </Text>
 
       <Text className="text-5xl text-center leading-tight text-white font-courier">
-        DJ: {djname}
+        {isAuto ? `AUTO: ${djname}` : `DJ: ${djname}`}
       </Text>
 
       <Text className="mt-1 text-2xl text-center text-gray-300 font-courier">
