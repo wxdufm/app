@@ -46,12 +46,12 @@ export default function NowPlaying({ currentPlaylist = {}, onPress }: any) {
                 <Text className="text-white font-courier-italic">Artist: {artist}</Text>
                 <Text className="text-lg text-gray-300 mt-1 font-courier">Album: {album}</Text>
             </Pressable>
-            <StreamingLinksSection artist={artist} song={song} />
             <View className="items-center mt-4">
                 <View className="w-full max-w-sm">
                     <StreamButton />
                 </View>
             </View>
+            <StreamingLinksSection artist={artist} song={song} />
         </View>
     )
 }
