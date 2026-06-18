@@ -27,10 +27,11 @@ const Header = () => {
 			<div className="fixed top-10 z-50 flex h-16 w-full flex-col bg-black/90 backdrop-blur-md lg:hidden ">
 				<div className="flex flex-row items-center justify-between">
 					{/* Hamburger icon */}
-					<button
-						onClick={toggleMenu}
-						className="hamburger-icon duration-450 h-full transition-all ease-in-out"
-					>
+						<button
+							onClick={toggleMenu}
+							className="hamburger-icon duration-450 h-full transition-all ease-in-out"
+							aria-label={isOpen ? 'Close main menu' : 'Open main menu'}
+						>
 						{isOpen ? (
 							<AiOutlineClose size={32} className="ml-4 mt-1 md:ml-6" />
 						) : (
@@ -66,24 +67,25 @@ const Header = () => {
 									<div className="mb-2 flex w-full text-nowrap text-white">
 										<Menu.Item>
 											<Link
-												//href="https://audio-mp3.ibiblio.org/wxyc.mp3"
-												href="/listen" // TODO: will need to change this to wxdu.org
+												// webstream moved to its own page!
+												href="/listen"
 											>
 												Listen Here
 											</Link>
 										</Menu.Item>
 									</div>
 									<div className="mb-2 flex w-full text-nowrap text-white">
-										<Menu.Item>
-											<Link
-												href="https://apps.apple.com/us/app/wxyc-radio/id353182815"
-												target="_blank"
-											>
-												iPhone app
-											</Link>
+											<Menu.Item>
+												<Link
+													href="https://wxdu.org"
+													target="_blank"
+													rel="noopener noreferrer"
+												>
+													Mobile app (wip)
+												</Link>
 										</Menu.Item>
 									</div>
-									<div className="mb-2 flex w-full text-nowrap text-white">
+									{/* <div className="mb-2 flex w-full text-nowrap text-white">
 										<Menu.Item>
 											<Link
 												href="http://www.wxyc.info/playlists/recent"
@@ -92,7 +94,7 @@ const Header = () => {
 												Live playlist
 											</Link>
 										</Menu.Item>
-									</div>
+									</div> */}
 								</div>
 								{/* Submenu ends here */}
 							</Menu>
@@ -184,14 +186,15 @@ const Header = () => {
 				<div className="mb-20 hidden w-full lg:flex mt-10">
 					{/* Actual navbar */}
 					<div className="flex h-14 w-full flex-row justify-between bg-black px-1 py-4 ">
-						{/* Logo and player*/}
-						<div className="my-auto flex flex-row">
-							<Link href="/">
-								<div className="my-auto ml-10 flex h-10 w-28 cursor-pointer">
-									<Image src={photo} />
-								</div>
-							</Link>
-						</div>
+							{/* Logo and player*/}
+							<div className="my-auto flex flex-row">
+								{/* Keep logo as a semantic anchor target for keyboard users. */}
+								<Link href="/" legacyBehavior>
+									<a className="my-auto ml-10 flex h-10 w-28 cursor-pointer">
+										<Image src={photo} alt="WXDU logo" />
+									</a>
+								</Link>
+							</div>
 
 						{/* Links*/}
 						<div className="my-auto flex w-1/2 flex-row">

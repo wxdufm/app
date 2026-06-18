@@ -21,12 +21,13 @@ export const Layout = (props) => {
 				<meta name="apple-itunes-app" content="app-id=353182815" />
 			</Head>
 
-			<header className="header">
-				<Header />
-			</header>
+				<header className="header">
+					<Header />
+				</header>
 
-			<main>{props.children}</main>
-			<Footer />
-		</div>
-	)
-}
+				{/* Main skip-link target for keyboard users. */}
+				<main id="main-content" tabIndex="-1">{props.children}</main>
+				<Footer />
+			</div>
+		)
+	}

@@ -1,4 +1,5 @@
 import db from '../../../lib/db/plmanager'
+import getAlbumCover from "../albumCover"
 
 export default async function handler(req, res){
 	console.log("[most-played API] fetching playlist from database...");
@@ -54,13 +55,21 @@ async function findChart(){
 			LIMIT 10
 		`);
 
-		const chart = rows.map((row, index) => ({
-			rank: index + 1,
-			spins: row.spins,
-			artist: row.artist,
-			album: row.album,
-			label: row.label || '',
-		}));
+	const chart = await Promise.all(
+	rows.map(async (row, index) => ({
+		rank: index + 1,
+		spins: row.spins,
+		artist: row.artist,
+		album: row.album,
+		label: row.label || '',
+		cover:
+		(await getAlbumCover(
+			row.artist,
+			'', // no song available here
+			row.album
+		)) || '/CD_1_Filler.jpg',
+	}))
+	);
 	
 	return chart;
 }
@@ -86,9 +95,15 @@ async function findRange(range, rangeNum){
 		return null;
 	}
 
-	const songs = rows.map((row, index) =>{
-		return {...row, rank: index+1}
-	})
+	const songs = await Promise.all(
+	rows.map(async (row, index) => ({
+		...row,
+		rank: index + 1,
+		cover:
+		(await getAlbumCover(row.artist, row.song, row.album)) ||
+		"/CD_1_Filler.jpg",
+	}))
+	);
 
 	return songs;
 }
