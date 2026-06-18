@@ -82,11 +82,14 @@ export default function ConnectScreen() {
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View className="flex-1 bg-black">
-            <Image
-                source={require('../assets/logo.png')}
-                style={{ width: width - 32, height: (width - 32) * (295 / 896), marginHorizontal: 16 }}
-            />
-            <View className="flex-1 justify-center gap-5 px-6">
+            <View className="flex-1 justify-center items-center px-4">
+                <Image
+                    source={require('../assets/logo.png')}
+                    style={{ width: width - 32, height: (width - 32) * (295 / 896) }}
+                />
+            </View>
+
+            <View className="gap-5 px-6">
                 <Pressable
                     onPress={() => openModal('song')}
                     className="items-center py-4 rounded-full bg-red-700"
@@ -107,6 +110,12 @@ export default function ConnectScreen() {
                 >
                     <Text className="text-white font-courier-bold text-base">Dial a DJ</Text>
                 </Pressable>
+            </View>
+
+            <View className="flex-1 justify-center px-6">
+                <Text className="text-gray-400 font-courier text-base text-center">
+                    WXDU 88.7 FM is the non-commercial student-run radio station of Duke University and Durham, founded in 1983 when former station WDUK-1600AM switched to a FM signal. WXDU, as a member of the Duke University Union, exists to inform, educate, and entertain both the students of Duke University and the surrounding community of Durham through quality progressive alternative radio programming.
+                </Text>
             </View>
 
             <Modal
