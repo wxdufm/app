@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
-import { View, Text, Image, Pressable, type ImageSourcePropType } from 'react-native'
+import { View, Text, Image, Pressable, Dimensions, type ImageSourcePropType } from 'react-native'
 import StreamButton from '../audioplayers/StreamButton'
 import StreamingLinksSection from './StreamingLinksSection'
 
 const API_BASE = 'https://api.wxdu.art'
 const FILLER = require('../../assets/CD_1_Filler.jpg') as ImageSourcePropType
+const IMG_SIZE = Math.min(Dimensions.get('window').width - 32, 350)
 
 export default function NowPlaying({ currentPlaylist = {}, onPress }: any) {
     const reverseTrack = Array.isArray(currentPlaylist.tracks)
@@ -19,24 +20,29 @@ export default function NowPlaying({ currentPlaylist = {}, onPress }: any) {
     const [cover, setCover] = useState<string | null>(null)
 
     useEffect(() => {
-        setCover(null)
-        if (!artist && !album) return
+        if (!artist && !album) {
+            setCover(null)
+            return
+        }
         fetch(`${API_BASE}/api/releases?artist=${encodeURIComponent(artist)}&title=${encodeURIComponent(album)}`)
             .then(r => r.ok ? r.json() : Promise.reject())
             .then((data: Array<{ cover_url?: string | null }>) => {
                 const path = data?.[0]?.cover_url
-                if (path) setCover(`${API_BASE}${path}`)
+                if (!path) { setCover(null); return }
+                const url = `${API_BASE}${path}`
+                Image.prefetch(url)
+                    .then(() => setCover(url))
+                    .catch(() => setCover(url))
             })
             .catch(() => {})
     }, [artist, album])
 
     return (
-        <View className="w-full mx-auto">
+        <View className="w-full">
             <Image
                 source={cover ? { uri: cover } : FILLER}
                 resizeMode="cover"
-                className="w-full rounded-sm"
-                style={{ aspectRatio: 1, maxHeight: 350, alignSelf: 'center' }}
+                style={{ width: IMG_SIZE, height: IMG_SIZE, borderRadius: 4 }}
             />
             <Pressable
                 onPress={() => onPress?.(song, artist, album)}
@@ -46,12 +52,12 @@ export default function NowPlaying({ currentPlaylist = {}, onPress }: any) {
                 <Text className="text-white font-courier-italic">Artist: {artist}</Text>
                 <Text className="text-lg text-gray-300 mt-1 font-courier">Album: {album}</Text>
             </Pressable>
-            <StreamingLinksSection artist={artist} song={song} />
             <View className="items-center mt-4">
                 <View className="w-full max-w-sm">
                     <StreamButton />
                 </View>
             </View>
+            <StreamingLinksSection artist={artist} song={song} />
         </View>
     )
 }

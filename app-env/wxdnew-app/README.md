@@ -26,6 +26,18 @@ npm install --legacy-peer-deps
 
 ## Running locally
 
+2 ways:
+
+
+Automatic way:
+
+```bash
+cd radio-2026/app-env/wxdnew-app
+./start.sh
+```
+
+
+Manual way: 
 You need two terminals each session.
 
 ### Terminal 1 — Tunnel Expo Metro bundler (port 8081)
