@@ -113,7 +113,7 @@ export default function ConnectScreen() {
             </View>
 
             <View className="flex-1 justify-center px-6">
-                <Text className="text-gray-400 font-courier text-base text-center">
+                <Text className="text-gray-400 font-courier text-lg">
                     WXDU 88.7 FM is the non-commercial student-run radio station of Duke University and Durham, founded in 1983 when former station WDUK-1600AM switched to a FM signal. WXDU, as a member of the Duke University Union, exists to inform, educate, and entertain both the students of Duke University and the surrounding community of Durham through quality progressive alternative radio programming.
                 </Text>
             </View>
