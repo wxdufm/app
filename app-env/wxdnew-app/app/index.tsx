@@ -13,6 +13,19 @@ import LastPlayed from '../components/listenpage/LastPlayed'
 
 const API_BASE = 'https://api.wxdu.art'
 
+// attaches _djname and _showtitle to each track so LastPlayed can group by show
+function tagTracks(tracks: any[], show: any): any[] {
+    return Array.isArray(tracks)
+        ? tracks
+            .filter((t: any) => t.artist !== '*****')
+            .map((t: any) => ({
+                ...t,
+                _djname: show?.djname || null,
+                _showtitle: show?.title || null,
+            }))
+        : []
+}
+
 export default function NowPlayingScreen() {
     const [currentPlaylist, setCurrentPlaylist] = useState<any>({})
     const [modalTrack, setModalTrack] = useState<{ song: string; artist: string; album: string } | null>(null)
@@ -21,47 +34,38 @@ export default function NowPlayingScreen() {
     useEffect(() => {
         async function fetchCurrentPlaylist() {
             try {
-                const response = await fetch(`${API_BASE}/api/playlists/current`)
-                const data = await response.json()
+                // always fetch current show first — its show/dj fields drive the header
+                const currentRes = await fetch(`${API_BASE}/api/playlists/current`)
+                const currentData = await currentRes.json()
 
-                const tracks = Array.isArray(data.tracks)
-                    ? data.tracks.filter((t: any) => t.artist !== '*****')
-                    : []
+                const currentShow = currentData.show || null
+                const currentDj = currentData.dj || null
+                let allTracks = tagTracks(currentData.tracks, currentShow)
 
-                // active show with history — use as-is, no extra calls
-                if (tracks.length > 1) {
-                    setCurrentPlaylist(data)
-                    return
-                }
+                // pull from previous shows until we have 10 tracks total
+                if (allTracks.length < 10) {
+                    const recentRes = await fetch(`${API_BASE}/api/playlists/recent?limit=4`)
+                    const recentShows = await recentRes.json()
+                    const now = Math.floor(Date.now() / 1000)
+                    const prevShows = recentShows.filter(
+                        (s: any) => s.starttime <= now && s.ID !== currentShow?.ID
+                    )
 
-                // show just started (0–1 tracks) — pull recent history from previous shows
-                // so Recently Played doesn't go blank at every show transition
-                const recentRes = await fetch(`${API_BASE}/api/playlists/recent?limit=4`)
-                const recentShows = await recentRes.json()
-
-                const now = Math.floor(Date.now() / 1000)
-                const prevShows = recentShows.filter(
-                    (s: any) => s.starttime <= now && s.ID !== data.show?.ID
-                )
-
-                let historyTracks: any[] = []
-                for (const show of prevShows) {
-                    const showRes = await fetch(`${API_BASE}/api/playlists/${show.ID}`)
-                    const showData = await showRes.json()
-                    const t = Array.isArray(showData.tracks)
-                        ? showData.tracks.filter((t: any) => t.artist !== '*****')
-                        : []
-                    historyTracks = [...historyTracks, ...t]
-                    if (historyTracks.length >= 10) break
+                    for (const show of prevShows) {
+                        const showRes = await fetch(`${API_BASE}/api/playlists/${show.ID}`)
+                        const showData = await showRes.json()
+                        allTracks = [...allTracks, ...tagTracks(showData.tracks, showData.show || show)]
+                        if (allTracks.length >= 10) break
+                    }
                 }
 
                 // sort descending to isolate the 10 most recent, then flip to ascending —
-                // the app uses .reverse()[0] to get the current track so ascending is required
-                historyTracks.sort((a, b) => Date.parse(b.songstart || '') - Date.parse(a.songstart || ''))
-                historyTracks = historyTracks.slice(0, 10)
-                historyTracks.sort((a, b) => Date.parse(a.songstart || '') - Date.parse(b.songstart || ''))
+                // NowPlaying uses .reverse()[0] to get the current track, so ascending is required
+                allTracks.sort((a: any, b: any) => Date.parse(b.songstart || '') - Date.parse(a.songstart || ''))
+                allTracks = allTracks.slice(0, 10)
+                allTracks.sort((a: any, b: any) => Date.parse(a.songstart || '') - Date.parse(b.songstart || ''))
 
-                setCurrentPlaylist({ ...data, tracks: [...historyTracks, ...tracks] })
+                setCurrentPlaylist({ show: currentShow, dj: currentDj, tracks: allTracks })
             } catch (error) {
                 console.error('Failed to fetch playlist:', error)
             }
