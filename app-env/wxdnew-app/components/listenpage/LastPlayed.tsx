@@ -1,6 +1,13 @@
 import { View, Text } from 'react-native'
 import SongRow from './SongRow'
 
+function formatTime(value: string | null | undefined) {
+    if (!value) return ''
+    const date = new Date(value)
+    if (Number.isNaN(date.getTime())) return ''
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+}
+
 export default function LastPlayed({ currentPlaylist = {}, onSongPress }: any) {
     const tracks = Array.isArray(currentPlaylist.tracks)
         ? [...currentPlaylist.tracks].reverse()
@@ -35,17 +42,32 @@ export default function LastPlayed({ currentPlaylist = {}, onSongPress }: any) {
                         <Text className="text-zinc-500 text-xs font-courier uppercase tracking-widest mt-4 mb-1">
                             {group.djname ?? 'Unknown DJ'}{group.showtitle ? ` — ${group.showtitle}` : ''}
                         </Text>
-                        {group.tracks.map((item, i) => (
-                            <SongRow
-                                key={i}
-                                song={item.song}
-                                artist={item.artist}
-                                album={item.album}
-                                songStart={item.songstart}
-                                apiBaseUrl="https://api.wxdu.art"
-                                onPress={onSongPress ? () => onSongPress(item.song ?? '', item.artist ?? '', item.album ?? '') : undefined}
-                            />
-                        ))}
+                        {group.tracks.map((item, i) => {
+                            if (item.album?.toUpperCase().startsWith('PSA')) {
+                                return (
+                                    <View key={i} className="flex-row items-center gap-3 border-b border-zinc-800 py-3">
+                                        <View className="px-2 py-0.5 rounded bg-zinc-800">
+                                            <Text className="text-zinc-400 text-xs font-courier-bold uppercase tracking-widest">PSA</Text>
+                                        </View>
+                                        {formatTime(item.songstart) ? (
+                                            <Text className="w-16 shrink-0 text-center text-sm text-zinc-400 font-courier">{formatTime(item.songstart)}</Text>
+                                        ) : null}
+                                        <Text className="text-zinc-400 text-sm font-courier flex-1" numberOfLines={1}>{item.artist}</Text>
+                                    </View>
+                                )
+                            }
+                            return (
+                                <SongRow
+                                    key={i}
+                                    song={item.song}
+                                    artist={item.artist}
+                                    album={item.album}
+                                    songStart={item.songstart}
+                                    apiBaseUrl="https://api.wxdu.art"
+                                    onPress={onSongPress ? () => onSongPress(item.song ?? '', item.artist ?? '', item.album ?? '') : undefined}
+                                />
+                            )
+                        })}
                     </View>
                 ))}
             </View>
