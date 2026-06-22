@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Image, StyleSheet, type ImageSourcePropType } from "react-native";
+import { Image, View, StyleSheet, type ImageSourcePropType } from "react-native";
 
 const fallbackCover = require("../../assets/CD_1_Filler.jpg");
 
@@ -38,12 +38,18 @@ export default function SongAlbumCover({
   }, [artist, album, apiBaseUrl]);
 
   return (
-    <Image
-      source={coverUrl ? { uri: coverUrl } : fallbackSource}
-      accessibilityLabel={`${artist || "Unknown artist"} - ${album || "Unknown album"}`}
-      resizeMode="cover"
-      style={styles.cover}
-    />
+    <View style={styles.cover}>
+      <Image source={fallbackSource} style={styles.absoluteFill} resizeMode="cover" />
+      {coverUrl && (
+        <Image
+          source={{ uri: coverUrl }}
+          style={styles.absoluteFill}
+          resizeMode="cover"
+          onError={() => setCoverUrl(null)}
+          accessibilityLabel={`${artist || "Unknown artist"} - ${album || "Unknown album"}`}
+        />
+      )}
+    </View>
   );
 }
 
@@ -53,5 +59,13 @@ const styles = StyleSheet.create({
     height: 64,
     borderRadius: 4,
     flexShrink: 0,
+    overflow: 'hidden',
+  },
+  absoluteFill: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: 64,
+    height: 64,
   },
 });

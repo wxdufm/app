@@ -32,7 +32,7 @@ export default function NowPlaying({ currentPlaylist = {}, onPress }: any) {
                 const url = `${API_BASE}${path}`
                 Image.prefetch(url)
                     .then(() => setCover(url))
-                    .catch(() => setCover(url))
+                    .catch(() => {})
             })
             .catch(() => {})
     }, [artist, album])
@@ -43,6 +43,7 @@ export default function NowPlaying({ currentPlaylist = {}, onPress }: any) {
                 source={cover ? { uri: cover } : FILLER}
                 resizeMode="cover"
                 style={{ width: IMG_SIZE, height: IMG_SIZE, borderRadius: 4 }}
+                onError={() => setCover(null)}
             />
             <Pressable
                 onPress={() => onPress?.(song, artist, album)}
