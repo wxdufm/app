@@ -1,21 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: [
-		'./app/**/*.{js,ts,jsx,tsx,mdx}',
-		'./pages/**/*.{js,ts,jsx,tsx,mdx}',
-		'./components/**/*.{js,ts,jsx,tsx,mdx}',
-	],
-	theme: {
-		extend: {
-			fontFamily: {
-				poppins: ['Poppins', 'sans-serif'],
-				kallisto: ['kallisto', 'serif'],
-				courierprime: ['courier-prime', 'monospace'],
-			},
-			objectFit: {
-				cover: 'cover',
-			},
-		},
-	},
-	plugins: [require('@tailwindcss/typography')],
+  content: [
+    // tells Tailwind which files to scan for class names
+    "./App.{js,jsx,ts,tsx}", 
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./components/**/*.{js,jsx,ts,tsx}"
+  ],
+  presets: [require("nativewind/preset")],
+  //swaps Tailwind's web defaults for ReactNative compativle equivalents
+
+  theme: {
+    extend: {
+      fontFamily: {
+        courier: ['CourierPrime-Regular'],
+        'courier-bold': ['CourierPrime-Bold'],
+        'courier-italic': ['CourierPrime-Italic'],
+      },
+    },
+  },
+  //for future plugins that are added
+  plugins: [],
 }
+
