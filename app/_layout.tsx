@@ -6,6 +6,7 @@ import "../global.css";
 import { Tabs } from "expo-router";
 import { useFonts } from "expo-font";
 import { AudioProvider } from "../components/AudioContext";
+import AnimatedBackgroundShader from "../components/AnimatedBackgroundShader";
 
 export default function RootLayout() {
     const [fontsLoaded] = useFonts({
@@ -20,6 +21,7 @@ export default function RootLayout() {
 
     return (
         <AudioProvider>
+            <AnimatedBackgroundShader />
             <Tabs
                 screenOptions={{
                     tabBarStyle: { backgroundColor: "#0a0a0a", borderTopColor: "#27272a" },
@@ -28,6 +30,7 @@ export default function RootLayout() {
                     headerStyle: { backgroundColor: "#0a0a0a" },
                     headerTintColor: "#ffffff",
                     headerShadowVisible: false,
+                    sceneStyle: { backgroundColor: "transparent" },
                 }}
             >
                 <Tabs.Screen name="index" options={{ title: "Now Playing" }} />

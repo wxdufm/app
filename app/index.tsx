@@ -87,7 +87,7 @@ export default function NowPlayingScreen() {
     // the JSX
     return (
         <>
-            <ScrollView className="flex-1 bg-black">
+            <ScrollView className="flex-1">
                 <View className="px-4 pt-4 pb-2">
                     <NowPlayingHeader currentPlaylist={currentPlaylist} />
                 </View>

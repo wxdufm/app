@@ -81,7 +81,7 @@ export default function ConnectScreen() {
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-        <View className="flex-1 bg-black">
+        <View className="flex-1">
             <View className="flex-1 justify-center items-center px-4">
                 <Image
                     source={require('../assets/logo.png')}
