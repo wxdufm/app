@@ -44,7 +44,7 @@ export default function StreamingLinksSection({ artist, song }: Props) {
     }
 
     return (
-        <View className="mt-4 rounded-2xl bg-white/10 p-4">
+        <View className="mt-4 rounded-2xl bg-white/40 p-4">
             <Text className="mb-3 text-xs font-bold uppercase tracking-widest text-white">
                 Add it to your library
             </Text>

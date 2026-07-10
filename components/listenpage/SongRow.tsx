@@ -4,6 +4,24 @@ import { Modal, Pressable, Text, View } from "react-native";
 import SongAlbumCover from "./SongAlbumCover";
 import StreamingLinksSection from "./StreamingLinksSection";
 
+// Cycles in this fixed order (palindrome, so the transition from the last row back to
+// the first stays smooth instead of jumping).
+const ROW_COLORS = [
+  "#2d253b",
+  "#3c344a",
+  "#562c34",
+  "#723844",
+  "#9f494c",
+  "#a95846",
+  "#ab7254",
+  "#a95846",
+  "#9f494c",
+  "#723844",
+  "#562c34",
+  "#3c344a",
+  "#2d253b",
+];
+
 type SongStart = string | number | Date | null | undefined;
 
 type SongRowProps = {
@@ -13,6 +31,7 @@ type SongRowProps = {
   songStart?: SongStart;
   apiBaseUrl?: string;
   onPress?: () => void;
+  index?: number;
 };
 
 function formatTime(value: SongStart) {
@@ -33,16 +52,18 @@ export default function SongRow({
   album,
   songStart,
   apiBaseUrl,
+  index = 0,
 }: SongRowProps) {
   const playedAt = formatTime(songStart);
   const [modalVisible, setModalVisible] = useState(false);
+  const backgroundColor = ROW_COLORS[index % ROW_COLORS.length];
 
   return (
     <>
       <Pressable
         onPress={() => setModalVisible(true)}
-        style={({ pressed }) => ({ opacity: pressed ? 0.6 : 1 })}
-        className="flex-row items-center gap-4 border-b border-zinc-800 py-3"
+        style={{ backgroundColor }}
+        className="flex-row items-center gap-4 rounded-2xl px-3 py-3 mb-2 active:opacity-60"
       >
         <SongAlbumCover artist={artist} album={album} apiBaseUrl={apiBaseUrl} />
 
@@ -70,7 +91,7 @@ export default function SongRow({
         onRequestClose={() => setModalVisible(false)}
       >
         <Pressable
-          className="flex-1 justify-end bg-black/60"
+          className="flex-1 justify-end bg-black/80"
           onPress={() => setModalVisible(false)}
         >
           <Pressable onPress={() => {}} className="rounded-t-3xl bg-zinc-900 p-6">
