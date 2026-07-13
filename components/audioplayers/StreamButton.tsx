@@ -9,7 +9,8 @@ export default function StreamButton() {
         <Pressable
             onPress={togglePlayPause}
             disabled={isLoading}
-            className="flex-row items-center gap-4 bg-red-700 px-8 py-4 w-full rounded-lg"
+            className="flex-row items-center gap-4 px-8 py-4 w-full rounded-lg"
+            style={{ backgroundColor: '#272065' }}
         >
             <View className="h-8 w-8 items-center justify-center rounded-sm bg-white/20">
                 <FontAwesome

@@ -7,11 +7,18 @@ import {
     Modal,
     Platform,
     Pressable,
+    ScrollView,
     Text,
     TextInput,
     TouchableWithoutFeedback,
     View, useWindowDimensions,
+    type ImageSourcePropType,
 } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
+import Svg, { Path, Rect, G } from 'react-native-svg'
+
+const STATIC_NOISE = require('../assets/listenpage/static-noise.png') as ImageSourcePropType
+const CD_ICON = require('../assets/listenpage/cd-icon.png') as ImageSourcePropType
 
 const COOLDOWN_SECONDS = 60
 
@@ -82,14 +89,15 @@ export default function ConnectScreen() {
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View className="flex-1">
-            <View className="flex-1 justify-center items-center px-4">
+        <ScrollView contentContainerStyle={{ paddingBottom: 24 }} keyboardShouldPersistTaps="handled">
+            <View className="justify-center items-center px-4" style={{ height: (width - 32) * (295 / 896) + 32 }}>
                 <Image
                     source={require('../assets/logo.png')}
                     style={{ width: width - 32, height: (width - 32) * (295 / 896) }}
                 />
             </View>
 
-            <View className="gap-5 px-6">
+            <View className="gap-5 px-6 mt-4">
                 <Pressable
                     onPress={() => openModal('song')}
                     className="items-center py-4 rounded-full bg-red-700"
@@ -112,11 +120,76 @@ export default function ConnectScreen() {
                 </Pressable>
             </View>
 
-            <View className="flex-1 justify-center px-6">
-                <Text className="text-gray-400 font-courier text-lg">
-                    WXDU 88.7 FM is the non-commercial student-run radio station of Duke University and Durham, founded in 1983 when former station WDUK-1600AM switched to a FM signal. WXDU, as a member of the Duke University Union, exists to inform, educate, and entertain both the students of Duke University and the surrounding community of Durham through quality progressive alternative radio programming.
+            <View style={{ width: 280, height: 68, alignSelf: 'flex-start', marginTop: 24, marginLeft: 24, marginBottom: -26, zIndex: 2 }}>
+                <Svg width={280} height={68} viewBox="0 0 280 68">
+                    <Rect x={16} y={0} width={213} height={46} rx={4} fill="#140858" />
+                    <G transform="translate(0, 3.81)">
+                        <Path
+                            d="M15.637 1.83464C16.6682 -0.611549 20.1346 -0.611546 21.1658 1.83465L36.564 38.3617C37.3977 40.3392 35.9457 42.527 33.7996 42.527H3.00313C0.857039 40.3392 -0.594934 40.3392 0.238719 38.3617L15.637 1.83464Z"
+                            fill="#140858"
+                        />
+                    </G>
+                    <G transform="translate(208, 0)">
+                        <Path
+                            d="M16.9338 1.83304C17.9658 -0.611016 21.4293 -0.611011 22.4612 1.83304L39.1557 41.3707C39.9908 43.3485 38.5388 45.5377 36.3919 45.5377H3.00307C0.856236 45.5377 -0.595742 43.3485 0.23935 41.3707L16.9338 1.83304Z"
+                            fill="#15085D"
+                        />
+                    </G>
+                </Svg>
+                <Image
+                    source={CD_ICON}
+                    resizeMode="contain"
+                    style={{ position: 'absolute', left: 22, top: 4, width: 37, height: 35 }}
+                />
+                <Text
+                    className="text-white font-bitcount-bold tracking-wide"
+                    style={{ position: 'absolute', left: 66, top: 8, fontSize: 20 }}
+                >
+                    About
                 </Text>
             </View>
+
+            <LinearGradient
+                colors={['#130754', '#3516cf']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 0, y: 1 }}
+                className="self-center rounded-2xl overflow-hidden"
+                style={{
+                    marginHorizontal: 25,
+                    shadowColor: '#000',
+                    shadowOffset: { width: 0, height: 4 },
+                    shadowOpacity: 0.25,
+                    shadowRadius: 2,
+                    elevation: 6,
+                }}
+            >
+                <View
+                    className="rounded-md overflow-hidden"
+                    style={{ marginHorizontal: 12, marginVertical: 12, backgroundColor: '#a3a3a3' }}
+                >
+                    <Image
+                        source={STATIC_NOISE}
+                        resizeMode="repeat"
+                        tintColor="#ffffff"
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            opacity: 0.6,
+                            transform: [{ scale: 2.7 }],
+                        }}
+                    />
+                    <Text
+                        className="text-gray-900 font-courier text-lg"
+                        style={{ paddingHorizontal: 20, paddingVertical: 16 }}
+                    >
+                        WXDU 88.7 FM is the non-commercial student-run radio station of Duke University and Durham, founded in 1983 when former station WDUK-1600AM switched to a FM signal. WXDU, as a member of the Duke University Union, exists to inform, educate, and entertain both the students of Duke University and the surrounding community of Durham through quality progressive alternative radio programming.
+                    </Text>
+                </View>
+            </LinearGradient>
+        </ScrollView>
 
             <Modal
                 visible={modalType !== null}
