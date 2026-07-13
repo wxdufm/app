@@ -22,7 +22,7 @@ export default function NowPlayingHeader({
   const isAuto = djname.toLowerCase() === "lunokhod 3";
 
   return (
-    <View className="items-center">
+    <View className="items-center rounded-2xl bg-black/40 px-4 py-3">
       <Text className="text-base text-center text-gray-300 tracking-wide font-courier">
         Current Show
       </Text>

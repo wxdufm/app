@@ -15,6 +15,8 @@ module.exports = {
         courier: ['CourierPrime-Regular'],
         'courier-bold': ['CourierPrime-Bold'],
         'courier-italic': ['CourierPrime-Italic'],
+        bitcount: ['BitcountGridSingle-Regular'],
+        'bitcount-bold': ['BitcountGridSingle-Bold'],
       },
     },
   },

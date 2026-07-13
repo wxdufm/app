@@ -8,9 +8,9 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { ScrollView, Text, View } from 'react-native'
-import NowPlayingHeader from '../components/listenpage/NowPlayingHeader'
-import NowPlaying from '../components/listenpage/NowPlaying'
+import CurrentSongHeader from '../components/listenpage/CurrentSongHeader'
 import LastPlayed from '../components/listenpage/LastPlayed'
+import StreamingLinksSection from '../components/listenpage/StreamingLinksSection'
 
 const API_BASE = 'https://api.wxdu.art'
 
@@ -84,17 +84,18 @@ export default function NowPlayingScreen() {
         return { ...currentPlaylist, tracks: currentPlaylist.tracks.slice(0, -1) }  // removes the last item
     }, [currentPlaylist])  // only recalculates when currentPlaylist changes.
 
+    const reverseTracks = Array.isArray(currentPlaylist.tracks)
+        ? [...currentPlaylist.tracks].reverse()
+        : []
+    const currentTrack = reverseTracks[0] || {}
+
     // the JSX
     return (
         <>
             <ScrollView className="flex-1">
-                <View className="px-4 pt-4 pb-2">
-                    <NowPlayingHeader currentPlaylist={currentPlaylist} />
-                </View>
-                <View className="px-4 mt-2">
-                    <NowPlaying
-                        currentPlaylist={currentPlaylist}
-                    />
+                <View className="px-4 pt-4">
+                    <CurrentSongHeader currentPlaylist={currentPlaylist} />
+                    <StreamingLinksSection artist={currentTrack.artist} song={currentTrack.song} />
                 </View>
                 <View className="px-4 mt-6">
                     <Text className="text-white text-sm font-courier-bold uppercase tracking-widest mb-2">
