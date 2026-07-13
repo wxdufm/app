@@ -43,9 +43,11 @@ export default function LastPlayed({ currentPlaylist = {}, onSongPress }: any) {
             <View className="w-full max-w-sm self-center">
                 {groups.map((group, gi) => (
                     <View key={gi}>
-                        <Text className="text-zinc-500 text-xs font-courier uppercase tracking-widest mt-4 mb-1">
-                            {group.djname ?? 'Unknown DJ'}{group.showtitle ? ` — ${group.showtitle}` : ''}
-                        </Text>
+                        <View className="w-full rounded-lg mt-4 mb-1 px-3 py-1" style={{ backgroundColor: '#140858' }}>
+                            <Text className="text-white text-xs font-courier uppercase tracking-widest">
+                                {group.djname ?? 'Unknown DJ'}{group.showtitle ? ` — ${group.showtitle}` : ''}
+                            </Text>
+                        </View>
                         {group.tracks.map((item, i) => {
                             if (item.album?.toUpperCase().startsWith('PSA')) {
                                 return (

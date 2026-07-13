@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
-import { View, Text, Image, Pressable, Dimensions, type ImageSourcePropType } from 'react-native'
+import { useEffect, useRef, useState } from 'react'
+import { View, Text, Image, Pressable, Dimensions, Animated, Easing, type ImageSourcePropType } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import Svg, { Path, Rect, G } from 'react-native-svg'
 import StreamButton from '../audioplayers/StreamButton'
+import { useAudio } from '../AudioContext'
 
 const API_BASE = 'https://api.wxdu.art'
 const FILLER = require('../../assets/CD_1_Filler.jpg') as ImageSourcePropType
@@ -34,6 +35,29 @@ export default function CurretnSongHeader({ currentPlaylist = {}, onPress }: Cur
     const album = track.album || ''
 
     const [cover, setCover] = useState<string | null>(null)
+    const { isPlaying } = useAudio()
+    const spinValue = useRef(new Animated.Value(0)).current
+    const spinAnimation = useRef<Animated.CompositeAnimation | null>(null)
+
+    useEffect(() => {
+        if (isPlaying) {
+            spinValue.setValue(0)
+            spinAnimation.current = Animated.loop(
+                Animated.timing(spinValue, {
+                    toValue: 1,
+                    duration: 3000,
+                    easing: Easing.linear,
+                    useNativeDriver: true,
+                })
+            )
+            spinAnimation.current.start()
+        } else {
+            spinAnimation.current?.stop()
+        }
+        return () => spinAnimation.current?.stop()
+    }, [isPlaying])
+
+    const spin = spinValue.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '360deg'] })
 
     useEffect(() => {
         if (!artist && !album) {
