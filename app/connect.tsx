@@ -89,7 +89,7 @@ export default function ConnectScreen() {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View className="flex-1">
         <ScrollView contentContainerStyle={{ paddingBottom: 24 }} keyboardShouldPersistTaps="handled">
-            <View className="justify-center items-center px-4" style={{ height: (width - 32) * (295 / 896) + 32 }}>
+            <View className="justify-center items-center px-4" style={{ height: (width - 32) * (295 / 896) + 32, backgroundColor: 'rgba(0,0,0,0.7)' }}>
                 <Image
                     source={require('../assets/logo.png')}
                     style={{ width: width - 32, height: (width - 32) * (295 / 896) }}
@@ -99,21 +99,24 @@ export default function ConnectScreen() {
             <View className="gap-5 px-6 mt-4">
                 <Pressable
                     onPress={() => openModal('song')}
-                    className="items-center py-4 rounded-full bg-red-700"
+                    className="items-center py-4 rounded-full"
+                    style={{ backgroundColor: '#9f494c' }}
                 >
                     <Text className="text-white font-courier-bold text-base">Song Request</Text>
                 </Pressable>
 
                 <Pressable
                     onPress={() => openModal('message')}
-                    className="items-center py-4 rounded-full bg-red-700"
+                    className="items-center py-4 rounded-full"
+                    style={{ backgroundColor: '#562c34' }}
                 >
                     <Text className="text-white font-courier-bold text-base">Message the DJ</Text>
                 </Pressable>
 
                 <Pressable
                     onPress={() => Linking.openURL('tel:9196848870')}
-                    className="items-center py-4 rounded-full bg-green-700"
+                    className="items-center py-4 rounded-full"
+                    style={{ backgroundColor: '#3c344a' }}
                 >
                     <Text className="text-white font-courier-bold text-base">Dial a DJ</Text>
                 </Pressable>
