@@ -7,11 +7,17 @@ import {
     Modal,
     Platform,
     Pressable,
+    ScrollView,
     Text,
     TextInput,
     TouchableWithoutFeedback,
     View, useWindowDimensions,
 } from 'react-native'
+import { FontAwesome } from '@expo/vector-icons'
+import AboutConnectCard from '../components/listenpage/AboutConnectCard'
+
+
+const ABOUT_TEXT = 'WXDU 88.7 FM is the non-commercial student-run radio station of Duke University and Durham, founded in 1983 when former station WDUK-1600AM switched to a FM signal. WXDU, as a member of the Duke University Union, exists to inform, educate, and entertain both the students of Duke University and the surrounding community of Durham through quality progressive alternative radio programming.'
 
 const COOLDOWN_SECONDS = 60
 
@@ -81,42 +87,70 @@ export default function ConnectScreen() {
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-        <View className="flex-1 bg-black">
-            <View className="flex-1 justify-center items-center px-4">
+        <View className="flex-1">
+        <ScrollView contentContainerStyle={{ paddingBottom: 24 }} keyboardShouldPersistTaps="handled">
+            <View className="justify-center items-center px-4" style={{ height: (width - 32) * (295 / 896) + 32, backgroundColor: 'rgba(0,0,0,0.7)' }}>
                 <Image
                     source={require('../assets/logo.png')}
                     style={{ width: width - 32, height: (width - 32) * (295 / 896) }}
                 />
             </View>
 
-            <View className="gap-5 px-6">
+            <View className="gap-5 px-6 mt-4">
                 <Pressable
                     onPress={() => openModal('song')}
-                    className="items-center py-4 rounded-full bg-red-700"
+                    className="items-center py-4 rounded-full"
+                    style={{ backgroundColor: '#9f494c' }}
                 >
                     <Text className="text-white font-courier-bold text-base">Song Request</Text>
                 </Pressable>
 
                 <Pressable
                     onPress={() => openModal('message')}
-                    className="items-center py-4 rounded-full bg-red-700"
+                    className="items-center py-4 rounded-full"
+                    style={{ backgroundColor: '#562c34' }}
                 >
                     <Text className="text-white font-courier-bold text-base">Message the DJ</Text>
                 </Pressable>
 
                 <Pressable
                     onPress={() => Linking.openURL('tel:9196848870')}
-                    className="items-center py-4 rounded-full bg-green-700"
+                    className="items-center py-4 rounded-full"
+                    style={{ backgroundColor: '#3c344a' }}
                 >
                     <Text className="text-white font-courier-bold text-base">Dial a DJ</Text>
                 </Pressable>
             </View>
 
-            <View className="flex-1 justify-center px-6">
-                <Text className="text-gray-400 font-courier text-lg">
-                    WXDU 88.7 FM is the non-commercial student-run radio station of Duke University and Durham, founded in 1983 when former station WDUK-1600AM switched to a FM signal. WXDU, as a member of the Duke University Union, exists to inform, educate, and entertain both the students of Duke University and the surrounding community of Durham through quality progressive alternative radio programming.
-                </Text>
+            <View className="mt-4">
+                <AboutConnectCard aboutText={ABOUT_TEXT}>
+                    <Pressable
+                        onPress={() => Linking.openURL('https://wxdu.art/')}
+                        className="items-center py-4 rounded-lg"
+                        style={{ backgroundColor: '#272065' }}
+                    >
+                        <Text className="text-white font-courier-bold text-base">WXDU Website</Text>
+                    </Pressable>
+
+                    <View className="flex-row justify-center gap-8 mt-5">
+                        <Pressable
+                            onPress={() => Linking.openURL('https://instagram.com/wxdu')}
+                            hitSlop={12}
+                            accessibilityLabel="WXDU Instagram"
+                        >
+                            <FontAwesome name="instagram" size={32} color="#272065" />
+                        </Pressable>
+                        <Pressable
+                            onPress={() => Linking.openURL('https://github.com/wxdu')}
+                            hitSlop={12}
+                            accessibilityLabel="WXDU GitHub"
+                        >
+                            <FontAwesome name="github" size={32} color="#272065" />
+                        </Pressable>
+                    </View>
+                </AboutConnectCard>
             </View>
+        </ScrollView>
 
             <Modal
                 visible={modalType !== null}
