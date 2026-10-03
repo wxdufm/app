@@ -37,11 +37,6 @@ export default function RootLayout() {
                 }}
             >
                 <Tabs.Screen name="index" options={{ title: "Now Playing" }} />
-                <Tabs.Screen name="homepage/index" options={{ title: "Home" }} />
-                <Tabs.Screen name="listen/index" options={{ title: "Listen" }} />
-                <Tabs.Screen name="blog/index" options={{ title: "Blog" }} />
-                <Tabs.Screen name="charts/index" options={{ title: "Charts" }} />
-                <Tabs.Screen name="archive/index" options={{ title: "Archive" }} />
                 <Tabs.Screen name="connect" options={{ title: "Connect" }} />
             </Tabs>
         </AudioProvider>

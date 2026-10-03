@@ -108,7 +108,7 @@ export default function AnimatedBackgroundShader({ size = 17 }) {
 
 const styles = StyleSheet.create({
   container: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     zIndex: 0,
   },
   glview: {
