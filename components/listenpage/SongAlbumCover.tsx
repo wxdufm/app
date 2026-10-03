@@ -10,6 +10,7 @@ type SongAlbumCoverProps = {
   fallbackSource?: ImageSourcePropType;
 };
 
+/** Looks up a release's artwork and shows a small album cover with a local fallback image. */
 export default function SongAlbumCover({
   artist,
   album,
@@ -19,6 +20,7 @@ export default function SongAlbumCover({
   const [coverUrl, setCoverUrl] = useState<string | null>(null);
 
   useEffect(() => {
+    // Clear the previous artwork while looking up a different release.
     setCoverUrl(null);
 
     if (!artist || !album || !apiBaseUrl) return;
@@ -32,6 +34,7 @@ export default function SongAlbumCover({
       .then((response) => (response.ok ? response.json() : Promise.reject()))
       .then((data: Array<{ cover_url?: string | null }>) => {
         const path = data?.[0]?.cover_url;
+        // Release artwork paths are relative to the station API host.
         if (path) setCoverUrl(`${apiBaseUrl}${path}`);
       })
       .catch(() => {});
@@ -39,6 +42,7 @@ export default function SongAlbumCover({
 
   return (
     <View style={styles.cover}>
+      {/* Keep the fallback underneath remote artwork during loading or image failures. */}
       <Image source={fallbackSource} style={styles.absoluteFill} resizeMode="cover" />
       {coverUrl && (
         <Image

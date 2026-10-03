@@ -14,6 +14,7 @@ const INACTIVE_COLOR = '#87829f'
 
 type Tab = 'about' | 'connect'
 
+/** Draws a selectable folder-shaped tab with a label and an optional CD icon. */
 function TabShape({ label, active, onPress, showIcon, style, zIndex }: {
     label: string
     active: boolean
@@ -66,11 +67,16 @@ type AboutConnectCardProps = {
     children: ReactNode
 }
 
+/**
+ * Tabbed station information card: switches between the About text and
+ * the website and social link controls supplied by the parent page.
+ */
 export default function AboutConnectCard({ aboutText, children }: AboutConnectCardProps) {
     const [tab, setTab] = useState<Tab>('about')
 
     return (
         <View>
+            {/* Overlap the tabs with the card and raise the active tab above its edge. */}
             <View className="flex-row" style={{ alignSelf: 'flex-start', marginLeft: 24, marginBottom: -26 }}>
                 <TabShape
                     label="About"
@@ -122,6 +128,7 @@ export default function AboutConnectCard({ aboutText, children }: AboutConnectCa
                             transform: [{ scale: 2.7 }],
                         }}
                     />
+                    {/* The parent supplies the website and social links for the Connect tab. */}
                     {tab === 'about' ? (
                         <Text
                             className="text-gray-900 font-courier text-lg"

@@ -19,12 +19,17 @@ type CurretnSongHeaderProps = {
     onPress?: (song: string, artist: string, album: string) => void
 }
 
+/**
+ * Main Now Playing card: shows the DJ, show title, latest song, and album artwork
+ * alongside the live stream button. Song details can invoke a parent press handler.
+ */
 export default function CurretnSongHeader({ currentPlaylist = {}, onPress }: CurretnSongHeaderProps) {
     const show = currentPlaylist.show || {}
     const djname = show.djname || DEFAULT_DJ
     const showtitle = show.title || DEFAULT_SHOW
     const isAuto = djname.toLowerCase() === 'lunokhod 3'
 
+    // The screen supplies tracks oldest first; reverse a copy to select the latest.
     const reverseTracks = Array.isArray(currentPlaylist.tracks)
         ? [...currentPlaylist.tracks].reverse()
         : []
@@ -39,6 +44,7 @@ export default function CurretnSongHeader({ currentPlaylist = {}, onPress }: Cur
     const spinValue = useRef(new Animated.Value(0)).current
     const spinAnimation = useRef<Animated.CompositeAnimation | null>(null)
 
+    // Tie the rotation animation to the shared player's requested playback state.
     useEffect(() => {
         if (isPlaying) {
             spinValue.setValue(0)
@@ -73,6 +79,7 @@ export default function CurretnSongHeader({ currentPlaylist = {}, onPress }: Cur
                     return
                 }
                 const url = `${API_BASE}${path}`
+                // Download the artwork before replacing the displayed image.
                 Image.prefetch(url)
                     .then(() => setCover(url))
                     .catch(() => {})

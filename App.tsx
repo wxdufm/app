@@ -2,6 +2,7 @@ import "./global.css";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+/** Starter screen from the Expo template. The app uses Expo Router instead of this component. */
 export default function App() {
   return (
     <View style={styles.container}>

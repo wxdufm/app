@@ -3,6 +3,7 @@ import { isRunningInExpoGo } from 'expo'
 import { createAudioPlayer, setAudioModeAsync, type AudioPlayer } from 'expo-audio'
 
 const STREAM_URL = 'https://stream.wxdu.art/wxdu192.mp3'
+// Expo Go does not provide the app's configured native background playback support.
 const supportsBackgroundPlayback = !isRunningInExpoGo()
 
 const AudioContext = createContext<{
@@ -11,6 +12,10 @@ const AudioContext = createContext<{
     togglePlayPause: () => Promise<void>
 }>({ isPlaying: false, isLoading: false, togglePlayPause: async () => {} })
 
+/**
+ * Owns the shared live radio player and exposes playback state and controls
+ * to child components, keeping audio available when listeners switch tabs.
+ */
 export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
     const [isPlaying, setIsPlaying] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
@@ -59,12 +64,13 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
         }
     }, [])
 
+    // Dispose of the native player when the provider unmounts.
     useEffect(() => () => {
         playerRef.current?.remove()
         playerRef.current = null
     }, [])
 
-    //AudioContext.Provider makes isPlaying and togglePlayPause available anywhere useAudio() is used in the app
+    // All stream buttons read the same playback and connection state through useAudio().
     return (
         <AudioContext.Provider value={{ isPlaying, isLoading, togglePlayPause }}>
             {children}
@@ -72,5 +78,5 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
     )
 }
 
-//useAudio can be used to get isPlaying and togglePlayPause
+// Access the player owned by the root layout's AudioProvider.
 export const useAudio = () => useContext(AudioContext)

@@ -19,8 +19,13 @@ import AboutConnectCard from '../components/listenpage/AboutConnectCard'
 
 const ABOUT_TEXT = 'WXDU 88.7 FM is the non-commercial student-run radio station of Duke University and Durham, founded in 1983 when former station WDUK-1600AM switched to a FM signal. WXDU, as a member of the Duke University Union, exists to inform, educate, and entertain both the students of Duke University and the surrounding community of Durham through quality progressive alternative radio programming.'
 
+// Both forms share a local cooldown; the server can still reject requests with HTTP 429.
 const COOLDOWN_SECONDS = 60
 
+/**
+ * Connect page: lets listeners send song requests or messages to the DJ,
+ * call the station, and read station information or open its website and social links.
+ */
 export default function ConnectScreen() {
     const { width } = useWindowDimensions()
     const [modalType, setModalType] = useState<'song' | 'message' | null>(null)
@@ -47,6 +52,7 @@ export default function ConnectScreen() {
     async function handleSend() {
         if (cooldown > 0 || sending) return
 
+        // The API accepts one text field for both song requests and messages to the DJ.
         const text = modalType === 'song'
             ? `Song Request: ${songTitle} by ${songArtist}`
             : `Message: ${messageText}`
@@ -67,6 +73,7 @@ export default function ConnectScreen() {
                 throw err
             }
             setStatus('success')
+            // Start the countdown only after the server accepts the request.
             setCooldown(COOLDOWN_SECONDS)
             timerRef.current = setInterval(() => {
                 setCooldown(prev => {
@@ -79,6 +86,7 @@ export default function ConnectScreen() {
                 })
             }, 1000)
         } catch (e: any) {
+            // Distinguish server rate limits from connection and other request failures.
             setStatus(e.status === 429 ? 'ratelimit' : 'error')
         } finally {
             setSending(false)

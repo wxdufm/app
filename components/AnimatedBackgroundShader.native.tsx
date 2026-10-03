@@ -73,6 +73,7 @@ function onContextCreate(gl: ExpoWebGLRenderingContext, size: number) {
   return () => cancelAnimationFrame(rafId)
 }
 
+/** Renders the iOS and Android animated square-grid background using Expo GL. */
 export default function AnimatedBackgroundShader({ size = 17 }) {
   const cleanupRef = useRef<(() => void) | null>(null)
   const [key, setKey] = useState(0)

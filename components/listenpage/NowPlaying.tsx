@@ -7,7 +7,12 @@ const API_BASE = 'https://api.wxdu.art'
 const FILLER = require('../../assets/CD_1_Filler.jpg') as ImageSourcePropType
 const IMG_SIZE = Math.min(Dimensions.get('window').width - 32, 350)
 
+/**
+ * Standalone current-track display with album artwork, song details,
+ * live stream controls, and links to find the song on music services.
+ */
 export default function NowPlaying({ currentPlaylist = {}, onPress }: any) {
+    // Reverse a copy so selecting the latest track does not mutate the supplied playlist.
     const reverseTrack = Array.isArray(currentPlaylist.tracks)
         ? [...currentPlaylist.tracks].reverse()
         : []
@@ -30,6 +35,7 @@ export default function NowPlaying({ currentPlaylist = {}, onPress }: any) {
                 const path = data?.[0]?.cover_url
                 if (!path) { setCover(null); return }
                 const url = `${API_BASE}${path}`
+                // Download the artwork before replacing the displayed image.
                 Image.prefetch(url)
                     .then(() => setCover(url))
                     .catch(() => {})

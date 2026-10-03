@@ -8,7 +8,12 @@ function formatTime(value: string | null | undefined) {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 }
 
+/**
+ * Displays recent tracks newest first, grouped by DJ and show title.
+ * Songs use interactive rows; public service announcements use compact PSA rows.
+ */
 export default function LastPlayed({ currentPlaylist = {}, onSongPress }: any) {
+    // Show history newest first without changing the parent's chronological track array.
     const tracks = Array.isArray(currentPlaylist.tracks)
         ? [...currentPlaylist.tracks].reverse()
         : []

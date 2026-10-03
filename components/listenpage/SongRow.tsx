@@ -34,6 +34,7 @@ type SongRowProps = {
   index?: number;
 };
 
+// Display play times in the listener's locale, leaving missing or invalid dates blank.
 function formatTime(value: SongStart) {
   if (!value) return "";
 
@@ -46,6 +47,10 @@ function formatTime(value: SongStart) {
   });
 }
 
+/**
+ * Recently played song row with artwork, play time, and track details.
+ * Pressing the row opens a sheet containing music service links for that song.
+ */
 export default function SongRow({
   song,
   artist,
@@ -94,17 +99,18 @@ export default function SongRow({
           className="flex-1 justify-end bg-black/80"
           onPress={() => setModalVisible(false)}
         >
+          {/* Handle presses inside the sheet so only backdrop presses dismiss it. */}
           <Pressable onPress={() => {}} className="rounded-t-3xl bg-zinc-900 p-6">
             <View className="mb-1 h-1 w-12 self-center rounded-full bg-zinc-600" />
             <Text className="mt-4 text-xl text-white font-courier" numberOfLines={2}>
-              {song}
+              Song: {song}
             </Text>
             <Text className="text-zinc-400 font-courier-italic">
-              {artist}
+              Artist: {artist}
             </Text>
             {album ? (
               <Text className="text-sm text-zinc-500 font-courier">
-                {album}
+                Album: {album}
               </Text>
             ) : null}
             <StreamingLinksSection artist={artist} song={song} />

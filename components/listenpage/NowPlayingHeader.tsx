@@ -11,6 +11,7 @@ type NowPlayingHeaderProps = {
   currentPlaylist?: CurrentPlaylist;
 };
 
+/** Displays the current show's DJ and title, labeling the automated DJ as AUTO. */
 export default function NowPlayingHeader({
   currentPlaylist = {},
 }: NowPlayingHeaderProps) {
@@ -19,6 +20,7 @@ export default function NowPlayingHeader({
   const djname = show.djname || "";
   const title = show.title || "";
 
+  // Lunokhod 3 is the station's automated DJ and receives the AUTO label.
   const isAuto = djname.toLowerCase() === "lunokhod 3";
 
   return (

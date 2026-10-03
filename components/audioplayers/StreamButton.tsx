@@ -2,7 +2,9 @@ import { Pressable, View, Text } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import { useAudio } from '../AudioContext'
 
+/** Starts or stops the shared live stream and displays its connection and playback state. */
 export default function StreamButton() {
+    // Playback belongs to the provider, so multiple buttons control the same live stream.
     const { isPlaying, isLoading, togglePlayPause } = useAudio()
 
     return (

@@ -9,6 +9,10 @@ import { BitcountGridSingle_400Regular, BitcountGridSingle_700Bold } from "@expo
 import { AudioProvider } from "../components/AudioContext";
 import AnimatedBackgroundShader from "../components/AnimatedBackgroundShader";
 
+/**
+ * Root layout for all pages: loads fonts, shares the audio player, and places
+ * the Now Playing and Connect tabs over the animated background.
+ */
 export default function RootLayout() {
     const [fontsLoaded] = useFonts({
         'CourierPrime-Regular': require('../assets/fonts/CourierPrime-Regular.ttf'),
@@ -23,6 +27,7 @@ export default function RootLayout() {
     if (!fontsLoaded) return null
 
     return (
+        // Keep one audio player above the tabs so navigation does not interrupt the stream.
         <AudioProvider>
             <AnimatedBackgroundShader />
             <Tabs

@@ -17,6 +17,7 @@ const SERVICES = [
 ]
 
 function searchUrl(id: string, artist: string, song: string): string {
+    // Encode the combined query so punctuation in track metadata cannot alter the URL.
     const q = encodeURIComponent(`${artist} ${song}`)
     switch (id) {
         case 'apple':      return `https://music.apple.com/search?term=${q}&types=albums`
@@ -27,6 +28,10 @@ function searchUrl(id: string, artist: string, song: string): string {
     }
 }
 
+/**
+ * Shows buttons to find a song on Spotify, Apple Music, YouTube Music,
+ * SoundCloud, and Bandcamp. Hidden until both artist and song are available.
+ */
 export default function StreamingLinksSection({ artist, song }: Props) {
     const [spotifyLoading, setSpotifyLoading] = useState(false)
 
@@ -34,6 +39,7 @@ export default function StreamingLinksSection({ artist, song }: Props) {
 
     async function handlePress(id: string) {
         if (id === 'spotify') {
+            // Spotify uses an API lookup; the other services open search pages directly.
             setSpotifyLoading(true)
             const url = await getSpotifyAlbumUrl(artist!, song!)
             setSpotifyLoading(false)
@@ -46,7 +52,7 @@ export default function StreamingLinksSection({ artist, song }: Props) {
     return (
         <View className="mt-4 rounded-2xl bg-black/80 p-4">
             <Text className="mb-3 text-xs font-bold uppercase tracking-widest text-white">
-                Add it to your library
+                Add This Song to your library
             </Text>
             <View className="flex-row flex-wrap gap-2">
                 {SERVICES.map(service => (

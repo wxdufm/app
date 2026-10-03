@@ -27,10 +27,14 @@ function tagTracks(tracks: any[], show: any): any[] {
         : []
 }
 
+/**
+ * Now Playing page: polls the station playlist every three seconds and shows
+ * the current show and song, streaming links, and recently played tracks.
+ */
 export default function NowPlayingScreen() {
     const [currentPlaylist, setCurrentPlaylist] = useState<any>({})
 
-    // fetch logic
+    // Poll while this screen is mounted and release the timer when it unmounts.
     useEffect(() => {
         async function fetchCurrentPlaylist() {
             try {
@@ -47,6 +51,7 @@ export default function NowPlayingScreen() {
                     const recentRes = await fetch(`${API_BASE}/api/playlists/recent?limit=4`)
                     const recentShows = await recentRes.json()
                     const now = Math.floor(Date.now() / 1000)
+                    // Show start times use Unix seconds; exclude future shows and the current one.
                     const prevShows = recentShows.filter(
                         (s: any) => s.starttime <= now && s.ID !== currentShow?.ID
                     )
@@ -76,7 +81,7 @@ export default function NowPlayingScreen() {
         return () => clearInterval(interval)
     }, [])
 
-    // since NowPlaying shows most recent and LastPlayed shows all tracks including current, we need to give LastPlayed a modified version of the playlist
+    // Tracks are oldest first: omit the final track because the header already displays it.
     const historyPlaylist = useMemo(() => {
         if (!Array.isArray(currentPlaylist.tracks) || currentPlaylist.tracks.length <= 1) {
             return { ...currentPlaylist, tracks: [] }
@@ -89,7 +94,6 @@ export default function NowPlayingScreen() {
         : []
     const currentTrack = reverseTracks[0] || {}
 
-    // the JSX
     return (
         <>
             <ScrollView className="flex-1">

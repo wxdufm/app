@@ -10,6 +10,7 @@ import { vertex, fragment } from './animatedBackgroundShader.glsl'
 // see AnimatedBackgroundShader.native.tsx for the expo-gl reimplementation used on
 // iOS/Android, since ogl and this component's window/document/canvas usage are web-only.
 
+/** Renders the browser's animated square-grid background using a fullscreen WebGL shader. */
 export default function AnimatedBackgroundShader({ size = 17 }) {
   const containerRef = useRef<HTMLDivElement>(null)
 
