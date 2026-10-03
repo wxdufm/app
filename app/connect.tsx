@@ -15,6 +15,7 @@ import {
 } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import AboutConnectCard from '../components/listenpage/AboutConnectCard'
+import { apiFetch, ApiError } from '@/utils/api'
 
 
 const ABOUT_TEXT = 'WXDU 88.7 FM is the non-commercial student-run radio station of Duke University and Durham, founded in 1983 when former station WDUK-1600AM switched to a FM signal. WXDU, as a member of the Duke University Union, exists to inform, educate, and entertain both the students of Duke University and the surrounding community of Durham through quality progressive alternative radio programming.'
@@ -62,16 +63,11 @@ export default function ConnectScreen() {
         setStatus(null)
 
         try {
-            const res = await fetch('https://api.wxdu.art/api/requests', {
+            await apiFetch('/api/requests', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ text, user_name }),
             })
-            if (!res.ok) {
-                const err: any = new Error(`${res.status}`)
-                err.status = res.status
-                throw err
-            }
             setStatus('success')
             // Start the countdown only after the server accepts the request.
             setCooldown(COOLDOWN_SECONDS)
@@ -85,9 +81,9 @@ export default function ConnectScreen() {
                     return prev - 1
                 })
             }, 1000)
-        } catch (e: any) {
+        } catch (e) {
             // Distinguish server rate limits from connection and other request failures.
-            setStatus(e.status === 429 ? 'ratelimit' : 'error')
+            setStatus(e instanceof ApiError && e.status === 429 ? 'ratelimit' : 'error')
         } finally {
             setSending(false)
         }

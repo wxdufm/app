@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Image, View, StyleSheet, type ImageSourcePropType } from "react-native";
+import { apiFetch, getApiBase } from '@/utils/api'
 
 const fallbackCover = require("../../assets/CD_1_Filler.jpg");
 
 type SongAlbumCoverProps = {
   artist?: string | null;
   album?: string | null;
-  apiBaseUrl?: string;
   fallbackSource?: ImageSourcePropType;
 };
 
@@ -14,7 +14,6 @@ type SongAlbumCoverProps = {
 export default function SongAlbumCover({
   artist,
   album,
-  apiBaseUrl,
   fallbackSource = fallbackCover,
 }: SongAlbumCoverProps) {
   const [coverUrl, setCoverUrl] = useState<string | null>(null);
@@ -23,22 +22,21 @@ export default function SongAlbumCover({
     // Clear the previous artwork while looking up a different release.
     setCoverUrl(null);
 
-    if (!artist || !album || !apiBaseUrl) return;
+    if (!artist || !album) return;
 
     const url =
-      `${apiBaseUrl}/api/releases` +
+      `/api/releases` +
       `?artist=${encodeURIComponent(artist)}` +
       `&title=${encodeURIComponent(album)}`;
 
-    fetch(url)
-      .then((response) => (response.ok ? response.json() : Promise.reject()))
-      .then((data: Array<{ cover_url?: string | null }>) => {
-        const path = data?.[0]?.cover_url;
-        // Release artwork paths are relative to the station API host.
-        if (path) setCoverUrl(`${apiBaseUrl}${path}`);
-      })
+    apiFetch<Array<{ cover_url?: string | null }>>(url)
+      .then((data) => {
+          const path = data?.[0]?.cover_url;
+          // Release artwork paths are relative to the station API host.
+          if (path) setCoverUrl(`${getApiBase()}${path}`);
+        })
       .catch(() => {});
-  }, [artist, album, apiBaseUrl]);
+  }, [artist, album]);
 
   return (
     <View style={styles.cover}>

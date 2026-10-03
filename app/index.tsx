@@ -11,8 +11,7 @@ import { ScrollView, Text, View } from 'react-native'
 import CurrentSongHeader from '../components/listenpage/CurrentSongHeader'
 import LastPlayed from '../components/listenpage/LastPlayed'
 import StreamingLinksSection from '../components/listenpage/StreamingLinksSection'
-
-const API_BASE = 'https://api.wxdu.art'
+import { apiFetch } from '@/utils/api'
 
 // attaches _djname and _showtitle to each track so LastPlayed can group by show
 function tagTracks(tracks: any[], show: any): any[] {
@@ -34,13 +33,14 @@ function tagTracks(tracks: any[], show: any): any[] {
 export default function NowPlayingScreen() {
     const [currentPlaylist, setCurrentPlaylist] = useState<any>({})
 
-    // Poll while this screen is mounted and release the timer when it unmounts.
+    // Poll while this screen is mounted and cancel in-flight requests when it unmounts
     useEffect(() => {
+        const controller = new AbortController()
+
         async function fetchCurrentPlaylist() {
             try {
                 // always fetch current show first — its show/dj fields drive the header
-                const currentRes = await fetch(`${API_BASE}/api/playlists/current`)
-                const currentData = await currentRes.json()
+                const currentData : any = await apiFetch('/api/playlists/current', { signal: controller.signal })
 
                 const currentShow = currentData.show || null
                 const currentDj = currentData.dj || null
@@ -48,8 +48,7 @@ export default function NowPlayingScreen() {
 
                 // pull from previous shows until we have 10 tracks total
                 if (allTracks.length < 10) {
-                    const recentRes = await fetch(`${API_BASE}/api/playlists/recent?limit=4`)
-                    const recentShows = await recentRes.json()
+                    const recentShows : any = await apiFetch('/api/playlists/recent?limit=4', { signal: controller.signal })
                     const now = Math.floor(Date.now() / 1000)
                     // Show start times use Unix seconds; exclude future shows and the current one.
                     const prevShows = recentShows.filter(
@@ -57,8 +56,7 @@ export default function NowPlayingScreen() {
                     )
 
                     for (const show of prevShows) {
-                        const showRes = await fetch(`${API_BASE}/api/playlists/${show.ID}`)
-                        const showData = await showRes.json()
+                        const showData : any = await apiFetch(`/api/playlists/${show.ID}`, { signal: controller.signal })
                         allTracks = [...allTracks, ...tagTracks(showData.tracks, showData.show || show)]
                         if (allTracks.length >= 10) break
                     }
@@ -72,13 +70,21 @@ export default function NowPlayingScreen() {
 
                 setCurrentPlaylist({ show: currentShow, dj: currentDj, tracks: allTracks })
             } catch (error) {
+                if (controller.signal.aborted) return
                 console.error('Failed to fetch playlist:', error)
             }
         }
 
-        fetchCurrentPlaylist()
-        const interval = setInterval(fetchCurrentPlaylist, 3000)
-        return () => clearInterval(interval)
+        // Wait for each run to finish, then sleep 3s, then go again.
+        async function poll() {
+            while (!controller.signal.aborted) {
+                await fetchCurrentPlaylist()
+                await new Promise(resolve => setTimeout(resolve, 3000))
+            }
+        }
+
+        poll()
+        return () => { controller.abort() }
     }, [])
 
     // Tracks are oldest first: omit the final track because the header already displays it.

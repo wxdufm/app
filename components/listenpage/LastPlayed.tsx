@@ -75,7 +75,6 @@ export default function LastPlayed({ currentPlaylist = {}, onSongPress }: any) {
                                     artist={item.artist}
                                     album={item.album}
                                     songStart={item.songstart}
-                                    apiBaseUrl="https://api.wxdu.art"
                                     onPress={onSongPress ? () => onSongPress(item.song ?? '', item.artist ?? '', item.album ?? '') : undefined}
                                 />
                             )

@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import { View, Text, Image, Pressable, Dimensions, type ImageSourcePropType } from 'react-native'
 import StreamButton from '../audioplayers/StreamButton'
 import StreamingLinksSection from './StreamingLinksSection'
+import { apiFetch, getApiBase } from "@/utils/api"
 
-const API_BASE = 'https://api.wxdu.art'
 const FILLER = require('../../assets/CD_1_Filler.jpg') as ImageSourcePropType
 const IMG_SIZE = Math.min(Dimensions.get('window').width - 32, 350)
 
@@ -29,12 +29,11 @@ export default function NowPlaying({ currentPlaylist = {}, onPress }: any) {
             setCover(null)
             return
         }
-        fetch(`${API_BASE}/api/releases?artist=${encodeURIComponent(artist)}&title=${encodeURIComponent(album)}`)
-            .then(r => r.ok ? r.json() : Promise.reject())
-            .then((data: Array<{ cover_url?: string | null }>) => {
+        apiFetch<Array<{ cover_url?: string | null }>>(`/api/releases?artist=${encodeURIComponent(artist)}&title=${encodeURIComponent(album)}`)
+            .then((data) => {
                 const path = data?.[0]?.cover_url
                 if (!path) { setCover(null); return }
-                const url = `${API_BASE}${path}`
+                const url = `${getApiBase()}${path}`
                 // Download the artwork before replacing the displayed image.
                 Image.prefetch(url)
                     .then(() => setCover(url))

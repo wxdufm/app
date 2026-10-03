@@ -39,3 +39,6 @@ yarn-error.*
 
 # session handoff
 handoff.md
+
+# Agents
+AGENTS.md

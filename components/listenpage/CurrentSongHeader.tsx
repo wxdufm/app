@@ -4,8 +4,8 @@ import { LinearGradient } from 'expo-linear-gradient'
 import Svg, { Path, Rect, G } from 'react-native-svg'
 import StreamButton from '../audioplayers/StreamButton'
 import { useAudio } from '../AudioContext'
+import { apiFetch, getApiBase } from "@/utils/api"
 
-const API_BASE = 'https://api.wxdu.art'
 const FILLER = require('../../assets/CD_1_Filler.jpg') as ImageSourcePropType
 const CD_ICON = require('../../assets/listenpage/cd-icon.png') as ImageSourcePropType
 const STATIC_NOISE = require('../../assets/listenpage/static-noise.png') as ImageSourcePropType
@@ -70,15 +70,14 @@ export default function CurretnSongHeader({ currentPlaylist = {}, onPress }: Cur
             setCover(null)
             return
         }
-        fetch(`${API_BASE}/api/releases?artist=${encodeURIComponent(artist)}&title=${encodeURIComponent(album)}`)
-            .then(r => (r.ok ? r.json() : Promise.reject()))
-            .then((data: Array<{ cover_url?: string | null }>) => {
+        apiFetch<Array<{ cover_url?: string | null }>>(`/api/releases?artist=${encodeURIComponent(artist)}&title=${encodeURIComponent(album)}`)
+            .then((data) => {
                 const path = data?.[0]?.cover_url
                 if (!path) {
                     setCover(null)
                     return
                 }
-                const url = `${API_BASE}${path}`
+                const url = `${getApiBase()}${path}`
                 // Download the artwork before replacing the displayed image.
                 Image.prefetch(url)
                     .then(() => setCover(url))

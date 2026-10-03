@@ -29,7 +29,6 @@ type SongRowProps = {
   artist?: string | null;
   album?: string | null;
   songStart?: SongStart;
-  apiBaseUrl?: string;
   onPress?: () => void;
   index?: number;
 };
@@ -56,7 +55,6 @@ export default function SongRow({
   artist,
   album,
   songStart,
-  apiBaseUrl,
   index = 0,
 }: SongRowProps) {
   const playedAt = formatTime(songStart);
@@ -70,7 +68,7 @@ export default function SongRow({
         style={{ backgroundColor }}
         className="flex-row items-center gap-4 rounded-2xl px-3 py-3 mb-2 active:opacity-60"
       >
-        <SongAlbumCover artist={artist} album={album} apiBaseUrl={apiBaseUrl} />
+        <SongAlbumCover artist={artist} album={album} />
 
         <Text className="w-16 shrink-0 text-center text-sm text-zinc-400 font-courier">
           {playedAt ? `Played at ${playedAt}` : "Played"}
