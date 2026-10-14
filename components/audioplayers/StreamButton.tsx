@@ -3,12 +3,12 @@ import { FontAwesome } from '@expo/vector-icons'
 import { useAudio } from '../AudioContext'
 
 export default function StreamButton() {
-    const { isPlaying, isLoading, togglePlayPause } = useAudio()
+    const { isPlaying, isLoading, isStalled, togglePlayPause } = useAudio()
 
     return (
         <Pressable
+            // stays enabled while connecting, so a slow connect can be cancelled
             onPress={togglePlayPause}
-            disabled={isLoading}
             className="flex-row items-center gap-4 px-8 py-4 w-full rounded-lg"
             style={{ backgroundColor: '#272065' }}
         >
@@ -20,7 +20,7 @@ export default function StreamButton() {
                 />
             </View>
             <Text className="text-white text-xl tracking-widest font-courier">
-                {isLoading ? 'connecting...' : isPlaying ? 'pause' : 'stream here'}
+                {isStalled ? 'reconnecting...' : isLoading ? 'connecting...' : isPlaying ? 'pause' : 'stream here'}
             </Text>
         </Pressable>
     )
